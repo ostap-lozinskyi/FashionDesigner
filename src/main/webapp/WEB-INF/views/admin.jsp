@@ -23,13 +23,7 @@
 					<a class="btn btn-outline-success" href="/">Main Page</a>
 					<a class="btn btn-success" href="/admin">Admin</a>
 					<a class="btn btn-outline-success" href="/admin/adminUser">Users</a>					
-					<a class="btn btn-outline-success" href="/admin/adminIngredient">Ingredients</a>
-					<a class="btn btn-outline-success" href="/admin/adminMs">Mss</a>
-					<a class="btn btn-outline-success" href="/admin/adminComponent">Components</a>
-					<a class="btn btn-outline-success" href="/admin/adminCuisine">Cuisines</a>
-					<a class="btn btn-outline-success" href="/admin/adminMeal">Meals</a>
-					<a class="btn btn-outline-success" href="/admin/adminOrder">Orders</a>
-					<a class="btn btn-outline-success" href="/admin/adminPlace">Places</a>
+					<a class="btn btn-outline-success" href="/admin/adminArticles">Articles</a>
 				</div>				
 			</div>
 			<div class="col-lg-9 col-sm-12">

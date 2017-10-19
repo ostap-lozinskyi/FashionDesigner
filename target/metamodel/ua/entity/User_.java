@@ -1,7 +1,6 @@
 package ua.entity;
 
 import javax.annotation.Generated;
-import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
@@ -14,7 +13,6 @@ public abstract class User_ extends ua.entity.AbstractEntity_ {
 	public static volatile SingularAttribute<User, Role> role;
 	public static volatile SingularAttribute<User, Integer> version;
 	public static volatile SingularAttribute<User, String> email;
-	public static volatile ListAttribute<User, Meal> meals;
 
 }
 

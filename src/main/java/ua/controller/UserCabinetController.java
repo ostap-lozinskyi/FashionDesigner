@@ -43,7 +43,6 @@ public class UserCabinetController {
 		String email=principal.getName();
 		User user = userService.findUserByEmail(email);		
 		model.addAttribute("user", user);
-		model.addAttribute("meals", userService.findUserMealViews(principal));
 		return "userCabinet";
 	}
 

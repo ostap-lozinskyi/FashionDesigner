@@ -1,7 +1,6 @@
 package ua.controller;
 
 import java.security.Principal;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,16 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import ua.entity.Comment;
 import ua.model.request.CommentRequest;
-import ua.model.view.MealView;
+import ua.model.view.ArticleView;
 import ua.service.CommentService;
-import ua.service.MealService;
+import ua.service.ArticleService;
 import ua.service.UserService;
 
 @Controller
 @RequestMapping("/article/{id}")
 public class ArticleIdController {
 	
-	private final MealService service;
+	private final ArticleService articleService;
 
 	private final CommentService commentService;
 	
@@ -32,8 +31,8 @@ public class ArticleIdController {
 	String error="";
 
 	@Autowired
-	public ArticleIdController(MealService service, CommentService commentService, UserService userService) {
-		this.service = service;
+	public ArticleIdController(ArticleService service, CommentService commentService, UserService userService) {
+		this.articleService = service;
 		this.commentService = commentService;
 		this.userService = userService;
 	}
@@ -48,34 +47,24 @@ public class ArticleIdController {
 	 */
 	@GetMapping
 	public String show(Model model, @PathVariable Integer id) {
-		MealView meal = service.findMealViewById(id);
-		meal.setComments(service.findCommentList(id));
-		model.addAttribute("meal", meal);
+		ArticleView articleView = articleService.findMealViewById(id);
+		articleView.setComments(articleService.findCommentList(id));
+		model.addAttribute("meal", articleView);
 		model.addAttribute("tasteMeal", error);
 		error="";
 		return "articleId";
 	}
 	
 	/**
-	 * Commenting and setting rate
+	 * Commenting article
 	 */
 	@PostMapping
-	public String mealIdCommentAndRate(Model model, @PathVariable Integer id,
+	public String articleIdComment(Model model, @PathVariable Integer id,
 			@ModelAttribute("comment") CommentRequest commentRequest, Principal principal) {
-		List<Integer> userMealsIds = userService.findUserMealsIds(principal);
-		if (userMealsIds.contains(id)) {
-			if (commentRequest.getRate() != null) {
-				Integer commentId = commentService.save(commentRequest, principal);
-				Comment comment = commentService.findById(commentId);
-				if (!commentRequest.getText().isEmpty()) {
-					service.updateComments(id, comment);
-				}
-				service.updateMealRate(id, commentRequest.getRate());
-			} else {
-				error = "You must enter a rate!";
-			}
-		} else {
-			error = "Taste the ingredient before the evaluation";
+		if (!commentRequest.getText().isEmpty()) {
+			Integer commentId = commentService.save(commentRequest, principal);
+			Comment comment = commentService.findById(commentId);
+			articleService.updateComments(id, comment);
 		}
 		return "redirect:/meal/{id}";
 	}

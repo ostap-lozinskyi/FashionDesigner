@@ -3,8 +3,6 @@ package ua.service.impl;
 import java.io.File;
 import java.io.IOException;
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +19,6 @@ import ua.entity.Role;
 import ua.entity.User;
 import ua.model.filter.UserFilter;
 import ua.model.request.RegistrationRequest;
-import ua.model.view.MealView;
 import ua.repository.UserRepository;
 import ua.service.UserService;
 
@@ -110,36 +107,6 @@ public class UserServiceImpl extends CrudServiceImpl<User, Integer> implements U
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	/**
-	 * Searching Meal in User orders	 
-	 */
-	@Override
-	public boolean findMealInUserOrders(Page<MealView> mealViews, Principal principal) {
-		List<Integer> userMealsIds = findUserMealsIds(principal);
-		List<Integer> mealViewIds = new ArrayList<>();
-		for (MealView mealView : mealViews) {
-			mealViewIds.add(mealView.getId());
-		}
-		for (Integer userMealId : userMealsIds) {
-			if (mealViewIds.contains(userMealId)) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	@Override
-	public List<Integer> findUserMealsIds(Principal principal) {
-		User user = userRepository.findUserByEmail(principal.getName());
-		return userRepository.findUserMealsIds(user.getId());
-	}
-	
-	@Override
-	public List<Integer> findUserMealViews(Principal principal) {
-		User user = userRepository.findUserByEmail(principal.getName());
-		return userRepository.findUserMealViews(user.getId());
 	}
 	
 }

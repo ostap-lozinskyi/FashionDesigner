@@ -7,16 +7,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import ua.service.MealService;
+import ua.service.ArticleService;
 
 @Controller
 public class MainController {
 	
-	private final MealService service;
+	private final ArticleService articleService;
 
 	@Autowired
-	public MainController(MealService service) {
-		this.service = service;
+	public MainController(ArticleService articleService) {
+		this.articleService = articleService;
 	}
 
 	@GetMapping("/")
@@ -26,7 +26,7 @@ public class MainController {
 		} else {
 			model.addAttribute("message", "Hello guest");
 		}
-		model.addAttribute("meals", service.find5MealIndexViewsByRate());
+		model.addAttribute("articles", articleService.findArticlesViewsByDate());
 		return "index";
 	}
 

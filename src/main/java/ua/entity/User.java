@@ -1,10 +1,6 @@
 package ua.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,9 +17,6 @@ public class User extends AbstractEntity {
 	
 	private int version;
 	
-	@ManyToMany
-	private List<Meal> meals = new ArrayList<>();
-
 	public String getEmail() {
 		return email;
 	}
@@ -62,14 +55,6 @@ public class User extends AbstractEntity {
 
 	public void setVersion(int version) {
 		this.version = version;
-	}
-
-	public List<Meal> getMeals() {
-		return meals;
-	}
-
-	public void setMeals(List<Meal> meals) {
-		this.meals = meals;
 	}
 
 }

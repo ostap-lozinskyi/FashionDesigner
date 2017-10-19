@@ -7,28 +7,27 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import ua.model.filter.MealFilter;
-import ua.service.MealService;
+import ua.model.filter.ArticleFilter;
+import ua.service.ArticleService;
 
 @Controller
 public class ArticlesMenuController {
 	
-	private final MealService service;
+	private final ArticleService service;
 	
-	public ArticlesMenuController(MealService service) {
+	public ArticlesMenuController(ArticleService service) {
 		this.service = service;
 	}
 	
 	@ModelAttribute("mealFilter")
-	public MealFilter getFilter() {
-		return new MealFilter();
+	public ArticleFilter getFilter() {
+		return new ArticleFilter();
 	}
 
 	@GetMapping("/articlesMenu")
-	public String mealMenu(Model model, @ModelAttribute("mealFilter") MealFilter filter, 
+	public String mealMenu(Model model, @ModelAttribute("mealFilter") ArticleFilter filter, 
 			@PageableDefault Pageable pageable) {
-		model.addAttribute("meals", service.findAllMealIndexView(filter, pageable));
-		model.addAttribute("cuisines", service.findAllCuisinesNames());
+//		model.addAttribute("meals", service.findAllMealIndexView(filter, pageable));
 		return "articlesMenu";
 	}	
 	

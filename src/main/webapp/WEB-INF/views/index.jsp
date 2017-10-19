@@ -49,8 +49,9 @@
                             <div class="col-6">
                                 <br>
                                 Статті:
-                                <c:forEach var="meal" items="${meals}" end="5">
-                                       
+                                <c:forEach var="article" items="${articles}" end="5">
+                                	<br>${article.date} 
+                                    <br>${article.title}   
                                 </c:forEach>   
                                 <br><a href="/">Дивитись всі...</a>                             
                             </div>

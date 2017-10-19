@@ -11,7 +11,7 @@ public class OrderView {
 	
 	private String status;
 	
-	private List<MealView> mealViews = new ArrayList<>();
+	private List<ArticleView> mealViews = new ArrayList<>();
 	
 	public OrderView(Integer id, Integer place, String status) {
 		this.id = id;
@@ -19,11 +19,11 @@ public class OrderView {
 		this.status = status;
 	}
 	
-	public List<MealView> getMealViews() {
+	public List<ArticleView> getMealViews() {
 		return mealViews;
 	}
 
-	public void setMealViews(List<MealView> mealViews) {
+	public void setMealViews(List<ArticleView> mealViews) {
 		this.mealViews = mealViews;
 	}
 
