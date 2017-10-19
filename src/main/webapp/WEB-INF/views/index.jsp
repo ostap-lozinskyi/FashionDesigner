@@ -53,7 +53,7 @@
                                 	<br>${article.date} 
                                     <br>${article.title}   
                                 </c:forEach>   
-                                <br><a href="/">Дивитись всі...</a>                             
+                                <br><a href="/articlesMenu">Дивитись всі...</a>                             
                             </div>
                             <div class="col-6">
                                 <br>

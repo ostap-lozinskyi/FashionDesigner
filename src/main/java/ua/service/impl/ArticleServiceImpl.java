@@ -18,7 +18,6 @@ import ua.entity.Comment;
 import ua.entity.Article;
 import ua.model.filter.ArticleFilter;
 import ua.model.request.ArticleRequest;
-import ua.model.view.MealIndexView;
 import ua.model.view.ArticleView;
 import ua.repository.CommentRepository;
 import ua.repository.ArticleRepository;

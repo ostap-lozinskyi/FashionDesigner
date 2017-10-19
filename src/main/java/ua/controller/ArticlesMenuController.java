@@ -13,21 +13,21 @@ import ua.service.ArticleService;
 @Controller
 public class ArticlesMenuController {
 	
-	private final ArticleService service;
+	private final ArticleService articleService;
 	
 	public ArticlesMenuController(ArticleService service) {
-		this.service = service;
+		this.articleService = service;
 	}
 	
-	@ModelAttribute("mealFilter")
+	@ModelAttribute("articleFilter")
 	public ArticleFilter getFilter() {
 		return new ArticleFilter();
 	}
 
 	@GetMapping("/articlesMenu")
-	public String mealMenu(Model model, @ModelAttribute("mealFilter") ArticleFilter filter, 
+	public String mealMenu(Model model, @ModelAttribute("articleFilter") ArticleFilter filter, 
 			@PageableDefault Pageable pageable) {
-//		model.addAttribute("meals", service.findAllMealIndexView(filter, pageable));
+		model.addAttribute("articles", articleService.findAllArticleViews(filter, pageable));
 		return "articlesMenu";
 	}	
 	
