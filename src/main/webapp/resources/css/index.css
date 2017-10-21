@@ -1,3 +1,30 @@
 body {
-    background-color: #EEE5D6
+    background-color: #EEE5D6;
+    
+}
+
+li {
+    list-style-type: none;
+}
+
+.container {
+    background-image: url(/resources/img/fon.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.mainMenu {
+    background-image: url(/resources/img/menu.jpg);
+    background-position: top;
+    margin: 30px;
+}
+
+a {
+    color: #5C4743;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #C67556;
+    
 }

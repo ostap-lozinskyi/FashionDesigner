@@ -21,7 +21,8 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-2">
+                            <div class="col-2 mainMenu">
+                                <br>
                                 <br>
                                 <ul>
                                     <li><a href="/" title="Новини">Новини</a></li>
@@ -33,7 +34,9 @@
                                     <li><a href="/" title="Відео">Відео</a></li>
                                     <li><a href="/" title="Інструктори">Інструктори</a></li>
                                     <li><a href="/" title="Контакти">Контакти</a></li>
-                                </ul>			
+                                </ul>	
+                                <br>
+                                <br>		
                             </div>
                             <div class="col-8">
                                 <br>
@@ -51,7 +54,8 @@
                                 Статті:
                                 <c:forEach var="article" items="${articles}" end="5">
                                 	<br>${article.date} 
-                                    <br>${article.title}   
+                                    <br><a href="/">${article.title}</a>
+                                    <br>   
                                 </c:forEach>   
                                 <br><a href="/articlesMenu">Дивитись всі...</a>                             
                             </div>
