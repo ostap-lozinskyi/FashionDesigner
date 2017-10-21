@@ -8,11 +8,22 @@ body {
     color: #5C4743;
     background-image: url(/resources/img/fon.jpg);
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: top right;    
+    font-size: 14px;
 }
 
 li {
     list-style-type: none;
+}
+
+a {
+    color: #5C4743;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #C67556;
+    
 }
 
 .container {
@@ -35,17 +46,24 @@ li {
     padding-right: 50px;
 }
 
-a {
-    color: #5C4743;
-}
 
-a:hover {
-    text-decoration: none;
-    color: #C67556;
-    
+
+.mainTitle {
+    font-family: 'PresentScript Cyrillic', arial;
+    font-size: 35px;
 }
 
 .title {
     font-family: 'PresentScript Cyrillic', arial;
-    font-size: 35px;
+    font-size: 22px;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.footer {
+    font-size: 10px;
+    margin-top: 50px;
 }

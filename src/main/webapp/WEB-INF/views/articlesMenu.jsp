@@ -6,31 +6,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Статті</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="/resources/css/index.css" rel="stylesheet">                 
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/resources/css/rateStars.css" type="text/css"/>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-
-<link href="/resources/css/index.css" rel="stylesheet">
-<title>Статті</title>
+    <link href="http://allfont.ru/allfont.css?fonts=presentscript-cyrillic" rel="stylesheet" type="text/css" />
 </head>
-<body style="background: url(/resources/img/fon2.jpg)">
+<body>
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="text-center">Статті</h1>
+				<h1 class="text-center mainTitle">Статті</h1>
 			</div>
 		</div>	
-		<div class="row">
-			<div class="col-lg-2 col-sm-4 text-center">
-				<br>
-				<a class="btn-cart buy btnCafe btn-sucsess btn-lg" href="/">Main page</a>
-			</div>
+		<div class="row">			
+            <div class="col-lg-3 col-md-4 mainMenu">
+                <br>
+                <ul>
+                    <li><a href="/" title="Новини">Новини</a></li>
+                    <li><a href="/articlesMenu" title="Статті">Статті</a></li>
+                    <li><a href="/" title="Про Школу">Про Школу</a></li>
+                    <li><a href="/" title="Навчання">Навчання</a></li>
+                    <li><a href="/" title="Бібліотека">Бібліотека</a></li>
+                    <li><a href="/" title="Галерея">Галерея</a></li>
+                    <li><a href="/" title="Відео">Відео</a></li>
+                    <li><a href="/" title="Інструктори">Інструктори</a></li>
+                    <li><a href="/" title="Контакти">Контакти</a></li>
+                </ul>
+                <br> 
+            </div>
 <!-- 			<div class="col-12"> -->
 <!-- 				<br> -->
 <!-- 				<p> -->
@@ -86,23 +91,18 @@
 <%-- 						</form:form> --%>
 <!-- 					</div> -->
 <!-- 				</div> -->
-<!-- 			</div> -->
-		</div>
-		<br>
-		<div class="row">
-			<div class="col-12">
+<!-- 			</div> -->		
+			<div class="col-lg-7 col-md-12">
 				<c:if test="${empty articles.content}">
 	    			<h2 class="text-center">Articles with such parameters not found</h2>
 				</c:if>
-			</div>
-			<c:forEach var="article" items="${articles.content}">
-				<div class="col-2">
-					<img src="${article.photoUrl}?version=${article.version}" style="width: 100px;">
-				</div>
-				<div class="col-10">
-					${article.title}
-				</div>
-			</c:forEach>			
+				<c:forEach var="article" items="${articles.content}">
+                    <div class="col-12">
+                        <img src="${article.photoUrl}?version=${article.version}" style="width: 30px;">                    
+                        <a href="/article/${article.id}">${article.title}</a>
+                    </div>
+			    </c:forEach>
+			</div>						
 		</div>
 	</div>
 </body>

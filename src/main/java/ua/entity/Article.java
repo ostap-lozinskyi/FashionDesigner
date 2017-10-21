@@ -1,8 +1,8 @@
 package ua.entity;
 
-import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Index;
@@ -15,6 +15,7 @@ public class Article extends AbstractEntity {
 
 	private String title;
 
+	@Column(columnDefinition = "TEXT")
 	private String text;
 	
 	private String photoUrl;

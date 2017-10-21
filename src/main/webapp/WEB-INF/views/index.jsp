@@ -39,7 +39,7 @@
                                 <br>                               		
                             </div>
                             <div class="col-lg-7 col-md-12 about">                                
-                                <span class="title">Про школу</span>
+                                <span class="mainTitle">Про школу</span>
                                 <br>Благодаря уникальным знаниям клану Шоу удалось пройти через пять тысячелетий человеческой истории и донести до нас сокровенное учение Воинов жизни. Последователи Шоу Дао назвали свою школу "Путь спокойствия" или "Путь бессмертия". Клан, зародившись в глубокой древности в Северной Европе, прошел Индию и обосновался в Китае задолго до буддизма и Бодхидхармы.
 
                                 Жизнь Спокойные считали бесценным подарком судьбы, и одной из основных целей учения Шоу Дао стало достижение бессмертия, или, по крайней мере, предельного долголетия и крепкого здоровья для каждого члена клана.
@@ -50,26 +50,28 @@
                         <div class="row">
                             <div class="col-6">
                                 <br>
-                                Статті:
+                                <a href="/articlesMenu"><span class="title">Статті:</span></a>
                                 <c:forEach var="article" items="${articles}" end="5">
-                                	<br>${article.date} 
-                                    <br><a href="/">${article.title}</a>
+                                    <br><span class="bold">${article.date}</span> 
+                                    <br><a href="/article/${article.id}">${article.title}</a>
                                     <br>   
                                 </c:forEach>   
                                 <br><a href="/articlesMenu">Дивитись всі...</a>                             
                             </div>
                             <div class="col-6">
                                 <br>
-                                Заходи
+                                <span class="title">Заходи</span>
                                 
                             </div>
                         </div>
-                        
-                        
-                        
-                        <div class="col-12 text-center">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                Контактний номер: +380671480750 Вадим                   
+                            </div>                            
+                        </div>
+                        <div class="col-12 text-center footer">
                             <div>
-                                <p>&copy; 2017 Ostap Lozinskyj</p>
+                                <p>Розробка сайту: Ostap Lozinskyj</p>
                             </div>
                         </div>
                         

@@ -49,7 +49,7 @@ public class ArticleIdController {
 	public String show(Model model, @PathVariable Integer id) {
 		ArticleView articleView = articleService.findMealViewById(id);
 		articleView.setComments(articleService.findCommentList(id));
-		model.addAttribute("meal", articleView);
+		model.addAttribute("articleView", articleView);
 		model.addAttribute("tasteMeal", error);
 		error="";
 		return "articleId";
@@ -66,7 +66,7 @@ public class ArticleIdController {
 			Comment comment = commentService.findById(commentId);
 			articleService.updateComments(id, comment);
 		}
-		return "redirect:/meal/{id}";
+		return "redirect:/article/{id}";
 	}
 	
 }
