@@ -26,6 +26,14 @@ a:hover {
     
 }
 
+.formattedText {
+    font-size: 14px;
+    color: #5C4743;
+    text-align: justify;
+    white-space:pre-line;
+    
+}
+
 .container {
     
 }
@@ -38,6 +46,7 @@ a:hover {
     
     font-family: 'PresentScript Cyrillic', arial;
     font-size: 20px;
+    font-weight: bold;
     text-align: center;
 }
 
@@ -50,11 +59,13 @@ a:hover {
 
 .mainTitle {
     font-family: 'PresentScript Cyrillic', arial;
+    font-weight: bold;
     font-size: 35px;
 }
 
 .title {
     font-family: 'PresentScript Cyrillic', arial;
+    font-weight: bold;
     font-size: 22px;
 }
 

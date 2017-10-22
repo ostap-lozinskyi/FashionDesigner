@@ -35,9 +35,23 @@
 			<div class="col-lg-7 col-md-12">
 			    <div class="row">
 			        <div class="col-12">
-                        <img src="${meal.photoUrl}?version=${meal.version}" width="100">
-                        ${articleView.title}
-                        <br>${articleView.text}
+                        <div class="row">
+                            <div class="col-12">
+                                <c:if test="${not empty articleView.photoUrl}">
+	    			            <img src="${articleView.photoUrl}?version=${articleView.version}" width="100">
+				                </c:if>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <span class="title">${articleView.title}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <pre class="formattedText"><div >${articleView.text}"</div></pre>
+                            </div>
+                        </div>                        
 			        </div>
 			    </div>				
 			</div>			
