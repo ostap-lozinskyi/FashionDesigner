@@ -15,23 +15,29 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<h1 class="text-center mainTitle">Статті</h1>
-			</div>
-		</div>	
+	    <div class="row">
+            <div class="col-6 topLogo">
+                <div class="row">
+                    <div class="col-2"> <img src="resources/img/logo.png"> </div>
+                    <div class="col-10">
+                        <p class="title">Українська федерацiя
+                            <br>"ШОУ ДАО"</p>
+                    </div>
+                </div>
+            </div>
+        </div>			
 		<div class="row">			
             <div class="col-lg-3 col-md-4 mainMenu">
                 <br>
                 <ul>
                     <li><a href="/" title="Новини">Новини</a></li>
-                    <li><a href="/articlesMenu" title="Статті">Статті</a></li>
+                    <li><a href="/articlesMenu" title="Статті">Статтi</a></li>
                     <li><a href="/" title="Про Школу">Про Школу</a></li>
                     <li><a href="/" title="Навчання">Навчання</a></li>
-                    <li><a href="/" title="Бібліотека">Бібліотека</a></li>
+                    <li><a href="/" title="Бібліотека">Бiблiотека</a></li>
                     <li><a href="/" title="Галерея">Галерея</a></li>
-                    <li><a href="/" title="Відео">Відео</a></li>
-                    <li><a href="/" title="Інструктори">Інструктори</a></li>
+                    <li><a href="/" title="Відео">Вiдео</a></li>
+                    <li><a href="/" title="Інструктори">Iнструктори</a></li>
                     <li><a href="/" title="Контакти">Контакти</a></li>
                 </ul>
                 <br> 
@@ -93,12 +99,13 @@
 <!-- 				</div> -->
 <!-- 			</div> -->		
 			<div class="col-lg-7 col-md-12">
+			    <h1 class="text-center mainTitle">Статтi</h1>
 				<c:if test="${empty articles.content}">
 	    			<h2 class="text-center">Articles with such parameters not found</h2>
 				</c:if>
 				<c:forEach var="article" items="${articles.content}">
                     <div class="col-12">
-                        <img src="${article.photoUrl}?version=${article.version}" style="width: 30px;">                    
+                        <img src="resources/img/logo.png" style="width: 20px;">                    
                         <a href="/article/${article.id}">${article.title}</a>
                     </div>
 			    </c:forEach>

@@ -17,9 +17,16 @@
                 <body>
                     <div class="container">
                         <div class="row">
-                            <div class="col-3">
-                                <br>
-                                <img src="resources/img/logo.png">
+                            <div class="col-6 topLogo">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="resources/img/logo.png">
+                                    </div>
+                                    <div class="col-10">
+                                        <p class="title">Українська федерацiя 
+                                        <br>"ШОУ ДАО"</p>
+                                    </div>
+                                </div>                                
                             </div>
                         </div>
                         <div class="row">
@@ -27,13 +34,13 @@
                                 <br>                                
                                 <ul>
                                     <li><a href="/" title="Новини">Новини</a></li>
-                                    <li><a href="/articlesMenu" title="Статті">Статті</a></li>
+                                    <li><a href="/articlesMenu" title="Статті">Статтi</a></li>
                                     <li><a href="/" title="Про Школу">Про Школу</a></li>
                                     <li><a href="/" title="Навчання">Навчання</a></li>
-                                    <li><a href="/" title="Бібліотека">Бібліотека</a></li>
+                                    <li><a href="/" title="Бібліотека">Бiблiотека</a></li>
                                     <li><a href="/" title="Галерея">Галерея</a></li>
-                                    <li><a href="/" title="Відео">Відео</a></li>
-                                    <li><a href="/" title="Інструктори">Інструктори</a></li>
+                                    <li><a href="/" title="Відео">Вiдео</a></li>
+                                    <li><a href="/" title="Інструктори">Iнструктори</a></li>
                                     <li><a href="/" title="Контакти">Контакти</a></li>
                                 </ul> 
                                 <br>                               		
@@ -50,13 +57,13 @@
                         <div class="row">
                             <div class="col-6">
                                 <br>
-                                <a href="/articlesMenu"><span class="title">Статті:</span></a>
+                                <a href="/articlesMenu"><span class="title">Статтi:</span></a>
                                 <c:forEach var="article" items="${articles}" end="5">
                                     <br><span class="bold">${article.date}</span> 
                                     <br><a href="/article/${article.id}">${article.title}</a>
                                     <br>   
                                 </c:forEach>   
-                                <br><a href="/articlesMenu">Дивитись всі...</a>                             
+                                <br><a href="/articlesMenu">Дивитись всi статтi...</a>                             
                             </div>
                             <div class="col-6">
                                 <br>

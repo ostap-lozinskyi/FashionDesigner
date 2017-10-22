@@ -13,21 +13,32 @@
     <link href="/resources/css/index.css" rel="stylesheet">                 
 
     <link href="http://allfont.ru/allfont.css?fonts=presentscript-cyrillic" rel="stylesheet" type="text/css" />
-    </head>
+</head>
 <body>
 	<div class="container">
+	    <div class="row">
+            <div class="col-6 topLogo">
+                <div class="row">
+                    <div class="col-2"> <img src="resources/img/logo.png"> </div>
+                    <div class="col-10">
+                        <p class="title">Українська федерацiя
+                            <br>"ШОУ ДАО"</p>
+                    </div>
+                </div>
+            </div>
+        </div>	
 		<div class="row">
 			<div class="col-lg-3 col-md-4 mainMenu">
                 <br>
                 <ul>
                     <li><a href="/" title="Новини">Новини</a></li>
-                    <li><a href="/articlesMenu" title="Статті">Статті</a></li>
+                    <li><a href="/articlesMenu" title="Статті">Статтi</a></li>
                     <li><a href="/" title="Про Школу">Про Школу</a></li>
                     <li><a href="/" title="Навчання">Навчання</a></li>
-                    <li><a href="/" title="Бібліотека">Бібліотека</a></li>
+                    <li><a href="/" title="Бібліотека">Бiблiотека</a></li>
                     <li><a href="/" title="Галерея">Галерея</a></li>
-                    <li><a href="/" title="Відео">Відео</a></li>
-                    <li><a href="/" title="Інструктори">Інструктори</a></li>
+                    <li><a href="/" title="Відео">Вiдео</a></li>
+                    <li><a href="/" title="Інструктори">Iнструктори</a></li>
                     <li><a href="/" title="Контакти">Контакти</a></li>
                 </ul>
                 <br> 
@@ -49,7 +60,7 @@
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <pre class="formattedText"><div >${articleView.text}"</div></pre>
+                                <pre class="formattedText"><div>${articleView.text}"</div></pre>
                             </div>
                         </div>                        
 			        </div>
