@@ -17,12 +17,14 @@
 <body>
 	<div class="container">
 	    <div class="row">
-            <div class="col-6 topLogo">
+            <div class="col-lg-6 col-sm-12 topLogo">
                 <div class="row">
-                    <div class="col-2"> <img src="resources/img/logo.png"> </div>
+                    <div class="col-md-2 col-sm-4"> 
+                        <img src="/resources/img/logo.png">
+                    </div>
                     <div class="col-10">
                         <p class="title">Українська федерацiя
-                            <br>"ШОУ ДАО"</p>
+                        <br>"ШОУ ДАО"</p>
                     </div>
                 </div>
             </div>

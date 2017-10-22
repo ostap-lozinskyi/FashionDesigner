@@ -35,24 +35,23 @@ a:hover {
 }
 
 .topLogo {
-    margin-top: 30px;
+    margin: 30px; 30px; 70px; 0px;
 }
 
 .mainMenu {
     background-image: url(/resources/img/menu.jpg);
     background-position: top;
     background-repeat: no-repeat;
-    margin: 70px 20px 20px 5px;
-    
+        
     font-family: 'PresentScript Cyrillic', arial;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
 }
 
-.about {
-    margin: 70px 20px 20px 5px;
+.about {    
     padding-right: 50px;
+    text-align: justify;
 }
 
 .mainTitle {
