@@ -26,16 +26,9 @@
 		<div class="row">
 			<div class="col-lg-2 col-sm-12">				
 				<div class="btn-group-vertical text-center" role="group" aria-label="Basic example">
-					<a class="btn btn-outline-success" href="/">Main Page</a>
-					<a class="btn btn-outline-success" href="/admin">Admin</a>	
-					<a class="btn btn-success" href="/admin/adminUser">Users</a>				
-					<a class="btn btn-outline-success" href="/admin/adminIngredient">Ingredients</a>
-					<a class="btn btn-outline-success" href="/admin/adminMs">Mss</a>
-					<a class="btn btn-outline-success" href="/admin/adminComponent">Components</a>
-					<a class="btn btn-outline-success" href="/admin/adminCuisine">Cuisines</a>
-					<a class="btn btn-outline-success" href="/admin/adminMeal">Meals</a>
-					<a class="btn btn-outline-success" href="/admin/adminOrder">Orders</a>
-					<a class="btn btn-outline-success" href="/admin/adminPlace">Places</a>
+					<a class="btn btn-outline-primary" href="/">Main Page</a>
+					<a class="btn btn-outline-primary" href="/admin">Admin</a>	
+					<a class="btn btn-primary" href="/admin/adminUser">Users</a>
 				</div>								
 			</div>		
 			<div class="col-lg-10 col-sm-12">
