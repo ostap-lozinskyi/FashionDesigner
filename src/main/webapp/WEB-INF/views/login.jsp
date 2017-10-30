@@ -12,7 +12,7 @@
 	crossorigin="anonymous">
 <title>Login</title>
 </head>
-<body style="background: url(/resources/img/fon2.jpg)">
+<body style="background: url(/resources/img/loginFon.jpg); background-repeat: no-repeat; background-position: center;">
 	<div class="container" style="background-color: white;">
 		<div class="row">
 			<div class="col-12">
@@ -21,7 +21,7 @@
 		</div>
 		<br>
 		<div class="row" style="border-top: 1px solid beige;">		    
-			<div class="col-md-6 col-sm-12">
+			<div class="col-md-12 col-sm-12">
 			    <br>			    
 				<form:form action="/login" method="POST">
 					<c:if test="${param.fail}">
@@ -51,17 +51,7 @@
 						</div>
 					</div>
 				</form:form>                
-			</div>
-			<div class="col-md-6 col-sm-12">
-                <br>
-			    <div class="row">                    
-			        <div class="col-6" style="border-left: 1px solid beige;">			            			    
-				        <a href="/createFacebookAuthorization"><img src="/resources/img/facebook.png" style="width: 250px;"></a>                
-			        	<a href="/createGoogleAuthorization"><img src="/resources/img/google.png" style="width: 250px; margin-top: 10px"></a>
-			        </div>
-                </div>
-                <br>
-            </div>
+			</div>			
 		</div>
 	</div>
 </body>
