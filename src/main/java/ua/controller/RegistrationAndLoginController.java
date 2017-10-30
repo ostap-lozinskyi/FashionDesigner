@@ -77,7 +77,7 @@ public class RegistrationAndLoginController {
 	/**
 	 * Show Login page	 
 	 */
-	@GetMapping("/login")
+	@GetMapping("/")
 	public String showLogin(Principal principal) {
 		return "login";
 	}
