@@ -1,6 +1,6 @@
-This is a website for a non commercial organization
+This is a website for a commercial organization
 
-You can see this project on https://shou-tao-lviv.herokuapp.com
+You can see this project on https://lozinska.tk
 
 Such technologies are used:
 Spring_MVC,
