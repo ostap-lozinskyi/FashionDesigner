@@ -1,32 +1,24 @@
 package ua.controller;
 
-import java.io.File;
 import java.security.Principal;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import ua.entity.User;
 import ua.model.request.FileRequest;
-import ua.service.FileWriter;
 import ua.service.UserService;
 
 @Controller
 public class UserCabinetController {
 	
-	private final FileWriter writer;
-	
 	private final UserService userService;
 	
-	@Value("${file.path}")
-	private String path;
-	
-	public UserCabinetController(FileWriter writer, UserService userService) {
-		this.writer = writer;
+	public UserCabinetController(UserService userService) {
 		this.userService = userService;
 	}
 
@@ -50,11 +42,10 @@ public class UserCabinetController {
 	 * Attaching photo to User
 	 */
 	@PostMapping("/userCabinet")
-	public String saveFile(Model model, @ModelAttribute("fileRequest") FileRequest request,
+	public String saveFile(Model model, @ModelAttribute("fileRequest") FileRequest fileRequest,
 			Principal principal) {
-		String photoUrl=writer.write(request.getFile());
-		File toUpload = new File(path+photoUrl);
-		userService.uploadPhotoToCloudinary(toUpload, principal);
+		MultipartFile multipartFile = fileRequest.getFile();
+		userService.uploadPhotoToCloudinary(multipartFile, principal);
 		return "redirect:/userCabinet";
 	}
 	

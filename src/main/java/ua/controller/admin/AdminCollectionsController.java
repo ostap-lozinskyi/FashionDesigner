@@ -1,13 +1,11 @@
 package ua.controller.admin;
 
-import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -25,11 +23,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 
 import ua.model.filter.ArticleFilter;
 import ua.model.request.FileRequest;
 import ua.model.request.ArticleRequest;
-import ua.service.FileWriter;
 import ua.service.CollectionService;
 import ua.validation.flag.ArticleFlag;
 
@@ -38,18 +36,12 @@ import ua.validation.flag.ArticleFlag;
 @SessionAttributes("article")
 public class AdminCollectionsController {
 	
-	private final FileWriter writer;
-
 	private final CollectionService articleService;
 	
 	String error = "";
 	
-	@Value("${file.path}")
-	private String path;
-
 	@Autowired
-	public AdminCollectionsController(FileWriter writer, CollectionService service) {
-		this.writer = writer;
+	public AdminCollectionsController(CollectionService service) {
 		this.articleService = service;
 	}
 
@@ -104,14 +96,13 @@ public class AdminCollectionsController {
 			@ModelAttribute("articleFilter") ArticleFilter filter,  @ModelAttribute("fileRequest") FileRequest fileRequest) {
 		if (br.hasErrors())
 			return showArticles(model, pageable, filter);
-		String photoUrl=writer.write(fileRequest.getFile());
-		File toUpload = new File(path+photoUrl);
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 		LocalDate localDate = LocalDate.now();
 		String date = dtf.format(localDate);
 		request.setDate(date);
+		MultipartFile multipartFile = fileRequest.getFile();
 		try {
-			articleService.saveArticle(articleService.uploadPhotoToCloudinary(request, toUpload));
+			articleService.saveArticle(articleService.uploadPhotoToCloudinary(request, multipartFile));
 		} catch (IOException e) {
 			articleService.saveArticle(request);
 		}

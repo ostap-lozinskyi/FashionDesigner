@@ -1,6 +1,5 @@
 package ua.service.impl;
 
-import java.io.File;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.Map;
@@ -11,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
@@ -87,13 +87,13 @@ public class UserServiceImpl extends CrudServiceImpl<User, Integer> implements U
 	};
 	
 	@Override
-	public void uploadPhotoToCloudinary(File toUpload, Principal principal) {
+	public void uploadPhotoToCloudinary(MultipartFile multipartFile, Principal principal) {
 		String email = principal.getName();
 		User user = findUserByEmail(email);
 		@SuppressWarnings("rawtypes")
 		Map uploadResult;
 		try {
-			uploadResult = cloudinary.uploader().upload(toUpload,
+			uploadResult = cloudinary.uploader().upload(multipartFile.getBytes(),
 					ObjectUtils.asMap("use_filename", "true", "unique_filename", "false", "transformation", "w_150,h_150,c_fill,g_face,r_max"));
 			String cloudinaryUrl = (String) uploadResult.get("url");
 			String oldPhotoUrl = user.getPhotoUrl();

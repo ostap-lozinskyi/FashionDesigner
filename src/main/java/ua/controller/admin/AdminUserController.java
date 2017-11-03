@@ -3,7 +3,6 @@ package ua.controller.admin;
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -38,9 +37,6 @@ public class AdminUserController {
 	
 	String error = "";
 	
-	@Value("${file.path}")
-	private String path;
-
 	@Autowired
 	public AdminUserController(UserService userService) {
 		this.userService = userService;

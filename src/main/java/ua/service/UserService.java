@@ -1,10 +1,10 @@
 package ua.service;
 
-import java.io.File;
 import java.security.Principal;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.multipart.MultipartFile;
 
 import ua.entity.Role;
 import ua.entity.User;
@@ -23,6 +23,6 @@ public interface UserService extends CrudService<User, Integer> {
 
 	User findUserByEmail(String email);
 	
-	void uploadPhotoToCloudinary(File toUpload, Principal principal);
+	void uploadPhotoToCloudinary(MultipartFile multipartFile, Principal principal);
 	
 }

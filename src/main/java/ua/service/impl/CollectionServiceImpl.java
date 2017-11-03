@@ -1,6 +1,5 @@
 package ua.service.impl;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
@@ -22,7 +22,6 @@ import ua.model.view.ArticleView;
 import ua.repository.CommentRepository;
 import ua.repository.ArticleRepository;
 import ua.repository.ArticleViewRepository;
-import ua.repository.UserRepository;
 import ua.service.CollectionService;
 
 @Service
@@ -32,17 +31,14 @@ public class CollectionServiceImpl implements CollectionService {
 	
 	private final ArticleViewRepository articleViewRepository;
 	
-	private final UserRepository userRepository;
-	
 	@Value("${cloudinary.url}")
 	Cloudinary cloudinary = new Cloudinary();
 
 	@Autowired
 	public CollectionServiceImpl(ArticleRepository articleRepository, ArticleViewRepository articleViewRepository, 
-			UserRepository userRepository, CommentRepository commentRepository) {
+			CommentRepository commentRepository) {
 		this.articleRepository = articleRepository;
 		this.articleViewRepository = articleViewRepository;
-		this.userRepository = userRepository;
 	}
 
 //	@Override
@@ -104,9 +100,9 @@ public class CollectionServiceImpl implements CollectionService {
 		return articleRepository.findArticleViewById(id);
 	}
 	
-	public ArticleRequest uploadPhotoToCloudinary(ArticleRequest request, File toUpload) throws IOException {
+	public ArticleRequest uploadPhotoToCloudinary(ArticleRequest request, MultipartFile multipartFile) throws IOException {
 			@SuppressWarnings("rawtypes")
-			Map uploadResult = cloudinary.uploader().upload(toUpload,
+			Map uploadResult = cloudinary.uploader().upload(multipartFile.getBytes(),
 					ObjectUtils.asMap("use_filename", "true", "unique_filename", "false"));
 			String cloudinaryUrl = (String) uploadResult.get("url");
 			String oldPhotoUrl = request.getPhotoUrl();
