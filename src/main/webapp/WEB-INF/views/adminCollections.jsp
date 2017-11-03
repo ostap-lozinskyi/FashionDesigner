@@ -26,11 +26,11 @@
 		<div class="row">
 			<div class="col-lg-2 col-sm-12">				
 				<div class="btn-group-vertical text-center" role="group" aria-label="Basic example">
-					<a class="btn btn-outline-primary" href="/">Main Page</a>
+					<a class="btn btn-outline-primary" href="/">Головна сторінка</a>
 					<a class="btn btn-primary" href="/admin">Admin</a>
-					<a class="btn btn-outline-primary" href="/admin/adminUser">Users</a>					
-					<a class="btn btn-outline-primary" href="/admin/adminArticles">Articles</a>
-				</div>								
+					<a class="btn btn-outline-primary" href="/admin/adminUser">Користувачі</a>					
+					<a class="btn btn-outline-primary" href="/admin/adminCollections">Колекції</a>
+				</div>									
 			</div>		
 			<div class="col-lg-10 col-sm-12">
                 <div class="row">
@@ -180,7 +180,7 @@
                                 <th class="text-center">Options</th>
                                 <th class="text-center">Photo</th>
                             </tr>
-                            <c:if test="${empty articles.content}">
+                            <c:if test="${empty collections.content}">
                                 <tr>
                                 <td colspan=7><h3 class="text-center">Collections with such parameters not found</h3></td>
                                 </tr>

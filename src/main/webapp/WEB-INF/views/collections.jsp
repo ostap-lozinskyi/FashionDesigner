@@ -26,6 +26,7 @@
             <div class="col-lg-3 col-md-4">
                 <br>
                 <ul>
+                    <li><a href="/admin" title="Головна сторінка">Головна сторінка</a></li> 
                     <li><a href="/admin" title="Управління колеціями">Управління колеціями</a></li>                    
                 </ul>
                 <br> 
@@ -92,8 +93,8 @@
 				</c:if>
 				<c:forEach var="collection" items="${collections.content}">
                     <div class="col-12">
-                        <img src="resources/img/logo.png" style="width: 20px;">                    
-                        <a href="/collection/${collection.id}">${article.title}</a>
+                        <img src="${collection.photoUrl}?version=${collection.version}" style="width: 100px;">                    
+                        <a href="/collection/${collection.id}">${collection.title}</a>
                     </div>
 			    </c:forEach>
 			</div>						
