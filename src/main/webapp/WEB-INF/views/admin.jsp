@@ -20,14 +20,14 @@
 		<div class="row">
 			<div class="col-lg-2 col-sm-12">								
 				<div class="btn-group-vertical text-center" role="group" aria-label="Basic example">
-					<a class="btn btn-outline-success" href="/">Main Page</a>
-					<a class="btn btn-success" href="/admin">Admin</a>
-					<a class="btn btn-outline-success" href="/admin/adminUser">Users</a>					
-					<a class="btn btn-outline-success" href="/admin/adminArticles">Articles</a>
+					<a class="btn btn-outline-primary" href="/">Головна сторінка</a>
+					<a class="btn btn-primary" href="/admin">Admin</a>
+					<a class="btn btn-outline-primary" href="/admin/adminUser">Користувачі</a>					
+					<a class="btn btn-outline-primary" href="/admin/adminCollections">Колекції</a>
 				</div>				
 			</div>
 			<div class="col-lg-9 col-sm-12">
-			    <a class="btn btn-outline-success" href="/userCabinet">Admin Cabinet</a>
+			    <a class="btn btn-outline-primary" href="/userCabinet">Налаштування користувача</a>
 			</div>
 		</div>
 		<br>

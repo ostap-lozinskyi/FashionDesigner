@@ -7,38 +7,26 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Статті</title>
+    <title>Колекції</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="/resources/css/index.css" rel="stylesheet">
 </head>
 <body>
 	<div class="container">
         <div class="row">
-            <div class="col-lg-6 col-sm-12 topLogo">
+            <div class="col-12 text-center">
                 <div class="row">
-                    <div class="col-md-2 col-sm-4"> 
-                        <img src="/resources/img/logo.png">
-                    </div>
-                    <div class="col-10">
-                        <p class="title">Українська федерацiя
-                        <br>"ШОУ ДАО"</p>
+                    <div class="col-12">
+                        <h1>Колекції</h1>
                     </div>
                 </div>
             </div>
         </div>
 		<div class="row">			
-            <div class="col-lg-3 col-md-4 mainMenu">
+            <div class="col-lg-3 col-md-4">
                 <br>
                 <ul>
-                    <li><a href="/" title="Новини">Новини</a></li>
-                    <li><a href="/articlesMenu" title="Статті">Статтi</a></li>
-                    <li><a href="/" title="Про Школу">Про Школу</a></li>
-                    <li><a href="/" title="Навчання">Навчання</a></li>
-                    <li><a href="/" title="Бібліотека">Бiблiотека</a></li>
-                    <li><a href="/" title="Галерея">Галерея</a></li>
-                    <li><a href="/" title="Відео">Вiдео</a></li>
-                    <li><a href="/" title="Інструктори">Iнструктори</a></li>
-                    <li><a href="/" title="Контакти">Контакти</a></li>
+                    <li><a href="/admin" title="Управління колеціями">Управління колеціями</a></li>                    
                 </ul>
                 <br> 
             </div>
@@ -99,14 +87,13 @@
 <!-- 				</div> -->
 <!-- 			</div> -->		
 			<div class="col-lg-7 col-md-12">
-			    <h1 class="text-center mainTitle">Статтi</h1>
-				<c:if test="${empty articles.content}">
-	    			<h2 class="text-center">Articles with such parameters not found</h2>
+			    <c:if test="${empty collections.content}">
+	    			<h2 class="text-center">Колекції за такими параметрами не знайдено</h2>
 				</c:if>
-				<c:forEach var="article" items="${articles.content}">
+				<c:forEach var="collection" items="${collections.content}">
                     <div class="col-12">
                         <img src="resources/img/logo.png" style="width: 20px;">                    
-                        <a href="/article/${article.id}">${article.title}</a>
+                        <a href="/collection/${collection.id}">${article.title}</a>
                     </div>
 			    </c:forEach>
 			</div>						

@@ -14,29 +14,29 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 <link href="/resources/css/index.css" rel="stylesheet">
-<title>Articles</title>
+<title>Управління колеціями</title>
 </head>
-<body style="background: url(/resources/img/fon2.jpg)">
-	<div class="container" style="background-color: white;">
+<body>
+	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="text-center">Articles</h1>
+				<h1 class="text-center">Управління колеціями</h1>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-2 col-sm-12">				
 				<div class="btn-group-vertical text-center" role="group" aria-label="Basic example">
-					<a class="btn btn-outline-success" href="/">Main Page</a>
-					<a class="btn btn-success" href="/admin">Admin</a>
-					<a class="btn btn-outline-success" href="/admin/adminUser">Users</a>					
-					<a class="btn btn-outline-success" href="/admin/adminArticles">Articles</a>
+					<a class="btn btn-outline-primary" href="/">Main Page</a>
+					<a class="btn btn-primary" href="/admin">Admin</a>
+					<a class="btn btn-outline-primary" href="/admin/adminUser">Users</a>					
+					<a class="btn btn-outline-primary" href="/admin/adminArticles">Articles</a>
 				</div>								
 			</div>		
 			<div class="col-lg-10 col-sm-12">
                 <div class="row">
                     <div class="col-12">
-                        <h3>Add new Article</h3>
-                        <form:form action="/admin/adminArticles" method="POST" modelAttribute="article" enctype="multipart/form-data">
+                        <h3>Додати нову колекцію</h3>
+                        <form:form action="/admin/adminCollections" method="POST" modelAttribute="article" enctype="multipart/form-data">
                             <custom:hiddenInputs excludeParams="title, text, _csrf"/>
                             <div class="row">
                                 <div class="col-10 ml-auto" style="color: red;">
@@ -68,7 +68,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-8 mr-auto">
-                                    <button class="btn btn-sm btn-outline-success">Save</button>
+                                    <button class="btn btn-sm btn-outline-primary">Save</button>
                                     <a href="/admin/adminArticles/cancel<custom:allParams/>" class="btn btn-sm btn-outline-warning">Cancel</a>
                                 </div>
                             </div>
@@ -162,7 +162,7 @@
                         </div>
                     </div>
                     <div class="col-2">
-                        <custom:size posibleSizes="1,2,5,10" size="${articles.size}" />
+                        <custom:size posibleSizes="1,2,5,10" size="${collection.size}" />
                     </div>			
 		        </div>
 		        <br>
@@ -182,19 +182,19 @@
                             </tr>
                             <c:if test="${empty articles.content}">
                                 <tr>
-                                <td colspan=7><h3 class="text-center">Articles with such parameters not found</h3></td>
+                                <td colspan=7><h3 class="text-center">Collections with such parameters not found</h3></td>
                                 </tr>
                             </c:if>
-                            <c:forEach var="article" items="${articles.content}">
+                            <c:forEach var="collection" items="${collections.content}">
                                 <tr>
-                                    <td>${article.title}</td>
-                                    <td>${article.text}</td>
+                                    <td>${collection.title}</td>
+                                    <td>${collection.text}</td>
                                     <td class="text-center">
                                         <a href="/admin/adminArticles/update/${article.id}<custom:allParams/>"	class="btn btn-outline-warning btn-sm margin">Update</a>
                                         <a href="/admin/adminArticles/delete/${article.id}<custom:allParams/>"	class="btn btn-outline-danger btn-sm margin">Delete</a>
                                     </td>
                                     <td class="text-center">
-                                        <img src="${article.photoUrl}?version=${article.version}" style="width: 100px;">
+                                        <img src="${collection.photoUrl}?version=${collection.version}" style="width: 100px;">
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -203,7 +203,7 @@
 		        </div>
                 <div class="row">
                     <div class="col-12">
-                        <custom:pageable page="${articles}"/>
+                        <custom:pageable page="${collections}"/>
                     </div>
                 </div>		    
 			</div>

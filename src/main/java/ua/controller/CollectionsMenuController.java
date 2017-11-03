@@ -11,11 +11,11 @@ import ua.model.filter.ArticleFilter;
 import ua.service.ArticleService;
 
 @Controller
-public class ArticlesMenuController {
+public class CollectionsMenuController {
 	
 	private final ArticleService articleService;
 	
-	public ArticlesMenuController(ArticleService service) {
+	public CollectionsMenuController(ArticleService service) {
 		this.articleService = service;
 	}
 	
@@ -24,11 +24,14 @@ public class ArticlesMenuController {
 		return new ArticleFilter();
 	}
 
-	@GetMapping("/articlesMenu")
-	public String mealMenu(Model model, @ModelAttribute("articleFilter") ArticleFilter filter, 
+	/**
+	 * Show collections menu page	 
+	 */
+	@GetMapping("/collections")
+	public String collectionsMenu(Model model, @ModelAttribute("articleFilter") ArticleFilter filter, 
 			@PageableDefault Pageable pageable) {
-		model.addAttribute("articles", articleService.findAllArticleViews(filter, pageable));
-		return "articlesMenu";
+		model.addAttribute("collections", articleService.findAllArticleViews(filter, pageable));
+		return "collections";
 	}	
 	
 }

@@ -34,9 +34,9 @@ import ua.service.ArticleService;
 import ua.validation.flag.ArticleFlag;
 
 @Controller
-@RequestMapping("/admin/adminArticles")
+@RequestMapping("/admin/adminCollections")
 @SessionAttributes("article")
-public class AdminArticlesController {
+public class AdminCollectionsController {
 	
 	private final FileWriter writer;
 
@@ -48,7 +48,7 @@ public class AdminArticlesController {
 	private String path;
 
 	@Autowired
-	public AdminArticlesController(FileWriter writer, ArticleService service) {
+	public AdminCollectionsController(FileWriter writer, ArticleService service) {
 		this.writer = writer;
 		this.articleService = service;
 	}
@@ -73,13 +73,13 @@ public class AdminArticlesController {
 	 */
 	@GetMapping
 	public String showArticles(Model model, @PageableDefault Pageable pageable, @ModelAttribute("mealFilter") ArticleFilter filter) {
-		model.addAttribute("articles", articleService.findAllArticleViews(filter, pageable));
+		model.addAttribute("collections", articleService.findAllArticleViews(filter, pageable));
 		model.addAttribute("error", error);
 		error = "";
 		if (articleService.findAllArticleViews(filter, pageable).hasContent()||pageable.getPageNumber()==0)
-			return "adminArticles";
+			return "adminCollections";
 		else
-			return "redirect:/admin/adminArticles"+buildParams(pageable, filter);
+			return "redirect:/admin/adminCollections"+buildParams(pageable, filter);
 	}
 
 	/**
@@ -89,13 +89,13 @@ public class AdminArticlesController {
 	public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
 			@ModelAttribute("articleFilter") ArticleFilter filter) {
 		articleService.deleteMeal(id);
-		return "redirect:/admin/adminArticles"+buildParams(pageable, filter);
+		return "redirect:/admin/adminCollections"+buildParams(pageable, filter);
 	}
 	
 	@ExceptionHandler({SQLException.class,DataAccessException.class})
 	public String databaseError() {
 		error = "You can't delete this article because it is used!";
-		return "redirect:/admin/adminArticles";
+		return "redirect:/admin/adminCollections";
 	}
 
 	@PostMapping
@@ -129,7 +129,7 @@ public class AdminArticlesController {
 	public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
 			@ModelAttribute("articleFilter") ArticleFilter filter) {
 		status.setComplete();
-		return "redirect:/admin/adminArticles"+buildParams(pageable, filter);
+		return "redirect:/admin/adminCollections"+buildParams(pageable, filter);
 	}
 	
 	private String buildParams(Pageable pageable, ArticleFilter filter) {

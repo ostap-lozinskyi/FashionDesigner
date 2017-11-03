@@ -15,7 +15,7 @@
                     <div class="container">
                         <br>
                         <br>
-                        <a class="btn btn-outline-primary" href="/">Колекції</a>
+                        <a class="btn btn-outline-primary" href="/collections">Колекції</a>
 					    <a class="btn btn-primary" href="/admin">Склад</a>
 					    <a class="btn btn-outline-primary" href="/admin/adminUser">Події</a>
                         <a class="btn btn-outline-primary" href="/admin">Admin</a>
