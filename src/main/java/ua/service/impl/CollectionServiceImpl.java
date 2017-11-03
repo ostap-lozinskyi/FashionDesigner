@@ -23,10 +23,10 @@ import ua.repository.CommentRepository;
 import ua.repository.ArticleRepository;
 import ua.repository.ArticleViewRepository;
 import ua.repository.UserRepository;
-import ua.service.ArticleService;
+import ua.service.CollectionService;
 
 @Service
-public class ArticleServiceImpl implements ArticleService {
+public class CollectionServiceImpl implements CollectionService {
 
 	private final ArticleRepository articleRepository;
 	
@@ -38,7 +38,7 @@ public class ArticleServiceImpl implements ArticleService {
 	Cloudinary cloudinary = new Cloudinary();
 
 	@Autowired
-	public ArticleServiceImpl(ArticleRepository articleRepository, ArticleViewRepository articleViewRepository, 
+	public CollectionServiceImpl(ArticleRepository articleRepository, ArticleViewRepository articleViewRepository, 
 			UserRepository userRepository, CommentRepository commentRepository) {
 		this.articleRepository = articleRepository;
 		this.articleViewRepository = articleViewRepository;

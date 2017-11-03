@@ -13,7 +13,7 @@ import ua.model.request.ArticleRequest;
 import ua.model.view.MealIndexView;
 import ua.model.view.ArticleView;
 
-public interface ArticleService {
+public interface CollectionService {
 
 //	Page<MealIndexView> findAllMealIndexView(MealFilter filter, Pageable pageable);
 	

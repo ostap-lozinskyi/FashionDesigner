@@ -7,15 +7,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import ua.service.ArticleService;
+import ua.service.CollectionService;
 
 @Controller
 public class MainController {
 	
-	private final ArticleService articleService;
+	private final CollectionService articleService;
 
 	@Autowired
-	public MainController(ArticleService articleService) {
+	public MainController(CollectionService articleService) {
 		this.articleService = articleService;
 	}
 

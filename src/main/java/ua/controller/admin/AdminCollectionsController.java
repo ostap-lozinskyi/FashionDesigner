@@ -30,7 +30,7 @@ import ua.model.filter.ArticleFilter;
 import ua.model.request.FileRequest;
 import ua.model.request.ArticleRequest;
 import ua.service.FileWriter;
-import ua.service.ArticleService;
+import ua.service.CollectionService;
 import ua.validation.flag.ArticleFlag;
 
 @Controller
@@ -40,7 +40,7 @@ public class AdminCollectionsController {
 	
 	private final FileWriter writer;
 
-	private final ArticleService articleService;
+	private final CollectionService articleService;
 	
 	String error = "";
 	
@@ -48,7 +48,7 @@ public class AdminCollectionsController {
 	private String path;
 
 	@Autowired
-	public AdminCollectionsController(FileWriter writer, ArticleService service) {
+	public AdminCollectionsController(FileWriter writer, CollectionService service) {
 		this.writer = writer;
 		this.articleService = service;
 	}

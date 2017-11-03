@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import ua.model.filter.ArticleFilter;
-import ua.service.ArticleService;
+import ua.service.CollectionService;
 
 @Controller
 public class CollectionsMenuController {
 	
-	private final ArticleService articleService;
+	private final CollectionService articleService;
 	
-	public CollectionsMenuController(ArticleService service) {
+	public CollectionsMenuController(CollectionService service) {
 		this.articleService = service;
 	}
 	

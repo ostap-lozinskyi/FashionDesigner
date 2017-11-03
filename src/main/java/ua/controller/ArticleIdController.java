@@ -15,14 +15,14 @@ import ua.entity.Comment;
 import ua.model.request.CommentRequest;
 import ua.model.view.ArticleView;
 import ua.service.CommentService;
-import ua.service.ArticleService;
+import ua.service.CollectionService;
 import ua.service.UserService;
 
 @Controller
 @RequestMapping("/article/{id}")
 public class ArticleIdController {
 	
-	private final ArticleService articleService;
+	private final CollectionService articleService;
 
 	private final CommentService commentService;
 	
@@ -31,7 +31,7 @@ public class ArticleIdController {
 	String error="";
 
 	@Autowired
-	public ArticleIdController(ArticleService service, CommentService commentService, UserService userService) {
+	public ArticleIdController(CollectionService service, CommentService commentService, UserService userService) {
 		this.articleService = service;
 		this.commentService = commentService;
 		this.userService = userService;
