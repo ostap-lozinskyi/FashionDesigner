@@ -1,19 +1,17 @@
 package ua.model.request;
 
-import java.util.Date;
-
 import org.hibernate.validator.constraints.NotBlank;
 
-import ua.validation.flag.ArticleFlag;
+import ua.validation.flag.CollectionFlag;
 
-public class ArticleRequest {
+public class CollectionRequest {
 
 	private Integer id;
 
-	@NotBlank(message = "This field cannot be blank", groups = { ArticleFlag.class })
+	@NotBlank(message = "This field cannot be blank", groups = { CollectionFlag.class })
 	private String title;
 
-	@NotBlank(message = "This field cannot be blank", groups = { ArticleFlag.class })
+	@NotBlank(message = "This field cannot be blank", groups = { CollectionFlag.class })
 	private String text;
 	
 	private String date;

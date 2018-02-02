@@ -14,93 +14,77 @@ import org.springframework.web.multipart.MultipartFile;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 
-import ua.entity.Comment;
-import ua.entity.Article;
-import ua.model.filter.ArticleFilter;
-import ua.model.request.ArticleRequest;
-import ua.model.view.ArticleView;
-import ua.repository.CommentRepository;
-import ua.repository.ArticleRepository;
-import ua.repository.ArticleViewRepository;
+import ua.entity.Collection;
+import ua.model.filter.CollectionFilter;
+import ua.model.request.CollectionRequest;
+import ua.model.view.CollectionView;
+import ua.repository.CollectionRepository;
+import ua.repository.CollectionViewRepository;
 import ua.service.CollectionService;
 
 @Service
 public class CollectionServiceImpl implements CollectionService {
 
-	private final ArticleRepository articleRepository;
+	private final CollectionRepository collectionRepository;
 	
-	private final ArticleViewRepository articleViewRepository;
+	private final CollectionViewRepository collectionViewRepository;
 	
 	@Value("${cloudinary.url}")
 	Cloudinary cloudinary = new Cloudinary();
 
 	@Autowired
-	public CollectionServiceImpl(ArticleRepository articleRepository, ArticleViewRepository articleViewRepository, 
-			CommentRepository commentRepository) {
-		this.articleRepository = articleRepository;
-		this.articleViewRepository = articleViewRepository;
+	public CollectionServiceImpl(CollectionRepository collectionRepository, CollectionViewRepository collectionViewRepository) {
+		this.collectionRepository = collectionRepository;
+		this.collectionViewRepository = collectionViewRepository;
 	}
 
-//	@Override
-//	public Page<MealIndexView> findAllMealIndexView(MealFilter filter, Pageable pageable) {
-//		return mealViewRepository.findAllMealIndexView(filter, pageable);
-//	}
-	
+
 	@Override
-	public List<ArticleView> findArticlesViewsByDate() {
-		return articleRepository.findArticlesViewsByDate();
+	public List<CollectionView> findCollectionsViewsByDate() {
+		return collectionRepository.findCollectionViewsByDate();
 	}
 	
 	@Override
-	public Page<ArticleView> findAllArticleViews(ArticleFilter filter, Pageable pageable) {
-		return articleViewRepository.findAllMealView(filter, pageable);
+	public Page<CollectionView> findAllCollectionViews(CollectionFilter filter, Pageable pageable) {
+		return collectionViewRepository.findAllCollectionView(filter, pageable);
 	}
 
 	@Override
-	public void saveArticle(ArticleRequest articleRequest) {
-		Article article = new Article();
-		article.setId(articleRequest.getId());
-		article.setTitle(articleRequest.getTitle());
-		article.setText(articleRequest.getText());
-		article.setDate(articleRequest.getDate());
-		article.setPhotoUrl(articleRequest.getPhotoUrl());
-		article.setVersion(articleRequest.getVersion());
-		articleRepository.save(article);
+	public void saveCollection(CollectionRequest collectionRequest) {
+		Collection collection = new Collection();
+		collection.setId(collectionRequest.getId());
+		collection.setTitle(collectionRequest.getTitle());
+		collection.setText(collectionRequest.getText());
+		collection.setDate(collectionRequest.getDate());
+		collection.setPhotoUrl(collectionRequest.getPhotoUrl());
+		collection.setVersion(collectionRequest.getVersion());
+		collectionRepository.save(collection);
 	}
 
 	@Override
-	public ArticleRequest findOneRequest(Integer id) {
-		Article article = articleRepository.findOneRequest(id);
-		ArticleRequest articleRequest = new ArticleRequest();
-		articleRequest.setId(article.getId());
-		articleRequest.setTitle(article.getTitle());
-		articleRequest.setText(article.getText());
-		articleRequest.setDate(article.getDate());
-		articleRequest.setPhotoUrl(article.getPhotoUrl());
-		articleRequest.setVersion(article.getVersion());
-		return articleRequest;
+	public CollectionRequest findOneRequest(Integer id) {
+		Collection collection = collectionRepository.findOneRequest(id);
+		CollectionRequest collectionRequest = new CollectionRequest();
+		collectionRequest.setId(collection.getId());
+		collectionRequest.setTitle(collection.getTitle());
+		collectionRequest.setText(collection.getText());
+		collectionRequest.setDate(collection.getDate());
+		collectionRequest.setPhotoUrl(collection.getPhotoUrl());
+		collectionRequest.setVersion(collection.getVersion());
+		return collectionRequest;
 	}
 
 	@Override
-	public void deleteMeal(Integer id) {
-		articleRepository.delete(id);
+	public void deleteCollection(Integer id) {
+		collectionRepository.delete(id);
 	}
 	
 	@Override
-	public void updateComments(Integer id, Comment comment) {
-		Article article = articleRepository.findArticleById(id);
-		List<Comment> comments = article.getComments();
-		comments.add(comment);
-		article.setComments(comments);
-		articleRepository.save(article);
+	public CollectionView findCollectionViewById(Integer id) {
+		return collectionRepository.findCollectionViewById(id);
 	}
 	
-	@Override
-	public ArticleView findMealViewById(Integer id) {
-		return articleRepository.findArticleViewById(id);
-	}
-	
-	public ArticleRequest uploadPhotoToCloudinary(ArticleRequest request, MultipartFile multipartFile) throws IOException {
+	public CollectionRequest uploadPhotoToCloudinary(CollectionRequest request, MultipartFile multipartFile) throws IOException {
 			@SuppressWarnings("rawtypes")
 			Map uploadResult = cloudinary.uploader().upload(multipartFile.getBytes(),
 					ObjectUtils.asMap("use_filename", "true", "unique_filename", "false"));
@@ -115,9 +99,4 @@ public class CollectionServiceImpl implements CollectionService {
 		return request;
 	}
 	
-	@Override
-	public List<Comment> findCommentList(Integer id) {
-		return articleRepository.findCommentList(id);
-	}
-
 }

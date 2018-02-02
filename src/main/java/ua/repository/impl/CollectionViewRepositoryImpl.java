@@ -17,34 +17,34 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.support.PageableExecutionUtils;
 import org.springframework.stereotype.Repository;
 
-import ua.entity.Article;
-import ua.entity.Article_;
-import ua.model.filter.ArticleFilter;
-import ua.model.view.ArticleView;
-import ua.repository.ArticleViewRepository;
+import ua.entity.Collection;
+import ua.entity.Collection_;
+import ua.model.filter.CollectionFilter;
+import ua.model.view.CollectionView;
+import ua.repository.CollectionViewRepository;
 
 @Repository
-public class ArticleViewRepositoryImpl implements ArticleViewRepository{
+public class CollectionViewRepositoryImpl implements CollectionViewRepository{
 
 	@PersistenceContext
 	private EntityManager em;	
 
 	@Override
-	public Page<ArticleView> findAllMealView(ArticleFilter filter, Pageable pageable) {
+	public Page<CollectionView> findAllCollectionView(CollectionFilter filter, Pageable pageable) {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<ArticleView> cq = cb.createQuery(ArticleView.class).distinct(true);
-		Root<Article> root = cq.from(Article.class);
-		cq.multiselect(root.get(Article_.id), root.get("title"), root.get("text"), root.get("date"), 
+		CriteriaQuery<CollectionView> cq = cb.createQuery(CollectionView.class).distinct(true);
+		Root<Collection> root = cq.from(Collection.class);
+		cq.multiselect(root.get(Collection_.id), root.get("title"), root.get("text"), root.get("date"), 
 				root.get("photoUrl"), root.get("version"));
 		Predicate predicate = new PredicateBuilder(cb, root, filter).toPredicate();
 		if(predicate!=null) cq.where(predicate);
 		cq.orderBy(toOrders(pageable.getSort(), root, cb));
-		List<ArticleView> content = em.createQuery(cq)
+		List<CollectionView> content = em.createQuery(cq)
 				.setFirstResult(pageable.getPageNumber()*pageable.getPageSize())
 				.setMaxResults(pageable.getPageSize())
 				.getResultList();		
 		CriteriaQuery<Long> countQuery = cb.createQuery(Long.class);
-		Root<Article> countRoot = countQuery.from(Article.class);
+		Root<Collection> countRoot = countQuery.from(Collection.class);
 		countQuery.select(cb.count(countRoot));
 		Predicate countPredicate = new PredicateBuilder(cb, countRoot, filter).toPredicate();
 		if(countPredicate!=null) countQuery.where(countPredicate);
@@ -55,13 +55,13 @@ public class ArticleViewRepositoryImpl implements ArticleViewRepository{
 		
 		final CriteriaBuilder cb;
 		
-		final Root<Article> root;
+		final Root<Collection> root;
 		
-		final ArticleFilter filter;
+		final CollectionFilter filter;
 		
 		final List<Predicate> predicates = new ArrayList<>();
 
-		public PredicateBuilder(CriteriaBuilder cb, Root<Article> root, ArticleFilter filter) {
+		public PredicateBuilder(CriteriaBuilder cb, Root<Collection> root, CollectionFilter filter) {
 			this.cb = cb;
 			this.root = root;
 			this.filter = filter;

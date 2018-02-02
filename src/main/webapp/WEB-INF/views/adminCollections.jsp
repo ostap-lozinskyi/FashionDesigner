@@ -14,29 +14,29 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 <link href="/resources/css/index.css" rel="stylesheet">
-<title>Управління колеціями</title>
+<title>Collections management</title>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="text-center">Управління колеціями</h1>
+				<h1 class="text-center">Collections management</h1>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-2 col-sm-12">				
 				<div class="btn-group-vertical text-center" role="group" aria-label="Basic example">
-					<a class="btn btn-outline-primary" href="/">Головна сторінка</a>
+					<a class="btn btn-outline-primary" href="/">Main page</a>
 					<a class="btn btn-primary" href="/admin">Admin</a>
-					<a class="btn btn-outline-primary" href="/admin/adminUser">Користувачі</a>					
-					<a class="btn btn-outline-primary" href="/admin/adminCollections">Колекції</a>
+					<a class="btn btn-outline-primary" href="/admin/adminUser">Users</a>					
+					<a class="btn btn-outline-primary" href="/admin/adminCollections">Collections</a>
 				</div>									
 			</div>		
 			<div class="col-lg-10 col-sm-12">
                 <div class="row">
                     <div class="col-12">
-                        <h3>Додати нову колекцію</h3>
-                        <form:form action="/admin/adminCollections" method="POST" modelAttribute="article" enctype="multipart/form-data">
+                        <h3>Add new collection</h3>
+                        <form:form action="/admin/adminCollections" method="POST" modelAttribute="collection" enctype="multipart/form-data">
                             <custom:hiddenInputs excludeParams="title, text, _csrf"/>
                             <div class="row">
                                 <div class="col-10 ml-auto" style="color: red;">
@@ -69,89 +69,12 @@
                             <div class="form-group row">
                                 <div class="col-8 mr-auto">
                                     <button class="btn btn-sm btn-outline-primary">Save</button>
-                                    <a href="/admin/adminArticles/cancel<custom:allParams/>" class="btn btn-sm btn-outline-warning">Cancel</a>
+                                    <a href="/admin/adminCollections/cancel<custom:allParams/>" class="btn btn-sm btn-outline-warning">Cancel</a>
                                 </div>
                             </div>
                         </form:form>
                     </div>
-                </div>	
-<!--                 <div class="row"> -->
-<!--                     <div class="col-12"> -->
-<!--                         <br> -->
-<!--                         <p> -->
-<!--                             <button class="btn-cart buy btnCafe btn-sucsess btn-lg" type="button" -->
-<!--                                 data-toggle="collapse" data-target="#firstCollapse" -->
-<!--                                 aria-expanded="false" aria-controls="firstCollapse"> -->
-<!--                                 Search meal</button> -->
-<!--                         </p> -->
-<!--                         <div class="collapse" id="firstCollapse"> -->
-<!--                             <div class="card card-body"> -->
-<%--                                 <form:form action="/admin/adminMeal" method="GET" modelAttribute="mealFilter"> --%>
-<!--                                     <div class="form-group row"> -->
-<!--                                         <div class="col-lg-3 col-sm-4 margin"> -->
-<%--                                             <form:input path="minRate" class="form-control" placeholder="Min rate"/> --%>
-<!--                                         </div> -->
-<!--                                         <div class="col-lg-3 col-sm-4 margin"> -->
-<%--                                             <form:input path="maxRate" class="form-control" placeholder="Max rate"/> --%>
-<!--                                         </div> -->
-<!--                                         <div class="col-lg-3 col-sm-4 margin"> -->
-<%--                                             <form:input path="minPrice" class="form-control" placeholder="Min price"/> --%>
-<!--                                         </div> -->
-<!--                                         <div class="col-lg-3 col-sm-4 margin"> -->
-<%--                                             <form:input path="maxPrice" class="form-control" placeholder="Max price"/> --%>
-<!--                                         </div>					 -->
-<!--                                         <div class="col-lg-3 col-sm-4 margin"> -->
-<%--                                             <form:input path="minWeight" class="form-control" placeholder="Min weight"/> --%>
-<!--                                         </div> -->
-<!--                                         <div class="col-lg-3 col-sm-4 margin"> -->
-<%--                                             <form:input path="maxWeight" class="form-control" placeholder="Max weight"/> --%>
-<!--                                         </div> -->
-<!--                                     </div> -->
-<!--                                     <div class="form-group row"> -->
-<!--                                         <div class="col-lg-3 col-sm-4 margin"> -->
-<%--                                             <form:input path="search" class="form-control" placeholder="By name"/> --%>
-<!--                                         </div>						 -->
-<!--                                         <div class="col-lg-3 col-sm-4 margin"> -->
-<!--                                             <p>								 -->
-<!--                                                 <button class="btn btn-outline-secondary" type="button" -->
-<!--                                                     data-toggle="collapse" data-target="#secondCollapse" -->
-<!--                                                     aria-expanded="false" aria-controls="secondCollapse"> -->
-<!--                                                     Select cuisine</button> -->
-<!--                                             </p> -->
-<!--                                             <div class="collapse" id="secondCollapse"> -->
-<!--                                                 <div class="card card-body"> -->
-<%--                                                     <form:checkboxes items="${cuisines}" path="cuisineName" element="div"/> --%>
-<!--                                                 </div> -->
-<!--                                             </div> -->
-<!--                                         </div> -->
-<!--                                         <div class="col-lg-3 col-sm-4 margin"> -->
-<!--                                             <p>								 -->
-<!--                                                 <button class="btn btn-outline-secondary" type="button" -->
-<!--                                                     data-toggle="collapse" data-target="#thirdCollapse" -->
-<!--                                                     aria-expanded="false" aria-controls="thirdCollapse"> -->
-<!--                                                     Select component</button> -->
-<!--                                             </p> -->
-<!--                                             <div class="collapse" id="thirdCollapse"> -->
-<!--                                                 <div class="card card-body"> -->
-<%--                                                     <c:forEach var="component" items="${components}"> --%>
-<!--                                                         <div class="row"> -->
-<!--                                                             <div class="col-12"> -->
-<%--                                                                     <form:checkbox path="componentsId" value="${component.id}"/> ${component.amount} ${component.ms} ${component.ingredient}							 --%>
-<!--                                                             </div> -->
-<!--                                                         </div> -->
-<%--                                                     </c:forEach> --%>
-<!--                                                 </div> -->
-<!--                                             </div> -->
-<!--                                         </div>							 -->
-<!--                                         <div class="col-12"> -->
-<!--                                             <button type="submit" class="btn-cart buy btnCafe btn-sucsess btn-lg">Search</button> -->
-<!--                                         </div> -->
-<!--                                     </div> -->
-<%--                                 </form:form> --%>
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!-- 		        </div> -->
+                </div>
 		        <br>
 		        <div class="row">			
                     <div class="col-2 ml-auto">
@@ -162,7 +85,7 @@
                         </div>
                     </div>
                     <div class="col-2">
-                        <custom:size posibleSizes="1,2,5,10" size="${collection.size}" />
+                        <custom:size posibleSizes="1,2,5,10" size="${collections.size}" />
                     </div>			
 		        </div>
 		        <br>
@@ -190,8 +113,8 @@
                                     <td>${collection.title}</td>
                                     <td>${collection.text}</td>
                                     <td class="text-center">
-                                        <a href="/admin/adminArticles/update/${article.id}<custom:allParams/>"	class="btn btn-outline-warning btn-sm margin">Update</a>
-                                        <a href="/admin/adminArticles/delete/${article.id}<custom:allParams/>"	class="btn btn-outline-danger btn-sm margin">Delete</a>
+                                        <a href="/admin/adminCollections/update/${collection.id}<custom:allParams/>"	class="btn btn-outline-warning btn-sm margin">Update</a>
+                                        <a href="/admin/adminCollections/delete/${collection.id}<custom:allParams/>"	class="btn btn-outline-danger btn-sm margin">Delete</a>
                                     </td>
                                     <td class="text-center">
                                         <img src="${collection.photoUrl}?version=${collection.version}" style="width: 100px;">

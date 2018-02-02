@@ -29,7 +29,7 @@ public class MainController {
 		} else {
 			return "login";
 		}
-		model.addAttribute("articles", articleService.findArticlesViewsByDate());
+		model.addAttribute("articles", articleService.findCollectionsViewsByDate());
 		return "index";
 	}
 

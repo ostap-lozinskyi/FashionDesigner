@@ -7,29 +7,24 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
-import ua.entity.Comment;
-import ua.model.filter.ArticleFilter;
-import ua.model.request.ArticleRequest;
-import ua.model.view.ArticleView;
+import ua.model.filter.CollectionFilter;
+import ua.model.request.CollectionRequest;
+import ua.model.view.CollectionView;
 
 public interface CollectionService {
 
-	List<ArticleView> findArticlesViewsByDate();
+	List<CollectionView> findCollectionsViewsByDate();
 	
-	Page<ArticleView> findAllArticleViews(ArticleFilter filter, Pageable pageable);
+	Page<CollectionView> findAllCollectionViews(CollectionFilter filter, Pageable pageable);
 
-	void saveArticle(ArticleRequest request);
+	void saveCollection(CollectionRequest request);
 
-	ArticleRequest findOneRequest(Integer id);
+	CollectionRequest findOneRequest(Integer id);
 
-	void deleteMeal(Integer id);
+	void deleteCollection(Integer id);
 	
-	void updateComments(Integer id, Comment comment);
+	CollectionView findCollectionViewById(Integer id);
 	
-	ArticleView findMealViewById(Integer id);
+	CollectionRequest uploadPhotoToCloudinary(CollectionRequest request, MultipartFile multipartFile) throws IOException;
 	
-	ArticleRequest uploadPhotoToCloudinary(ArticleRequest request, MultipartFile multipartFile) throws IOException;
-	
-	List<Comment> findCommentList(Integer id);
-
 }

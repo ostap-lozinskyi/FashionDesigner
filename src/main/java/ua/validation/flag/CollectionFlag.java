@@ -1,5 +1,5 @@
 package ua.validation.flag;
 
-public interface ArticleFlag {
+public interface CollectionFlag {
 
 }

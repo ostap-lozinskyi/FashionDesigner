@@ -1,6 +1,6 @@
 package ua.model.filter;
 
-public class ArticleFilter {
+public class CollectionFilter {
 
 	private String search = "";
 

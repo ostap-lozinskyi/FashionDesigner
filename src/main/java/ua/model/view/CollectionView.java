@@ -1,11 +1,6 @@
 package ua.model.view;
 
-import java.util.Date;
-import java.util.List;
-
-import ua.entity.Comment;
-
-public class ArticleView {
+public class CollectionView {
 
 	private Integer id;
 	
@@ -19,9 +14,7 @@ public class ArticleView {
 	
 	private int version;
 	
-	private List<Comment> comments;
-	
-	public ArticleView(Integer id, String title, String text, String date, String photoUrl, int version) {
+	public CollectionView(Integer id, String title, String text, String date, String photoUrl, int version) {
 		this.id = id;
 		this.title = title;
 		this.text = text;
@@ -68,14 +61,6 @@ public class ArticleView {
 
 	public void setVersion(int version) {
 		this.version = version;
-	}
-
-	public List<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
 	}
 
 	public String getDate() {

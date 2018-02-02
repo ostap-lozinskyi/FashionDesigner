@@ -7,30 +7,30 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import ua.model.filter.ArticleFilter;
+import ua.model.filter.CollectionFilter;
 import ua.service.CollectionService;
 
 @Controller
 public class CollectionsMenuController {
 	
-	private final CollectionService articleService;
+	private final CollectionService collectionService;
 	
 	public CollectionsMenuController(CollectionService service) {
-		this.articleService = service;
+		this.collectionService = service;
 	}
 	
-	@ModelAttribute("articleFilter")
-	public ArticleFilter getFilter() {
-		return new ArticleFilter();
+	@ModelAttribute("collectionFilter")
+	public CollectionFilter getFilter() {
+		return new CollectionFilter();
 	}
 
 	/**
 	 * Show collections menu page	 
 	 */
 	@GetMapping("/collections")
-	public String collectionsMenu(Model model, @ModelAttribute("articleFilter") ArticleFilter filter, 
+	public String collectionsMenu(Model model, @ModelAttribute("collectionFilter") CollectionFilter filter, 
 			@PageableDefault Pageable pageable) {
-		model.addAttribute("collections", articleService.findAllArticleViews(filter, pageable));
+		model.addAttribute("collections", collectionService.findAllCollectionViews(filter, pageable));
 		return "collections";
 	}	
 	

@@ -25,34 +25,34 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
-import ua.model.filter.ArticleFilter;
+import ua.model.filter.CollectionFilter;
 import ua.model.request.FileRequest;
-import ua.model.request.ArticleRequest;
+import ua.model.request.CollectionRequest;
 import ua.service.CollectionService;
-import ua.validation.flag.ArticleFlag;
+import ua.validation.flag.CollectionFlag;
 
 @Controller
 @RequestMapping("/admin/adminCollections")
-@SessionAttributes("article")
+@SessionAttributes("collection")
 public class AdminCollectionsController {
 	
-	private final CollectionService articleService;
+	private final CollectionService collectionService;
 	
 	String error = "";
 	
 	@Autowired
 	public AdminCollectionsController(CollectionService service) {
-		this.articleService = service;
+		this.collectionService = service;
 	}
 
-	@ModelAttribute("article")
-	public ArticleRequest getForm() {
-		return new ArticleRequest();
+	@ModelAttribute("collection")
+	public CollectionRequest getForm() {
+		return new CollectionRequest();
 	}
 	
-	@ModelAttribute("articleFilter")
-	public ArticleFilter getFilter() {
-		return new ArticleFilter();
+	@ModelAttribute("collectionFilter")
+	public CollectionFilter getFilter() {
+		return new CollectionFilter();
 	}
 	
 	@ModelAttribute("fileRequest")
@@ -61,14 +61,14 @@ public class AdminCollectionsController {
 	}
 
 	/**
-	 * Show Articles page
+	 * Show Collections page
 	 */
 	@GetMapping
-	public String showArticles(Model model, @PageableDefault Pageable pageable, @ModelAttribute("mealFilter") ArticleFilter filter) {
-		model.addAttribute("collections", articleService.findAllArticleViews(filter, pageable));
+	public String showCollections(Model model, @PageableDefault Pageable pageable, @ModelAttribute("collectionFilter") CollectionFilter filter) {
+		model.addAttribute("collections", collectionService.findAllCollectionViews(filter, pageable));
 		model.addAttribute("error", error);
 		error = "";
-		if (articleService.findAllArticleViews(filter, pageable).hasContent()||pageable.getPageNumber()==0)
+		if (collectionService.findAllCollectionViews(filter, pageable).hasContent()||pageable.getPageNumber()==0)
 			return "adminCollections";
 		else
 			return "redirect:/admin/adminCollections"+buildParams(pageable, filter);
@@ -79,54 +79,54 @@ public class AdminCollectionsController {
 	 */
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
-			@ModelAttribute("articleFilter") ArticleFilter filter) {
-		articleService.deleteMeal(id);
+			@ModelAttribute("collectionFilter") CollectionFilter filter) {
+		collectionService.deleteCollection(id);
 		return "redirect:/admin/adminCollections"+buildParams(pageable, filter);
 	}
 	
 	@ExceptionHandler({SQLException.class,DataAccessException.class})
 	public String databaseError() {
-		error = "You can't delete this article because it is used!";
+		error = "You can't delete this collection because it is used!";
 		return "redirect:/admin/adminCollections";
 	}
 
 	@PostMapping
-	public String save(@ModelAttribute("article") @Validated(ArticleFlag.class) ArticleRequest request, BindingResult br,
+	public String save(@ModelAttribute("collection") @Validated(CollectionFlag.class) CollectionRequest request, BindingResult br,
 			Model model, SessionStatus status, @PageableDefault Pageable pageable,
-			@ModelAttribute("articleFilter") ArticleFilter filter,  @ModelAttribute("fileRequest") FileRequest fileRequest) {
+			@ModelAttribute("collectionFilter") CollectionFilter filter,  @ModelAttribute("fileRequest") FileRequest fileRequest) {
 		if (br.hasErrors())
-			return showArticles(model, pageable, filter);
+			return showCollections(model, pageable, filter);
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 		LocalDate localDate = LocalDate.now();
 		String date = dtf.format(localDate);
 		request.setDate(date);
 		MultipartFile multipartFile = fileRequest.getFile();
 		try {
-			articleService.saveArticle(articleService.uploadPhotoToCloudinary(request, multipartFile));
+			collectionService.saveCollection(collectionService.uploadPhotoToCloudinary(request, multipartFile));
 		} catch (IOException e) {
-			articleService.saveArticle(request);
+			collectionService.saveCollection(request);
 		}
 		return cancel(status, pageable, filter);
 	}
 
 	@GetMapping("/update/{id}")
 	public String update(@PathVariable Integer id, Model model, @PageableDefault Pageable pageable,
-			@ModelAttribute("articleFilter") ArticleFilter filter) {
-		model.addAttribute("article", articleService.findOneRequest(id));
-		return showArticles(model, pageable, filter);
+			@ModelAttribute("collectionFilter") CollectionFilter filter) {
+		model.addAttribute("collection", collectionService.findOneRequest(id));
+		return showCollections(model, pageable, filter);
 	}
 
 	@GetMapping("/cancel")
 	public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
-			@ModelAttribute("articleFilter") ArticleFilter filter) {
+			@ModelAttribute("collectionFilter") CollectionFilter filter) {
 		status.setComplete();
 		return "redirect:/admin/adminCollections"+buildParams(pageable, filter);
 	}
 	
-	private String buildParams(Pageable pageable, ArticleFilter filter) {
+	private String buildParams(Pageable pageable, CollectionFilter filter) {
 		StringBuilder buffer = new StringBuilder();		
 		buffer.append("?page=");
-		if(!(articleService.findAllArticleViews(filter, pageable).hasContent())) 
+		if(!(collectionService.findAllCollectionViews(filter, pageable).hasContent())) 
 			buffer.append(String.valueOf(pageable.getPageNumber()));
 		else {
 			buffer.append(String.valueOf(pageable.getPageNumber()));

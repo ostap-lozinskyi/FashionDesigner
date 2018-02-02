@@ -20,10 +20,10 @@ import ua.repository.UserRepository;
 
 @SpringBootApplication
 @ImportAutoConfiguration(classes = WebMvcAutoConfiguration.class)
-public class CafeApplication extends WebMvcConfigurerAdapter {
+public class LozinskaApplication extends WebMvcConfigurerAdapter {
 	
 	public static void main(String[] args) {
-		ConfigurableApplicationContext run = SpringApplication.run(CafeApplication.class, args);
+		ConfigurableApplicationContext run = SpringApplication.run(LozinskaApplication.class, args);
 		addAdmin(run);
 	}
 	

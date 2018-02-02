@@ -3,20 +3,20 @@ package ua.converter;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import ua.entity.Article;
-import ua.repository.ArticleRepository;
+import ua.entity.Collection;
+import ua.repository.CollectionRepository;
 
 @Component
-public class ArticleConverter implements Converter<String, Article> {
+public class ArticleConverter implements Converter<String, Collection> {
 
-	private final ArticleRepository articleRepository;
+	private final CollectionRepository articleRepository;
 
-	public ArticleConverter(ArticleRepository articleRepository) {
+	public ArticleConverter(CollectionRepository articleRepository) {
 		this.articleRepository = articleRepository;
 	}
 
 	@Override
-	public Article convert(String source) {
+	public Collection convert(String source) {
 		return articleRepository.findByTitle(source);
 	}
 
