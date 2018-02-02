@@ -28,8 +28,8 @@ public class CollectionIdController {
 	 */
 	@GetMapping
 	public String show(Model model, @PathVariable Integer id) {
-		CollectionView articleView = collectionService.findCollectionViewById(id);
-		model.addAttribute("collectionView", articleView);
+		CollectionView collectionView = collectionService.findCollectionViewById(id);
+		model.addAttribute("collectionView", collectionView);
 		model.addAttribute("tasteMeal", error);
 		error="";
 		return "collectionId";
