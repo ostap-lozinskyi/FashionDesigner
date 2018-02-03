@@ -4,7 +4,7 @@ public class CollectionView {
 
 	private Integer id;
 	
-	private String title;
+	private String name;
 	
 	private String text;
 	
@@ -14,9 +14,9 @@ public class CollectionView {
 	
 	private int version;
 	
-	public CollectionView(Integer id, String title, String text, String date, String photoUrl, int version) {
+	public CollectionView(Integer id, String name, String text, String date, String photoUrl, int version) {
 		this.id = id;
-		this.title = title;
+		this.name = name;
 		this.text = text;
 		this.date = date;
 		this.photoUrl = photoUrl;
@@ -31,12 +31,12 @@ public class CollectionView {
 		this.id = id;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getText() {

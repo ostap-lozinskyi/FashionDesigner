@@ -22,12 +22,13 @@
 				<div class="btn-group-vertical text-center" role="group" aria-label="Basic example">
 					<a class="btn btn-outline-primary" href="/">Головна сторінка</a>
 					<a class="btn btn-primary" href="/admin">Admin</a>
-					<a class="btn btn-outline-primary" href="/admin/adminUser">Користувачі</a>					
-					<a class="btn btn-outline-primary" href="/admin/adminCollections">Колекції</a>
+					<a class="btn btn-outline-primary" href="/admin/adminUsers">Users</a>					
+					<a class="btn btn-outline-primary" href="/admin/adminCollections">Collections Manag.</a>
+					<a class="btn btn-outline-primary" href="/admin/adminTypeOfCollections">Type Of Collections</a>
 				</div>				
 			</div>
 			<div class="col-lg-9 col-sm-12">
-			    <a class="btn btn-outline-primary" href="/userCabinet">Налаштування користувача</a>
+			    <a class="btn btn-outline-primary" href="/userCabinet">User Cabinet</a>
 			</div>
 		</div>
 		<br>

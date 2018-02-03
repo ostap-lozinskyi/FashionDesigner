@@ -11,12 +11,12 @@ import ua.model.view.CollectionView;
 
 public interface CollectionRepository extends JpaRepository<Collection, Integer>, JpaSpecificationExecutor<Collection> {
 	
-	Collection findByTitle(String title);
+	Collection findByName(String name);
 	
-	@Query("SELECT c.title FROM Collection c")
-	List<String> findAllCollectionsTitles();
+	@Query("SELECT c.name FROM Collection c")
+	List<String> findAllCollectionsNames();
 	
-	@Query("SELECT new ua.model.view.CollectionView(c.id, c.title, c.text, c.date, c.photoUrl, c.version) FROM Collection c ORDER BY c.date DESC")
+	@Query("SELECT new ua.model.view.CollectionView(c.id, c.name, c.text, c.date, c.photoUrl, c.version) FROM Collection c ORDER BY c.date DESC")
 	List<CollectionView> findCollectionViewsByDate();
 	
 	@Query("SELECT c FROM Collection c WHERE c.id=?1")
@@ -25,7 +25,7 @@ public interface CollectionRepository extends JpaRepository<Collection, Integer>
 	@Query("SELECT c FROM Collection c WHERE c.id=?1")
 	Collection findCollectionById(Integer id);
 	
-	@Query("SELECT new ua.model.view.CollectionView(c.id, c.title, c.text, c.date, c.photoUrl, c.version) FROM Collection c WHERE c.id=?1")
+	@Query("SELECT new ua.model.view.CollectionView(c.id, c.name, c.text, c.date, c.photoUrl, c.version) FROM Collection c WHERE c.id=?1")
 	CollectionView findCollectionViewById(Integer id);
 
 }

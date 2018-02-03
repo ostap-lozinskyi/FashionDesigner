@@ -27,16 +27,17 @@
 			<div class="col-lg-2 col-sm-12">				
 				<div class="btn-group-vertical text-center" role="group" aria-label="Basic example">
 					<a class="btn btn-outline-primary" href="/">Головна сторінка</a>
-					<a class="btn btn-primary" href="/admin">Admin</a>
-					<a class="btn btn-outline-primary" href="/admin/adminUser">Користувачі</a>					
-					<a class="btn btn-outline-primary" href="/admin/adminCollections">Колекції</a>
+					<a class="btn btn-outline-primary" href="/admin">Admin</a>
+					<a class="btn btn-primary" href="/admin/adminUsers">Users</a>					
+					<a class="btn btn-outline-primary" href="/admin/adminCollections">Collections Manag.</a>
+					<a class="btn btn-outline-primary" href="/admin/adminTypeOfCollections">Type Of Collections</a>
 				</div>								
 			</div>		
 			<div class="col-lg-10 col-sm-12">
                 <div class="row">
                     <div class="col-12">
                         <h3>Add new Admin User</h3>
-                        <form:form action="/admin/adminUser" method="POST" modelAttribute="user">
+                        <form:form action="/admin/adminUsers" method="POST" modelAttribute="user">
                             <custom:hiddenInputs excludeParams="email, password, repeatPassword, _csrf"/>
                             <div class="row">
                                 <div class="col-10 ml-auto" style="color:red;">
@@ -79,7 +80,7 @@
                             <div class="form-group row">
                                 <div class="col-8 mr-auto">
                                     <button class="btn btn-sm btn-outline-success">Save</button>
-                                    <a href="/admin/adminUser/cancel<custom:allParams/>" class="btn btn-sm btn-outline-warning">Cancel</a>
+                                    <a href="/admin/adminUsers/cancel<custom:allParams/>" class="btn btn-sm btn-outline-warning">Cancel</a>
                                 </div>
                             </div>
                         </form:form>
@@ -96,7 +97,7 @@
                         </p>
                         <div class="collapse" id="firstCollapse">
                             <div class="card card-body">
-                                <form:form action="/admin/adminUser" method="GET" modelAttribute="userFilter">
+                                <form:form action="/admin/adminUsers" method="GET" modelAttribute="userFilter">
                                     <div class="form-group row">
                                         <div class="col-lg-3 col-sm-4 margin">
                                             <form:input path="search" class="form-control" placeholder="By name"/>
@@ -151,14 +152,14 @@
                                         <img src="${user.photoUrl}?version=${user.version}" style="width: 100px;">
                                     </td>
                                     <td class="text-center">
-                                        <a href="/admin/adminUser/setDefaultPhoto/${user.id}<custom:allParams/>" class="btn btn-outline-warning btn-sm margin">Set default photo</a>
-                                        <a href="/admin/adminUser/delete/${user.id}<custom:allParams/>" class="btn btn-outline-danger btn-sm margin">Delete</a>
+                                        <a href="/admin/adminUsers/setDefaultPhoto/${user.id}<custom:allParams/>" class="btn btn-outline-warning btn-sm margin">Set default photo</a>
+                                        <a href="/admin/adminUsers/delete/${user.id}<custom:allParams/>" class="btn btn-outline-danger btn-sm margin">Delete</a>
                                         <br><button class="btn btn-outline-success dropdown-toggle margin" type="button"
                                                 id="dropdownMenuButton" data-toggle="dropdown"
                                                 aria-haspopup="true" aria-expanded="false">Update Role</button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="/admin/adminUser/updateRole/${user.id}/ROLE_ADMIN<custom:allParams/>">Admin</a>
-                                            <a class="dropdown-item" href="/admin/adminUser/updateRole/${user.id}/ROLE_CLIENT<custom:allParams/>">Client</a>
+                                            <a class="dropdown-item" href="/admin/adminUsers/updateRole/${user.id}/ROLE_ADMIN<custom:allParams/>">Admin</a>
+                                            <a class="dropdown-item" href="/admin/adminUsers/updateRole/${user.id}/ROLE_CLIENT<custom:allParams/>">Client</a>
                                         </div>
                                     </td>
                                 </tr>

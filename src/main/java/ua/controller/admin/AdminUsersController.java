@@ -29,16 +29,16 @@ import ua.service.UserService;
 import ua.validation.flag.UserFlag;
 
 @Controller
-@RequestMapping("/admin/adminUser")
+@RequestMapping("/admin/adminUsers")
 @SessionAttributes("meal")
-public class AdminUserController {
+public class AdminUsersController {
 	
 	private final UserService userService;
 	
 	String error = "";
 	
 	@Autowired
-	public AdminUserController(UserService userService) {
+	public AdminUsersController(UserService userService) {
 		this.userService = userService;
 	}
 
@@ -63,29 +63,29 @@ public class AdminUserController {
 		model.addAttribute("error", error);
 		error = "";
 		if (userService.findAllUsers(pageable, filter).hasContent()||pageable.getPageNumber()==0)
-			return "adminUser";
+			return "adminUsers";
 		else
-			return "redirect:/admin/adminUser"+buildParams(pageable, filter);
+			return "redirect:/admin/adminUsers"+buildParams(pageable, filter);
 	}
 
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
 			@ModelAttribute("userFilter") UserFilter filter) {
 		userService.delete(id);
-		return "redirect:/admin/adminUser"+buildParams(pageable, filter);
+		return "redirect:/admin/adminUsers"+buildParams(pageable, filter);
 	}
 	
 	@GetMapping("/setDefaultPhoto/{id}")
 	public String setDefaultPhoto(@PathVariable Integer id, @PageableDefault Pageable pageable,
 			@ModelAttribute("userFilter") UserFilter filter) {
 		userService.setDefaultPhoto(id);
-		return "redirect:/admin/adminUser"+buildParams(pageable, filter);
+		return "redirect:/admin/adminUsers"+buildParams(pageable, filter);
 	}
 	
 	@ExceptionHandler({SQLException.class,DataAccessException.class})
 	public String databaseError() {
 		error = "You can't delete this user because it is used!";
-		return "redirect:/admin/adminUser";
+		return "redirect:/admin/adminUsers";
 	}
 
 	@PostMapping
@@ -110,7 +110,7 @@ public class AdminUserController {
 	public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
 			@ModelAttribute("userFilter") UserFilter filter) {
 		status.setComplete();
-		return "redirect:/admin/adminUser"+buildParams(pageable, filter);
+		return "redirect:/admin/adminUsers"+buildParams(pageable, filter);
 	}
 	
 	private String buildParams(Pageable pageable, UserFilter filter) {

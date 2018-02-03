@@ -2,14 +2,17 @@ package ua.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Index;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "collection", indexes=@Index(columnList = "title"))
-public class Collection extends AbstractEntity {
+@Table(name = "collection", indexes=@Index(columnList = "name"))
+public class Collection extends AbstractEntityName {
 
-	private String title;
+	@ManyToOne(fetch=FetchType.LAZY)
+	private TypeOfCollection typeOfCollection;
 
 	@Column(columnDefinition = "TEXT")
 	private String text;
@@ -23,20 +26,21 @@ public class Collection extends AbstractEntity {
 	public Collection() {
 	}
 
-	public Collection(String title, String text, String photoUrl, String date, int version) {
-		this.title = title;
+	public Collection(String name, TypeOfCollection typeOfCollection, String text, String photoUrl, String date, int version) {
+		super(name);
+		this.typeOfCollection = typeOfCollection;
 		this.text = text;
 		this.photoUrl = photoUrl;
 		this.date = date;
 		this.version = version;
 	}
 
-	public String getTitle() {
-		return title;
+	public TypeOfCollection getTypeOfCollection() {
+		return typeOfCollection;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setTypeOfCollection(TypeOfCollection typeOfCollection) {
+		this.typeOfCollection = typeOfCollection;
 	}
 
 	public String getText() {

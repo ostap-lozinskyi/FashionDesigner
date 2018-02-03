@@ -53,7 +53,7 @@ public class CollectionServiceImpl implements CollectionService {
 	public void saveCollection(CollectionRequest collectionRequest) {
 		Collection collection = new Collection();
 		collection.setId(collectionRequest.getId());
-		collection.setTitle(collectionRequest.getTitle());
+		collection.setName(collectionRequest.getName());
 		collection.setText(collectionRequest.getText());
 		collection.setDate(collectionRequest.getDate());
 		collection.setPhotoUrl(collectionRequest.getPhotoUrl());
@@ -66,7 +66,7 @@ public class CollectionServiceImpl implements CollectionService {
 		Collection collection = collectionRepository.findOneRequest(id);
 		CollectionRequest collectionRequest = new CollectionRequest();
 		collectionRequest.setId(collection.getId());
-		collectionRequest.setTitle(collection.getTitle());
+		collectionRequest.setName(collection.getName());
 		collectionRequest.setText(collection.getText());
 		collectionRequest.setDate(collection.getDate());
 		collectionRequest.setPhotoUrl(collection.getPhotoUrl());

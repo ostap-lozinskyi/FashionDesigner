@@ -39,7 +39,7 @@
 				<c:forEach var="collection" items="${collections.content}">
                     <div class="col-12">
                         <img src="${collection.photoUrl}?version=${collection.version}" style="width: 100px;">                    
-                        <a href="/collection/${collection.id}">${collection.title}</a>
+                        <a href="/collection/${collection.id}">${collection.name}</a>
                     </div>
 			    </c:forEach>
 			</div>						

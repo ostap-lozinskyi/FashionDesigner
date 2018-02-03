@@ -65,7 +65,7 @@ public class AdminCollectionsController {
 	 */
 	@GetMapping
 	public String showCollections(Model model, @PageableDefault Pageable pageable, @ModelAttribute("collectionFilter") CollectionFilter filter) {
-		model.addAttribute("collections", collectionService.findAllCollectionViews(filter, pageable));
+		model.addAttribute("showCollections", collectionService.findAllCollectionViews(filter, pageable));
 		model.addAttribute("error", error);
 		error = "";
 		if (collectionService.findAllCollectionViews(filter, pageable).hasContent()||pageable.getPageNumber()==0)

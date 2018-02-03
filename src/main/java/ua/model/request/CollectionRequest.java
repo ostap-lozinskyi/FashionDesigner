@@ -9,7 +9,7 @@ public class CollectionRequest {
 	private Integer id;
 
 	@NotBlank(message = "This field cannot be blank", groups = { CollectionFlag.class })
-	private String title;
+	private String name;
 
 	@NotBlank(message = "This field cannot be blank", groups = { CollectionFlag.class })
 	private String text;
@@ -28,12 +28,12 @@ public class CollectionRequest {
 		this.id = id;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getText() {
