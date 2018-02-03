@@ -59,9 +59,9 @@
                                 </div>
                             </div> 
                             <div class="form-group row">
-                                <label class="col-2 col-form-label" for="name">Date:</label>
+                                <label class="col-2 col-form-label" for="date">Date:</label>
                                 <div class="col-10">
-                                    <input id="datepicker" width="276" />
+                                    <form:input class="form-control" id="datepicker" path="date" placeholder="Select Date" width="276"/>
                                     <script>$('#datepicker').datepicker({uiLibrary: 'bootstrap4'});</script>
                                 </div>
                             </div>
@@ -116,6 +116,7 @@
                         <table class="table table-bordered">
                             <tr>
                                 <th class="text-center">Name</th>
+                                <th class="text-center">Date</th>
                                 <th class="text-center">Text</th>
                                 <th class="text-center">Options</th>
                                 <th class="text-center">Photo</th>
@@ -128,6 +129,7 @@
                             <c:forEach var="showCollection" items="${showCollections.content}">
                                 <tr>
                                     <td>${showCollection.name}</td>
+                                    <td>${showCollection.date}</td>
                                     <td>${showCollection.text}</td>
                                     <td class="text-center">
                                         <a href="/admin/adminCollections/update/${showCollection.id}<custom:allParams/>"	class="btn btn-outline-warning btn-sm margin">Update</a>

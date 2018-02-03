@@ -96,10 +96,6 @@ public class AdminCollectionsController {
 			@ModelAttribute("collectionFilter") CollectionFilter filter,  @ModelAttribute("fileRequest") FileRequest fileRequest) {
 		if (br.hasErrors())
 			return showCollections(model, pageable, filter);
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-		LocalDate localDate = LocalDate.now();
-		String date = dtf.format(localDate);
-		request.setDate(date);
 		MultipartFile multipartFile = fileRequest.getFile();
 		try {
 			if(!multipartFile.isEmpty()) {
