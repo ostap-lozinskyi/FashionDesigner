@@ -102,7 +102,11 @@ public class AdminCollectionsController {
 		request.setDate(date);
 		MultipartFile multipartFile = fileRequest.getFile();
 		try {
-			collectionService.saveCollection(collectionService.uploadPhotoToCloudinary(request, multipartFile));
+			if(!multipartFile.isEmpty()) {
+				collectionService.saveCollection(collectionService.uploadPhotoToCloudinary(request, multipartFile));
+			} else {
+				collectionService.saveCollection(request);
+			}			
 		} catch (IOException e) {
 			collectionService.saveCollection(request);
 		}

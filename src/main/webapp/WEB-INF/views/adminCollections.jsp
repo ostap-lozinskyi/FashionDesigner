@@ -8,10 +8,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!--For Date-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/atatanasov/gijgo@1.8.0/dist/combined/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://cdn.jsdelivr.net/gh/atatanasov/gijgo@1.8.0/dist/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
 <link href="/resources/css/index.css" rel="stylesheet">
 <title>Collections management</title>
@@ -43,13 +46,26 @@
                                 <div class="col-10 ml-auto" style="color: red;">
                                     <form:errors path="name" />
                                 </div>
-                            </div>
+                            </div> 
                             <div class="form-group row">
                                 <label class="col-2 col-form-label" for="name">Name:</label>
                                 <div class="col-10">
                                     <form:input class="form-control" id="name" path="name"/>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-10 ml-auto" style="color: red;">
+                                    <form:errors path="date" />
+                                </div>
+                            </div> 
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="name">Date:</label>
+                                <div class="col-10">
+                                    <input id="datepicker" width="276" />
+                                    <script>$('#datepicker').datepicker({uiLibrary: 'bootstrap4'});</script>
+                                </div>
+                            </div>
+                            
                             <div class="row">
                                 <div class="col-10 ml-auto" style="color: red;">
                                     <form:errors path="text" />
@@ -86,7 +102,7 @@
                         </div>
                     </div>
                     <div class="col-2">
-                        <custom:size posibleSizes="1,2,5,10" size="${collections.size}" />
+                        <custom:size posibleSizes="1,2,5,10" size="${showCollections.size}" />
                     </div>			
 		        </div>
 		        <br>
@@ -118,7 +134,7 @@
                                         <a href="/admin/adminCollections/delete/${showCollection.id}<custom:allParams/>"	class="btn btn-outline-danger btn-sm margin">Delete</a>
                                     </td>
                                     <td class="text-center">
-                                        <img src="${collection.photoUrl}?version=${showCollection.version}" style="width: 100px;">
+                                        <img src="${showCollection.photoUrl}?version=${showCollection.version}" style="width: 100px;">
                                     </td>
                                 </tr>
                             </c:forEach>

@@ -14,7 +14,7 @@ public abstract class AbstractEntityName extends AbstractEntity {
 
 	@UniqueTypeOfCollection(message = "Such an ingredient already exists", groups = TypeOfCollectionFlag.class)
 	@NotBlank(message = "This field cannot be blank", groups = { Collection.class, TypeOfCollectionFlag.class})
-	@List({@Pattern(regexp = "^[A-Za-z0-9]+| *$", message = "The 'Name' should have at least 1 letter",	
+	@List({@Pattern(regexp = "^[A-Za-z0-9 _-]+| *$", message = "The 'Name' should have at least 1 letter",	
 		groups = {Collection.class, TypeOfCollectionFlag.class})})
 	private String name;
 

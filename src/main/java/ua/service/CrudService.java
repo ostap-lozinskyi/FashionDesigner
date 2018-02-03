@@ -12,4 +12,5 @@ public interface CrudService<T, ID extends Serializable> {
 	void save(T entity);
 	
 	void delete(ID id);
+	
 }

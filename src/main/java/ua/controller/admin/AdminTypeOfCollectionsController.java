@@ -28,7 +28,7 @@ import ua.validation.flag.TypeOfCollectionFlag;
 
 @Controller
 @RequestMapping("/admin/adminTypeOfCollections")
-@SessionAttributes("typeOfcollection")
+@SessionAttributes("typeOfCollection")
 public class AdminTypeOfCollectionsController {
 	
 	private final TypeOfCollectionService typeOfCollectionService;
@@ -86,15 +86,18 @@ public class AdminTypeOfCollectionsController {
 			@ModelAttribute("simpleFilter") SimpleFilter simpleFilter) {
 		if (br.hasErrors())
 			return showTypeOfCollection(model, pageable, simpleFilter);
-		typeOfCollectionService.save(typeOfCollection);
 		System.out.println(typeOfCollection.getId());
+		System.out.println(model.asMap());
+		typeOfCollectionService.save(typeOfCollection);
 		return cancel(status, pageable, simpleFilter);
 	}
 
 	@GetMapping("/update/{id}")
 	public String update(@PathVariable Integer id, Model model, @PageableDefault Pageable pageable,
 			@ModelAttribute("simpleFilter") SimpleFilter simpleFilter) {
-		model.addAttribute("typeOfCollection", typeOfCollectionService.findOne(id));		
+		System.out.println(id);
+		model.addAttribute("typeOfCollection", typeOfCollectionService.findOne(id));
+		System.out.println(model.asMap());
 		return showTypeOfCollection(model, pageable, simpleFilter);
 	}
 
