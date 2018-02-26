@@ -17,13 +17,13 @@
 <link href="https://cdn.jsdelivr.net/gh/atatanasov/gijgo@1.8.0/dist/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
 <link href="/resources/css/index.css" rel="stylesheet">
-<title>Collections management</title>
+<title>Clothing Models management</title>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="text-center">Collections management</h1>
+				<h1 class="text-center">Clothing Models management</h1>
 			</div>
 		</div>
 		<div class="row">
@@ -32,16 +32,16 @@
 					<a class="btn btn-outline-primary" href="/">Головна сторінка</a>
 					<a class="btn btn-outline-primary" href="/admin">Admin</a>
 					<a class="btn btn-outline-primary" href="/admin/adminUsers">Users</a>
-					<a class="btn btn-outline-primary" href="/admin/adminClothingModels">Clothing Models Manag.</a>					
-					<a class="btn btn-primary" href="/admin/adminCollections">Collections Manag.</a>
+					<a class="btn btn-primary" href="/admin/adminClothingModels">Clothing Models Manag.</a>					
+					<a class="btn btn-outline-primary" href="/admin/adminCollections">Collections Manag.</a>
 					<a class="btn btn-outline-primary" href="/admin/adminTypeOfCollections">Type Of Collections</a>
-				</div>									
+				</div>								
 			</div>			
 			<div class="col-lg-10 col-sm-12">
                 <div class="row">
                     <div class="col-12">
                         <h3>Add new collection</h3>
-                        <form:form action="/admin/adminCollections" method="POST" modelAttribute="collection" enctype="multipart/form-data">
+                        <form:form action="/admin/adminClothingModels" method="POST" modelAttribute="clothingModel" enctype="multipart/form-data">
                             <custom:hiddenInputs excludeParams="name, text, _csrf"/>
                             <div class="row">
                                 <div class="col-10 ml-auto" style="color: red;">
@@ -65,8 +65,7 @@
                                     <form:input class="form-control" id="datepicker" path="date" placeholder="Select Date" width="276"/>
                                     <script>$('#datepicker').datepicker({uiLibrary: 'bootstrap4'});</script>
                                 </div>
-                            </div>
-                            
+                            </div>                            
                             <div class="row">
                                 <div class="col-10 ml-auto" style="color: red;">
                                     <form:errors path="text" />
@@ -87,7 +86,7 @@
                             <div class="form-group row">
                                 <div class="col-8 mr-auto">
                                     <button class="btn btn-sm btn-outline-primary">Save</button>
-                                    <a href="/admin/adminCollections/cancel<custom:allParams/>" class="btn btn-sm btn-outline-warning">Cancel</a>
+                                    <a href="/admin/adminClothingModels/cancel<custom:allParams/>" class="btn btn-sm btn-outline-warning">Cancel</a>
                                 </div>
                             </div>
                         </form:form>
@@ -103,7 +102,7 @@
                         </div>
                     </div>
                     <div class="col-2">
-                        <custom:size posibleSizes="1,2,5,10" size="${showCollections.size}" />
+                        <custom:size posibleSizes="1,2,5,10" size="${showClothingModels.size}" />
                     </div>			
 		        </div>
 		        <br>
@@ -122,22 +121,22 @@
                                 <th class="text-center">Options</th>
                                 <th class="text-center">Photo</th>
                             </tr>
-                            <c:if test="${empty showCollections.content}">
+                            <c:if test="${empty showClothingModels.content}">
                                 <tr>
                                 <td colspan=7><h3 class="text-center">Collections with such parameters not found</h3></td>
                                 </tr>
                             </c:if>
-                            <c:forEach var="showCollection" items="${showCollections.content}">
+                            <c:forEach var="showClothingModel" items="${showClothingModels.content}">
                                 <tr>
-                                    <td>${showCollection.name}</td>
-                                    <td>${showCollection.date}</td>
-                                    <td>${showCollection.text}</td>
+                                    <td>${showClothingModel.name}</td>
+                                    <td>${showClothingModel.date}</td>
+                                    <td>${showClothingModel.text}</td>
                                     <td class="text-center">
-                                        <a href="/admin/adminCollections/update/${showCollection.id}<custom:allParams/>"	class="btn btn-outline-warning btn-sm margin">Update</a>
-                                        <a href="/admin/adminCollections/delete/${showCollection.id}<custom:allParams/>"	class="btn btn-outline-danger btn-sm margin">Delete</a>
+                                        <a href="/admin/adminCollections/update/${showClothingModel.id}<custom:allParams/>"	class="btn btn-outline-warning btn-sm margin">Update</a>
+                                        <a href="/admin/adminCollections/delete/${showClothingModel.id}<custom:allParams/>"	class="btn btn-outline-danger btn-sm margin">Delete</a>
                                     </td>
                                     <td class="text-center">
-                                        <img src="${showCollection.photoUrl}?version=${showCollection.version}" style="width: 100px;">
+                                        <img src="${showClothingModel.photoUrl}?version=${showClothingModel.version}" style="width: 100px;">
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -146,7 +145,7 @@
 		        </div>
                 <div class="row">
                     <div class="col-12">
-                        <custom:pageable page="${showCollections}"/>
+                        <custom:pageable page="${showClothingModels}"/>
                     </div>
                 </div>		    
 			</div>

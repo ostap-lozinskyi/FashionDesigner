@@ -26,10 +26,11 @@
 				<div class="btn-group-vertical text-center" role="group" aria-label="Basic example">
 					<a class="btn btn-outline-primary" href="/">Головна сторінка</a>
 					<a class="btn btn-outline-primary" href="/admin">Admin</a>
-					<a class="btn btn-outline-primary" href="/admin/adminUsers">Users</a>					
+					<a class="btn btn-outline-primary" href="/admin/adminUsers">Users</a>
+					<a class="btn btn-outline-primary" href="/admin/adminClothingModels">Clothing Models Manag.</a>					
 					<a class="btn btn-outline-primary" href="/admin/adminCollections">Collections Manag.</a>
 					<a class="btn btn-primary" href="/admin/adminTypeOfCollections">Type Of Collections</a>
-				</div>				
+				</div>					
 			</div>	
 			<div class="col-lg-10 col-sm-12">
                 <div class="row">

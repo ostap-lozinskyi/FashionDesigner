@@ -23,34 +23,34 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
-import ua.model.filter.CollectionFilter;
+import ua.model.filter.ClothingModelFilter;
 import ua.model.request.FileRequest;
-import ua.model.request.CollectionRequest;
-import ua.service.CollectionService;
-import ua.validation.flag.CollectionFlag;
+import ua.model.request.ClothingModelRequest;
+import ua.service.ClothingModelService;
+import ua.validation.flag.ClothingModelFlag;
 
 @Controller
-@RequestMapping("/admin/adminCollections")
-@SessionAttributes("collection")
-public class AdminCollectionsController {
+@RequestMapping("/admin/adminClothingModels")
+@SessionAttributes("clothingModel")
+public class AdminClothingModelsController {
 	
-	private final CollectionService collectionService;
+	private final ClothingModelService clothingModelService;
 	
 	String error = "";
 	
 	@Autowired
-	public AdminCollectionsController(CollectionService service) {
-		this.collectionService = service;
+	public AdminClothingModelsController(ClothingModelService clothingModelService) {
+		this.clothingModelService = clothingModelService;
 	}
 
-	@ModelAttribute("collection")
-	public CollectionRequest getForm() {
-		return new CollectionRequest();
+	@ModelAttribute("clothingModel")
+	public ClothingModelRequest getForm() {
+		return new ClothingModelRequest();
 	}
 	
-	@ModelAttribute("collectionFilter")
-	public CollectionFilter getFilter() {
-		return new CollectionFilter();
+	@ModelAttribute("clothingModelFilter")
+	public ClothingModelFilter getFilter() {
+		return new ClothingModelFilter();
 	}
 	
 	@ModelAttribute("fileRequest")
@@ -59,72 +59,72 @@ public class AdminCollectionsController {
 	}
 
 	/**
-	 * Show Collections page
+	 * Show Clothing Models page
 	 */
 	@GetMapping
-	public String showCollections(Model model, @PageableDefault Pageable pageable, @ModelAttribute("collectionFilter") CollectionFilter filter) {
-		model.addAttribute("showCollections", collectionService.findAllCollectionViews(filter, pageable));
+	public String showClothingModel(Model model, @PageableDefault Pageable pageable, @ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
+		model.addAttribute("showClothingModels", clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable));
 		model.addAttribute("error", error);
 		error = "";
-		if (collectionService.findAllCollectionViews(filter, pageable).hasContent()||pageable.getPageNumber()==0)
-			return "adminCollections";
+		if (clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable).hasContent()||pageable.getPageNumber()==0)
+			return "adminClothingModels";
 		else
-			return "redirect:/admin/adminCollections"+buildParams(pageable, filter);
+			return "redirect:/admin/adminClothingModels"+buildParams(pageable, clothingModelFilter);
 	}
 
 	/**
-	 * Deleting Collection
+	 * Deleting ClothingModel
 	 */
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
-			@ModelAttribute("collectionFilter") CollectionFilter filter) {
-		collectionService.deleteCollection(id);
-		return "redirect:/admin/adminCollections"+buildParams(pageable, filter);
+			@ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
+		clothingModelService.deleteClothingModel(id);
+		return "redirect:/admin/adminClothingModels"+buildParams(pageable, clothingModelFilter);
 	}
 	
-	@ExceptionHandler({SQLException.class,DataAccessException.class})
-	public String databaseError() {
-		error = "You can't delete this collection because it is used!";
-		return "redirect:/admin/adminCollections";
-	}
+//	@ExceptionHandler({SQLException.class,DataAccessException.class})
+//	public String databaseError() {
+//		error = "You can't delete this clothingModel because it is used!";
+//		return "redirect:/admin/adminClothingModels";
+//	}
 
 	@PostMapping
-	public String save(@ModelAttribute("collection") @Validated(CollectionFlag.class) CollectionRequest request, BindingResult br,
+	public String save(@ModelAttribute("clothingModel") @Validated(ClothingModelFlag.class) ClothingModelRequest request, BindingResult br,
 			Model model, SessionStatus status, @PageableDefault Pageable pageable,
-			@ModelAttribute("collectionFilter") CollectionFilter filter,  @ModelAttribute("fileRequest") FileRequest fileRequest) {
+			@ModelAttribute("clothingModelFilter") ClothingModelFilter filter,  @ModelAttribute("fileRequest") FileRequest fileRequest) {
 		if (br.hasErrors())
-			return showCollections(model, pageable, filter);
+			return showClothingModel(model, pageable, filter);
 		MultipartFile multipartFile = fileRequest.getFile();
 		try {
 			if(!multipartFile.isEmpty()) {
-				collectionService.saveCollection(collectionService.uploadPhotoToCloudinary(request, multipartFile));
+				clothingModelService.saveClothingModel(clothingModelService.uploadPhotoToCloudinary(request, multipartFile));
 			} else {
-				collectionService.saveCollection(request);
+				clothingModelService.saveClothingModel(request);
 			}			
 		} catch (IOException e) {
-			collectionService.saveCollection(request);
+			clothingModelService.saveClothingModel(request);
 		}
 		return cancel(status, pageable, filter);
 	}
 
 	@GetMapping("/update/{id}")
 	public String update(@PathVariable Integer id, Model model, @PageableDefault Pageable pageable,
-			@ModelAttribute("collectionFilter") CollectionFilter filter) {
-		model.addAttribute("collection", collectionService.findOneRequest(id));
-		return showCollections(model, pageable, filter);
+			@ModelAttribute("clothingModelFilter") ClothingModelFilter filter) {
+		model.addAttribute("clothingModel", clothingModelService.findOneRequest(id));
+		return showClothingModel(model, pageable, filter);
 	}
 
 	@GetMapping("/cancel")
 	public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
-			@ModelAttribute("collectionFilter") CollectionFilter filter) {
+			@ModelAttribute("clothingModelFilter") ClothingModelFilter filter) {
 		status.setComplete();
-		return "redirect:/admin/adminCollections"+buildParams(pageable, filter);
+		return "redirect:/admin/adminClothingModels"+buildParams(pageable, filter);
 	}
 	
-	private String buildParams(Pageable pageable, CollectionFilter filter) {
+	private String buildParams(Pageable pageable, ClothingModelFilter filter) {
 		StringBuilder buffer = new StringBuilder();		
 		buffer.append("?page=");
-		if(!(collectionService.findAllCollectionViews(filter, pageable).hasContent())) 
+		if(!(clothingModelService.findAllClothingModelViews(filter, pageable).hasContent())) 
 			buffer.append(String.valueOf(pageable.getPageNumber()));
 		else {
 			buffer.append(String.valueOf(pageable.getPageNumber()));
