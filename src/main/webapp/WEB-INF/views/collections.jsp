@@ -25,22 +25,22 @@
             </div>
         </div>
 		<div class="row">			
-            <div class="col-lg-3 col-md-4">
-                <br>
-                <ul>
-                    <li><a href="/" title="Main page">Main page</a></li> 
-                    <li><a href="/admin" title="Main page">Admin</a></li> 
-                    <li><a href="/admin/adminCollections" title="Collections management">Collections management</a></li>                    
-                </ul>
-                <br> 
+            <div class="col-lg-2 col-sm-12">
+                <div class="btn-group-vertical text-center" role="group" aria-label="Basic example">
+					<a class="btn btn-outline-primary" href="/">Головна сторінка</a>
+					<a class="btn btn-outline-primary" href="/admin">Admin</a>
+					<a class="btn btn-outline-primary" href="/admin/adminUsers">Users</a>
+					<a class="btn btn-outline-primary" href="/admin/adminClothingModels">Clothing Models Man.</a>					
+					<a class="btn btn-primary" href="/admin/adminCollections">Collections Manag.</a>
+					<a class="btn btn-outline-primary" href="/admin/adminTypeOfCollections">Type Of Collections</a>
+				</div>		
             </div>
-			<div class="col-lg-7 col-md-12">
+			<div class="col-lg-10 col-md-12">
 			    <c:if test="${empty collections.content}">
 	    			<h2 class="text-center">Колекції за такими параметрами не знайдено</h2>
 				</c:if>
 				<c:forEach var="collection" items="${collections.content}">
-                    <div class="col-12">
-                        <img src="${collection.photoUrl}?version=${collection.version}" style="width: 100px;">                    
+                    <div class="col-12">                         
                         <a href="/collection/${collection.id}">${collection.name}</a>
                     </div>
 			    </c:forEach>

@@ -29,7 +29,7 @@
 					<a class="btn btn-outline-primary" href="/">Головна сторінка</a>
 					<a class="btn btn-outline-primary" href="/admin">Admin</a>
 					<a class="btn btn-primary" href="/admin/adminUsers">Users</a>
-					<a class="btn btn-outline-primary" href="/admin/adminClothingModels">Clothing Models Manag.</a>						
+					<a class="btn btn-outline-primary" href="/admin/adminClothingModels">Clothing Models Man.</a>						
 					<a class="btn btn-outline-primary" href="/admin/adminCollections">Collections Manag.</a>
 					<a class="btn btn-outline-primary" href="/admin/adminTypeOfCollections">Type Of Collections</a>
 				</div>								

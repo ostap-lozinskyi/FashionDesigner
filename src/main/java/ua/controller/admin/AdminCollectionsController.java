@@ -1,6 +1,5 @@
 package ua.controller.admin;
 
-import java.io.IOException;
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.multipart.MultipartFile;
 
 import ua.model.filter.CollectionFilter;
 import ua.model.request.FileRequest;
@@ -91,19 +89,10 @@ public class AdminCollectionsController {
 	@PostMapping
 	public String save(@ModelAttribute("collection") @Validated(CollectionFlag.class) CollectionRequest request, BindingResult br,
 			Model model, SessionStatus status, @PageableDefault Pageable pageable,
-			@ModelAttribute("collectionFilter") CollectionFilter filter,  @ModelAttribute("fileRequest") FileRequest fileRequest) {
+			@ModelAttribute("collectionFilter") CollectionFilter filter) {
 		if (br.hasErrors())
 			return showCollections(model, pageable, filter);
-		MultipartFile multipartFile = fileRequest.getFile();
-		try {
-			if(!multipartFile.isEmpty()) {
-				collectionService.saveCollection(collectionService.uploadPhotoToCloudinary(request, multipartFile));
-			} else {
-				collectionService.saveCollection(request);
-			}			
-		} catch (IOException e) {
-			collectionService.saveCollection(request);
-		}
+		collectionService.saveCollection(request);
 		return cancel(status, pageable, filter);
 	}
 

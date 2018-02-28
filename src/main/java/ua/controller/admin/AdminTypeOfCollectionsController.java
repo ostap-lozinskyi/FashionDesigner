@@ -86,8 +86,6 @@ public class AdminTypeOfCollectionsController {
 			@ModelAttribute("simpleFilter") SimpleFilter simpleFilter) {
 		if (br.hasErrors())
 			return showTypeOfCollection(model, pageable, simpleFilter);
-		System.out.println(typeOfCollection.getId());
-		System.out.println(model.asMap());
 		typeOfCollectionService.save(typeOfCollection);
 		return cancel(status, pageable, simpleFilter);
 	}

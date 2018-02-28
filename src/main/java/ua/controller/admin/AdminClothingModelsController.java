@@ -82,11 +82,11 @@ public class AdminClothingModelsController {
 		return "redirect:/admin/adminClothingModels"+buildParams(pageable, clothingModelFilter);
 	}
 	
-//	@ExceptionHandler({SQLException.class,DataAccessException.class})
-//	public String databaseError() {
-//		error = "You can't delete this clothingModel because it is used!";
-//		return "redirect:/admin/adminClothingModels";
-//	}
+	@ExceptionHandler({SQLException.class,DataAccessException.class})
+	public String databaseError() {
+		error = "You can't delete this clothingModel because it is used!";
+		return "redirect:/admin/adminClothingModels";
+	}
 
 	@PostMapping
 	public String save(@ModelAttribute("clothingModel") @Validated(ClothingModelFlag.class) ClothingModelRequest request, BindingResult br,

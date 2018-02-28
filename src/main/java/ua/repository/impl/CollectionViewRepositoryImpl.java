@@ -34,8 +34,7 @@ public class CollectionViewRepositoryImpl implements CollectionViewRepository{
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<CollectionView> cq = cb.createQuery(CollectionView.class).distinct(true);
 		Root<Collection> root = cq.from(Collection.class);
-		cq.multiselect(root.get(Collection_.id), root.get("name"), root.get("text"), root.get("date"), 
-				root.get("photoUrl"), root.get("version"));
+		cq.multiselect(root.get(Collection_.id), root.get("name"), root.get("text"));
 		Predicate predicate = new PredicateBuilder(cb, root, filter).toPredicate();
 		if(predicate!=null) cq.where(predicate);
 		cq.orderBy(toOrders(pageable.getSort(), root, cb));

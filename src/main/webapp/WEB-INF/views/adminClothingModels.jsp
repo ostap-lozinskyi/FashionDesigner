@@ -32,7 +32,7 @@
 					<a class="btn btn-outline-primary" href="/">Головна сторінка</a>
 					<a class="btn btn-outline-primary" href="/admin">Admin</a>
 					<a class="btn btn-outline-primary" href="/admin/adminUsers">Users</a>
-					<a class="btn btn-primary" href="/admin/adminClothingModels">Clothing Models Manag.</a>					
+					<a class="btn btn-primary" href="/admin/adminClothingModels">Clothing Models Man.</a>					
 					<a class="btn btn-outline-primary" href="/admin/adminCollections">Collections Manag.</a>
 					<a class="btn btn-outline-primary" href="/admin/adminTypeOfCollections">Type Of Collections</a>
 				</div>								
@@ -40,7 +40,7 @@
 			<div class="col-lg-10 col-sm-12">
                 <div class="row">
                     <div class="col-12">
-                        <h3>Add new collection</h3>
+                        <h3>Add new Clothing Model</h3>
                         <form:form action="/admin/adminClothingModels" method="POST" modelAttribute="clothingModel" enctype="multipart/form-data">
                             <custom:hiddenInputs excludeParams="name, text, _csrf"/>
                             <div class="row">
@@ -132,8 +132,8 @@
                                     <td>${showClothingModel.date}</td>
                                     <td>${showClothingModel.text}</td>
                                     <td class="text-center">
-                                        <a href="/admin/adminCollections/update/${showClothingModel.id}<custom:allParams/>"	class="btn btn-outline-warning btn-sm margin">Update</a>
-                                        <a href="/admin/adminCollections/delete/${showClothingModel.id}<custom:allParams/>"	class="btn btn-outline-danger btn-sm margin">Delete</a>
+                                        <a href="/admin/adminClothingModels/update/${showClothingModel.id}<custom:allParams/>"	class="btn btn-outline-warning btn-sm margin">Update</a>
+                                        <a href="/admin/adminClothingModels/delete/${showClothingModel.id}<custom:allParams/>"	class="btn btn-outline-danger btn-sm margin">Delete</a>
                                     </td>
                                     <td class="text-center">
                                         <img src="${showClothingModel.photoUrl}?version=${showClothingModel.version}" style="width: 100px;">

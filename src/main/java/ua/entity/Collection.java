@@ -17,22 +17,13 @@ public class Collection extends AbstractEntityName {
 	@Column(columnDefinition = "TEXT")
 	private String text;
 	
-	private String photoUrl;
-	
-	private String date;
-
-	private int version;
-
 	public Collection() {
 	}
 
-	public Collection(String name, TypeOfCollection typeOfCollection, String text, String photoUrl, String date, int version) {
+	public Collection(String name, TypeOfCollection typeOfCollection, String text) {
 		super(name);
 		this.typeOfCollection = typeOfCollection;
 		this.text = text;
-		this.photoUrl = photoUrl;
-		this.date = date;
-		this.version = version;
 	}
 
 	public TypeOfCollection getTypeOfCollection() {
@@ -51,28 +42,4 @@ public class Collection extends AbstractEntityName {
 		this.text = text;
 	}
 
-	public String getPhotoUrl() {
-		return photoUrl;
-	}
-
-	public void setPhotoUrl(String photoUrl) {
-		this.photoUrl = photoUrl;
-	}
-
-	public int getVersion() {
-		return version;
-	}
-
-	public void setVersion(int version) {
-		this.version = version;
-	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
-	}
-	
 }

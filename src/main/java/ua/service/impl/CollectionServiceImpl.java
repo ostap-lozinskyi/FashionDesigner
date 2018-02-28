@@ -1,18 +1,12 @@
 package ua.service.impl;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.cloudinary.Cloudinary;
-import com.cloudinary.utils.ObjectUtils;
 
 import ua.entity.Collection;
 import ua.model.filter.CollectionFilter;
@@ -39,10 +33,10 @@ public class CollectionServiceImpl implements CollectionService {
 	}
 
 
-	@Override
-	public List<CollectionView> findCollectionsViewsByDate() {
-		return collectionRepository.findCollectionViewsByDate();
-	}
+//	@Override
+//	public List<CollectionView> findCollectionsViewsByDate() {
+//		return collectionRepository.findCollectionViewsByDate();
+//	}
 	
 	@Override
 	public Page<CollectionView> findAllCollectionViews(CollectionFilter filter, Pageable pageable) {
@@ -55,9 +49,6 @@ public class CollectionServiceImpl implements CollectionService {
 		collection.setId(collectionRequest.getId());
 		collection.setName(collectionRequest.getName());
 		collection.setText(collectionRequest.getText());
-		collection.setDate(collectionRequest.getDate());
-		collection.setPhotoUrl(collectionRequest.getPhotoUrl());
-		collection.setVersion(collectionRequest.getVersion());
 		collectionRepository.save(collection);
 	}
 
@@ -68,9 +59,6 @@ public class CollectionServiceImpl implements CollectionService {
 		collectionRequest.setId(collection.getId());
 		collectionRequest.setName(collection.getName());
 		collectionRequest.setText(collection.getText());
-		collectionRequest.setDate(collection.getDate());
-		collectionRequest.setPhotoUrl(collection.getPhotoUrl());
-		collectionRequest.setVersion(collection.getVersion());
 		return collectionRequest;
 	}
 
@@ -82,21 +70,6 @@ public class CollectionServiceImpl implements CollectionService {
 	@Override
 	public CollectionView findCollectionViewById(Integer id) {
 		return collectionRepository.findCollectionViewById(id);
-	}
-	
-	public CollectionRequest uploadPhotoToCloudinary(CollectionRequest request, MultipartFile multipartFile) throws IOException {
-			@SuppressWarnings("rawtypes")
-			Map uploadResult = cloudinary.uploader().upload(multipartFile.getBytes(),
-					ObjectUtils.asMap("use_filename", "true", "unique_filename", "false"));
-			String cloudinaryUrl = (String) uploadResult.get("url");
-			String oldPhotoUrl = request.getPhotoUrl();
-			if ((oldPhotoUrl != null) && (oldPhotoUrl.equals(cloudinaryUrl))) {
-				request.setVersion(request.getVersion() + 1);
-			} else {
-				request.setVersion(0);
-			}
-			request.setPhotoUrl(cloudinaryUrl);
-		return request;
 	}
 	
 }

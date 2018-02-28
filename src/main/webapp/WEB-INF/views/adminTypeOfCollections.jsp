@@ -18,7 +18,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="text-center">TypeOfCollections</h1>
+				<h1 class="text-center">Type Of Collections management</h1>
 			</div>
 		</div>
 		<div class="row">
@@ -27,7 +27,7 @@
 					<a class="btn btn-outline-primary" href="/">Головна сторінка</a>
 					<a class="btn btn-outline-primary" href="/admin">Admin</a>
 					<a class="btn btn-outline-primary" href="/admin/adminUsers">Users</a>
-					<a class="btn btn-outline-primary" href="/admin/adminClothingModels">Clothing Models Manag.</a>					
+					<a class="btn btn-outline-primary" href="/admin/adminClothingModels">Clothing Models Man.</a>					
 					<a class="btn btn-outline-primary" href="/admin/adminCollections">Collections Manag.</a>
 					<a class="btn btn-primary" href="/admin/adminTypeOfCollections">Type Of Collections</a>
 				</div>					
@@ -35,7 +35,7 @@
 			<div class="col-lg-10 col-sm-12">
                 <div class="row">
                     <div class="col-12">
-                        <h3>Add new TypeOfCollections</h3>
+                        <h3>Add new Type Of Collections</h3>
                         <form:form action="/admin/adminTypeOfCollections" method="POST" modelAttribute="typeOfCollection">
                             <custom:hiddenInputs excludeParams="name, _csrf"/>
                             <div class="row">
