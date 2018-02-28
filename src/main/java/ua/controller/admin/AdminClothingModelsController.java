@@ -64,6 +64,7 @@ public class AdminClothingModelsController {
 	@GetMapping
 	public String showClothingModel(Model model, @PageableDefault Pageable pageable, @ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
 		model.addAttribute("showClothingModels", clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable));
+		model.addAttribute("collections", clothingModelService.findAllCollectionNames());
 		model.addAttribute("error", error);
 		error = "";
 		if (clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable).hasContent()||pageable.getPageNumber()==0)

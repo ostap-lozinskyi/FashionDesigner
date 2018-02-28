@@ -1,7 +1,5 @@
 package ua.model.view;
 
-import ua.entity.Collection;
-
 public class ClothingModelView {
 
 	private Integer id;
@@ -14,19 +12,20 @@ public class ClothingModelView {
 	
 	private String furniture;
 
-	private Collection collection;	
+	private String collection;	
 	
 	private String photoUrl;	
 
 	private int version;
 	
-	public ClothingModelView(Integer id, String name, String date, String text, String furniture, String photoUrl,
-			int version) {
+	public ClothingModelView(Integer id, String name, String date, String text, String furniture, String collection, 
+			String photoUrl, int version) {
 		this.id = id;
 		this.name = name;
 		this.date = date;
 		this.text = text;
 		this.furniture = furniture;
+		this.collection = collection;
 		this.photoUrl = photoUrl;
 		this.version = version;
 	}
@@ -71,11 +70,11 @@ public class ClothingModelView {
 		this.furniture = furniture;
 	}
 
-	public Collection getCollection() {
+	public String getCollection() {
 		return collection;
 	}
 
-	public void setCollection(Collection collection) {
+	public void setCollection(String collection) {
 		this.collection = collection;
 	}
 

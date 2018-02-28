@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
@@ -18,6 +19,8 @@ import org.springframework.data.repository.support.PageableExecutionUtils;
 import org.springframework.stereotype.Repository;
 
 import ua.entity.ClothingModel;
+import ua.entity.ClothingModel_;
+import ua.entity.Collection;
 import ua.entity.Collection_;
 import ua.model.filter.ClothingModelFilter;
 import ua.model.view.ClothingModelView;
@@ -33,9 +36,10 @@ public class ClothingModelViewRepositoryImpl implements ClothingModelViewReposit
 	public Page<ClothingModelView> findAllClothingModelView(ClothingModelFilter filter, Pageable pageable) {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<ClothingModelView> cq = cb.createQuery(ClothingModelView.class).distinct(true);
-		Root<ClothingModel> root = cq.from(ClothingModel.class);		
+		Root<ClothingModel> root = cq.from(ClothingModel.class);
+		Join<ClothingModel, Collection> join = root.join(ClothingModel_.collection);
 		cq.multiselect(root.get(Collection_.id), root.get("name"), root.get("date"), root.get("text"), root.get("furniture"),  
-				root.get("photoUrl"), root.get("version"));
+				join.get("name"), root.get("photoUrl"), root.get("version"));
 		Predicate predicate = new PredicateBuilder(cb, root, filter).toPredicate();
 		if(predicate!=null) cq.where(predicate);
 		cq.orderBy(toOrders(pageable.getSort(), root, cb));

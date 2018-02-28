@@ -20,6 +20,7 @@ import ua.model.request.ClothingModelRequest;
 import ua.model.view.ClothingModelView;
 import ua.repository.ClothingModelRepository;
 import ua.repository.ClothingModelViewRepository;
+import ua.repository.CollectionRepository;
 import ua.service.ClothingModelService;
 
 @Service
@@ -29,13 +30,17 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 	
 	private final ClothingModelViewRepository clothingModelViewRepository;
 	
+	private final CollectionRepository collectionRepository;
+	
 	@Value("${cloudinary.url}")
 	Cloudinary cloudinary = new Cloudinary();
 
 	@Autowired
-	public ClothingModelServiceImpl(ClothingModelRepository clothingModelRepository, ClothingModelViewRepository clothingModelViewRepository) {
+	public ClothingModelServiceImpl(ClothingModelRepository clothingModelRepository, ClothingModelViewRepository clothingModelViewRepository,
+			CollectionRepository collectionRepository) {
 		this.clothingModelRepository = clothingModelRepository;
 		this.clothingModelViewRepository = clothingModelViewRepository;
+		this.collectionRepository = collectionRepository;
 	}
 
 
@@ -56,6 +61,7 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 		clothingModel.setName(clothingModelRequest.getName());
 		clothingModel.setText(clothingModelRequest.getText());
 		clothingModel.setDate(clothingModelRequest.getDate());
+		clothingModel.setCollection(clothingModelRequest.getCollection());
 		clothingModel.setPhotoUrl(clothingModelRequest.getPhotoUrl());
 		clothingModel.setVersion(clothingModelRequest.getVersion());
 		clothingModelRepository.save(clothingModel);
@@ -69,6 +75,7 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 		clothingModelRequest.setName(clothingModel.getName());
 		clothingModelRequest.setText(clothingModel.getText());
 		clothingModelRequest.setDate(clothingModel.getDate());
+		clothingModelRequest.setCollection(clothingModel.getCollection());
 		clothingModelRequest.setPhotoUrl(clothingModel.getPhotoUrl());
 		clothingModelRequest.setVersion(clothingModel.getVersion());
 		return clothingModelRequest;
@@ -97,6 +104,11 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 			}
 			clothingModelRequest.setPhotoUrl(cloudinaryUrl);
 		return clothingModelRequest;
+	}
+	
+	@Override
+	public List<String> findAllCollectionNames() {
+		return collectionRepository.findAllCollectionsNames();
 	}
 	
 }

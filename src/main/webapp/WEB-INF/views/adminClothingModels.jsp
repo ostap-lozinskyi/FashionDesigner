@@ -77,6 +77,20 @@
                                     <form:textarea class="form-control" id="text" path="text"/>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-10 ml-auto" style="color: red;">
+                                    <form:errors path="collection" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="collection">Collection:</label>
+                                <div class="col-10">
+                                    <form:select class="form-control" id="collection" path="collection" onchange="${collections}">
+                                        <form:option value="" label="Select Collection" style="color: gray;"/>
+                                        <form:options items="${collections}"/>
+                                    </form:select>
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label class="col-2 col-form-label" for="file">Photo:</label>
                                 <div class="col-10">
@@ -118,6 +132,7 @@
                                 <th class="text-center">Name</th>
                                 <th class="text-center">Date</th>
                                 <th class="text-center">Text</th>
+                                <th class="text-center">Collection</th>
                                 <th class="text-center">Options</th>
                                 <th class="text-center">Photo</th>
                             </tr>
@@ -131,6 +146,7 @@
                                     <td>${showClothingModel.name}</td>
                                     <td>${showClothingModel.date}</td>
                                     <td>${showClothingModel.text}</td>
+                                    <td>${showClothingModel.collection}</td>
                                     <td class="text-center">
                                         <a href="/admin/adminClothingModels/update/${showClothingModel.id}<custom:allParams/>"	class="btn btn-outline-warning btn-sm margin">Update</a>
                                         <a href="/admin/adminClothingModels/delete/${showClothingModel.id}<custom:allParams/>"	class="btn btn-outline-danger btn-sm margin">Delete</a>
