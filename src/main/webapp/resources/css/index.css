@@ -3,3 +3,31 @@
     padding: 0;
 }
 
+a {
+    color: white;
+    padding: 20px;      
+}
+
+a:hover {
+    color: white; 
+    text-decoration: none;
+}
+
+.header {
+    background-color: black;
+    height: 50px;
+    text-align: center;
+    padding: 10px;    
+}
+
+.logo {
+	width: 40%;
+    display: block;
+    margin: 0 auto; 
+}
+
+.mainImg {
+    width: 33%;
+    
+}
+

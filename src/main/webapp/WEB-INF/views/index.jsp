@@ -16,30 +16,31 @@
                     <link href="/resources/css/index.css" rel="stylesheet">
                 </head>
                 <body>
-                    <div class="container">
-                        <br>
-                        <br>                              
-                        <div class="btn-group">
-						  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						    Collections
-						  </button>
-						  <div class="dropdown-menu">
-						    <a class="dropdown-item" href="/collections">Store</a>
-						    <a class="dropdown-item" href="#">Haute Couture</a>						    
-						  </div>
-						</div>
-						<div class="btn-group">
-						  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						    Storage
-						  </button>
-						  <div class="dropdown-menu">
-						    <a class="dropdown-item" href="#">Cloth</a>
-						    <a class="dropdown-item" href="#">Furniture</a>
-						    <a class="dropdown-item" href="#">Accessories</a>							    
-						  </div>
-						</div>
-						<a class="btn btn-outline-primary" href="/admin/adminUser">Events</a>
-						<a class="btn btn-outline-primary" href="/admin">Admin</a>
+                    <div class="header">
+                        <a class="dropd" href="/collections">Store</a>
+				        <a class="dropd" href="#">Haute Couture</a>  
+                        <a class="dropd-item" href="#">Cloth</a>
+				        <a class="dropd-item" href="#">Furniture</a>
+				        <a class="dropd-item" href="#">Accessories</a>
+                        <a class="dropd" href="/admin/adminUser">Events</a>
+						<a class="dropd" href="/admin">Admin</a>       
+                    </div>
+                    <div class="container">                        
+                        <div class="row">
+                            <div class="col-12 divLogo">
+                                <img src="/resources/img/olha-lozinska-logo.png" class="logo">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <img src="/resources/img/1.jpeg" class="mainImg">
+                                <img src="/resources/img/2.JPG" class="mainImg">
+                                <img src="/resources/img/3.JPG" class="mainImg">
+                            </div>                            
+                        </div> 
+                       
+						
+						
                     </div>
                 </body>
                 </html>
