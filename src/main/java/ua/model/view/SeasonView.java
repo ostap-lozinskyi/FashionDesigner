@@ -1,17 +1,14 @@
 package ua.model.view;
 
-public class CollectionView {
+public class SeasonView {
 
 	private Integer id;
 	
 	private String name;
 	
-	private String text;
-	
-	public CollectionView(Integer id, String name, String text) {
+	public SeasonView(Integer id, String name) {
 		this.id = id;
 		this.name = name;
-		this.text = text;
 	}
 
 	public Integer getId() {
@@ -28,14 +25,6 @@ public class CollectionView {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getText() {
-		return text;
-	}
-
-	public void setText(String text) {
-		this.text = text;
 	}
 
 }

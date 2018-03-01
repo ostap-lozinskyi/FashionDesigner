@@ -10,11 +10,8 @@ import org.springframework.stereotype.Service;
 import com.cloudinary.Cloudinary;
 
 import ua.entity.TypeOfCollection;
-import ua.model.filter.CollectionFilter;
 import ua.model.filter.SimpleFilter;
-import ua.model.view.CollectionView;
 import ua.model.view.TypeOfCollectionView;
-import ua.repository.CollectionViewRepository;
 import ua.repository.TypeOfCollectionRepository;
 import ua.service.TypeOfCollectionService;
 
@@ -23,16 +20,13 @@ public class TypeOfCollectionServiceImpl extends CrudServiceImpl<TypeOfCollectio
 
 	private final TypeOfCollectionRepository typeOfCollectionRepository;
 	
-	private final CollectionViewRepository collectionViewRepository;
-	
 	@Value("${cloudinary.url}")
 	Cloudinary cloudinary = new Cloudinary();
 
 	@Autowired
-	public TypeOfCollectionServiceImpl(TypeOfCollectionRepository typeOfCollectionRepository, CollectionViewRepository collectionViewRepository) {
+	public TypeOfCollectionServiceImpl(TypeOfCollectionRepository typeOfCollectionRepository) {
 		super(typeOfCollectionRepository);
 		this.typeOfCollectionRepository = typeOfCollectionRepository;
-		this.collectionViewRepository = collectionViewRepository;
 	}
 
 	@Override
@@ -52,8 +46,8 @@ public class TypeOfCollectionServiceImpl extends CrudServiceImpl<TypeOfCollectio
 		return typeOfCollectionRepository.findTypeOfCollectionViewById(id);
 	}
 	
-	public Page<CollectionView> findCollectionViewByTypeOfCollectionId(CollectionFilter collectionFilter, Pageable pageable) {
-		return collectionViewRepository.findAllCollectionView(collectionFilter, pageable);
-	}
+//	public Page<SeasonView> findCollectionViewByTypeOfCollectionId(CollectionFilter collectionFilter, Pageable pageable) {
+//		return collectionViewRepository.findAllCollectionView(collectionFilter, pageable);
+//	}
 
 }

@@ -13,9 +13,9 @@ import ua.validation.flag.TypeOfCollectionFlag;
 public abstract class AbstractEntityName extends AbstractEntity {
 
 	@UniqueTypeOfCollection(message = "Such an ingredient already exists", groups = TypeOfCollectionFlag.class)
-	@NotBlank(message = "This field cannot be blank", groups = { Collection.class, TypeOfCollectionFlag.class})
+	@NotBlank(message = "This field cannot be blank", groups = { Season.class, TypeOfCollectionFlag.class})
 	@List({@Pattern(regexp = "^[A-Za-z0-9 _-]+| *$", message = "The 'Name' should have at least 1 letter",	
-		groups = {Collection.class, TypeOfCollectionFlag.class})})
+		groups = {Season.class, TypeOfCollectionFlag.class})})
 	private String name;
 
 	public AbstractEntityName(String name) {

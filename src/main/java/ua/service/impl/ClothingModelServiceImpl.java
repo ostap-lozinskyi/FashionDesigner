@@ -20,7 +20,7 @@ import ua.model.request.ClothingModelRequest;
 import ua.model.view.ClothingModelView;
 import ua.repository.ClothingModelRepository;
 import ua.repository.ClothingModelViewRepository;
-import ua.repository.CollectionRepository;
+import ua.repository.SeasonRepository;
 import ua.service.ClothingModelService;
 
 @Service
@@ -30,17 +30,17 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 	
 	private final ClothingModelViewRepository clothingModelViewRepository;
 	
-	private final CollectionRepository collectionRepository;
+	private final SeasonRepository seasonRepository;
 	
 	@Value("${cloudinary.url}")
 	Cloudinary cloudinary = new Cloudinary();
 
 	@Autowired
 	public ClothingModelServiceImpl(ClothingModelRepository clothingModelRepository, ClothingModelViewRepository clothingModelViewRepository,
-			CollectionRepository collectionRepository) {
+			SeasonRepository seasonRepository) {
 		this.clothingModelRepository = clothingModelRepository;
 		this.clothingModelViewRepository = clothingModelViewRepository;
-		this.collectionRepository = collectionRepository;
+		this.seasonRepository = seasonRepository;
 	}
 
 
@@ -61,7 +61,7 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 		clothingModel.setName(clothingModelRequest.getName());
 		clothingModel.setText(clothingModelRequest.getText());
 		clothingModel.setDate(clothingModelRequest.getDate());
-		clothingModel.setCollection(clothingModelRequest.getCollection());
+		clothingModel.setSeason(clothingModelRequest.getSeason());
 		clothingModel.setPhotoUrl(clothingModelRequest.getPhotoUrl());
 		clothingModel.setVersion(clothingModelRequest.getVersion());
 		clothingModelRepository.save(clothingModel);
@@ -75,7 +75,7 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 		clothingModelRequest.setName(clothingModel.getName());
 		clothingModelRequest.setText(clothingModel.getText());
 		clothingModelRequest.setDate(clothingModel.getDate());
-		clothingModelRequest.setCollection(clothingModel.getCollection());
+		clothingModelRequest.setSeason(clothingModel.getSeason());
 		clothingModelRequest.setPhotoUrl(clothingModel.getPhotoUrl());
 		clothingModelRequest.setVersion(clothingModel.getVersion());
 		return clothingModelRequest;
@@ -107,8 +107,8 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 	}
 	
 	@Override
-	public List<String> findAllCollectionNames() {
-		return collectionRepository.findAllCollectionsNames();
+	public List<String> findAllSeasonNames() {
+		return seasonRepository.findAllSeasonsNames();
 	}
 	
 }

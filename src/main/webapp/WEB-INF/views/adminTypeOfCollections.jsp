@@ -12,30 +12,28 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <link href="/resources/css/index.css" rel="stylesheet">
-<title>TypeOfCollections</title>
+<title>Types management</title>
 </head>
 <body>
+    <div class="header">
+        <a class="dropd" href="/">MAIN PAGE</a>
+        <a class="dropd" href="/admin">ADMIN</a>  
+        <a class="dropd-item" href="/admin/adminUsers">USERS</a>
+        <a class="dropd-item" href="/admin/adminClothingModels">MODELS</a>
+        <a class="dropd-item" href="/admin/adminSeasons">SEASONS</a>
+        <a class="dropd" href="/admin/adminTypeOfCollections">TYPES</a>               
+    </div>
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="text-center">Type Of Collections management</h1>
+				<h1 class="text-center">Types management</h1>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-lg-2 col-sm-12">								
-				<div class="btn-group-vertical text-center" role="group" aria-label="Basic example">
-					<a class="btn btn-outline-primary" href="/">Головна сторінка</a>
-					<a class="btn btn-outline-primary" href="/admin">Admin</a>
-					<a class="btn btn-outline-primary" href="/admin/adminUsers">Users</a>
-					<a class="btn btn-outline-primary" href="/admin/adminClothingModels">Clothing Models Man.</a>					
-					<a class="btn btn-outline-primary" href="/admin/adminCollections">Collections Manag.</a>
-					<a class="btn btn-primary" href="/admin/adminTypeOfCollections">Type Of Collections</a>
-				</div>					
-			</div>	
-			<div class="col-lg-10 col-sm-12">
+		<div class="row">			
+			<div class="col-12">
                 <div class="row">
                     <div class="col-12">
-                        <h3>Add new Type Of Collections</h3>
+                        <h3>Add new Type</h3>
                         <form:form action="/admin/adminTypeOfCollections" method="POST" modelAttribute="typeOfCollection">
                             <custom:hiddenInputs excludeParams="name, _csrf"/>
                             <div class="row">
@@ -86,7 +84,7 @@
                             </tr>
                             <c:if test="${empty showTypeOfCollections.content}">
                                 <tr>
-                                <td colspan=7><h3 class="text-center">Collections with such parameters not found</h3></td>
+                                <td colspan=7><h3 class="text-center">Types with such parameters not found</h3></td>
                                 </tr>
                             </c:if>
                             <c:forEach var="showTypeOfCollection" items="${showTypeOfCollections.content}">

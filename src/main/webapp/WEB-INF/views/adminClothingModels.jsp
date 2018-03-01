@@ -20,24 +20,22 @@
 <title>Clothing Models management</title>
 </head>
 <body>
+    <div class="header">
+        <a class="dropd" href="/">MAIN PAGE</a>
+        <a class="dropd" href="/admin">ADMIN</a>  
+        <a class="dropd-item" href="/admin/adminUsers">USERS</a>
+        <a class="dropd-item" href="/admin/adminClothingModels">MODELS</a>
+        <a class="dropd-item" href="/admin/adminSeasons">SEASONS</a>
+        <a class="dropd" href="/admin/adminTypeOfCollections">TYPES</a>               
+    </div>
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
 				<h1 class="text-center">Clothing Models management</h1>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-lg-2 col-sm-12">				
-				<div class="btn-group-vertical text-center" role="group" aria-label="Basic example">
-					<a class="btn btn-outline-primary" href="/">Головна сторінка</a>
-					<a class="btn btn-outline-primary" href="/admin">Admin</a>
-					<a class="btn btn-outline-primary" href="/admin/adminUsers">Users</a>
-					<a class="btn btn-primary" href="/admin/adminClothingModels">Clothing Models Man.</a>					
-					<a class="btn btn-outline-primary" href="/admin/adminCollections">Collections Manag.</a>
-					<a class="btn btn-outline-primary" href="/admin/adminTypeOfCollections">Type Of Collections</a>
-				</div>								
-			</div>			
-			<div class="col-lg-10 col-sm-12">
+		<div class="row">				
+			<div class="col-12">
                 <div class="row">
                     <div class="col-12">
                         <h3>Add new Clothing Model</h3>
@@ -79,15 +77,15 @@
                             </div>
                             <div class="row">
                                 <div class="col-10 ml-auto" style="color: red;">
-                                    <form:errors path="collection" />
+                                    <form:errors path="season" />
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-2 col-form-label" for="collection">Collection:</label>
+                                <label class="col-2 col-form-label" for="season">Collection:</label>
                                 <div class="col-10">
-                                    <form:select class="form-control" id="collection" path="collection" onchange="${collections}">
-                                        <form:option value="" label="Select Collection" style="color: gray;"/>
-                                        <form:options items="${collections}"/>
+                                    <form:select class="form-control" id="collection" path="season" onchange="${seasons}">
+                                        <form:option value="" label="Select Season" style="color: gray;"/>
+                                        <form:options items="${seasons}"/>
                                     </form:select>
                                 </div>
                             </div>
@@ -132,7 +130,7 @@
                                 <th class="text-center">Name</th>
                                 <th class="text-center">Date</th>
                                 <th class="text-center">Text</th>
-                                <th class="text-center">Collection</th>
+                                <th class="text-center">Season</th>
                                 <th class="text-center">Options</th>
                                 <th class="text-center">Photo</th>
                             </tr>
@@ -146,7 +144,7 @@
                                     <td>${showClothingModel.name}</td>
                                     <td>${showClothingModel.date}</td>
                                     <td>${showClothingModel.text}</td>
-                                    <td>${showClothingModel.collection}</td>
+                                    <td>${showClothingModel.season}</td>
                                     <td class="text-center">
                                         <a href="/admin/adminClothingModels/update/${showClothingModel.id}<custom:allParams/>"	class="btn btn-outline-warning btn-sm margin">Update</a>
                                         <a href="/admin/adminClothingModels/delete/${showClothingModel.id}<custom:allParams/>"	class="btn btn-outline-danger btn-sm margin">Delete</a>

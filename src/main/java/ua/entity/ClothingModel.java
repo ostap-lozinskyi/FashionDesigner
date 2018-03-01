@@ -17,7 +17,7 @@ public class ClothingModel extends AbstractEntityName {
 	private String furniture;
 
 	@ManyToOne(fetch=FetchType.LAZY)
-	private Collection collection;	
+	private Season season;	
 	
 	private String photoUrl;	
 
@@ -26,13 +26,13 @@ public class ClothingModel extends AbstractEntityName {
 	public ClothingModel() {
 	}
 
-	public ClothingModel(String name, String date, String text, String furniture, Collection collection,
+	public ClothingModel(String name, String date, String text, String furniture, Season season,
 			String photoUrl, int version) {
 		super(name);
 		this.date = date;
 		this.text = text;
 		this.furniture = furniture;
-		this.collection = collection;		
+		this.season = season;		
 		this.photoUrl = photoUrl;		
 		this.version = version;
 	}
@@ -61,12 +61,12 @@ public class ClothingModel extends AbstractEntityName {
 		this.furniture = furniture;
 	}
 
-	public Collection getCollection() {
-		return collection;
+	public Season getSeason() {
+		return season;
 	}
 
-	public void setCollection(Collection collection) {
-		this.collection = collection;
+	public void setSeason(Season season) {
+		this.season = season;
 	}
 
 	public String getPhotoUrl() {

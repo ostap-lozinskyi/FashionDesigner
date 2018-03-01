@@ -17,32 +17,30 @@
 <link href="https://cdn.jsdelivr.net/gh/atatanasov/gijgo@1.8.0/dist/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
 <link href="/resources/css/index.css" rel="stylesheet">
-<title>Collections management</title>
+<title>Seasons management</title>
 </head>
 <body>
+    <div class="header">
+        <a class="dropd" href="/">MAIN PAGE</a>
+        <a class="dropd" href="/admin">ADMIN</a>  
+        <a class="dropd-item" href="/admin/adminUsers">USERS</a>
+        <a class="dropd-item" href="/admin/adminClothingModels">MODELS</a>
+        <a class="dropd-item" href="/admin/adminSeasons">SEASONS</a>
+        <a class="dropd" href="/admin/adminTypeOfCollections">TYPES</a>               
+    </div>
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="text-center">Collections management</h1>
+				<h1 class="text-center">Seasons management</h1>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-lg-2 col-sm-12">				
-				<div class="btn-group-vertical text-center" role="group" aria-label="Basic example">
-					<a class="btn btn-outline-primary" href="/">Головна сторінка</a>
-					<a class="btn btn-outline-primary" href="/admin">Admin</a>
-					<a class="btn btn-outline-primary" href="/admin/adminUsers">Users</a>
-					<a class="btn btn-outline-primary" href="/admin/adminClothingModels">Clothing Models Man.</a>					
-					<a class="btn btn-primary" href="/admin/adminCollections">Collections Manag.</a>
-					<a class="btn btn-outline-primary" href="/admin/adminTypeOfCollections">Type Of Collections</a>
-				</div>									
-			</div>			
-			<div class="col-lg-10 col-sm-12">
+		<div class="row">				
+			<div class="col-12">
                 <div class="row">
                     <div class="col-12">
-                        <h3>Add new Collection</h3>
-                        <form:form action="/admin/adminCollections" method="POST" modelAttribute="collection" enctype="multipart/form-data">
-                            <custom:hiddenInputs excludeParams="name, text, _csrf"/>
+                        <h3>Add new Season</h3>
+                        <form:form action="/admin/adminSeasons" method="POST" modelAttribute="season" enctype="multipart/form-data">
+                            <custom:hiddenInputs excludeParams="name, _csrf"/>
                             <div class="row">
                                 <div class="col-10 ml-auto" style="color: red;">
                                     <form:errors path="name" />
@@ -53,22 +51,11 @@
                                 <div class="col-10">
                                     <form:input class="form-control" id="name" path="name"/>
                                 </div>
-                            </div>           
-                            <div class="row">
-                                <div class="col-10 ml-auto" style="color: red;">
-                                    <form:errors path="text" />
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-2 col-form-label" for="text">Text:</label>
-                                <div class="col-10">
-                                    <form:textarea class="form-control" id="text" path="text"/>
-                                </div>
-                            </div>
+                            </div>                    
                             <div class="form-group row">
                                 <div class="col-8 mr-auto">
                                     <button class="btn btn-sm btn-outline-primary">Save</button>
-                                    <a href="/admin/adminCollections/cancel<custom:allParams/>" class="btn btn-sm btn-outline-warning">Cancel</a>
+                                    <a href="/admin/adminSeasons/cancel<custom:allParams/>" class="btn btn-sm btn-outline-warning">Cancel</a>
                                 </div>
                             </div>
                         </form:form>
@@ -84,7 +71,7 @@
                         </div>
                     </div>
                     <div class="col-2">
-                        <custom:size posibleSizes="1,2,5,10" size="${showCollections.size}" />
+                        <custom:size posibleSizes="1,2,5,10" size="${showSeasons.size}" />
                     </div>			
 		        </div>
 		        <br>
@@ -97,22 +84,20 @@
                     <div class="col-12">
                         <table class="table table-bordered">
                             <tr>
-                                <th class="text-center">Name</th>                                
-                                <th class="text-center">Text</th>
+                                <th class="text-center">Name</th>
                                 <th class="text-center">Options</th>                               
                             </tr>
-                            <c:if test="${empty showCollections.content}">
+                            <c:if test="${empty showSeasons.content}">
                                 <tr>
-                                <td colspan=7><h3 class="text-center">Collections with such parameters not found</h3></td>
+                                <td colspan=7><h3 class="text-center">Seasons with such parameters not found</h3></td>
                                 </tr>
                             </c:if>
-                            <c:forEach var="showCollection" items="${showCollections.content}">
+                            <c:forEach var="showSeason" items="${showSeasons.content}">
                                 <tr>
-                                    <td>${showCollection.name}</td>
-                                    <td>${showCollection.text}</td>
+                                    <td>${showSeason.name}</td>
                                     <td class="text-center">
-                                        <a href="/admin/adminCollections/update/${showCollection.id}<custom:allParams/>" class="btn btn-outline-warning btn-sm margin">Update</a>
-                                        <a href="/admin/adminCollections/delete/${showCollection.id}<custom:allParams/>" class="btn btn-outline-danger btn-sm margin">Delete</a>
+                                        <a href="/admin/adminSeasons/update/${showSeason.id}<custom:allParams/>" class="btn btn-outline-warning btn-sm margin">Update</a>
+                                        <a href="/admin/adminSeasons/delete/${showSeason.id}<custom:allParams/>" class="btn btn-outline-danger btn-sm margin">Delete</a>
                                     </td>                                    
                                 </tr>
                             </c:forEach>
@@ -121,7 +106,7 @@
 		        </div>
                 <div class="row">
                     <div class="col-12">
-                        <custom:pageable page="${showCollections}"/>
+                        <custom:pageable page="${showSeasons}"/>
                     </div>
                 </div>		    
 			</div>

@@ -27,6 +27,6 @@ public interface ClothingModelService {
 	
 	ClothingModelRequest uploadPhotoToCloudinary(ClothingModelRequest clothingModelRequest, MultipartFile multipartFile) throws IOException;
 	
-	public List<String> findAllCollectionNames();
+	public List<String> findAllSeasonNames();
 	
 }

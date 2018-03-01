@@ -16,8 +16,8 @@ public interface ClothingModelRepository extends JpaRepository<ClothingModel, In
 	@Query("SELECT cm.name FROM ClothingModel cm")
 	List<String> findAllClothingModelNames();
 	
-	@Query("SELECT new ua.model.view.ClothingModelView(cm.id, cm.name, cm.date, cm.text,  cm.furniture, col.name, cm.photoUrl, cm.version)"
-			+ "FROM ClothingModel cm JOIN cm.collection col ORDER BY cm.date DESC")
+	@Query("SELECT new ua.model.view.ClothingModelView(cm.id, cm.name, cm.date, cm.text,  cm.furniture, s.name, cm.photoUrl, cm.version)"
+			+ "FROM ClothingModel cm JOIN cm.season s ORDER BY cm.date DESC")
 	List<ClothingModelView> findClothingModelViewsByDate();
 	
 	@Query("SELECT cm FROM ClothingModel cm WHERE cm.id=?1")
@@ -26,8 +26,8 @@ public interface ClothingModelRepository extends JpaRepository<ClothingModel, In
 	@Query("SELECT cm FROM ClothingModel cm WHERE cm.id=?1")
 	ClothingModel findClothingModelById(Integer id);
 	
-	@Query("SELECT new ua.model.view.ClothingModelView(cm.id, cm.name, cm.date, cm.text,  cm.furniture, col.name, cm.photoUrl, cm.version)"
-			+ "FROM ClothingModel cm JOIN cm.collection col WHERE cm.id=?1")
+	@Query("SELECT new ua.model.view.ClothingModelView(cm.id, cm.name, cm.date, cm.text,  cm.furniture, s.name, cm.photoUrl, cm.version)"
+			+ "FROM ClothingModel cm JOIN cm.season s WHERE cm.id=?1")
 	ClothingModelView findClothingModelViewById(Integer id);
 
 }

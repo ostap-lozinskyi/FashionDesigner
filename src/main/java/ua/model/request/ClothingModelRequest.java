@@ -2,14 +2,14 @@ package ua.model.request;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import ua.entity.Collection;
-import ua.validation.flag.CollectionFlag;
+import ua.entity.Season;
+import ua.validation.flag.SeasonFlag;
 
 public class ClothingModelRequest {
 
 	private Integer id;
 
-	@NotBlank(message = "This field cannot be blank", groups = { CollectionFlag.class })
+	@NotBlank(message = "This field cannot be blank", groups = { SeasonFlag.class })
 	private String name;
 
 	private String date;
@@ -18,7 +18,7 @@ public class ClothingModelRequest {
 	
 	private String furniture;
 
-	private Collection collection;	
+	private Season season;	
 	
 	private String photoUrl;	
 
@@ -64,12 +64,12 @@ public class ClothingModelRequest {
 		this.furniture = furniture;
 	}
 
-	public Collection getCollection() {
-		return collection;
+	public Season getSeason() {
+		return season;
 	}
 
-	public void setCollection(Collection collection) {
-		this.collection = collection;
+	public void setSeason(Season season) {
+		this.season = season;
 	}
 
 	public String getPhotoUrl() {

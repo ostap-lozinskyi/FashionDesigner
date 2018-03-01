@@ -20,7 +20,7 @@ import org.springframework.stereotype.Repository;
 
 import ua.entity.ClothingModel;
 import ua.entity.ClothingModel_;
-import ua.entity.Collection;
+import ua.entity.Season;
 import ua.entity.Collection_;
 import ua.model.filter.ClothingModelFilter;
 import ua.model.view.ClothingModelView;
@@ -37,7 +37,7 @@ public class ClothingModelViewRepositoryImpl implements ClothingModelViewReposit
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<ClothingModelView> cq = cb.createQuery(ClothingModelView.class).distinct(true);
 		Root<ClothingModel> root = cq.from(ClothingModel.class);
-		Join<ClothingModel, Collection> join = root.join(ClothingModel_.collection);
+		Join<ClothingModel, Season> join = root.join(ClothingModel_.season);
 		cq.multiselect(root.get(Collection_.id), root.get("name"), root.get("date"), root.get("text"), root.get("furniture"),  
 				join.get("name"), root.get("photoUrl"), root.get("version"));
 		Predicate predicate = new PredicateBuilder(cb, root, filter).toPredicate();

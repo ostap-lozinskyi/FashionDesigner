@@ -12,20 +12,20 @@ public class ClothingModelView {
 	
 	private String furniture;
 
-	private String collection;	
+	private String season;	
 	
 	private String photoUrl;	
 
 	private int version;
 	
-	public ClothingModelView(Integer id, String name, String date, String text, String furniture, String collection, 
+	public ClothingModelView(Integer id, String name, String date, String text, String furniture, String season, 
 			String photoUrl, int version) {
 		this.id = id;
 		this.name = name;
 		this.date = date;
 		this.text = text;
 		this.furniture = furniture;
-		this.collection = collection;
+		this.season = season;
 		this.photoUrl = photoUrl;
 		this.version = version;
 	}
@@ -70,12 +70,12 @@ public class ClothingModelView {
 		this.furniture = furniture;
 	}
 
-	public String getCollection() {
-		return collection;
+	public String getSeason() {
+		return season;
 	}
 
-	public void setCollection(String collection) {
-		this.collection = collection;
+	public void setSeason(String season) {
+		this.season = season;
 	}
 
 	public String getPhotoUrl() {

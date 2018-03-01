@@ -21,99 +21,94 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import ua.model.filter.CollectionFilter;
-import ua.model.request.FileRequest;
-import ua.model.request.CollectionRequest;
-import ua.service.CollectionService;
-import ua.validation.flag.CollectionFlag;
+import ua.entity.Season;
+import ua.model.filter.SimpleFilter;
+import ua.service.SeasonService;
+import ua.validation.flag.SeasonFlag;
 
 @Controller
-@RequestMapping("/admin/adminCollections")
-@SessionAttributes("collection")
-public class AdminCollectionsController {
+@RequestMapping("/admin/adminSeasons")
+@SessionAttributes("season")
+public class AdminSeasonsController {
 	
-	private final CollectionService collectionService;
+	private final SeasonService seasonService;
 	
 	String error = "";
 	
 	@Autowired
-	public AdminCollectionsController(CollectionService service) {
-		this.collectionService = service;
+	public AdminSeasonsController(SeasonService seasonService) {
+		this.seasonService = seasonService;
 	}
 
-	@ModelAttribute("collection")
-	public CollectionRequest getForm() {
-		return new CollectionRequest();
+	@ModelAttribute("season")
+	public Season getForm() {
+		return new Season();
 	}
 	
-	@ModelAttribute("collectionFilter")
-	public CollectionFilter getFilter() {
-		return new CollectionFilter();
+	@ModelAttribute("filter")
+	public SimpleFilter getFilter() {
+		return new SimpleFilter();
 	}
 	
-	@ModelAttribute("fileRequest")
-	public FileRequest getFile() {
-		return new FileRequest();
-	}
-
 	/**
-	 * Show Collections page
+	 * Show Seasons page
 	 */
 	@GetMapping
-	public String showCollections(Model model, @PageableDefault Pageable pageable, @ModelAttribute("collectionFilter") CollectionFilter filter) {
-		model.addAttribute("showCollections", collectionService.findAllCollectionViews(filter, pageable));
+	public String showSeasons(Model model, @PageableDefault Pageable pageable, 
+			@ModelAttribute("filter") SimpleFilter filter) {
+		model.addAttribute("showSeasons", seasonService.findAll(pageable, filter));
 		model.addAttribute("error", error);
 		error = "";
-		if (collectionService.findAllCollectionViews(filter, pageable).hasContent()||pageable.getPageNumber()==0)
-			return "adminCollections";
+		if (seasonService.findAll(pageable,filter).hasContent()||pageable.getPageNumber()==0)
+			return "adminSeasons";
 		else
-			return "redirect:/admin/adminCollections"+buildParams(pageable, filter);
+			return "redirect:/admin/adminSeasons"+buildParams(pageable, filter);
 	}
 
 	/**
-	 * Deleting Collection
+	 * Deleting Season
 	 */
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
-			@ModelAttribute("collectionFilter") CollectionFilter filter) {
-		collectionService.deleteCollection(id);
-		return "redirect:/admin/adminCollections"+buildParams(pageable, filter);
+			@ModelAttribute("filter") SimpleFilter filter) {
+		seasonService.delete(id);
+		return "redirect:/admin/adminSeasons"+buildParams(pageable, filter);
 	}
 	
 	@ExceptionHandler({SQLException.class,DataAccessException.class})
 	public String databaseError() {
-		error = "You can't delete this collection because it is used!";
-		return "redirect:/admin/adminCollections";
+		error = "You can't delete this season because it is used!";
+		return "redirect:/admin/adminSeasons";
 	}
 
 	@PostMapping
-	public String save(@ModelAttribute("collection") @Validated(CollectionFlag.class) CollectionRequest request, BindingResult br,
+	public String save(@ModelAttribute("season") @Validated(SeasonFlag.class) Season season, BindingResult br,
 			Model model, SessionStatus status, @PageableDefault Pageable pageable,
-			@ModelAttribute("collectionFilter") CollectionFilter filter) {
+			@ModelAttribute("filter") SimpleFilter filter) {
 		if (br.hasErrors())
-			return showCollections(model, pageable, filter);
-		collectionService.saveCollection(request);
+			return showSeasons(model, pageable, filter);
+		seasonService.save(season);
 		return cancel(status, pageable, filter);
 	}
 
 	@GetMapping("/update/{id}")
 	public String update(@PathVariable Integer id, Model model, @PageableDefault Pageable pageable,
-			@ModelAttribute("collectionFilter") CollectionFilter filter) {
-		model.addAttribute("collection", collectionService.findOneRequest(id));
-		return showCollections(model, pageable, filter);
+			@ModelAttribute("filter") SimpleFilter filter) {
+		model.addAttribute("season", seasonService.findOne(id));
+		return showSeasons(model, pageable, filter);
 	}
 
 	@GetMapping("/cancel")
 	public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
-			@ModelAttribute("collectionFilter") CollectionFilter filter) {
+			@ModelAttribute("filter") SimpleFilter filter) {
 		status.setComplete();
-		return "redirect:/admin/adminCollections"+buildParams(pageable, filter);
+		return "redirect:/admin/adminSeasons"+buildParams(pageable, filter);
 	}
 	
-	private String buildParams(Pageable pageable, CollectionFilter filter) {
+	private String buildParams(Pageable pageable, SimpleFilter filter) {
 		StringBuilder buffer = new StringBuilder();		
 		buffer.append("?page=");
-		if(!(collectionService.findAllCollectionViews(filter, pageable).hasContent())) 
+		if(!(seasonService.findAll(pageable, filter).hasContent())) 
 			buffer.append(String.valueOf(pageable.getPageNumber()));
 		else {
 			buffer.append(String.valueOf(pageable.getPageNumber()));
