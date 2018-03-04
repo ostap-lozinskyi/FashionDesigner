@@ -11,8 +11,13 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+<!--For Date-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/atatanasov/gijgo@1.8.0/dist/combined/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://cdn.jsdelivr.net/gh/atatanasov/gijgo@1.8.0/dist/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
 <link href="/resources/css/index.css" rel="stylesheet">
-<title>Sections management</title>
+<title>Colors management</title>
 </head>
 <body>
     <div class="header">
@@ -21,38 +26,38 @@
         <a class="dropd-item" href="/admin/adminUsers">USERS</a>
         <a class="dropd-item" href="/admin/adminClothingModels">MODELS</a>
         <a class="dropd-item" href="/admin/adminSeasons">SEASONS</a>
-        <a class="dropd" href="/admin/adminTypeOfClothes">TYPES</a> 
+        <a class="dropd" href="/admin/adminTypeOfClothes">TYPES</a>
         <a class="dropd" href="/admin/adminSectionOfClothes">SECTIONS</a> 
-        <a class="dropd" href="/admin/adminColors">COLORS</a>             
+        <a class="dropd" href="/admin/adminColors">COLORS</a>               
     </div>
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="text-center">Sections management</h1>
+				<h1 class="text-center">Colors management</h1>
 			</div>
 		</div>
-		<div class="row">			
+		<div class="row">				
 			<div class="col-12">
                 <div class="row">
                     <div class="col-12">
-                        <h3>Add new Section</h3>
-                        <form:form action="/admin/adminSectionOfClothes" method="POST" modelAttribute="sectionOfClothes">
+                        <h3>Add new Color</h3>
+                        <form:form action="/admin/adminColors" method="POST" modelAttribute="color" enctype="multipart/form-data">
                             <custom:hiddenInputs excludeParams="name, _csrf"/>
                             <div class="row">
                                 <div class="col-10 ml-auto" style="color: red;">
                                     <form:errors path="name" />
                                 </div>
-                            </div>
+                            </div> 
                             <div class="form-group row">
                                 <label class="col-2 col-form-label" for="name">Name:</label>
                                 <div class="col-10">
                                     <form:input class="form-control" id="name" path="name"/>
                                 </div>
-                            </div>  
+                            </div>                    
                             <div class="form-group row">
                                 <div class="col-8 mr-auto">
                                     <button class="btn btn-sm btn-outline-primary">Save</button>
-                                    <a href="/admin/adminSectionOfClothes/cancel<custom:allParams/>" class="btn btn-sm btn-outline-warning">Cancel</a>
+                                    <a href="/admin/adminColors/cancel<custom:allParams/>" class="btn btn-sm btn-outline-warning">Cancel</a>
                                 </div>
                             </div>
                         </form:form>
@@ -68,7 +73,7 @@
                         </div>
                     </div>
                     <div class="col-2">
-                        <custom:size posibleSizes="1,2,5,10" size="${showSectionOfClothes.size}" />
+                        <custom:size posibleSizes="1,2,5,10" size="${showColors.size}" />
                     </div>			
 		        </div>
 		        <br>
@@ -81,20 +86,20 @@
                     <div class="col-12">
                         <table class="table table-bordered">
                             <tr>
-                                <th class="text-center">Name</th> 
-                                <th class="text-center">Options</th>                                                                 
+                                <th class="text-center">Name</th>
+                                <th class="text-center">Options</th>                               
                             </tr>
-                            <c:if test="${empty showSectionsOfClothes.content}">
+                            <c:if test="${empty showColors.content}">
                                 <tr>
-                                <td colspan=7><h3 class="text-center">Sections with such parameters not found</h3></td>
+                                <td colspan=7><h3 class="text-center">Colors with such parameters not found</h3></td>
                                 </tr>
                             </c:if>
-                            <c:forEach var="showSectionOfClothes" items="${showSectionsOfClothes.content}">
+                            <c:forEach var="showColor" items="${showColors.content}">
                                 <tr>
-                                    <td>${showSectionOfClothes.name}</td>                                    
-                                    <td class="text-center">                                       
-                                        <a href="/admin/adminSectionOfClothes/update/${showSectionOfClothes.id}<custom:allParams/>"	class="btn btn-outline-warning btn-sm margin">Update</a>
-                                        <a href="/admin/adminSectionOfClothes/delete/${showSectionOfClothes.id}<custom:allParams/>"	class="btn btn-outline-danger btn-sm margin">Delete</a>
+                                    <td>${showColor.name}</td>
+                                    <td class="text-center">
+                                        <a href="/admin/adminColors/update/${showColor.id}<custom:allParams/>" class="btn btn-outline-warning btn-sm margin">Update</a>
+                                        <a href="/admin/adminColors/delete/${showColor.id}<custom:allParams/>" class="btn btn-outline-danger btn-sm margin">Delete</a>
                                     </td>                                    
                                 </tr>
                             </c:forEach>
@@ -103,7 +108,7 @@
 		        </div>
                 <div class="row">
                     <div class="col-12">
-                        <custom:pageable page="${showSectionsOfClothes}"/>
+                        <custom:pageable page="${showColors}"/>
                     </div>
                 </div>		    
 			</div>
