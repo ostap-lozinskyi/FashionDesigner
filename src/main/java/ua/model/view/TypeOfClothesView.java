@@ -1,12 +1,12 @@
 package ua.model.view;
 
-public class TypeOfCollectionView {
+public class TypeOfClothesView {
 	
 	private Integer id;
 
 	private String name;
 	
-	public TypeOfCollectionView(Integer id, String name) {
+	public TypeOfClothesView(Integer id, String name) {
 		this.id = id;
 		this.name = name;
 	}

@@ -10,12 +10,12 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import ua.validation.validator.TypeOfCollectionValidator;
+import ua.validation.validator.SectionOfClothesValidator;
 
 @Retention(RUNTIME)
 @Target({ FIELD, METHOD })
-@Constraint(validatedBy = TypeOfCollectionValidator.class)
-public @interface UniqueTypeOfCollection {
+@Constraint(validatedBy = SectionOfClothesValidator.class)
+public @interface UniqueSectionOfClothes {
 
 	String message() default "Not unique";
 

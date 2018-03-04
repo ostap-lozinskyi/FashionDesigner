@@ -26,7 +26,8 @@
         <a class="dropd-item" href="/admin/adminUsers">USERS</a>
         <a class="dropd-item" href="/admin/adminClothingModels">MODELS</a>
         <a class="dropd-item" href="/admin/adminSeasons">SEASONS</a>
-        <a class="dropd" href="/admin/adminTypeOfCollections">TYPES</a>               
+        <a class="dropd" href="/admin/adminTypeOfClothes">TYPES</a>   
+        <a class="dropd" href="/admin/adminSectionOfClothes">SECTIONS</a>            
     </div>
 	<div class="container">
 		<div class="row">
@@ -136,7 +137,7 @@
                             </tr>
                             <c:if test="${empty showClothingModels.content}">
                                 <tr>
-                                <td colspan=7><h3 class="text-center">Collections with such parameters not found</h3></td>
+                                <td colspan=7><h3 class="text-center">Clothing Models with such parameters not found</h3></td>
                                 </tr>
                             </c:if>
                             <c:forEach var="showClothingModel" items="${showClothingModels.content}">

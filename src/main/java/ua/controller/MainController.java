@@ -20,10 +20,8 @@ public class MainController {
 	@GetMapping("/")
 	public String showMainPage(Model model, Principal principal) {
 		if(principal!=null) {
-			model.addAttribute("message", "Hello "+principal.getName());
-		} else {
-			return "login";
-		}		
+			model.addAttribute("userName", ""+principal.getName());
+		}	
 		return "index";
 	}
 

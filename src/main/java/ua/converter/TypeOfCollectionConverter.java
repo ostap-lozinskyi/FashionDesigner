@@ -3,20 +3,20 @@ package ua.converter;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import ua.entity.TypeOfCollection;
-import ua.repository.TypeOfCollectionRepository;
+import ua.entity.TypeOfClothes;
+import ua.repository.TypeOfClothesRepository;
 
 @Component
-public class TypeOfCollectionConverter implements Converter<String, TypeOfCollection> {
+public class TypeOfCollectionConverter implements Converter<String, TypeOfClothes> {
 
-	private final TypeOfCollectionRepository typeOfCollectionRepository;
+	private final TypeOfClothesRepository typeOfCollectionRepository;
 
-	public TypeOfCollectionConverter(TypeOfCollectionRepository typeOfCollectionRepository) {
+	public TypeOfCollectionConverter(TypeOfClothesRepository typeOfCollectionRepository) {
 		this.typeOfCollectionRepository = typeOfCollectionRepository;
 	}
 
 	@Override
-	public TypeOfCollection convert(String source) {
+	public TypeOfClothes convert(String source) {
 		return typeOfCollectionRepository.findByName(source);
 	}
 

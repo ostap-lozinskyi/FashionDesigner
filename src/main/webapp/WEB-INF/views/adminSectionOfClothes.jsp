@@ -12,7 +12,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <link href="/resources/css/index.css" rel="stylesheet">
-<title>Types management</title>
+<title>Sections management</title>
 </head>
 <body>
     <div class="header">
@@ -21,20 +21,21 @@
         <a class="dropd-item" href="/admin/adminUsers">USERS</a>
         <a class="dropd-item" href="/admin/adminClothingModels">MODELS</a>
         <a class="dropd-item" href="/admin/adminSeasons">SEASONS</a>
-        <a class="dropd" href="/admin/adminTypeOfCollections">TYPES</a>               
+        <a class="dropd" href="/admin/adminTypeOfClothes">TYPES</a> 
+        <a class="dropd" href="/admin/adminSectionOfClothes">SECTIONS</a>              
     </div>
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="text-center">Types management</h1>
+				<h1 class="text-center">Sections management</h1>
 			</div>
 		</div>
 		<div class="row">			
 			<div class="col-12">
                 <div class="row">
                     <div class="col-12">
-                        <h3>Add new Type</h3>
-                        <form:form action="/admin/adminTypeOfCollections" method="POST" modelAttribute="typeOfCollection">
+                        <h3>Add new Section</h3>
+                        <form:form action="/admin/adminSectionOfClothes" method="POST" modelAttribute="sectionOfClothes">
                             <custom:hiddenInputs excludeParams="name, _csrf"/>
                             <div class="row">
                                 <div class="col-10 ml-auto" style="color: red;">
@@ -50,7 +51,7 @@
                             <div class="form-group row">
                                 <div class="col-8 mr-auto">
                                     <button class="btn btn-sm btn-outline-primary">Save</button>
-                                    <a href="/admin/adminTypeOfCollections/cancel<custom:allParams/>" class="btn btn-sm btn-outline-warning">Cancel</a>
+                                    <a href="/admin/adminSectionOfClothes/cancel<custom:allParams/>" class="btn btn-sm btn-outline-warning">Cancel</a>
                                 </div>
                             </div>
                         </form:form>
@@ -66,7 +67,7 @@
                         </div>
                     </div>
                     <div class="col-2">
-                        <custom:size posibleSizes="1,2,5,10" size="${showTypeOfCollections.size}" />
+                        <custom:size posibleSizes="1,2,5,10" size="${showSectionOfClothes.size}" />
                     </div>			
 		        </div>
 		        <br>
@@ -82,17 +83,17 @@
                                 <th class="text-center">Name</th> 
                                 <th class="text-center">Options</th>                                                                 
                             </tr>
-                            <c:if test="${empty showTypeOfCollections.content}">
+                            <c:if test="${empty showSectionsOfClothes.content}">
                                 <tr>
-                                <td colspan=7><h3 class="text-center">Types with such parameters not found</h3></td>
+                                <td colspan=7><h3 class="text-center">Sections with such parameters not found</h3></td>
                                 </tr>
                             </c:if>
-                            <c:forEach var="showTypeOfCollection" items="${showTypeOfCollections.content}">
+                            <c:forEach var="showSectionOfClothes" items="${showSectionsOfClothes.content}">
                                 <tr>
-                                    <td>${showTypeOfCollection.name}</td>                                    
+                                    <td>${showSectionOfClothes.name}</td>                                    
                                     <td class="text-center">                                       
-                                        <a href="/admin/adminTypeOfCollections/update/${showTypeOfCollection.id}<custom:allParams/>"	class="btn btn-outline-warning btn-sm margin">Update</a>
-                                        <a href="/admin/adminTypeOfCollections/delete/${showTypeOfCollection.id}<custom:allParams/>"	class="btn btn-outline-danger btn-sm margin">Delete</a>
+                                        <a href="/admin/adminSectionOfClothes/update/${showSectionOfClothes.id}<custom:allParams/>"	class="btn btn-outline-warning btn-sm margin">Update</a>
+                                        <a href="/admin/adminSectionOfClothes/delete/${showSectionOfClothes.id}<custom:allParams/>"	class="btn btn-outline-danger btn-sm margin">Delete</a>
                                     </td>                                    
                                 </tr>
                             </c:forEach>
@@ -101,7 +102,7 @@
 		        </div>
                 <div class="row">
                     <div class="col-12">
-                        <custom:pageable page="${showTypeOfCollections}"/>
+                        <custom:pageable page="${showSectionsOfClothes}"/>
                     </div>
                 </div>		    
 			</div>

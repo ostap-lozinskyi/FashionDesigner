@@ -21,28 +21,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import ua.entity.TypeOfCollection;
+import ua.entity.TypeOfClothes;
 import ua.model.filter.SimpleFilter;
-import ua.service.TypeOfCollectionService;
-import ua.validation.flag.TypeOfCollectionFlag;
+import ua.service.TypeOfClothesService;
+import ua.validation.flag.TypeOfClothesFlag;
 
 @Controller
-@RequestMapping("/admin/adminTypeOfCollections")
-@SessionAttributes("typeOfCollection")
-public class AdminTypeOfCollectionsController {
+@RequestMapping("/admin/adminTypeOfClothes")
+@SessionAttributes("typeOfClothes")
+public class AdminTypeOfClothesController {
 	
-	private final TypeOfCollectionService typeOfCollectionService;
+	private final TypeOfClothesService typeOfClothesService;
 	
 	String error = "";
 	
 	@Autowired
-	public AdminTypeOfCollectionsController(TypeOfCollectionService typeOfCollectionService) {
-		this.typeOfCollectionService = typeOfCollectionService;
+	public AdminTypeOfClothesController(TypeOfClothesService typeOfClothesService) {
+		this.typeOfClothesService = typeOfClothesService;
 	}
 
-	@ModelAttribute("typeOfCollection")
-	public TypeOfCollection getForm() {
-		return new TypeOfCollection();
+	@ModelAttribute("typeOfClothes")
+	public TypeOfClothes getForm() {
+		return new TypeOfClothes();
 	}
 	
 	@ModelAttribute("simpleFilter")
@@ -51,65 +51,63 @@ public class AdminTypeOfCollectionsController {
 	}
 	
 	/**
-	 * Show TypeOfCollection page
+	 * Show TypeOfClothes page
 	 */
 	@GetMapping
-	public String showTypeOfCollection(Model model, @PageableDefault Pageable pageable, @ModelAttribute("simpleFilter") SimpleFilter simpleFilter) {
-		model.addAttribute("showTypeOfCollections", typeOfCollectionService.findAll(pageable,simpleFilter));
+	public String showTypeOfClothes(Model model, @PageableDefault Pageable pageable, @ModelAttribute("simpleFilter") SimpleFilter simpleFilter) {
+		model.addAttribute("showTypesOfClothes", typeOfClothesService.findAll(pageable,simpleFilter));
 		model.addAttribute("error", error);
 		error = "";
-		if (typeOfCollectionService.findAll(pageable,simpleFilter).hasContent()||pageable.getPageNumber()==0)
-			return "adminTypeOfCollections";
+		if (typeOfClothesService.findAll(pageable,simpleFilter).hasContent()||pageable.getPageNumber()==0)
+			return "adminTypeOfClothes";
 		else
-			return "redirect:/admin/adminTypeOfCollections"+buildParams(pageable, simpleFilter);
+			return "redirect:/admin/adminTypeOfClothes"+buildParams(pageable, simpleFilter);
 	}
 
 	/**
-	 * Deleting TypeOfCollection
+	 * Deleting TypeOfClothes
 	 */
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
 			@ModelAttribute("simpleFilter") SimpleFilter simpleFilter) {
-		typeOfCollectionService.delete(id);
-		return "redirect:/admin/adminTypeOfCollections"+buildParams(pageable, simpleFilter);
+		typeOfClothesService.delete(id);
+		return "redirect:/admin/adminTypeOfClothes"+buildParams(pageable, simpleFilter);
 	}
 	
 	@ExceptionHandler({SQLException.class,DataAccessException.class})
 	public String databaseError() {
-		error = "You can't delete this TypeOfcollection because it is used!";
-		return "redirect:/admin/adminTypeOfCollections";
+		error = "You can't delete this TypeOfClothes because it is used!";
+		return "redirect:/admin/adminTypeOfClothes";
 	}
 
 	@PostMapping
-	public String save(@ModelAttribute("typeOfCollection") @Validated(TypeOfCollectionFlag.class) TypeOfCollection typeOfCollection, BindingResult br,
+	public String save(@ModelAttribute("typeOfClothes") @Validated(TypeOfClothesFlag.class) TypeOfClothes typeOfClothes, BindingResult br,
 			Model model, SessionStatus status, @PageableDefault Pageable pageable,
 			@ModelAttribute("simpleFilter") SimpleFilter simpleFilter) {
 		if (br.hasErrors())
-			return showTypeOfCollection(model, pageable, simpleFilter);
-		typeOfCollectionService.save(typeOfCollection);
+			return showTypeOfClothes(model, pageable, simpleFilter);
+		typeOfClothesService.save(typeOfClothes);
 		return cancel(status, pageable, simpleFilter);
 	}
 
 	@GetMapping("/update/{id}")
 	public String update(@PathVariable Integer id, Model model, @PageableDefault Pageable pageable,
 			@ModelAttribute("simpleFilter") SimpleFilter simpleFilter) {
-		System.out.println(id);
-		model.addAttribute("typeOfCollection", typeOfCollectionService.findOne(id));
-		System.out.println(model.asMap());
-		return showTypeOfCollection(model, pageable, simpleFilter);
+		model.addAttribute("typeOfClothes", typeOfClothesService.findOne(id));
+		return showTypeOfClothes(model, pageable, simpleFilter);
 	}
 
 	@GetMapping("/cancel")
 	public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
 			@ModelAttribute("simpleFilter") SimpleFilter simpleFilter) {
 		status.setComplete();
-		return "redirect:/admin/adminTypeOfCollections"+buildParams(pageable, simpleFilter);
+		return "redirect:/admin/adminTypeOfClothes"+buildParams(pageable, simpleFilter);
 	}
 	
 	private String buildParams(Pageable pageable, SimpleFilter simpleFilter) {
 		StringBuilder buffer = new StringBuilder();		
 		buffer.append("?page=");
-		if(!(typeOfCollectionService.findAll(pageable,simpleFilter).hasContent())) 
+		if(!(typeOfClothesService.findAll(pageable,simpleFilter).hasContent())) 
 			buffer.append(String.valueOf(pageable.getPageNumber()));
 		else {
 			buffer.append(String.valueOf(pageable.getPageNumber()));

@@ -23,7 +23,8 @@
         <a class="dropd-item" href="/admin/adminUsers">USERS</a>
         <a class="dropd-item" href="/admin/adminClothingModels">MODELS</a>
         <a class="dropd-item" href="/admin/adminSeasons">SEASONS</a>
-        <a class="dropd" href="/admin/adminTypeOfCollections">TYPES</a>               
+        <a class="dropd" href="/admin/adminTypeOfClothes">TYPES</a>
+        <a class="dropd" href="/admin/adminSectionOfClothes">SECTIONS</a>               
     </div>
 	<div class="container" style="background-color: white;">
 		<div class="row">
