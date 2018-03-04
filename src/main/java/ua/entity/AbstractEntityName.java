@@ -25,7 +25,7 @@ public abstract class AbstractEntityName extends AbstractEntity {
 	@UniqueColor(message = "This color already exists", groups = ColorFlag.class)
 	@NotBlank(message = "This field cannot be blank", groups = {SeasonFlag.class, TypeOfClothesFlag.class,
 			ClothingModelFlag.class, SectionOfClothesFlag.class, ColorFlag.class})
-	@List({@Pattern(regexp = "^[A-Za-z0-9 _-А-Яа-я]+| *$", message = "The 'Name' should have at least 1 letter",	
+	@List({@Pattern(regexp = "^[A-Za-z0-9 _-А-Яа-яіІїЇєЄ]+| *$", message = "The 'Name' should have at least 1 letter",	
 		groups = {SeasonFlag.class, TypeOfClothesFlag.class, ClothingModelFlag.class, SectionOfClothesFlag.class,
 				ColorFlag.class})})
 	private String name;
