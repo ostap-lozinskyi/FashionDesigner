@@ -56,18 +56,6 @@
                             </div>
                             <div class="row">
                                 <div class="col-10 ml-auto" style="color: red;">
-                                    <form:errors path="date" />
-                                </div>
-                            </div> 
-                            <div class="form-group row">
-                                <label class="col-2 col-form-label" for="date">Date:</label>
-                                <div class="col-10">
-                                    <form:input class="form-control" id="datepicker" path="date" placeholder="Select Date" width="276"/>
-                                    <script>$('#datepicker').datepicker({uiLibrary: 'bootstrap4'});</script>
-                                </div>
-                            </div>                            
-                            <div class="row">
-                                <div class="col-10 ml-auto" style="color: red;">
                                     <form:errors path="text" />
                                 </div>
                             </div>
@@ -83,11 +71,53 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-2 col-form-label" for="season">Collection:</label>
+                                <label class="col-2 col-form-label" for="season">Season:</label>
                                 <div class="col-10">
-                                    <form:select class="form-control" id="collection" path="season" onchange="${seasons}">
+                                    <form:select class="form-control" id="season" path="season" onchange="${seasons}">
                                         <form:option value="" label="Select Season" style="color: gray;"/>
                                         <form:options items="${seasons}"/>
+                                    </form:select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-10 ml-auto" style="color: red;">
+                                    <form:errors path="typeOfClothes" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="typeOfClothes">Type:</label>
+                                <div class="col-10">
+                                    <form:select class="form-control" id="typeOfClothes" path="typeOfClothes" onchange="${typesOfClothes}">
+                                        <form:option value="" label="Select Type" style="color: gray;"/>
+                                        <form:options items="${typesOfClothes}"/>
+                                    </form:select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-10 ml-auto" style="color: red;">
+                                    <form:errors path="sectionOfClothes" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="sectionOfClothes">Section:</label>
+                                <div class="col-10">
+                                    <form:select class="form-control" id="sectionOfClothes" path="sectionOfClothes" onchange="${sectionsOfClothes}">
+                                        <form:option value="" label="Select Section" style="color: gray;"/>
+                                        <form:options items="${sectionsOfClothes}"/>
+                                    </form:select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-10 ml-auto" style="color: red;">
+                                    <form:errors path="colors" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="color">Color:</label>
+                                <div class="col-10">
+                                    <form:select class="form-control" id="color" path="sectionOfClothes" onchange="${colors}">
+                                        <form:option value="" label="Select Color" style="color: gray;"/>
+                                        <form:options items="${colors}"/>
                                     </form:select>
                                 </div>
                             </div>
@@ -130,7 +160,6 @@
                         <table class="table table-bordered">
                             <tr>
                                 <th class="text-center">Name</th>
-                                <th class="text-center">Date</th>
                                 <th class="text-center">Text</th>
                                 <th class="text-center">Season</th>
                                 <th class="text-center">Options</th>
@@ -143,8 +172,7 @@
                             </c:if>
                             <c:forEach var="showClothingModel" items="${showClothingModels.content}">
                                 <tr>
-                                    <td>${showClothingModel.name}</td>
-                                    <td>${showClothingModel.date}</td>
+                                    <td>${showClothingModel.name}</td>                                   
                                     <td>${showClothingModel.text}</td>
                                     <td>${showClothingModel.season}</td>
                                     <td class="text-center">

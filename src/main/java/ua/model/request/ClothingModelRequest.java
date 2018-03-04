@@ -1,24 +1,38 @@
 package ua.model.request;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.validation.constraints.Pattern;
+
 import org.hibernate.validator.constraints.NotBlank;
 
+import ua.entity.Color;
 import ua.entity.Season;
-import ua.validation.flag.SeasonFlag;
+import ua.entity.SectionOfClothes;
+import ua.entity.TypeOfClothes;
+import ua.validation.annotation.UniqueClothingModel;
+import ua.validation.flag.ClothingModelFlag;
 
 public class ClothingModelRequest {
 
 	private Integer id;
 
-	@NotBlank(message = "This field cannot be blank", groups = { SeasonFlag.class })
+	@UniqueClothingModel(message = "This clothing model already exists", groups = ClothingModelFlag.class)
+	@NotBlank(message = "This field cannot be blank", groups = {ClothingModelFlag.class})
+	@Pattern(regexp = "^[A-Za-z0-9 _-А-Яа-яіІїЇєЄ]+| *$", message = "The 'Name' should have at least 1 letter",	
+	groups = ClothingModelFlag.class)
 	private String name;
 
-	private String date;
-	
 	private String text;
 	
-	private String furniture;
-
 	private Season season;	
+	
+	private TypeOfClothes typeOfClothes;
+	
+	private SectionOfClothes sectionOfClothes;
+	
+	private List<Color> colors = new ArrayList<>();
 	
 	private String photoUrl;	
 
@@ -40,14 +54,6 @@ public class ClothingModelRequest {
 		this.name = name;
 	}
 
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
-	}
-
 	public String getText() {
 		return text;
 	}
@@ -56,20 +62,36 @@ public class ClothingModelRequest {
 		this.text = text;
 	}
 
-	public String getFurniture() {
-		return furniture;
-	}
-
-	public void setFurniture(String furniture) {
-		this.furniture = furniture;
-	}
-
 	public Season getSeason() {
 		return season;
 	}
 
 	public void setSeason(Season season) {
 		this.season = season;
+	}
+
+	public TypeOfClothes getTypeOfClothes() {
+		return typeOfClothes;
+	}
+
+	public void setTypeOfClothes(TypeOfClothes typeOfClothes) {
+		this.typeOfClothes = typeOfClothes;
+	}
+
+	public SectionOfClothes getSectionOfClothes() {
+		return sectionOfClothes;
+	}
+
+	public void setSectionOfClothes(SectionOfClothes sectionOfClothes) {
+		this.sectionOfClothes = sectionOfClothes;
+	}
+
+	public List<Color> getColors() {
+		return colors;
+	}
+
+	public void setColors(List<Color> colors) {
+		this.colors = colors;
 	}
 
 	public String getPhotoUrl() {

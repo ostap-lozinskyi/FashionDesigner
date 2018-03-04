@@ -21,6 +21,8 @@ import org.springframework.stereotype.Repository;
 import ua.entity.ClothingModel;
 import ua.entity.ClothingModel_;
 import ua.entity.Season;
+import ua.entity.SectionOfClothes;
+import ua.entity.TypeOfClothes;
 import ua.model.filter.ClothingModelFilter;
 import ua.model.view.ClothingModelView;
 import ua.repository.ClothingModelViewRepository;
@@ -36,9 +38,11 @@ public class ClothingModelViewRepositoryImpl implements ClothingModelViewReposit
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<ClothingModelView> cq = cb.createQuery(ClothingModelView.class).distinct(true);
 		Root<ClothingModel> root = cq.from(ClothingModel.class);
-		Join<ClothingModel, Season> join = root.join(ClothingModel_.season);
-		cq.multiselect(root.get(ClothingModel_.id), root.get("name"), root.get("date"), root.get("text"), root.get("furniture"),  
-				join.get("name"), root.get("photoUrl"), root.get("version"));
+		Join<ClothingModel, Season> joinSeason = root.join(ClothingModel_.season);
+		Join<ClothingModel, TypeOfClothes> joinType = root.join(ClothingModel_.typeOfClothes);
+		Join<ClothingModel, SectionOfClothes> joinSection = root.join(ClothingModel_.sectionOfClothes);
+		cq.multiselect(root.get(ClothingModel_.id), root.get("name"), root.get("text"),  
+				joinSeason.get("name"), joinType.get("name"), joinSection.get("name"), root.get("photoUrl"), root.get("version"));
 		Predicate predicate = new PredicateBuilder(cb, root, filter).toPredicate();
 		if(predicate!=null) cq.where(predicate);
 		cq.orderBy(toOrders(pageable.getSort(), root, cb));

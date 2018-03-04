@@ -20,7 +20,10 @@ import ua.model.request.ClothingModelRequest;
 import ua.model.view.ClothingModelView;
 import ua.repository.ClothingModelRepository;
 import ua.repository.ClothingModelViewRepository;
+import ua.repository.ColorRepository;
 import ua.repository.SeasonRepository;
+import ua.repository.SectionOfClothesRepository;
+import ua.repository.TypeOfClothesRepository;
 import ua.service.ClothingModelService;
 
 @Service
@@ -32,23 +35,27 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 	
 	private final SeasonRepository seasonRepository;
 	
+	private final TypeOfClothesRepository typeOfClothesRepository;
+	
+	private final SectionOfClothesRepository sectionOfClothesRepository;
+	
+	private final ColorRepository colorRepository;
+	
 	@Value("${cloudinary.url}")
 	Cloudinary cloudinary = new Cloudinary();
 
 	@Autowired
 	public ClothingModelServiceImpl(ClothingModelRepository clothingModelRepository, ClothingModelViewRepository clothingModelViewRepository,
-			SeasonRepository seasonRepository) {
+			SeasonRepository seasonRepository, TypeOfClothesRepository typeOfClothesRepository, SectionOfClothesRepository sectionOfClothesRepository,
+			ColorRepository colorRepository) {
 		this.clothingModelRepository = clothingModelRepository;
 		this.clothingModelViewRepository = clothingModelViewRepository;
 		this.seasonRepository = seasonRepository;
+		this.typeOfClothesRepository = typeOfClothesRepository;
+		this.sectionOfClothesRepository = sectionOfClothesRepository;
+		this.colorRepository = colorRepository;
 	}
 
-
-	@Override
-	public List<ClothingModelView> findClothingModelViewsByDate() {
-		return clothingModelRepository.findClothingModelViewsByDate();
-	}
-	
 	@Override
 	public Page<ClothingModelView> findAllClothingModelViews(ClothingModelFilter filter, Pageable pageable) {
 		return clothingModelViewRepository.findAllClothingModelView(filter, pageable);
@@ -60,8 +67,10 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 		clothingModel.setId(clothingModelRequest.getId());
 		clothingModel.setName(clothingModelRequest.getName());
 		clothingModel.setText(clothingModelRequest.getText());
-		clothingModel.setDate(clothingModelRequest.getDate());
 		clothingModel.setSeason(clothingModelRequest.getSeason());
+		clothingModel.setTypeOfClothes(clothingModelRequest.getTypeOfClothes());
+		clothingModel.setSectionOfClothes(clothingModelRequest.getSectionOfClothes());
+		clothingModel.setColors(clothingModelRequest.getColors());
 		clothingModel.setPhotoUrl(clothingModelRequest.getPhotoUrl());
 		clothingModel.setVersion(clothingModelRequest.getVersion());
 		clothingModelRepository.save(clothingModel);
@@ -74,8 +83,10 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 		clothingModelRequest.setId(clothingModel.getId());
 		clothingModelRequest.setName(clothingModel.getName());
 		clothingModelRequest.setText(clothingModel.getText());
-		clothingModelRequest.setDate(clothingModel.getDate());
 		clothingModelRequest.setSeason(clothingModel.getSeason());
+		clothingModelRequest.setTypeOfClothes(clothingModel.getTypeOfClothes());
+		clothingModelRequest.setSectionOfClothes(clothingModel.getSectionOfClothes());
+		clothingModelRequest.setColors(clothingModel.getColors());
 		clothingModelRequest.setPhotoUrl(clothingModel.getPhotoUrl());
 		clothingModelRequest.setVersion(clothingModel.getVersion());
 		return clothingModelRequest;
@@ -109,6 +120,21 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 	@Override
 	public List<String> findAllSeasonNames() {
 		return seasonRepository.findAllSeasonsNames();
+	}
+	
+	@Override
+	public List<String> findAllTypeOfClothesNames() {
+		return typeOfClothesRepository.findAllTypeOfClothesNames();
+	}
+	
+	@Override
+	public List<String> findAllSectionOfClothesNames() {
+		return sectionOfClothesRepository.findAllSectionOfClothesNames();
+	}
+	
+	@Override
+	public List<String> findAllColorsNames() {
+		return colorRepository.findAllColorsNames();
 	}
 	
 }

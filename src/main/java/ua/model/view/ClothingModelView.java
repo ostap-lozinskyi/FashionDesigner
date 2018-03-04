@@ -1,30 +1,33 @@
 package ua.model.view;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ClothingModelView {
 
 	private Integer id;
 
 	private String name;
 
-	private String date;
-	
 	private String text;
 	
-	private String furniture;
-
 	private String season;	
+	
+	private String typeOfClothes;
+	
+	private String sectionOfClothes;
+	
+	private List<String> colors = new ArrayList<>();
 	
 	private String photoUrl;	
 
 	private int version;
 	
-	public ClothingModelView(Integer id, String name, String date, String text, String furniture, String season, 
-			String photoUrl, int version) {
+	public ClothingModelView(Integer id, String name, String text, String season, String typeOfClothes, 
+			String sectionOfClothes, String photoUrl, int version) {
 		this.id = id;
 		this.name = name;
-		this.date = date;
 		this.text = text;
-		this.furniture = furniture;
 		this.season = season;
 		this.photoUrl = photoUrl;
 		this.version = version;
@@ -46,12 +49,28 @@ public class ClothingModelView {
 		this.name = name;
 	}
 
-	public String getDate() {
-		return date;
+	public String getTypeOfClothes() {
+		return typeOfClothes;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setTypeOfClothes(String typeOfClothes) {
+		this.typeOfClothes = typeOfClothes;
+	}
+
+	public String getSectionOfClothes() {
+		return sectionOfClothes;
+	}
+
+	public void setSectionOfClothes(String sectionOfClothes) {
+		this.sectionOfClothes = sectionOfClothes;
+	}
+
+	public List<String> getColors() {
+		return colors;
+	}
+
+	public void setColors(List<String> colors) {
+		this.colors = colors;
 	}
 
 	public String getText() {
@@ -60,14 +79,6 @@ public class ClothingModelView {
 
 	public void setText(String text) {
 		this.text = text;
-	}
-
-	public String getFurniture() {
-		return furniture;
-	}
-
-	public void setFurniture(String furniture) {
-		this.furniture = furniture;
 	}
 
 	public String getSeason() {

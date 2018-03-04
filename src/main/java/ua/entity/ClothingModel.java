@@ -14,12 +14,8 @@ import javax.persistence.Table;
 @Table(name = "clothingModel", indexes=@Index(columnList = "name"))
 public class ClothingModel extends AbstractEntityName {
 	
-	private String date;
-	
 	private String text;
 	
-	private String furniture;
-
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Season season;
 	
@@ -39,13 +35,11 @@ public class ClothingModel extends AbstractEntityName {
 	public ClothingModel() {
 	}
 
-	public ClothingModel(String name, String date, String text, String furniture, Season season,
+	public ClothingModel(String name, String text, Season season,
 			TypeOfClothes typeOfClothes, SectionOfClothes sectionOfClothes, 
 			List<Color> colors, String photoUrl, int version) {
 		super(name);
-		this.date = date;
 		this.text = text;
-		this.furniture = furniture;
 		this.season = season;	
 		this.typeOfClothes = typeOfClothes;
 		this.sectionOfClothes = sectionOfClothes;
@@ -54,28 +48,12 @@ public class ClothingModel extends AbstractEntityName {
 		this.version = version;
 	}
 
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
-	}
-
 	public String getText() {
 		return text;
 	}
 
 	public void setText(String text) {
 		this.text = text;
-	}
-
-	public String getFurniture() {
-		return furniture;
-	}
-
-	public void setFurniture(String furniture) {
-		this.furniture = furniture;
 	}
 
 	public Season getSeason() {

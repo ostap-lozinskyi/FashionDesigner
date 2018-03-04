@@ -65,6 +65,9 @@ public class AdminClothingModelsController {
 	public String showClothingModel(Model model, @PageableDefault Pageable pageable, @ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
 		model.addAttribute("showClothingModels", clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable));
 		model.addAttribute("seasons", clothingModelService.findAllSeasonNames());
+		model.addAttribute("typesOfClothes", clothingModelService.findAllTypeOfClothesNames());
+		model.addAttribute("sectionsOfClothes", clothingModelService.findAllSectionOfClothesNames());
+		model.addAttribute("colors", clothingModelService.findAllColorsNames());
 		model.addAttribute("error", error);
 		error = "";
 		if (clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable).hasContent()||pageable.getPageNumber()==0)
