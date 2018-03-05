@@ -40,7 +40,7 @@
 			<div class="col-12">
                 <div class="row">
                     <div class="col-12">
-                        <h3>Add new Clothing Model</h3>
+                        <h3>Add new Model</h3>
                         <form:form action="/admin/adminClothingModels" method="POST" modelAttribute="clothingModel" enctype="multipart/form-data">
                             <custom:hiddenInputs excludeParams="name, text, _csrf"/>
                             <div class="row">
@@ -115,11 +115,8 @@
                             <div class="form-group row">
                                 <label class="col-2 col-form-label" for="color">Color:</label>
                                 <div class="col-10">
-                                    <form:select class="form-control" id="color" path="sectionOfClothes" onchange="${colors}">
-                                        <form:option value="" label="Select Color" style="color: gray;"/>
-                                        <form:options items="${colors}"/>
-                                    </form:select>
-                                </div>
+                                    <form:checkboxes items="${colors}" path="colors" element="div" />
+                                </div>                                
                             </div>
                             <div class="form-group row">
                                 <label class="col-2 col-form-label" for="file">Photo:</label>
@@ -156,35 +153,44 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th class="text-center">Name</th>
-                                <th class="text-center">Text</th>
-                                <th class="text-center">Season</th>
-                                <th class="text-center">Options</th>
-                                <th class="text-center">Photo</th>
-                            </tr>
+                    <div class="col-12"> 
+                        <div class="row">                               
                             <c:if test="${empty showClothingModels.content}">
                                 <tr>
                                 <td colspan=7><h3 class="text-center">Clothing Models with such parameters not found</h3></td>
                                 </tr>
                             </c:if>
                             <c:forEach var="showClothingModel" items="${showClothingModels.content}">
-                                <tr>
-                                    <td>${showClothingModel.name}</td>                                   
-                                    <td>${showClothingModel.text}</td>
-                                    <td>${showClothingModel.season}</td>
-                                    <td class="text-center">
-                                        <a href="/admin/adminClothingModels/update/${showClothingModel.id}<custom:allParams/>"	class="btn btn-outline-warning btn-sm margin">Update</a>
-                                        <a href="/admin/adminClothingModels/delete/${showClothingModel.id}<custom:allParams/>"	class="btn btn-outline-danger btn-sm margin">Delete</a>
-                                    </td>
-                                    <td class="text-center">
-                                        <img src="${showClothingModel.photoUrl}?version=${showClothingModel.version}" style="width: 100px;">
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </table>
+                                <div class="col-3 text-center">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <img src="${showClothingModel.photoUrl}?version=${showClothingModel.version}" style="width: 200px;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                             ${showClothingModel.name}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            ${showClothingModel.season}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                          <a href="/admin/adminClothingModels/update/${showClothingModel.id}<custom:allParams/>"	class="btn btn-outline-warning btn-sm margin">Update</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                          <br>
+                                           <a href="/admin/adminClothingModels/delete/${showClothingModel.id}<custom:allParams/>"	class="btn btn-outline-danger btn-sm margin">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:forEach> 
+                        </div>                        
                     </div>
 		        </div>
                 <div class="row">
