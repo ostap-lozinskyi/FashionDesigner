@@ -27,8 +27,36 @@ a:hover {
 }
 
 .mainImg {
-    width: 33%;
-    
+    width: 33%;    
+}
+
+
+.item .hide {
+	display: block;
+	max-height: 0;
+	transition: max-height 0.15s ease-out;
+	overflow: hidden
+}
+
+.item:hover .hide {
+	max-height: 600px;
+    height: 600px;
+	transition: max-height 0.75s ease-in
+}
+
+.item:hover .hide a{
+    position: relative;
+    top: 50%;
+	margin: 20px;
+}
+
+.item .hover {
+	position: absolute;
+	padding: 0;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.8);	
 }
 
 

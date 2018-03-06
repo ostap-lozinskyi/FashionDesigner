@@ -161,11 +161,25 @@
                                 </tr>
                             </c:if>
                             <c:forEach var="showClothingModel" items="${showClothingModels.content}">
-                                <div class="col-3 text-center">
+                                <div class="col-3 text-center item">
                                     <div class="row">
                                         <div class="col-12">
                                             <img src="${showClothingModel.photoUrl}?version=${showClothingModel.version}" style="width: 200px;">
                                         </div>
+                                    </div>                                    
+                                    <div class="hover">
+                                        <div class="hide">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                <a href="/admin/adminClothingModels/update/${showClothingModel.id}<custom:allParams/>"	class="btn btn-warning btn-sm">Update</a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">                                                  
+                                                <a href="/admin/adminClothingModels/delete/${showClothingModel.id}<custom:allParams/>"	class="btn btn-danger btn-sm">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>  
                                     </div>
                                     <div class="row">
                                         <div class="col-12">
@@ -176,23 +190,12 @@
                                         <div class="col-12">
                                             ${showClothingModel.season}
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                          <a href="/admin/adminClothingModels/update/${showClothingModel.id}<custom:allParams/>"	class="btn btn-outline-warning btn-sm margin">Update</a>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                          <br>
-                                           <a href="/admin/adminClothingModels/delete/${showClothingModel.id}<custom:allParams/>"	class="btn btn-outline-danger btn-sm margin">Delete</a>
-                                        </div>
-                                    </div>
+                                    </div>                                                                      
                                 </div>
                             </c:forEach> 
                         </div>                        
                     </div>
-		        </div>
+		        </div>               
                 <div class="row">
                     <div class="col-12">
                         <custom:pageable page="${showClothingModels}"/>
