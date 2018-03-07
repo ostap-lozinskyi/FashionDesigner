@@ -29,6 +29,8 @@ public class ClothingModelView {
 		this.name = name;
 		this.text = text;
 		this.season = season;
+		this.typeOfClothes = typeOfClothes;
+		this.sectionOfClothes = sectionOfClothes;
 		this.photoUrl = photoUrl;
 		this.version = version;
 	}
