@@ -30,6 +30,9 @@ a:hover {
     width: 33%;    
 }
 
+.item {
+	margin-bottom: 20px;
+}
 
 .item .hide {
 	display: block;
@@ -39,16 +42,15 @@ a:hover {
 }
 
 .item:hover .hide {
-	max-height: 600px;
-    height: 600px;
+	max-height: 500px;
+    height: 500px;
     background: rgba(255, 255, 255, 0.5);
 	transition: background-color 0.75s ease-in
 }
 
 .item:hover .hide a{
     position: relative;
-    top: 50%;
-	margin: 20px;
+    top: 140px;	
 }
 
 .item .hover {
@@ -58,6 +60,16 @@ a:hover {
 	top: 0;
 	width: 100%;
 	background: rgba(255, 255, 255, 0.1);	
+}
+
+.hideInfo {
+    color: black;
+    font-size: 1.5em;    
+}
+
+.hideInfo:hover {
+    color: black;
+    
 }
 
 

@@ -31,16 +31,36 @@
                                 <img src="/resources/img/olha-lozinska-logo.png" class="logo">
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <img src="/resources/img/1.jpeg" class="mainImg">
-                                <img src="/resources/img/2.JPG" class="mainImg">
-                                <img src="/resources/img/3.JPG" class="mainImg">
-                            </div>                            
-                        </div> 
-                       
-						
-						
+                        <div class="row">                               
+                            <c:if test="${empty showClothingModels.content}">
+                                <tr>
+                                <td colspan=7><h3 class="text-center">Clothing Models with such parameters not found</h3></td>
+                                </tr>
+                            </c:if>
+                            <c:forEach var="showClothingModel" items="${showClothingModels.content}">
+                                <div class="col-4 text-center item">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <img src="${showClothingModel.photoUrl}?version=${showClothingModel.version}" style="width: 350px;">
+                                        </div>
+                                    </div>                                    
+                                    <div class="hover">
+                                        <div class="hide">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <a href="/"	class="hideInfo">${showClothingModel.name}</a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">                                                  
+                                                    <a href="/"	class="hideInfo">${showClothingModel.season}</a>
+                                                </div>
+                                            </div>
+                                        </div>  
+                                    </div>                                                                                                    
+                                </div>
+                            </c:forEach> 
+                        </div>
                     </div>
                 </body>
                 </html>

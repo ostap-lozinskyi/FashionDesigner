@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import ua.entity.Role;
@@ -30,7 +29,6 @@ import ua.validation.flag.UserFlag;
 
 @Controller
 @RequestMapping("/admin/adminUsers")
-@SessionAttributes("meal")
 public class AdminUsersController {
 	
 	private final UserService userService;
