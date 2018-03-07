@@ -34,14 +34,15 @@ a:hover {
 .item .hide {
 	display: block;
 	max-height: 0;
-	transition: max-height 0.15s ease-out;
+/*	transition: max-height 0.15s ease-out;*/
 	overflow: hidden
 }
 
 .item:hover .hide {
 	max-height: 600px;
     height: 600px;
-	transition: max-height 0.75s ease-in
+    background: rgba(255, 255, 255, 0.5);
+	transition: background-color 0.75s ease-in
 }
 
 .item:hover .hide a{
@@ -56,7 +57,7 @@ a:hover {
 	left: 0;
 	top: 0;
 	width: 100%;
-	background: rgba(255, 255, 255, 0.8);	
+	background: rgba(255, 255, 255, 0.1);	
 }
 
 
