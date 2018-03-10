@@ -72,5 +72,20 @@
     
 }
 
+.arrow {
+    position: relative;
+    top: 50%;
+}
+
+.photoID {
+    width: 450px;
+    position: relative;
+    top: 30px;    
+}
+
+.logoID {
+    width: 40%;
+}
+
 
 

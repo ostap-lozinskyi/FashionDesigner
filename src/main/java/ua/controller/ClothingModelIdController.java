@@ -1,6 +1,5 @@
 package ua.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,34 +35,31 @@ public class ClothingModelIdController {
 	@GetMapping
 	public String show(Model model, @PathVariable Integer id, @PageableDefault Pageable pageable, 
 			@ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
+		model.addAttribute("clothingModel", clothingModelService.findClothingModelViewById(id));
+		
 		List<ClothingModelView> clothingModelViews = clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable).getContent();
-		List<Integer> iDs = new ArrayList<>();
 		int currentListId = 0;
 		for (int i = 0; i < clothingModelViews.size(); i++) {
-			int clothingModelViewID = clothingModelViews.get(i).getId();			
-			if (clothingModelViewID == id ) {
+			if (clothingModelViews.get(i).getId() == id ) {
 				currentListId = i;
 			}
-			iDs.add(clothingModelViewID);
-		}
+		}		
 		
-		model.addAttribute("clothingModel", clothingModelService.findClothingModelViewById(id));
-		int previousId = 0;
+		int previousId;
 		if ((currentListId-1) > 0) {
-			previousId = iDs.get(currentListId-1);
-			System.out.println(currentListId-1);
+			previousId = clothingModelViews.get(currentListId-1).getId();
 		} else if ((currentListId-1) == 0){
-			previousId = iDs.get(0);
+			previousId = clothingModelViews.get(0).getId();
 		} else {
-			previousId = iDs.get(iDs.size()-1);
+			previousId = clothingModelViews.get(clothingModelViews.size()-1).getId();
 		}
 		model.addAttribute("previousModel", previousId);
 		
-		int nextId = 0;
-		if ((currentListId+1) < iDs.size()) {
-			nextId = iDs.get(currentListId+1);
+		int nextId;
+		if ((currentListId+1) < clothingModelViews.size()) {
+			nextId = clothingModelViews.get(currentListId+1).getId();
 		} else {
-			nextId = iDs.get(0);
+			nextId = clothingModelViews.get(0).getId();
 		}
  		model.addAttribute("nextModel", nextId);
  		

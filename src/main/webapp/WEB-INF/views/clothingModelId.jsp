@@ -27,37 +27,23 @@
                     </div>
                     <div class="container">                        
                         <div class="row">
-                            <div class="col-12 divLogo">
-                                <img src="/resources/img/olha-lozinska-logo.png" class="logo">
+                            <div class="col-12 text-center divLogo">
+                                <img src="/resources/img/olha-lozinska-logo.png" class="logoID">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-4 text-center">
-                                <a href="/clothingModel/${previousModel}">--------</a>                               
+                            <div class="col-3 text-center">
+                                <a class="arrow" href="/clothingModel/${previousModel}"><img src="/resources/img/arrowLeft.png" style="width: 100px;"></a>                               
                             </div>
-                            <div class="col-4 text-center item">
+                            <div class="col-6 text-center">
                                     <div class="row">
                                         <div class="col-12">
-                                            <img src="${clothingModel.photoUrl}?version=${clothingModel.version}" style="width: 350px;">
+                                            <img class="photoID" src="${clothingModel.photoUrl}?version=${clothingModel.version}">
                                         </div>
-                                    </div>                                    
-                                    <div class="hover">
-                                        <div class="hide">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <a href="/"	class="hideInfo">${clothingModel.name}</a>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12">                                                  
-                                                    <a href="/"	class="hideInfo">${clothingModel.season}</a>
-                                                </div>
-                                            </div>
-                                        </div>  
-                                    </div>                                                                                                    
+                                    </div>                                                                                    
                             </div>
-                            <div class="col-4 text-center">
-                                <a href="/clothingModel/${nextModel}">--------</a>                               
+                            <div class="col-3 text-center">
+                                <a class="arrow" href="/clothingModel/${nextModel}"><img src="/resources/img/arrowRight.png" style="width: 100px;"></a>                               
                             </div>                            
                         </div>
                     </div>
