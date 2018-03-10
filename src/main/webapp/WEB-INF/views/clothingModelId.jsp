@@ -33,17 +33,39 @@
                         </div>
                         <div class="row">
                             <div class="col-3 text-center">
-                                <a class="arrow" href="/clothingModel/${previousModel}"><img src="/resources/img/arrowLeft.png" style="width: 100px;"></a>                               
-                            </div>
+                                <a class="arrow" href="/clothingModel/${previousModel}"><img src="/resources/img/arrowLeft.png" style="width: 100px;"></a>
+                            </div>                            
                             <div class="col-6 text-center">
                                     <div class="row">
-                                        <div class="col-12">
+                                       <div class="col-3">
+                                           <div class="row">
+                                               <div class="col-12">
+                                                   <img class="photoIDmini" src="${clothingModel.photoUrl}?version=${clothingModel.version}">
+                                               </div>
+                                           </div>
+                                           <div class="row">
+                                               <div class="col-12">
+                                                   <img class="photoIDmini" src="${clothingModel.photoUrl}?version=${clothingModel.version}">
+                                               </div>
+                                           </div>
+                                           <div class="row">
+                                               <div class="col-12">
+                                                   <img class="photoIDmini" src="${clothingModel.photoUrl}?version=${clothingModel.version}">
+                                               </div>
+                                           </div> 
+                                           <div class="row">
+                                               <div class="col-12">
+                                                   <img class="photoIDmini" src="${clothingModel.photoUrl}?version=${clothingModel.version}">
+                                               </div>
+                                           </div>                                           
+                                        </div>
+                                        <div class="col-9">
                                             <img class="photoID" src="${clothingModel.photoUrl}?version=${clothingModel.version}">
                                         </div>
                                     </div>                                                                                    
                             </div>
                             <div class="col-3 text-center">
-                                <a class="arrow" href="/clothingModel/${nextModel}"><img src="/resources/img/arrowRight.png" style="width: 100px;"></a>                               
+                                <a class="arrow" href="/clothingModel/${nextModel}"><img src="/resources/img/arrowRight.png" style="width: 100px;"></a>
                             </div>                            
                         </div>
                     </div>

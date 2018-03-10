@@ -83,6 +83,13 @@
     top: 30px;    
 }
 
+.photoIDmini {
+    width: 100px;
+    position: relative;
+    top: 30px; 
+    margin-bottom: 22px;
+}
+
 .logoID {
     width: 40%;
 }
