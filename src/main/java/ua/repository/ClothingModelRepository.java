@@ -21,7 +21,7 @@ public interface ClothingModelRepository extends JpaNameRepository<ClothingModel
 	@Query("SELECT cm FROM ClothingModel cm WHERE cm.id=?1")
 	ClothingModel findClothingModelById(Integer id);
 	
-	@Query("SELECT new ua.model.view.ClothingModelView(cm.id, cm.name, cm.text, season.name, type.name, section.name)"
+	@Query("SELECT new ua.model.view.ClothingModelView(cm.id, cm.name, cm.text, season.name, type.name, section.name, cm.version)"
 			+ "FROM ClothingModel cm JOIN cm.season season JOIN cm.typeOfClothes type JOIN cm.sectionOfClothes section WHERE cm.id=?1")
 	ClothingModelView findClothingModelViewById(Integer id);
 	

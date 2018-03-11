@@ -41,7 +41,7 @@
                                 <div class="col-4 text-center item">
                                     <div class="row">
                                         <div class="col-12">
-                                            <img src="${showClothingModel.photoUrls[0]}?version=${showClothingModel.versions[0]}" style="width: 350px;">
+                                            <img src="${showClothingModel.photoUrls[0]}?version=${showClothingModel.version}" style="width: 350px;">
                                         </div>
                                     </div>                                    
                                     <div class="hover">

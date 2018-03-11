@@ -21,16 +21,17 @@ public class ClothingModelView {
 	
 	private List<String> photoUrls = new ArrayList<>();	
 
-	private List<Integer> versions = new ArrayList<>();
+	private int version;
 	
 	public ClothingModelView(Integer id, String name, String text, String season, String typeOfClothes, 
-			String sectionOfClothes) {
+			String sectionOfClothes, int version) {
 		this.id = id;
 		this.name = name;
 		this.text = text;
 		this.season = season;
 		this.typeOfClothes = typeOfClothes;
-		this.sectionOfClothes = sectionOfClothes;		
+		this.sectionOfClothes = sectionOfClothes;
+		this.version = version;
 	}
 
 	public Integer getId() {
@@ -97,12 +98,12 @@ public class ClothingModelView {
 		this.photoUrls = photoUrls;
 	}
 
-	public List<Integer> getVersions() {
-		return versions;
+	public int getVersion() {
+		return version;
 	}
 
-	public void setVersions(List<Integer> versions) {
-		this.versions = versions;
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 }

@@ -73,7 +73,7 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 		clothingModel.setSectionOfClothes(clothingModelRequest.getSectionOfClothes());
 		clothingModel.setColors(clothingModelRequest.getColors());
 		clothingModel.setPhotoUrls(clothingModelRequest.getPhotoUrls());
-		clothingModel.setVersions(clothingModelRequest.getVersions());
+		clothingModel.setVersion(clothingModelRequest.getVersion());
 		clothingModelRepository.save(clothingModel);
 	}
 
@@ -89,7 +89,7 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 		clothingModelRequest.setSectionOfClothes(clothingModel.getSectionOfClothes());
 		clothingModelRequest.setColors(clothingModel.getColors());
 		clothingModelRequest.setPhotoUrls(clothingModel.getPhotoUrls());
-		clothingModelRequest.setVersions(clothingModel.getVersions());
+		clothingModelRequest.setVersion(clothingModel.getVersion());
 		return clothingModelRequest;
 	}
 
@@ -103,26 +103,27 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 		return clothingModelRepository.findClothingModelViewById(id);
 	}
 	
-	public ClothingModelRequest uploadPhotoToCloudinary(ClothingModelRequest clothingModelRequest, MultipartFile[] multipartFiles) throws IOException {
+	public ClothingModelRequest uploadPhotoToCloudinary(ClothingModelRequest clothingModelRequest, MultipartFile[] multipartFiles) 
+			throws IOException {
 		List<String> photoUrls = new ArrayList<>();
 		int i=0;
-		for (MultipartFile multipartFile : multipartFiles) {
-			
-			String photoName = "dddd_"+i;
+		for (MultipartFile multipartFile : multipartFiles) {			
+			String photoName = clothingModelRequest.getName()+"_"+i;
 			@SuppressWarnings("rawtypes")
 			Map uploadResult = cloudinary.uploader().upload(multipartFile.getBytes(),
 					ObjectUtils.asMap("public_id", photoName));
 			i++;
 			String cloudinaryUrl = (String) uploadResult.get("url");			
 			photoUrls.add(cloudinaryUrl);			
-		}			
-//			String oldPhotoUrl = clothingModelRequest.getPhotoUrl();
-//			if ((oldPhotoUrl != null) && (oldPhotoUrl.equals(cloudinaryUrl))) {
-//				clothingModelRequest.setVersion(clothingModelRequest.getVersion() + 1);
-//			} else {
-//				clothingModelRequest.setVersion(0);
-//			}
-			clothingModelRequest.setPhotoUrls(photoUrls);
+		}	
+		
+		List<String> oldPhotoUrls = clothingModelRequest.getPhotoUrls();
+		if (oldPhotoUrls.containsAll(photoUrls) && photoUrls.containsAll(oldPhotoUrls)) {
+			clothingModelRequest.setVersion(clothingModelRequest.getVersion() + 1);
+		} else {
+			clothingModelRequest.setVersion(0);
+		}
+		clothingModelRequest.setPhotoUrls(photoUrls);
 		return clothingModelRequest;
 	}
 	

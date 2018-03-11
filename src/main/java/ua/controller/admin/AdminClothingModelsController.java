@@ -104,7 +104,7 @@ public class AdminClothingModelsController {
 		if (br.hasErrors())
 			return showClothingModel(model, pageable, filter);
 		try {
-			if(files[0] != null) {
+			if(!files[0].isEmpty()) {
 				clothingModelService.saveClothingModel(clothingModelService.uploadPhotoToCloudinary(request, files));
 			} else {
 				clothingModelService.saveClothingModel(request);

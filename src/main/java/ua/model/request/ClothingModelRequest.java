@@ -11,14 +11,13 @@ import ua.entity.Color;
 import ua.entity.Season;
 import ua.entity.SectionOfClothes;
 import ua.entity.TypeOfClothes;
-import ua.validation.annotation.UniqueClothingModel;
 import ua.validation.flag.ClothingModelFlag;
 
 public class ClothingModelRequest {
 
 	private Integer id;
 
-	@UniqueClothingModel(message = "This clothing model already exists", groups = ClothingModelFlag.class)
+//	@UniqueClothingModel(message = "This clothing model already exists", groups = ClothingModelFlag.class)
 	@NotBlank(message = "This field cannot be blank", groups = {ClothingModelFlag.class})
 	@Pattern(regexp = "^[A-Za-z0-9 _-А-Яа-яіІїЇєЄ]+| *$", message = "The 'Name' should have at least 1 letter",	
 	groups = ClothingModelFlag.class)
@@ -36,7 +35,7 @@ public class ClothingModelRequest {
 	
 	private List<String> photoUrls = new ArrayList<>();	
 
-	private List<Integer> versions = new ArrayList<>();
+	private int version;
 
 	public Integer getId() {
 		return id;
@@ -102,12 +101,12 @@ public class ClothingModelRequest {
 		this.photoUrls = photoUrls;
 	}
 
-	public List<Integer> getVersions() {
-		return versions;
+	public int getVersion() {
+		return version;
 	}
 
-	public void setVersions(List<Integer> versions) {
-		this.versions = versions;
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 }

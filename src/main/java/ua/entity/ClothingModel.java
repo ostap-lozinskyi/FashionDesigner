@@ -29,18 +29,17 @@ public class ClothingModel extends AbstractEntityName {
 	@ManyToMany(fetch=FetchType.LAZY)
 	private List<Color> colors = new ArrayList<>();
 	
-	@ElementCollection(targetClass=String.class)
+	@ElementCollection(targetClass=String.class, fetch=FetchType.EAGER)
 	private List<String> photoUrls = new ArrayList<>();	
 
-	@ElementCollection(targetClass=Integer.class)
-	private List<Integer> versions = new ArrayList<>();
+	private int version;
 
 	public ClothingModel() {
 	}
 
 	public ClothingModel(String name, String text, Season season,
 			TypeOfClothes typeOfClothes, SectionOfClothes sectionOfClothes, 
-			List<Color> colors, List<String> photoUrls, List<Integer> versions) {
+			List<Color> colors, List<String> photoUrls) {
 		super(name);
 		this.text = text;
 		this.season = season;	
@@ -48,7 +47,6 @@ public class ClothingModel extends AbstractEntityName {
 		this.sectionOfClothes = sectionOfClothes;
 		this.colors = colors;
 		this.photoUrls = photoUrls;		
-		this.versions = versions;
 	}
 
 	public String getText() {
@@ -99,12 +97,12 @@ public class ClothingModel extends AbstractEntityName {
 		this.photoUrls = photoUrls;
 	}
 
-	public List<Integer> getVersions() {
-		return versions;
+	public int getVersion() {
+		return version;
 	}
 
-	public void setVersions(List<Integer> versions) {
-		this.versions = versions;
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 }
