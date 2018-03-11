@@ -1,6 +1,7 @@
 package ua.service.impl;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -71,8 +72,8 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 		clothingModel.setTypeOfClothes(clothingModelRequest.getTypeOfClothes());
 		clothingModel.setSectionOfClothes(clothingModelRequest.getSectionOfClothes());
 		clothingModel.setColors(clothingModelRequest.getColors());
-		clothingModel.setPhotoUrl(clothingModelRequest.getPhotoUrl());
-		clothingModel.setVersion(clothingModelRequest.getVersion());
+		clothingModel.setPhotoUrls(clothingModelRequest.getPhotoUrls());
+		clothingModel.setVersions(clothingModelRequest.getVersions());
 		clothingModelRepository.save(clothingModel);
 	}
 
@@ -87,8 +88,8 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 		clothingModelRequest.setTypeOfClothes(clothingModel.getTypeOfClothes());
 		clothingModelRequest.setSectionOfClothes(clothingModel.getSectionOfClothes());
 		clothingModelRequest.setColors(clothingModel.getColors());
-		clothingModelRequest.setPhotoUrl(clothingModel.getPhotoUrl());
-		clothingModelRequest.setVersion(clothingModel.getVersion());
+		clothingModelRequest.setPhotoUrls(clothingModel.getPhotoUrls());
+		clothingModelRequest.setVersions(clothingModel.getVersions());
 		return clothingModelRequest;
 	}
 
@@ -102,18 +103,26 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 		return clothingModelRepository.findClothingModelViewById(id);
 	}
 	
-	public ClothingModelRequest uploadPhotoToCloudinary(ClothingModelRequest clothingModelRequest, MultipartFile multipartFile) throws IOException {
+	public ClothingModelRequest uploadPhotoToCloudinary(ClothingModelRequest clothingModelRequest, MultipartFile[] multipartFiles) throws IOException {
+		List<String> photoUrls = new ArrayList<>();
+		int i=0;
+		for (MultipartFile multipartFile : multipartFiles) {
+			
+			String photoName = "dddd_"+i;
 			@SuppressWarnings("rawtypes")
 			Map uploadResult = cloudinary.uploader().upload(multipartFile.getBytes(),
-					ObjectUtils.asMap("use_filename", "true", "unique_filename", "false"));
-			String cloudinaryUrl = (String) uploadResult.get("url");
-			String oldPhotoUrl = clothingModelRequest.getPhotoUrl();
-			if ((oldPhotoUrl != null) && (oldPhotoUrl.equals(cloudinaryUrl))) {
-				clothingModelRequest.setVersion(clothingModelRequest.getVersion() + 1);
-			} else {
-				clothingModelRequest.setVersion(0);
-			}
-			clothingModelRequest.setPhotoUrl(cloudinaryUrl);
+					ObjectUtils.asMap("public_id", photoName));
+			i++;
+			String cloudinaryUrl = (String) uploadResult.get("url");			
+			photoUrls.add(cloudinaryUrl);			
+		}			
+//			String oldPhotoUrl = clothingModelRequest.getPhotoUrl();
+//			if ((oldPhotoUrl != null) && (oldPhotoUrl.equals(cloudinaryUrl))) {
+//				clothingModelRequest.setVersion(clothingModelRequest.getVersion() + 1);
+//			} else {
+//				clothingModelRequest.setVersion(0);
+//			}
+			clothingModelRequest.setPhotoUrls(photoUrls);
 		return clothingModelRequest;
 	}
 	
@@ -135,6 +144,11 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 	@Override
 	public List<String> findAllColorsNames() {
 		return colorRepository.findAllColorsNames();
+	}
+
+	@Override
+	public List<String> findPhotoUrls(Integer id) {
+		return clothingModelRepository.findPhotoUrls(id);
 	}
 	
 }

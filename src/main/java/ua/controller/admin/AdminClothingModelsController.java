@@ -2,9 +2,11 @@ package ua.controller.admin;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
@@ -19,12 +21,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import ua.model.filter.ClothingModelFilter;
-import ua.model.request.FileRequest;
+import ua.model.view.ClothingModelView;
 import ua.model.request.ClothingModelRequest;
 import ua.service.ClothingModelService;
 import ua.validation.flag.ClothingModelFlag;
@@ -53,17 +56,19 @@ public class AdminClothingModelsController {
 		return new ClothingModelFilter();
 	}
 	
-	@ModelAttribute("fileRequest")
-	public FileRequest getFile() {
-		return new FileRequest();
-	}
-
 	/**
 	 * Show Clothing Models page
 	 */
 	@GetMapping
 	public String showClothingModel(Model model, @PageableDefault Pageable pageable, @ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
-		model.addAttribute("showClothingModels", clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable));
+		Page<ClothingModelView> clothingModelViewsPage = clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable);
+		
+		List<ClothingModelView> clothingModelViewsList = clothingModelViewsPage.getContent();
+		for (ClothingModelView clothingModelView : clothingModelViewsList) {
+			clothingModelView.setPhotoUrls(clothingModelService.findPhotoUrls(clothingModelView.getId()));
+		}
+		model.addAttribute("showClothingModels", clothingModelViewsPage);		
+		
 		model.addAttribute("seasons", clothingModelService.findAllSeasonNames());
 		model.addAttribute("typesOfClothes", clothingModelService.findAllTypeOfClothesNames());
 		model.addAttribute("sectionsOfClothes", clothingModelService.findAllSectionOfClothesNames());
@@ -95,13 +100,12 @@ public class AdminClothingModelsController {
 	@PostMapping
 	public String save(@ModelAttribute("clothingModel") @Validated(ClothingModelFlag.class) ClothingModelRequest request, BindingResult br,
 			Model model, SessionStatus status, @PageableDefault Pageable pageable,
-			@ModelAttribute("clothingModelFilter") ClothingModelFilter filter,  @ModelAttribute("fileRequest") FileRequest fileRequest) {
+			@ModelAttribute("clothingModelFilter") ClothingModelFilter filter,  @RequestParam("files") MultipartFile[] files) {
 		if (br.hasErrors())
 			return showClothingModel(model, pageable, filter);
-		MultipartFile multipartFile = fileRequest.getFile();
 		try {
-			if(!multipartFile.isEmpty()) {
-				clothingModelService.saveClothingModel(clothingModelService.uploadPhotoToCloudinary(request, multipartFile));
+			if(files[0] != null) {
+				clothingModelService.saveClothingModel(clothingModelService.uploadPhotoToCloudinary(request, files));
 			} else {
 				clothingModelService.saveClothingModel(request);
 			}			

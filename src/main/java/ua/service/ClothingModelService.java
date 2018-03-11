@@ -23,7 +23,7 @@ public interface ClothingModelService {
 	
 	ClothingModelView findClothingModelViewById(Integer id);
 	
-	ClothingModelRequest uploadPhotoToCloudinary(ClothingModelRequest clothingModelRequest, MultipartFile multipartFile) throws IOException;
+	ClothingModelRequest uploadPhotoToCloudinary(ClothingModelRequest clothingModelRequest, MultipartFile[] multipartFiles) throws IOException;
 	
 	public List<String> findAllSeasonNames();
 	
@@ -32,5 +32,7 @@ public interface ClothingModelService {
 	public List<String> findAllSectionOfClothesNames();
 	
 	public List<String> findAllColorsNames();
+	
+	public List<String> findPhotoUrls(Integer id);
 	
 }

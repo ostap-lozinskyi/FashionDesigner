@@ -42,7 +42,7 @@ public class ClothingModelViewRepositoryImpl implements ClothingModelViewReposit
 		Join<ClothingModel, TypeOfClothes> joinType = root.join(ClothingModel_.typeOfClothes);
 		Join<ClothingModel, SectionOfClothes> joinSection = root.join(ClothingModel_.sectionOfClothes);
 		cq.multiselect(root.get(ClothingModel_.id), root.get("name"), root.get("text"),  
-				joinSeason.get("name"), joinType.get("name"), joinSection.get("name"), root.get("photoUrl"), root.get("version"));
+				joinSeason.get("name"), joinType.get("name"), joinSection.get("name"));
 		Predicate predicate = new PredicateBuilder(cb, root, filter).toPredicate();
 		if(predicate!=null) cq.where(predicate);
 		cq.orderBy(toOrders(pageable.getSort(), root, cb));

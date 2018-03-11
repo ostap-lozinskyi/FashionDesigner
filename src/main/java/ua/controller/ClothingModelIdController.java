@@ -35,7 +35,9 @@ public class ClothingModelIdController {
 	@GetMapping
 	public String show(Model model, @PathVariable Integer id, @PageableDefault Pageable pageable, 
 			@ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
-		model.addAttribute("clothingModel", clothingModelService.findClothingModelViewById(id));
+		ClothingModelView clothingModelView = clothingModelService.findClothingModelViewById(id);
+		clothingModelView.setPhotoUrls(clothingModelService.findPhotoUrls(id));
+		model.addAttribute("clothingModel", clothingModelView);	
 		
 		List<ClothingModelView> clothingModelViews = clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable).getContent();
 		int currentListId = 0;
@@ -62,6 +64,8 @@ public class ClothingModelIdController {
 			nextId = clothingModelViews.get(0).getId();
 		}
  		model.addAttribute("nextModel", nextId);
+ 		
+ 		
  		
 		return "clothingModelId";
 	}

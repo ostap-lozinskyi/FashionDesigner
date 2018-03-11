@@ -40,29 +40,29 @@
                                        <div class="col-3">
                                            <div class="row">
                                                <div class="col-12">
-                                                   <img class="photoIDmini" src="${clothingModel.photoUrl}?version=${clothingModel.version}">
+                                                   <img class="photoIDmini" src="${clothingModel.photoUrls[0]}?version=${clothingModel.versions[0]}">
                                                </div>
                                            </div>
                                            <div class="row">
                                                <div class="col-12">
-                                                   <img class="photoIDmini" src="${clothingModel.photoUrl}?version=${clothingModel.version}">
+                                                   <img class="photoIDmini" src="${clothingModel.photoUrls[1]}?version=${clothingModel.versions[1]}">
                                                </div>
                                            </div>
                                            <div class="row">
                                                <div class="col-12">
-                                                   <img class="photoIDmini" src="${clothingModel.photoUrl}?version=${clothingModel.version}">
+                                                   <img class="photoIDmini" src="${clothingModel.photoUrls[2]}?version=${clothingModel.versions[2]}">
                                                </div>
                                            </div> 
                                            <div class="row">
                                                <div class="col-12">
-                                                   <img class="photoIDmini" src="${clothingModel.photoUrl}?version=${clothingModel.version}">
+                                                   <img class="photoIDmini" src="${clothingModel.photoUrls[3]}?version=${clothingModel.versions[3]}">
                                                </div>
                                            </div>                                           
                                         </div>
                                         <div class="col-9">
-                                            <img class="photoID" src="${clothingModel.photoUrl}?version=${clothingModel.version}">
+                                            <img class="photoID" src="${clothingModel.photoUrls[0]}?version=${clothingModel.versions[0]}">
                                         </div>
-                                    </div>                                                                                    
+                                    </div>                                                             
                             </div>
                             <div class="col-3 text-center">
                                 <a class="arrow" href="/clothingModel/${nextModel}"><img src="/resources/img/arrowRight.png" style="width: 100px;"></a>

@@ -34,9 +34,9 @@ public class ClothingModelRequest {
 	
 	private List<Color> colors = new ArrayList<>();
 	
-	private String photoUrl;	
+	private List<String> photoUrls = new ArrayList<>();	
 
-	private int version;
+	private List<Integer> versions = new ArrayList<>();
 
 	public Integer getId() {
 		return id;
@@ -94,20 +94,20 @@ public class ClothingModelRequest {
 		this.colors = colors;
 	}
 
-	public String getPhotoUrl() {
-		return photoUrl;
+	public List<String> getPhotoUrls() {
+		return photoUrls;
 	}
 
-	public void setPhotoUrl(String photoUrl) {
-		this.photoUrl = photoUrl;
+	public void setPhotoUrls(List<String> photoUrls) {
+		this.photoUrls = photoUrls;
 	}
 
-	public int getVersion() {
-		return version;
+	public List<Integer> getVersions() {
+		return versions;
 	}
 
-	public void setVersion(int version) {
-		this.version = version;
+	public void setVersions(List<Integer> versions) {
+		this.versions = versions;
 	}
 
 }

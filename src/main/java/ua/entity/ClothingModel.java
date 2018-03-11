@@ -3,6 +3,7 @@ package ua.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Index;
@@ -28,24 +29,26 @@ public class ClothingModel extends AbstractEntityName {
 	@ManyToMany(fetch=FetchType.LAZY)
 	private List<Color> colors = new ArrayList<>();
 	
-	private String photoUrl;	
+	@ElementCollection(targetClass=String.class)
+	private List<String> photoUrls = new ArrayList<>();	
 
-	private int version;
+	@ElementCollection(targetClass=Integer.class)
+	private List<Integer> versions = new ArrayList<>();
 
 	public ClothingModel() {
 	}
 
 	public ClothingModel(String name, String text, Season season,
 			TypeOfClothes typeOfClothes, SectionOfClothes sectionOfClothes, 
-			List<Color> colors, String photoUrl, int version) {
+			List<Color> colors, List<String> photoUrls, List<Integer> versions) {
 		super(name);
 		this.text = text;
 		this.season = season;	
 		this.typeOfClothes = typeOfClothes;
 		this.sectionOfClothes = sectionOfClothes;
 		this.colors = colors;
-		this.photoUrl = photoUrl;		
-		this.version = version;
+		this.photoUrls = photoUrls;		
+		this.versions = versions;
 	}
 
 	public String getText() {
@@ -62,22 +65,6 @@ public class ClothingModel extends AbstractEntityName {
 
 	public void setSeason(Season season) {
 		this.season = season;
-	}
-
-	public String getPhotoUrl() {
-		return photoUrl;
-	}
-
-	public void setPhotoUrl(String photoUrl) {
-		this.photoUrl = photoUrl;
-	}
-
-	public int getVersion() {
-		return version;
-	}
-
-	public void setVersion(int version) {
-		this.version = version;
 	}
 
 	public TypeOfClothes getTypeOfClothes() {
@@ -102,6 +89,22 @@ public class ClothingModel extends AbstractEntityName {
 
 	public void setColors(List<Color> colors) {
 		this.colors = colors;
+	}
+
+	public List<String> getPhotoUrls() {
+		return photoUrls;
+	}
+
+	public void setPhotoUrls(List<String> photoUrls) {
+		this.photoUrls = photoUrls;
+	}
+
+	public List<Integer> getVersions() {
+		return versions;
+	}
+
+	public void setVersions(List<Integer> versions) {
+		this.versions = versions;
 	}
 
 }
