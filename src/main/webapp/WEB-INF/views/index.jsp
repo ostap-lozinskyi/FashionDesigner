@@ -33,19 +33,17 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-12">
-                               <video width="320" height="240" controls autoplay>
-                                  <source src="/resourses/video/videoIntro.mp4">
-                                  Your browser does not support the video tag.
+                            <div class="col-sm-12 text-center">
+                                <video width="640" height="360" autoplay>
+                                  <source src="/resources/video/videoIntro.mp4" type="video/mp4">
                                 </video>
-                                <img src="/resources/img/1.jpeg" class="mainImg">
-                                <img src="/resources/img/2.JPG" class="mainImg">
-                                <img src="/resources/img/3.JPG" class="mainImg">
                             </div>                            
                         </div> 
-                       
-						
-						
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <img src="/resources/img/2.JPG" class="mainImg">
+                            </div>                            
+                        </div> 
                     </div>
                 </body>
                 </html>
