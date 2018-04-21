@@ -34,6 +34,10 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
+                               <video width="320" height="240" controls autoplay>
+                                  <source src="/resourses/video/videoIntro.mp4">
+                                  Your browser does not support the video tag.
+                                </video>
                                 <img src="/resources/img/1.jpeg" class="mainImg">
                                 <img src="/resources/img/2.JPG" class="mainImg">
                                 <img src="/resources/img/3.JPG" class="mainImg">
