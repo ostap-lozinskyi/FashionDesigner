@@ -31,45 +31,26 @@
 }
 
 .item {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+    width: 340px;
 	margin-bottom: 20px;
 }
 
-.item .hide {
-	display: block;
-	max-height: 0;
-/*	transition: max-height 0.15s ease-out;*/
-	overflow: hidden
+.item:hover {
+    opacity: 0.65;
+    transition: opacity 1s ease-in;
 }
 
-.item:hover .hide {
-	max-height: 500px;
-    height: 500px;
-    background: rgba(255, 255, 255, 0.5);
-	transition: background-color 0.75s ease-in
-}
-
-.item:hover .hide a{
+.hover {
     position: relative;
-    top: 140px;	
+    top: -250px;
+    z-index: 100;
+    height: 0;
 }
 
-.item .hover {
-	position: absolute;
-	padding: 0;
-	left: 0;
-	top: 0;
-	width: 100%;
-	background: rgba(255, 255, 255, 0.1);	
-}
-
-.hideInfo {
-    color: black;
-    font-size: 1.5em;    
-}
-
-.hideInfo:hover {
-    color: black;
-    
+.betweenButtons {
+    margin-bottom: 10px;
 }
 
 .arrow {
@@ -93,6 +74,3 @@
 .logoID {
     width: 40%;
 }
-
-
-

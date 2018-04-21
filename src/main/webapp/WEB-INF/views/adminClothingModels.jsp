@@ -161,25 +161,23 @@
                                 </tr>
                             </c:if>
                             <c:forEach var="showClothingModel" items="${showClothingModels.content}">
-                                <div class="col-3 text-center item">
+                                <div class="col-3 text-center">
                                     <div class="row">
                                         <div class="col-12">
-                                            <img src="${showClothingModel.photoUrls[0]}?version=${showClothingModel.version}" style="width: 200px;">
+                                            <img src="${showClothingModel.photoUrls[0]}?version=${showClothingModel.version}" style="width: 250px;">
                                         </div>
                                     </div>                                    
-                                    <div class="hover">
-                                        <div class="hide">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                <a href="/admin/adminClothingModels/update/${showClothingModel.id}<custom:allParams/>"	class="btn btn-warning btn-sm">Update</a>
-                                                </div>
+                                    <div class="hover">                                        
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <a href="/admin/adminClothingModels/update/${showClothingModel.id}<custom:allParams/>"	class="btn btn-warning btn-sm betweenButtons">Update</a>
                                             </div>
+                                        </div>
                                             <div class="row">
                                                 <div class="col-12">                                                  
                                                 <a href="/admin/adminClothingModels/delete/${showClothingModel.id}<custom:allParams/>"	class="btn btn-danger btn-sm">Delete</a>
                                                 </div>
-                                            </div>
-                                        </div>  
+                                            </div>                                          
                                     </div>
                                     <div class="row">
                                         <div class="col-12">
