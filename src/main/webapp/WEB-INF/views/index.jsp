@@ -17,13 +17,14 @@
                 </head>
                 <body>
                     <div class="header">
+                        <a class="dropd" href="/">MAIN</a>
                         <a class="dropd" href="/readyToWear">READY TO WEAR</a>
-				        <a class="dropd" href="#">READY TO WEAR DE LUXE</a>  
-                        <a class="dropd-item" href="#">HAUTE COUTURE</a>
+				        <a class="dropd" href="/readyToWearDeluxe">READY TO WEAR DE LUXE</a>  
+                        <a class="dropd-item" href="/hauteCouture">HAUTE COUTURE</a>
 				        <a class="dropd-item" href="#">ACCESSORIES</a>
 				        <a class="dropd-item" href="#">NEW COLLECTIONS</a>
                         <a class="dropd" href="#">ABOUT</a>                        
-						<a class="dropd" href="/admin">ADMIN</a>       
+						<a class="dropd" href="/admin">ADMIN</a> 
                     </div>
                     <div class="container">                        
                         <div class="row">

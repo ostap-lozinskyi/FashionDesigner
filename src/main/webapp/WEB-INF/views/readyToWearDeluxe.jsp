@@ -24,7 +24,7 @@
 				        <a class="dropd-item" href="#">ACCESSORIES</a>
 				        <a class="dropd-item" href="#">NEW COLLECTIONS</a>
                         <a class="dropd" href="#">ABOUT</a>                        
-						<a class="dropd" href="/admin">ADMIN</a>      
+						<a class="dropd" href="/admin">ADMIN</a>       
                     </div>
                     <div class="container">                        
                         <div class="row">

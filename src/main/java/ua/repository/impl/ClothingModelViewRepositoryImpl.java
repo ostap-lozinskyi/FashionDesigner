@@ -80,8 +80,16 @@ public class ClothingModelViewRepositoryImpl implements ClothingModelViewReposit
 			}
 		}
 		
+		void findBySectionOfClothesId() {
+			if(!filter.getSectionOfClothesName().isEmpty()) {
+				Join<ClothingModel, SectionOfClothes> join = root.join(ClothingModel_.sectionOfClothes);
+				predicates.add(join.get("name").in(filter.getSectionOfClothesName()));
+			}
+		}
+		
 		Predicate toPredicate() {
 			findBySearch();
+			findBySectionOfClothesId();
 			return predicates.isEmpty() ? null : cb.and(predicates.stream().toArray(Predicate[]::new));
 		}		
 		

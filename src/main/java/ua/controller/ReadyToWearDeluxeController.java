@@ -18,13 +18,13 @@ import ua.model.view.ClothingModelView;
 import ua.service.ClothingModelService;
 
 @Controller
-@RequestMapping("/readyToWear")
-public class ReadyToWearController {
+@RequestMapping("/readyToWearDeluxe")
+public class ReadyToWearDeluxeController {
 	
 	private final ClothingModelService clothingModelService;
 	
 	@Autowired
-	public ReadyToWearController(ClothingModelService clothingModelService) {
+	public ReadyToWearDeluxeController(ClothingModelService clothingModelService) {
 		this.clothingModelService = clothingModelService;
 	}
 	
@@ -36,7 +36,7 @@ public class ReadyToWearController {
 	@GetMapping
 	public String showPage(Model model, @PageableDefault Pageable pageable, @ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
 		List <String> sectionOfClothesNames = new ArrayList<>(); 
-		sectionOfClothesNames.add("Ready to wear");
+		sectionOfClothesNames.add("Ready to wear Deluxe");
 		clothingModelFilter.setSectionOfClothesName(sectionOfClothesNames);
 		Page<ClothingModelView> clothingModelViewsPage = clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable);
 		model.addAttribute("showClothingModels", clothingModelViewsPage);
@@ -46,7 +46,7 @@ public class ReadyToWearController {
 			clothingModelView.setPhotoUrls(clothingModelService.findPhotoUrls(clothingModelView.getId()));
 		}
 		
-		return "readyToWear";
+		return "readyToWearDeluxe";
 	}
 
 }
