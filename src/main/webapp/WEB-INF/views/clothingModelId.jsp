@@ -39,47 +39,47 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-3 text-center">
+                            <div class="col-lg-2 col-md-12 text-center">
                                 <a class="arrow" href="/clothingModel/${previousModel}"><img src="/resources/img/arrowLeft.png" style="width: 100px;"></a>
                             </div>                            
-                            <div class="col-6 text-center">
+                            <div class="col-lg-8 col-md-12 text-center">
                                     <div class="row">
-                                       <div class="col-3">
+                                       <div class="col-md-3 col-sm-6">
                                            <div class="row">
-                                               <div class="col-12">
+                                               <div class="col-12 text-right">
                                                    <c:if test="${not empty clothingModel.photoUrls[0]}">
                                                        <img class="photoIDmini" src="${clothingModel.photoUrls[0]}?version=${clothingModel.version}">
                                                    </c:if>
                                                </div>
                                            </div>
-                                           <div class="row">
-                                                <div class="col-12">
+                                           <div class="row ">
+                                                <div class="col-12 text-right">
                                                     <c:if test="${not empty clothingModel.photoUrls[1]}">
                                                            <img class="photoIDmini" src="${clothingModel.photoUrls[1]}?version=${clothingModel.version}">
                                                     </c:if>
                                                 </div>
                                            </div>
                                            <div class="row">
-                                               <div class="col-12">
+                                               <div class="col-12 text-right">
                                                    <c:if test="${not empty clothingModel.photoUrls[2]}">
                                                        <img class="photoIDmini" src="${clothingModel.photoUrls[2]}?version=${clothingModel.version}">
                                                    </c:if>
                                                </div>
                                            </div> 
                                            <div class="row">
-                                               <div class="col-12">
+                                               <div class="col-12 text-right">
                                                    <c:if test="${not empty clothingModel.photoUrls[3]}">
                                                        <img class="photoIDmini" src="${clothingModel.photoUrls[3]}?version=${clothingModel.version}">
                                                    </c:if>
                                                </div>
                                            </div>                                           
                                         </div>
-                                        <div class="col-9">
+                                        <div class="col-md-9 col-sm-12 text-left">
                                             <img class="photoID" src="${clothingModel.photoUrls[0]}?version=${clothingModel.version}">
                                         </div>
                                     </div>                                                             
                             </div>
-                            <div class="col-3 text-center">
+                            <div class="col-lg-2 col-md-12 text-center">
                                 <a class="arrow" href="/clothingModel/${nextModel}"><img src="/resources/img/arrowRight.png" style="width: 100px;"></a>
                             </div>                            
                         </div>

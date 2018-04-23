@@ -38,22 +38,12 @@
                                 <img src="/resources/img/olha-lozinska-logo.png" class="logo">
                             </div>
                         </div>
-                        <div class="row">                               
-                            <c:if test="${empty showClothingModels.content}">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <h3 class="text-center">Clothing Models with such parameters not found</h3>
-                                    </div>
-                                </div>
-                            </c:if>
+                        <div class="row">
                             <c:forEach var="showClothingModel" items="${showClothingModels.content}">
-                                <div class="col-4">
-                                    
-                                            <a href="/clothingModel/${showClothingModel.id}">
-                                                <img src="${showClothingModel.photoUrls[0]}?version=${showClothingModel.version}" class="item">
-                                            </a>
-                                        
-                                                                                                                          
+                                <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                                    <a href="/clothingModel/${showClothingModel.id}">
+                                        <img src="${showClothingModel.photoUrls[0]}?version=${showClothingModel.version}" class="item">
+                                    </a>                                                                       
                                 </div>
                             </c:forEach> 
                         </div>
