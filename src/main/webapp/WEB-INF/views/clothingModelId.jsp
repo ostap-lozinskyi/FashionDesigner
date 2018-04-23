@@ -44,9 +44,11 @@
                                                </div>
                                            </div>
                                            <div class="row">
-                                                <c:if test="${not empty clothingModel.photoUrls[1]}">
-                                                       <img class="photoIDmini" src="${clothingModel.photoUrls[1]}?version=${clothingModel.version}">
-                                                </c:if>
+                                                <div class="col-12">
+                                                    <c:if test="${not empty clothingModel.photoUrls[1]}">
+                                                           <img class="photoIDmini" src="${clothingModel.photoUrls[1]}?version=${clothingModel.version}">
+                                                    </c:if>
+                                                </div>
                                            </div>
                                            <div class="row">
                                                <div class="col-12">
