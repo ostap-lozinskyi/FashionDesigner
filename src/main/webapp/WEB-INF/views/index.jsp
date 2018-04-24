@@ -41,7 +41,7 @@
                         <div class="row">
                             <div class="col-sm-12 text-center">
                                 <video width="1200" autoplay loop>
-                                  <source src="http://res.cloudinary.com/hnevmdolj/video/upload/v1524305147/videoIntro.mp4" type="video/mp4">
+                                  <source src="http://res.cloudinary.com/hnevmdolj/video/upload/v1524603359/videoIntro.mp4" type="video/mp4">
                                 </video>
                             </div>                            
                         </div> 
