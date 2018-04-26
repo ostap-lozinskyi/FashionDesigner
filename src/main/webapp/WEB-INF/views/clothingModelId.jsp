@@ -25,11 +25,9 @@
                     <link href="/resources/css/index.css" rel="stylesheet">
                 </head>
                 <body>
-                    <div class="row">
-                            <div class="col-12 text-center divLogo">
-                                <img src="/resources/img/olha-lozinska-logo-1.png" class="logoID">
-                            </div>
-                    </div>
+                    <div class="text-center divLogo">
+                        <img src="/resources/img/olha-lozinska-logo-1.png" class="logoID">
+                    </div>                    
                     <div class="header">
                         <a class="headerItem" href="/"><img src="/resources/img/home.png" class="homePict"></a>
                         <a class="headerItem" href="/readyToWear">READY TO WEAR</a>
@@ -43,46 +41,49 @@
                                 <a class="arrow" href="/clothingModel/${previousModel}"><img src="/resources/img/arrowLeft.png" style="width: 100px;"></a>
                             </div>                            
                             <div class="col-lg-8 col-md-12 text-center">
-                                    <div class="row">
-                                       <div class="col-md-3 col-sm-6">
-                                           <div class="row">
-                                               <div class="col-12 text-right">
-                                                   <c:if test="${not empty clothingModel.photoUrls[0]}">
-                                                       <img class="photoIDmini" src="${clothingModel.photoUrls[0]}?version=${clothingModel.version}">
-                                                   </c:if>
-                                               </div>
-                                           </div>
-                                           <div class="row ">
-                                                <div class="col-12 text-right">
-                                                    <c:if test="${not empty clothingModel.photoUrls[1]}">
-                                                           <img class="photoIDmini" src="${clothingModel.photoUrls[1]}?version=${clothingModel.version}">
-                                                    </c:if>
-                                                </div>
-                                           </div>
-                                           <div class="row">
-                                               <div class="col-12 text-right">
-                                                   <c:if test="${not empty clothingModel.photoUrls[2]}">
-                                                       <img class="photoIDmini" src="${clothingModel.photoUrls[2]}?version=${clothingModel.version}">
-                                                   </c:if>
-                                               </div>
-                                           </div> 
-                                           <div class="row">
-                                               <div class="col-12 text-right">
-                                                   <c:if test="${not empty clothingModel.photoUrls[3]}">
-                                                       <img class="photoIDmini" src="${clothingModel.photoUrls[3]}?version=${clothingModel.version}">
-                                                   </c:if>
-                                               </div>
-                                           </div>                                           
-                                        </div>
-                                        <div class="col-md-9 col-sm-12 text-left">
-                                            <img class="photoID" src="${clothingModel.photoUrls[0]}?version=${clothingModel.version}">
-                                        </div>
-                                    </div>                                                             
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img class="photoID" src="${clothingModel.photoUrls[0]}?version=${clothingModel.version}">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <c:forEach var="photoUrl" items="${clothingModel.photoUrls}">
+                                            <img class="photoIDmini" src="${photoUrl}?version=${clothingModel.version}">
+                                       </c:forEach>                                     
+                                    </div>
+                                </div>                                                             
                             </div>
                             <div class="col-lg-2 col-md-12 text-center">
                                 <a class="arrow" href="/clothingModel/${nextModel}"><img src="/resources/img/arrowRight.png" style="width: 100px;"></a>
                             </div>                            
                         </div>
                     </div>
+                        <div class="text-center footer">
+                            <div class="container">
+                               <div class="row">
+                                   <div class="col-8 footerText">
+                                    © Olha Lozinska 2018
+                                   </div>
+                                   <div class="col-4">
+                                       <div class="row">
+                                           <div class="col-12 text-left">
+                                               FOLLOW US
+                                           </div>                                       
+                                       </div>
+                                       <div class="row">
+                                           <div class="col-12 text-left">
+                                                <a href="https://www.instagram.com/olha.lozinska/">
+                                                    <img src="/resources/img/instagramLogo.png" class="footerLogo">
+                                                </a>
+                                                <a href="https://www.facebook.com/olha.lozinska.official/">
+                                                    <img src="/resources/img/facebookLogo.png" class="footerLogo">
+                                                </a>
+                                           </div>                                       
+                                       </div> 
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
                 </body>
                 </html>

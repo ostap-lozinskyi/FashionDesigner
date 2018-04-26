@@ -3,14 +3,16 @@
     padding: 0;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 .header a {
-    color: white;
-    padding: 20px;      
+    color: white;         
 }
 
 .header a:hover {
-    color: white; 
-    text-decoration: none;
+    color: white;     
 }
 
 .header {
@@ -22,7 +24,29 @@
 }
 
 .headerItem {
-    margin-left: 30px;
+    margin-left: 50px;
+}
+
+.footer {
+/*
+    position: absolute;
+    bottom: 0;
+*/
+    background-color: #f6f6f6;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 50px;
+}
+
+.footerLogo {
+    width: 30px;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.footerText {
+    padding-top: 30px;
+    font-size: 12px;
 }
 
 .homePict {
@@ -78,7 +102,9 @@
 .photoIDmini {
     width: 100px;
     position: relative;
-    top: 30px; 
+    top: 30px;
+    margin-top: 30px;
+    margin-right: 30px;
     margin-bottom: 22px;
 }
 
