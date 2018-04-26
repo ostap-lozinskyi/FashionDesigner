@@ -69,7 +69,7 @@ a:hover {
     opacity: 1;
     transition: opacity 0.75s ease-out;
     width: 340px;
-	margin-bottom: 20px;
+    margin-top: 40px;	    
 }
 
 .item:hover {
@@ -111,5 +111,9 @@ a:hover {
 .logoID {
     width: 250px;
     margin-bottom: 10px;
+}
+
+.mainVideo {
+    margin-top: 20px;
 }
 

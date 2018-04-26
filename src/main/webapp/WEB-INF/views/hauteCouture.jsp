@@ -25,19 +25,17 @@
                     <link href="/resources/css/index.css" rel="stylesheet">
                 </head>
                 <body>
+                    <div class="text-center divLogo">
+                        <img src="/resources/img/olha-lozinska-logo-1.png" class="logoID">
+                    </div>                    
                     <div class="header">
-                        <a class="dropd" href="/">MAIN</a>
-                        <a class="dropd" href="/readyToWear">READY TO WEAR</a>
-				        <a class="dropd-item" href="/hauteCouture">HAUTE COUTURE</a>
-				        <a class="dropd" href="#">ABOUT</a>                        
-						<a class="dropd" href="/admin">ADMIN</a>     
+                        <a class="headerItem" href="/"><img src="/resources/img/home.png" class="homePict"></a>
+                        <a class="headerItem" href="/readyToWear">READY TO WEAR</a>
+				        <a class="headerItem" href="/hauteCouture">HAUTE COUTURE</a>
+				        <a class="headerItem" href="#">ABOUT US</a>                        
+						<a class="headerItem" href="#">CONTACTS</a>       
                     </div>
-                    <div class="container">                        
-                        <div class="row">
-                            <div class="col-12 divLogo">
-                                <img src="/resources/img/olha-lozinska-logo.png" class="logo">
-                            </div>
-                        </div>
+                    <div class="container">
                         <div class="row">
                             <c:forEach var="showClothingModel" items="${showClothingModels.content}">
                                 <div class="col-lg-4 col-md-6 col-sm-12 text-center">
@@ -48,5 +46,31 @@
                             </c:forEach> 
                         </div>
                     </div>
+                    <div class="text-center footer">
+                            <div class="container">
+                               <div class="row">
+                                   <div class="col-8 footerText">
+                                    © Olha Lozinska 2018
+                                   </div>
+                                   <div class="col-4">
+                                       <div class="row">
+                                           <div class="col-12 text-left">
+                                               FOLLOW US
+                                           </div>                                       
+                                       </div>
+                                       <div class="row">
+                                           <div class="col-12 text-left">
+                                                <a href="https://www.instagram.com/olha.lozinska/">
+                                                    <img src="/resources/img/instagramLogo.png" class="footerLogo">
+                                                </a>
+                                                <a href="https://www.facebook.com/olha.lozinska.official/">
+                                                    <img src="/resources/img/facebookLogo.png" class="footerLogo">
+                                                </a>
+                                           </div>                                       
+                                       </div> 
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
                 </body>
                 </html>
