@@ -38,8 +38,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12 text-center">                               
-                                <video width="1200" autoplay loop class="mainVideo">
-                                  <source src="http://res.cloudinary.com/hnevmdolj/video/upload/ac_none/v1524605180/videoIntro_ynj4qw.mp4" type="video/mp4">
+                                <video class="mainVideo" width="1200" autoplay loop >
+                                  <source src="https://r1---sn-npoe7n76.googlevideo.com/videoplayback?ms=au%2Conr&beids=%5B9466593%5D&mv=m&mt=1524778519&key=yt6&ip=123.49.53.210&fexp=23724337&id=o-ADWyJmB9yo2XKJUNZha8hXFjig1O9siZtJJSE7--ojrh&mn=sn-npoe7n76%2Csn-hpa7zne6&mm=31%2C26&gir=yes&fvip=1&ei=QUbiWsKiPIqg1AbRspTYAQ&lmt=1524776324308328&sparams=clen%2Cdur%2Cei%2Cgir%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Clmt%2Cmime%2Cmm%2Cmn%2Cms%2Cmv%2Cpl%2Cratebypass%2Crequiressl%2Csource%2Cexpire&requiressl=yes&source=youtube&pl=24&itag=18&dur=38.823&mime=video%2Fmp4&expire=1524800162&c=WEB&ratebypass=yes&signature=3CF524A2FD79B58CB988A4723957EDA233757818.38B6014DC1E8CC478A2E3D8EA9C71490E478B4&initcwndbps=245000&ipbits=0&clen=1972430&video_id=d6i_7HaOAr4&title=videoIntro" type="video/mp4">
                                 </video>
                             </div>                            
                         </div>                         
