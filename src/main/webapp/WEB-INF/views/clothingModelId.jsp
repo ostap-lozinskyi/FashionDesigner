@@ -25,19 +25,19 @@
                     <link href="/resources/css/index.css" rel="stylesheet">
                 </head>
                 <body>
-                    <div class="header">
-                        <a class="dropd" href="/">MAIN</a>
-                        <a class="dropd" href="/readyToWear">READY TO WEAR</a>
-				        <a class="dropd-item" href="/hauteCouture">HAUTE COUTURE</a>
-				        <a class="dropd" href="#">ABOUT</a>                        
-						<a class="dropd" href="/admin">ADMIN</a>       
-                    </div>
-                    <div class="container">                        
-                        <div class="row">
+                    <div class="row">
                             <div class="col-12 text-center divLogo">
-                                <img src="/resources/img/olha-lozinska-logo.png" class="logoID">
+                                <img src="/resources/img/olha-lozinska-logo-1.png" class="logoID">
                             </div>
-                        </div>
+                    </div>
+                    <div class="header">
+                        <a class="headerItem" href="/"><img src="/resources/img/home.png" class="homePict"></a>
+                        <a class="headerItem" href="/readyToWear">READY TO WEAR</a>
+				        <a class="headerItem" href="/hauteCouture">HAUTE COUTURE</a>
+				        <a class="headerItem" href="#">ABOUT US</a>                        
+						<a class="headerItem" href="#">CONTACTS</a>       
+                    </div>
+                    <div class="container">
                         <div class="row">
                             <div class="col-lg-2 col-md-12 text-center">
                                 <a class="arrow" href="/clothingModel/${previousModel}"><img src="/resources/img/arrowLeft.png" style="width: 100px;"></a>
