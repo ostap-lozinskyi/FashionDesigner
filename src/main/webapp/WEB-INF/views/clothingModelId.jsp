@@ -59,7 +59,7 @@
                                     <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
-                                    </a>
+                                    </a>                                    
                                 </div>
                             </div> 
                             <div class="col-lg-3 col-md-12 text-center">
@@ -67,12 +67,25 @@
                             </div>                   
                         </div>
                         <div class="row">
-                            <div class="col-12 text-center">  
-                                <c:set var="count" value="0" scope="page" />                         
-                                <c:forEach var="photoUrl" items="${clothingModel.photoUrls}">                                   
+                            <div class="col-12 text-center">                                
+                                <img data-target="#carouselExampleIndicators" data-slide-to="0" class="photoIDmini active" src="${clothingModel.photoUrls[0]}?version=${clothingModel.version}"> 
+                                <c:set var="count" value="1" scope="page" />                         
+                                <c:forEach var="photoUrl" items="${clothingModel.photoUrls}" begin="1">                                   
                                     <img data-target="#carouselExampleIndicators" data-slide-to="${count}" class="photoIDmini" src="${photoUrl}?version=${clothingModel.version}">                                     
                                     <c:set var="count" value="${count + 1}" scope="page"/>
                                 </c:forEach>
+                                <script>
+                                    $('.photoIDmini').click(function() {                                        
+                                        var element = document.getElementsByClassName('photoIDmini');                                        
+                                        var i;
+                                        for (i = 0; i < element.length; i++) {
+                                            if (element[i].classList.contains("active")) { 
+                                                element[i].classList.remove("active");
+                                             }                                           
+                                        } 
+                                        $(this).toggleClass('active');                                        
+                                    });
+                                </script>
                             </div>
                         </div>
                     </div>
