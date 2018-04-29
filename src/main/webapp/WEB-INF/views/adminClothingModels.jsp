@@ -21,14 +21,14 @@
 </head>
 <body>
     <div class="header">
-        <a class="dropd" href="/">MAIN PAGE</a>
-        <a class="dropd" href="/admin">ADMIN</a>  
-        <a class="dropd-item" href="/admin/adminUsers">USERS</a>
-        <a class="dropd-item" href="/admin/adminClothingModels">MODELS</a>
-        <a class="dropd-item" href="/admin/adminSeasons">SEASONS</a>
-        <a class="dropd" href="/admin/adminTypeOfClothes">TYPES</a>   
-        <a class="dropd" href="/admin/adminSectionOfClothes">SECTIONS</a>
-        <a class="dropd" href="/admin/adminColors">COLORS</a>            
+        <a class="headerItem" href="/"><img src="/resources/img/home.png" class="homePict"></a>
+        <a class="headerItem" href="/admin">ADMIN</a>  
+        <a class="headerItem" href="/admin/adminUsers">USERS</a>
+        <a class="headerItem" href="/admin/adminClothingModels">MODELS</a>
+        <a class="headerItem" href="/admin/adminSeasons">SEASONS</a>
+        <a class="headerItem" href="/admin/adminTypeOfClothes">TYPES</a>   
+        <a class="headerItem" href="/admin/adminSectionOfClothes">SECTIONS</a>
+        <a class="headerItem" href="/admin/adminColors">COLORS</a>            
     </div>
 	<div class="container">
 		<div class="row">

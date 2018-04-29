@@ -68,7 +68,7 @@ video {
 
 .footerText {
     padding-top: 30px;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .homePict {
@@ -118,14 +118,14 @@ video {
 .photoID {
     width: 450px;
     position: relative;
-    top: 30px;    
+    top: 20px;    
 }
 
 .photoIDmini {
-    width: 100px;
+    width: 90px;
     position: relative;
     top: 30px;
-    margin-top: 0px;
+    margin-top: -10px;
     margin-right: 30px;
     margin-bottom: 22px;
 }
@@ -151,8 +151,4 @@ video {
 .carousel-control-next-icon {
     position: relative;
     right: 30px; 
-}
-
-.active {
-    box-shadow: 10px 10px 5px grey;
 }
