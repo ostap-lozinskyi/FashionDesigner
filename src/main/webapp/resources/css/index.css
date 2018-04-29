@@ -55,9 +55,10 @@ video {
     bottom: 0;
 */
     background-color: #f6f6f6;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     margin-top: 50px;
+    font-size: 14px;
 }
 
 .footerLogo {
