@@ -20,16 +20,8 @@
                     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 					<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-                    
-                    <!-- Carousel -->
-                    <script>
-                        $('.carousel').carousel({
-                            interval: false,
-                            
-                        })
-                    </script> 
-                   
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>                    
+                                       
                     <link href="/resources/css/index.css" rel="stylesheet">
                 </head>
                 <body>
@@ -45,22 +37,32 @@
                     </div>
                     <div class="container">
                         <div class="row"> 
-                            <div class="col-lg-2 col-md-12 text-center">
+                            <div class="col-lg-3 col-md-12 text-center">
                                 <a class="arrow" href="/clothingModel/${previousModel}"><img src="/resources/img/arrowLeft.png" style="width: 100px;"></a>
                             </div>                           
-                            <div class="col-lg-8 col-md-12 text-center carousel slide" id="carouselExampleIndicators" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
+                            <div class="col-lg-6 col-md-12 text-center">
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
                                             <img class="photoID" src="${clothingModel.photoUrls[0]}?version=${clothingModel.version}" alt="First slide">
-                                    </div>
-                                    <c:forEach var="photoUrl" items="${clothingModel.photoUrls}" begin="1">
-                                        <div class="carousel-item">
-                                            <img img class="photoID" src="${photoUrl}?version=${clothingModel.version}" alt="...">
                                         </div>
-                                    </c:forEach>
+                                        <c:forEach var="photoUrl" items="${clothingModel.photoUrls}" begin="1">
+                                            <div class="carousel-item">
+                                                <img img class="photoID" src="${photoUrl}?version=${clothingModel.version}" alt="...">
+                                            </div>
+                                        </c:forEach>                                    
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
                                 </div>
                             </div> 
-                            <div class="col-lg-2 col-md-12 text-center">
+                            <div class="col-lg-3 col-md-12 text-center">
                                 <a class="arrow" href="/clothingModel/${nextModel}"><img src="/resources/img/arrowRight.png" style="width: 100px;"></a>
                             </div>                   
                         </div>
@@ -100,5 +102,12 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Carousel -->
+                    <script>
+                        $('.carousel').carousel({
+                            interval: false,
+                            
+                        })
+                    </script>
                 </body>
                 </html>

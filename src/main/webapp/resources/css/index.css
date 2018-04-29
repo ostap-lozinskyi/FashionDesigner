@@ -143,3 +143,12 @@ video {
     margin: 0 ;
 }
 
+.carousel-control-prev-icon {
+    position: relative;
+    left: 30px; 
+}
+
+.carousel-control-next-icon {
+    position: relative;
+    right: 30px; 
+}
