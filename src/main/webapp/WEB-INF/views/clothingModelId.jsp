@@ -59,7 +59,43 @@
                                     <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
-                                    </a>                                    
+                                    </a>
+                                    <script>
+                                    $('.carousel-control-prev').click(function() {                                        
+                                        var element = document.getElementsByClassName('photoIDmini');
+                                        var i;
+                                        
+                                        for (i = 0; i < element.length; i++) {
+                                            if (element[i].classList.contains("active")) { 
+                                                element[i].classList.remove("active");
+                                                if (element[i-1]) {
+                                                   element[i-1].classList.add("active"); 
+                                                } else {
+                                                   element[element.length-1].classList.add("active");  
+                                                }                                                
+                                                break;
+                                            }                                            
+                                        }                                                                                
+                                    });
+                                    </script>
+                                    <script>
+                                    $('.carousel-control-next').click(function() {                                        
+                                        var element = document.getElementsByClassName('photoIDmini');
+                                        var i;
+                                        
+                                        for (i = 0; i < element.length; i++) {
+                                            if (element[i].classList.contains("active")) { 
+                                                element[i].classList.remove("active");
+                                                if (element[i+1]) {
+                                                   element[i+1].classList.add("active"); 
+                                                } else {
+                                                   element[0].classList.add("active");  
+                                                }                                                
+                                                break;
+                                            }                                            
+                                        }                                                                                
+                                    });
+                                    </script>                                      
                                 </div>
                             </div> 
                             <div class="col-lg-3 col-md-12 text-center">
@@ -76,14 +112,10 @@
                                 </c:forEach>
                                 <script>
                                     $('.photoIDmini').click(function() {                                        
-                                        var element = document.getElementsByClassName('photoIDmini');                                        
-                                        var i;
-                                        for (i = 0; i < element.length; i++) {
-                                            if (element[i].classList.contains("active")) { 
-                                                element[i].classList.remove("active");
-                                             }                                           
-                                        } 
-                                        $(this).toggleClass('active');                                        
+                                        var element = document.getElementsByClassName('active'); 
+                                        element[1].classList.remove("active");
+
+                                        $(this).addClass('active');                                        
                                     });
                                 </script>
                             </div>
