@@ -21,6 +21,14 @@
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 					<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                    
+                    <!-- Carousel -->
+                    <script>
+                        $('.carousel').carousel({
+                            interval: false,
+                            
+                        })
+                    </script> 
                    
                     <link href="/resources/css/index.css" rel="stylesheet">
                 </head>
@@ -36,27 +44,34 @@
 						<a class="headerItem" href="#">CONTACTS</a>       
                     </div>
                     <div class="container">
-                        <div class="row">
+                        <div class="row"> 
                             <div class="col-lg-2 col-md-12 text-center">
                                 <a class="arrow" href="/clothingModel/${previousModel}"><img src="/resources/img/arrowLeft.png" style="width: 100px;"></a>
-                            </div>                            
-                            <div class="col-lg-8 col-md-12 text-center">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <img class="photoID" src="${clothingModel.photoUrls[0]}?version=${clothingModel.version}">
+                            </div>                           
+                            <div class="col-lg-8 col-md-12 text-center carousel slide" id="carouselExampleIndicators" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                            <img class="photoID" src="${clothingModel.photoUrls[0]}?version=${clothingModel.version}" alt="First slide">
                                     </div>
+                                    <c:forEach var="photoUrl" items="${clothingModel.photoUrls}" begin="1">
+                                        <div class="carousel-item">
+                                            <img img class="photoID" src="${photoUrl}?version=${clothingModel.version}" alt="...">
+                                        </div>
+                                    </c:forEach>
                                 </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <c:forEach var="photoUrl" items="${clothingModel.photoUrls}">
-                                            <img class="photoIDmini" src="${photoUrl}?version=${clothingModel.version}">
-                                       </c:forEach>                                     
-                                    </div>
-                                </div>                                                             
-                            </div>
+                            </div> 
                             <div class="col-lg-2 col-md-12 text-center">
                                 <a class="arrow" href="/clothingModel/${nextModel}"><img src="/resources/img/arrowRight.png" style="width: 100px;"></a>
-                            </div>                            
+                            </div>                   
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">  
+                                <c:set var="count" value="0" scope="page" />                         
+                                <c:forEach var="photoUrl" items="${clothingModel.photoUrls}">                                   
+                                    <img data-target="#carouselExampleIndicators" data-slide-to="${count}" class="photoIDmini" src="${photoUrl}?version=${clothingModel.version}">                                     
+                                    <c:set var="count" value="${count + 1}" scope="page"/>
+                                </c:forEach>
+                            </div>
                         </div>
                     </div>
                         <div class="text-center footer">
