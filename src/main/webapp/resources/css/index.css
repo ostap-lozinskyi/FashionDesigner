@@ -133,6 +133,10 @@ video {
     margin-bottom: 22px;
 }
 
+.photoIDmodal {
+   width: 100%; 
+}
+
 .logoID {
     width: 250px;
     margin-bottom: 10px;

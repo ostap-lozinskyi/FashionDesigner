@@ -50,11 +50,11 @@
                                 <div id="carouselExampleIndicators" class="carousel" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img class="photoID" src="${clothingModel.photoUrls[0]}?version=${clothingModel.version}" alt="First slide">
+                                            <img class="photoID" data-toggle="modal" data-target="#exampleModalCenter" src="${clothingModel.photoUrls[0]}?version=${clothingModel.version}" alt="First slide">                                            
                                         </div>
                                         <c:forEach var="photoUrl" items="${clothingModel.photoUrls}" begin="1">
                                             <div class="carousel-item">
-                                                <img img class="photoID" src="${photoUrl}?version=${clothingModel.version}" alt="...">
+                                                <img class="photoID" data-toggle="modal" data-target="#exampleModalCenter" src="${photoUrl}?version=${clothingModel.version}" alt="...">
                                             </div>
                                         </c:forEach>                                    
                                     </div>
@@ -124,9 +124,32 @@
                                         $(this).addClass('active');                                        
                                     });
                                 </script>
+                                <script>
+                                    $('.photoID').click(function() {                                        
+                                        var elementActive = document.getElementsByClassName('active'); 
+                                        var adress = elementActive[1].getAttribute('src');
+                                        
+                                        var elementModal = document.getElementsByClassName('photoIDmodal');                                        
+                                        elementModal[0].src = adress;          
+                                    });
+                                </script>
                             </div>
                         </div>
                     </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">                                
+                                <div class="modal-body">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <img class="photoIDmodal" src="">                                    
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal end-->
                         <div class="text-center footer">
                             <div class="container">
                                <div class="row">
