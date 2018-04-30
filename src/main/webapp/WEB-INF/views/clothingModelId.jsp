@@ -49,7 +49,7 @@
                             <div class="col-lg-6 col-md-10 text-center">
                                 <div id="carouselExampleIndicators" class="carousel" data-ride="carousel">
                                     <div class="carousel-inner">
-                                        <div class="carousel-item active ">
+                                        <div class="carousel-item active">
                                             <img class="photoID" src="${clothingModel.photoUrls[0]}?version=${clothingModel.version}" alt="First slide">
                                         </div>
                                         <c:forEach var="photoUrl" items="${clothingModel.photoUrls}" begin="1">

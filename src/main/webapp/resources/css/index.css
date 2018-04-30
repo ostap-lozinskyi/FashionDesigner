@@ -118,15 +118,17 @@ video {
 
 .photoID {
     width: 450px;
+/*
     position: relative;
     top: 20px;    
+*/
 }
 
 .photoIDmini {
-    width: 90px;
+    width: 85px;
     position: relative;
     top: 30px;
-    margin-top: -10px;
+    margin-top: -25px;
     margin-right: 30px;
     margin-bottom: 22px;
 }
@@ -141,7 +143,7 @@ video {
 }
 
 .carousel-inner {
-    margin: 0 ;
+    margin: 0 ;    
 }
 
 .carousel-control-prev-icon {
@@ -152,4 +154,9 @@ video {
 .carousel-control-next-icon {
     position: relative;
     right: 30px; 
+}
+
+.carousel {
+    min-height: 700px;
+    padding-top: 15px;
 }
