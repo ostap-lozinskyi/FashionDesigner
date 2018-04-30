@@ -130,14 +130,24 @@
                                         var adress = elementActive[1].getAttribute('src');
                                         
                                         var elementModal = document.getElementsByClassName('photoIDmodal');                                        
-                                        elementModal[0].src = adress;          
+                                        elementModal[0].src = adress;
+                                        
+                                        var modalDialog = document.getElementsByClassName('modal-dialog');
+                                        
+                                        var screenHeight = screen.height;
+                                        var windowWidth = window.innerWidth;
+                                        if(elementModal[0].width<elementModal[0].height) {
+                                           modalDialog[0].style.width = screenHeight/1.8+"px";                                            
+                                        } else {
+                                           modalDialog[0].style.width = windowWidth*0.7+"px";                                           
+                                        }                                      
                                     });
-                                </script>
+                                </script>                                
                             </div>
                         </div>
                     </div>
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal fade text-center" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">                                
                                 <div class="modal-body">

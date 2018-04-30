@@ -118,10 +118,6 @@ video {
 
 .photoID {
     width: 450px;
-/*
-    position: relative;
-    top: 20px;    
-*/
 }
 
 .photoIDmini {
@@ -134,7 +130,16 @@ video {
 }
 
 .photoIDmodal {
-   width: 100%; 
+    position: relative;
+    top: -25px;
+    width: 100%;
+    z-index: 1;
+}
+
+.close {
+    position: relative;
+    right: 10px;
+    z-index: 2;
 }
 
 .logoID {
@@ -164,3 +169,23 @@ video {
     min-height: 700px;
     padding-top: 15px;
 }
+
+.modal-dialog {
+    margin-top: 0;
+    max-width: none;
+    padding: 0;
+}
+
+/*
+@media all and (orientation: landscape) {
+  .modal-dialog { 
+    max-width: 65vh;
+    }
+}
+
+@media all and (orientation: portrait) {
+  .modal-dialog { 
+    max-width: 100vh;
+    }
+}
+*/
