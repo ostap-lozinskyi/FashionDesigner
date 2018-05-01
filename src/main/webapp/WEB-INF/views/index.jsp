@@ -39,7 +39,7 @@
                         <div class="row">
                             <div class="col-sm-12 text-center">                               
                                 <video class="mainVideo" autoplay loop muted>
-                                  <source src="/resources/img/videoIntro#t=90000" type="video/mp4">
+                                  <source src="/resources/img/videoIntro#t=3000" type="video/mp4">
                                 </video>
                             </div>                            
                         </div>                         
