@@ -37,9 +37,10 @@
                     </div>
                     <div class="container">
                         <div class="row">
+                           
                             <div class="col-sm-12 text-center">                               
                                 <video class="mainVideo" autoplay loop muted>
-                                  <source src="/resources/img/videoIntro#t=3000" type="video/mp4">
+                                  <source src="https://drive.google.com/uc?export=download&id=1pkWlC9OwW_xmPjqliLiRizii2iCEDGPt" type="video/mp4">
                                 </video>
                             </div>                            
                         </div>                         
