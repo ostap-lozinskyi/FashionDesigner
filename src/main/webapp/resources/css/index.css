@@ -3,8 +3,13 @@
     padding: 0;
 }
 
+a {
+    color: black;
+}
+
 a:hover {
     text-decoration: none;
+    color: black;
 }
 
 video {
@@ -176,16 +181,13 @@ video {
     padding: 0;
 }
 
-/*
-@media all and (orientation: landscape) {
-  .modal-dialog { 
-    max-width: 65vh;
-    }
+.articleTitle {
+    font-weight: bold;
+    margin-bottom: 0;
 }
 
-@media all and (orientation: portrait) {
-  .modal-dialog { 
-    max-width: 100vh;
-    }
+.articlePhoto {
+    width: 600px;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
-*/

@@ -36,14 +36,32 @@
 						<a class="headerItem" href="#">CONTACTS</a>       
                     </div>
                     <div class="container">
-                        <div class="row">
-                           
+                        <div class="row">                           
                             <div class="col-sm-12 text-center">                               
                                 <video class="mainVideo" autoplay loop muted>
                                   <source src="https://drive.google.com/uc?export=download&id=1pkWlC9OwW_xmPjqliLiRizii2iCEDGPt" type="video/mp4">
                                 </video>
-                            </div>                            
-                        </div>                         
+                            </div>                                                        
+                        </div> 
+                        <div class="row">
+                            <div class="col-sm-6 text-center">
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <a href="https://bestpeopleclub.com/17-th-odessa-fashion-day-dnevnik-vtorogo-dnya.html" target="_blank">
+                                            <img src="/resources/img/Odessa-Fashion-Day.jpg" class="articlePhoto">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-center">                                        
+                                        <a href="https://bestpeopleclub.com/17-th-odessa-fashion-day-dnevnik-vtorogo-dnya.html" target="_blank">
+                                            <p class="articleTitle">17-TH ODESSA FASHION DAY</p>
+                                            <p>Дизайнер Ольга Лозинская представила актуальные наряды к летнему сезону, который как правило перенасыщен событиями: выпускные, свадьбы, торжества, роазнообразные вечеринки.</p>
+                                        </a> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
                     </div>
                     <div class="text-center footer">
                             <div class="container">
