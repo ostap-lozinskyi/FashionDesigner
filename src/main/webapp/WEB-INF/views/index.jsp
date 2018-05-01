@@ -38,8 +38,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12 text-center">                               
-                                <video class="mainVideo" autoplay loop >
-                                  <source src="https://instagram.flwo1-1.fna.fbcdn.net/vp/ea711e29e41e04b9e3e4066c2d3b2310/5AE6FF1C/t50.2886-16/30892797_226637274757199_3150823948631932928_n.mp4" type="video/mp4">
+                                <video class="mainVideo" autoplay loop muted>
+                                  <source src="/resources/img/videoIntro.mp4" type="video/mp4">
                                 </video>
                             </div>                            
                         </div>                         
