@@ -136,11 +136,20 @@
                                         
                                         var screenHeight = screen.height;
                                         var windowWidth = window.innerWidth;
-                                        if(elementModal[0].width<elementModal[0].height) {
-                                           modalDialog[0].style.width = screenHeight/1.8+"px";                                            
+                                        if(window.innerHeight > window.innerWidth){
+                                            if(elementModal[0].width<elementModal[0].height) {
+                                                modalDialog[0].style.width = windowWidth*0.95+"px";                                         
+                                            } else {
+                                                modalDialog[0].style.width = screenHeight/1.8+"px";
+                                            }  
                                         } else {
-                                           modalDialog[0].style.width = windowWidth*0.7+"px";                                           
-                                        }                                      
+                                            if(elementModal[0].width<elementModal[0].height) {
+                                               modalDialog[0].style.width = screenHeight/1.75+"px";                                            
+                                            } else {
+                                               modalDialog[0].style.width = windowWidth*0.7+"px";                                           
+                                            }   
+                                        }
+                                                                            
                                     });
                                 </script>                                
                             </div>
