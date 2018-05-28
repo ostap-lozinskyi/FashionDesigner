@@ -6,4 +6,5 @@ Such technologies are used:
 Spring_MVC,
 Spring_Security,
 JSP,
-JSTL
+JSTL,
+JavaScript
