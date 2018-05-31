@@ -39,7 +39,7 @@
                         <div class="row">                           
                             <div class="col-sm-12 text-center">                               
                                 <video class="mainVideo" autoplay loop muted>
-                                  <source src="https://drive.google.com/uc?export=download&id=1pkWlC9OwW_xmPjqliLiRizii2iCEDGPt" type="video/mp4">
+                                  <source src="https://lozinska.tk/resources/video/videoIntro.mp4" type="video/mp4">
                                 </video>
                             </div>                                                        
                         </div> 
