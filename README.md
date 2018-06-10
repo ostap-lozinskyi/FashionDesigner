@@ -1,8 +1,10 @@
 This is a website for a commercial organization
 
-You can see this project on https://lozinska.tk
+You can see this project on http://lozinska.herokuapp.com/
 
 Such technologies are used:
 Spring_MVC,
-Spring Social,
-Spring_Security.
+Spring_Security,
+JSP,
+JSTL,
+JavaScript
