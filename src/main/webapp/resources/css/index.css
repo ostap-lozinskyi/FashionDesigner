@@ -1,6 +1,6 @@
 @font-face {
     font-family: RalewayRegular;
-    src: url(/resources/font/RalewayRegular.ttf); 
+    src: url(url("paper.gif")); 
     src: url(/resources/font/RalewayRegular.eot) format('embedded-opentype'),
         url(/resources/font/RalewayRegular.woff) format('woff'),
         url(/resources/font/RalewayRegular.svg) format('svg');
@@ -10,6 +10,12 @@
     margin: 0;
     padding: 0;
     font-family: 'RalewayRegular';
+}
+
+body {
+    background-image: url("/resources/img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 a {
