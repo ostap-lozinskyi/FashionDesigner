@@ -56,7 +56,24 @@
                                     <div class="col-12 text-center">                                        
                                         <a href="https://bestpeopleclub.com/17-th-odessa-fashion-day-dnevnik-vtorogo-dnya.html" target="_blank">
                                             <p class="articleTitle">17-TH ODESSA FASHION DAY</p>
-                                            <p>Дизайнер Ольга Лозинская представила актуальные наряды к летнему сезону, который как правило перенасыщен событиями: выпускные, свадьбы, торжества, роазнообразные вечеринки.</p>
+                                            <p class="articleText">Дизайнер Ольга Лозинская представила актуальные наряды к летнему сезону, который как правило перенасыщен событиями: выпускные, свадьбы, торжества, роазнообразные вечеринки.</p>
+                                        </a> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 text-center">
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <a href="https://www.instagram.com/p/BjmUUhHgsln/?taken-by=slanovskiy_kiev" target="_blank">
+                                            <img src="/resources/img/slanovsky.jpg" class="articlePhoto">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-center">                                        
+                                        <a href="https://www.instagram.com/p/BjmUUhHgsln/?taken-by=slanovskiy_kiev" target="_blank">
+                                            <p class="articleTitle">OLHA LOZINSKA У КИЄВІ</p>
+                                            <p class="articleText">Відтепер приміряти наші вишукані наряди можна і в столиці, у салоні вечірніх та весільних суконь Slanovskiy, по вул. С. Петлюри, 6</p>
                                         </a> 
                                     </div>
                                 </div>

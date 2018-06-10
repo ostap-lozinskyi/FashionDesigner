@@ -1,6 +1,15 @@
+@font-face {
+    font-family: RalewayRegular;
+    src: url(/resources/font/RalewayRegular.ttf); 
+    src: url(/resources/font/RalewayRegular.eot) format('embedded-opentype'),
+        url(/resources/font/RalewayRegular.woff) format('woff'),
+        url(/resources/font/RalewayRegular.svg) format('svg');
+}
+
 * {
     margin: 0;
     padding: 0;
+    font-family: 'RalewayRegular';
 }
 
 a {
@@ -156,6 +165,7 @@ video {
 
 .mainVideo {
     margin-top: 0px;
+    width: 100%;
 }
 
 .carousel-inner {
@@ -184,8 +194,15 @@ video {
 }
 
 .articleTitle {
-    font-weight: bold;
-    margin-bottom: 0;
+/*    font-weight: bold;*/
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.articleText {
+    text-align:justify;
+    font-size: 18px;
+    line-height: normal;
 }
 
 .articlePhoto {
