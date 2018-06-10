@@ -69,14 +69,10 @@
                                    <div class="col-8 footerText">
                                     © Olha Lozinska 2018
                                    </div>
-                                   <div class="col-4">
+                                   <div class="col-4">                                       
                                        <div class="row">
-                                           <div class="col-12 text-left">
-                                               FOLLOW US
-                                           </div>                                       
-                                       </div>
-                                       <div class="row">
-                                           <div class="col-12 text-left">
+                                            <div class="col-12 text-left">
+                                                <span>Follow Us:</span>
                                                 <a href="https://www.instagram.com/olha.lozinska/">
                                                     <img src="/resources/img/instagramLogo.png" class="footerLogo">
                                                 </a>
