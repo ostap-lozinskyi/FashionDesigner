@@ -38,7 +38,7 @@
                     <div class="container">
                         <div class="row">                           
                             <div class="col-sm-12 text-center">                               
-                                <video class="mainVideo" autoplay loop muted>
+                                <video class="mainVideo" autoplay loop muted playsInline>
                                   <source src="https://lozinska.tk/resources/video/videoIntro.mp4" type="video/mp4">
                                 </video>
                             </div>                                                        
