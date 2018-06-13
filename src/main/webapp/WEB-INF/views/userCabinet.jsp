@@ -24,7 +24,7 @@
         <a class="headerItem" href="/admin/adminSectionOfClothes">SECTIONS</a>
         <a class="headerItem" href="/admin/adminColors">COLORS</a>          
     </div>
-	<div class="container">
+	<div class="container" style="background-color: white;">
 		<div class="row">
 			<div class="col-12">
 				<h1 class="text-center">${user.email} Cabinet</h1>
