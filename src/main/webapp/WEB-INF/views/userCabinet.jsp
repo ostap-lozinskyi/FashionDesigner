@@ -13,28 +13,23 @@
 <link href="/resources/css/index.css" rel="stylesheet">
 <title>Cabinet</title>
 </head>
-<body style="background: url(/resources/img/fon2.jpg)">
-	<div class="container" style="background-color: white;">
+<body>
+    <div class="header">
+        <a class="headerItem" href="/"><img src="/resources/img/home.png" class="homePict"></a>
+        <a class="headerItem" href="/admin">ADMIN</a>  
+        <a class="headerItem" href="/admin/adminUsers">USERS</a>
+        <a class="headerItem" href="/admin/adminClothingModels">MODELS</a>
+        <a class="headerItem" href="/admin/adminSeasons">SEASONS</a>
+        <a class="headerItem" href="/admin/adminTypeOfClothes">TYPES</a>   
+        <a class="headerItem" href="/admin/adminSectionOfClothes">SECTIONS</a>
+        <a class="headerItem" href="/admin/adminColors">COLORS</a>          
+    </div>
+	<div class="container">
 		<div class="row">
 			<div class="col-12">
 				<h1 class="text-center">${user.email} Cabinet</h1>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-lg-2 col-sm-4">
-				<br>
-				<a class="btn-cart buy btnCafe btn-sucsess btn-lg" href="/">Main page</a>
-			</div>
-			<div class="col-lg-2 col-sm-4">
-				<br>
-				<a class="btn-cart buy btnCafe btn-sucsess btn-lg" href="/meal">Menu</a>
-			</div>
-			<div class="col-lg-2 col-sm-4">
-				<br>
-				<a class="btn-cart buy btnCafe btn-sucsess btn-lg" href="/place">Tables</a>
-			</div>
-		</div>
-		<br>
 		<div class="row">
 			<div class="col-lg-3 col-sm-12">
 				<img src="${user.photoUrl}?version=${user.version}" style="height: 200px;">
@@ -45,35 +40,6 @@
 					<br>
 					<br><button>Ok</button>
 				</form:form>
-			</div>		
-			<div class="col-lg-8 col-sm-12">	
-				<h3>Already eaten meals</h3>
-				<table class="table table-bordered">
-					<tr>
-						<th class="text-center">Name</th>
-						<th class="text-center">Full Description</th>
-						<th class="text-center">Price</th>
-						<th class="text-center">Cuisine</th>
-						<th class="text-center">Photo</th>
-					</tr>
-					<c:if test="${empty meals}">
-						<tr>
-							<td colspan=7><h3 class="text-center">Meals with such
-									parameters not found</h3></td>
-						</tr>
-					</c:if>
-					<c:forEach var="meal" items="${meals}">
-						<tr>
-							<td>${meal.name}</td>
-							<td>${meal.fullDescription}</td>
-							<td>${meal.price}</td>
-							<td>${meal.cuisine}</td>
-							<td class="text-center"><img
-								src="${meal.photoUrl}?version=${meal.version}"
-								style="width: 100px;"></td>
-						</tr>
-					</c:forEach>
-				</table>
 			</div>
 		</div>
 		<br>
