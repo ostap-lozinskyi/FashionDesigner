@@ -169,7 +169,7 @@
                         </div>
                     </div>
                     <!-- Modal end-->
-                        <div class="text-center footer">
+                        <div class="text-center footer fixed-bottom">
                             <div class="container">
                                <div class="row">
                                    <div class="col-8 footerText">
