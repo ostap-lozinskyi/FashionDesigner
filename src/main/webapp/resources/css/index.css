@@ -1,6 +1,6 @@
 @font-face {
     font-family: RalewayRegular;
-    src: url(url("paper.gif")); 
+    src: url(/resources/font/RalewayRegular.ttf); 
     src: url(/resources/font/RalewayRegular.eot) format('embedded-opentype'),
         url(/resources/font/RalewayRegular.woff) format('woff'),
         url(/resources/font/RalewayRegular.svg) format('svg');
@@ -15,7 +15,7 @@
 body {
     background-image: url("/resources/img/background.jpg");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100%;    
 }
 
 a {
@@ -53,6 +53,7 @@ a:hover {
     padding-bottom: 5px;
     margin-top: 30px; 
     font-weight: bold;
+    width: 100%;
 }
 
 .footerText {
@@ -178,15 +179,15 @@ a:hover {
 }
 
 .articleTitle {
-/*    font-weight: bold;*/
+    font-weight: bold;
     margin-bottom: 15px;
     font-size: 24px;
 }
 
 .articleText {
     text-align:justify;
-    font-size: 18px;
-    line-height: normal;
+    font-size: 16px;
+/*    line-height: normal;*/
 }
 
 .articlePhoto {
