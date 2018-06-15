@@ -15,7 +15,7 @@ Project features:
 
 2.Using Bootstrap 4.
 
-3.Bootstrap Carousel changed for using photo foto thumbnails.
+3.Bootstrap Carousel changed for using photo thumbnails.
 
 4.Used google analytics.
 
