@@ -7,4 +7,11 @@ Spring_MVC,
 Spring_Security,
 JSP,
 JSTL,
-JavaScript
+JavaScript,PostgreSQL
+
+Project features:
+1.Integration with Cloudinary cloud service (image and video upload, image transformation).
+2.Using Bootstrap 4.
+3.Bootstrap Carousel changed for using photo foto thumbnails.
+4.Used google analytics.
+5.Validation using Spring’s Validator interface.
