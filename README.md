@@ -1,4 +1,4 @@
-This is a website for a commercial organization
+This is Java Web Application for a commercial organization
 
 You can see this project on http://olha-lozinska.com/
 
