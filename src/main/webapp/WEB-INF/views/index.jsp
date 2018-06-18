@@ -22,6 +22,8 @@
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 					<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                    
+                    <script type="text/javascript" src="resources/js/instafeed.js"></script>
                    
                     <link href="/resources/css/index.css" rel="stylesheet">
                 </head>
@@ -83,15 +85,18 @@
                         <div class="row">
                             <div class="col-12 text-center">
                                 Instagram
+                                <div id="instafeed"></div>
+                                
+                                <script type="text/javascript">                                    
+                                    var feed = new Instafeed({
+//                                    get: 'tagged',
+//                                    tagName: 'awesome',
+                                    clientId: '7e42e5089dad4ca095c969b7d0e3cf2c'
+                                    });
+                                    feed.run();                                    
+                                </script>
                             </div>
-                        </div> 
-                        <div class="row">
-                            <div class="col-4 text-center">
-                                <a href="https://www.instagram.com/p/Bh-8gNBHx8G/?taken-by=olha.lozinska" target="_blank">
-                                    <img src="https://www.instagram.com/p/Bh-8gNBHx8G/?taken-by=olha.lozinska" class="articlePhoto">
-                                </a>
-                            </div>
-                        </div>                       
+                        </div>                                            
                     </div>
                     <div class="text-center footer">
                             <div class="container">
