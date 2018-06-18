@@ -23,8 +23,6 @@
 					<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
                     
-                    <script type="text/javascript" src="resources/js/instafeed.min.js"></script>
-                   
                     <link href="/resources/css/index.css" rel="stylesheet">
                 </head>
                 <body>
@@ -84,28 +82,8 @@
                         </div> 
                         <div class="row">
                             <div class="col-12 text-center">
-                                Instagram
-                                <div id="instagram"></div>
+<!--                                Instagram-->
                                 
-                                <script type="text/javascript">                                    
-                                    var feed = new Instafeed({
-                                    get: 'tagged',
-                                    
-                                    tagName: 'awesome',
-                                    clientId: '19ec2f53dc1e4bf7b88f92767ae4167f'
-                                    });
-                                    feed.run();                                    
-                                </script>
-<!--
-                                <script type="text/javascript">
-                                    var userFeed = new Instafeed({
-                                    get: 'user',
-                                    userId: '7e42e5089dad4ca095c969b7d0e3cf2c',
-                                    accessToken: ' 19ec2f53dc1e4bf7b88f92767ae4167f '
-                                    });
-                                    userFeed.run();
-                                </script>
--->
                             </div>
                         </div>                                            
                     </div>
