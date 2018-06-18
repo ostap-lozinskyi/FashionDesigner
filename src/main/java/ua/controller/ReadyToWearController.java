@@ -38,6 +38,7 @@ public class ReadyToWearController {
 		List <String> sectionOfClothesNames = new ArrayList<>(); 
 		sectionOfClothesNames.add("Ready to wear");
 		clothingModelFilter.setSectionOfClothesName(sectionOfClothesNames);
+		
 		Page<ClothingModelView> clothingModelViewsPage = clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable);
 		model.addAttribute("showClothingModels", clothingModelViewsPage);
 		

@@ -78,7 +78,19 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>                        
+                        </div> 
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                Instagram
+                            </div>
+                        </div> 
+                        <div class="row">
+                            <div class="col-4 text-center">
+                                <a href="https://www.instagram.com/p/Bh-8gNBHx8G/?taken-by=olha.lozinska" target="_blank">
+                                    <img src="https://www.instagram.com/p/Bh-8gNBHx8G/?taken-by=olha.lozinska" class="articlePhoto">
+                                </a>
+                            </div>
+                        </div>                       
                     </div>
                     <div class="text-center footer">
                             <div class="container">
