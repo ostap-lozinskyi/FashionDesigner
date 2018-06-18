@@ -44,7 +44,7 @@
                     <div class="container">
                         <div class="row"> 
                             <div class="col-lg-3 col-md-1 text-center">
-                                <a class="arrow" href="/clothingModel/${previousModel}"><img src="/resources/img/arrowLeft.png" style="width: 100px;"></a>
+                                <a class="arrow" href="/readyToWear/${previousModel}"><img src="/resources/img/arrowLeft.png" style="width: 100px;"></a>
                             </div>                           
                             <div class="col-lg-6 col-md-10 text-center">
                                 <div id="carouselExampleIndicators" class="carousel" data-ride="carousel">
@@ -105,7 +105,7 @@
                                 </div>
                             </div> 
                             <div class="col-lg-3 col-md-1 text-center">
-                                <a class="arrow" href="/clothingModel/${nextModel}"><img src="/resources/img/arrowRight.png" style="width: 100px;"></a>
+                                <a class="arrow" href="/readyToWear/${nextModel}"><img src="/resources/img/arrowRight.png" style="width: 100px;"></a>
                             </div>                   
                         </div>
                         <div class="row">

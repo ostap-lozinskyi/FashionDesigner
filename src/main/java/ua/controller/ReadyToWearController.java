@@ -35,6 +35,7 @@ public class ReadyToWearController {
 
 	@GetMapping
 	public String showPage(Model model, @PageableDefault Pageable pageable, @ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
+		// Show only 'Ready to wear' clothes
 		List <String> sectionOfClothesNames = new ArrayList<>(); 
 		sectionOfClothesNames.add("Ready to wear");
 		clothingModelFilter.setSectionOfClothesName(sectionOfClothesNames);

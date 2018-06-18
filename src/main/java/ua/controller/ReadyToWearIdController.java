@@ -40,9 +40,11 @@ public class ReadyToWearIdController {
 		clothingModelView.setPhotoUrls(clothingModelService.findPhotoUrls(id));
 		model.addAttribute("clothingModel", clothingModelView);	
 		
+		// Show only 'Ready to wear' clothes
 		List <String> sectionOfClothesNames = new ArrayList<>(); 
 		sectionOfClothesNames.add("Ready to wear");
 		clothingModelFilter.setSectionOfClothesName(sectionOfClothesNames);
+		
 		List<ClothingModelView> clothingModelViews = clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable).getContent();
 		int currentListId = 0;
 		for (int i = 0; i < clothingModelViews.size(); i++) {
