@@ -35,9 +35,11 @@ public class HauteCoutureController {
 
 	@GetMapping
 	public String showPage(Model model, @PageableDefault Pageable pageable, @ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
+		// Show only 'Haute Couture' clothes
 		List <String> sectionOfClothesNames = new ArrayList<>(); 
 		sectionOfClothesNames.add("Haute Couture");
 		clothingModelFilter.setSectionOfClothesName(sectionOfClothesNames);
+		
 		Page<ClothingModelView> clothingModelViewsPage = clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable);
 		model.addAttribute("showClothingModels", clothingModelViewsPage);
 		

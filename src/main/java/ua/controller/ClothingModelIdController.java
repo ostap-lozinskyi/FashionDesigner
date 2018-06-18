@@ -1,5 +1,6 @@
 package ua.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,11 @@ public class ClothingModelIdController {
 		ClothingModelView clothingModelView = clothingModelService.findClothingModelViewById(id);
 		clothingModelView.setPhotoUrls(clothingModelService.findPhotoUrls(id));
 		model.addAttribute("clothingModel", clothingModelView);	
+		
+		// Show only 'Haute Couture' clothes
+		List <String> sectionOfClothesNames = new ArrayList<>(); 
+		sectionOfClothesNames.add("Haute Couture");
+		clothingModelFilter.setSectionOfClothesName(sectionOfClothesNames);
 		
 		List<ClothingModelView> clothingModelViews = clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable).getContent();
 		int currentListId = 0;
