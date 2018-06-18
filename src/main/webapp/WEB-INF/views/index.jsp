@@ -85,16 +85,27 @@
                         <div class="row">
                             <div class="col-12 text-center">
                                 Instagram
-                                <div id="instafeed"></div>
+                                <div id="instagram"></div>
                                 
                                 <script type="text/javascript">                                    
                                     var feed = new Instafeed({
-//                                    get: 'tagged',
-//                                    tagName: 'awesome',
-                                    clientId: '7e42e5089dad4ca095c969b7d0e3cf2c'
+                                    get: 'tagged',
+                                    
+                                    tagName: 'awesome',
+                                    clientId: '19ec2f53dc1e4bf7b88f92767ae4167f'
                                     });
                                     feed.run();                                    
                                 </script>
+<!--
+                                <script type="text/javascript">
+                                    var userFeed = new Instafeed({
+                                    get: 'user',
+                                    userId: '7e42e5089dad4ca095c969b7d0e3cf2c',
+                                    accessToken: ' 19ec2f53dc1e4bf7b88f92767ae4167f '
+                                    });
+                                    userFeed.run();
+                                </script>
+-->
                             </div>
                         </div>                                            
                     </div>
