@@ -18,13 +18,13 @@ import ua.model.view.ClothingModelView;
 import ua.service.ClothingModelService;
 
 @Controller
-@RequestMapping("/clothingModel/{id}")
-public class ClothingModelIdController {
+@RequestMapping("/hauteCouture/{id}")
+public class HauteCoutureIdController {
 	
 	private final ClothingModelService clothingModelService;
 
 	@Autowired
-	public ClothingModelIdController(ClothingModelService clothingModelService) {
+	public HauteCoutureIdController(ClothingModelService clothingModelService) {
 		this.clothingModelService = clothingModelService;
 	}
 	
@@ -73,7 +73,7 @@ public class ClothingModelIdController {
  		
  		
  		
-		return "clothingModelId";
+		return "hauteCoutureId";
 	}
 	
 }

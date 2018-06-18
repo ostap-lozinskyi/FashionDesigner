@@ -39,7 +39,7 @@
                         <div class="row">
                             <c:forEach var="showClothingModel" items="${showClothingModels.content}">
                                 <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-                                    <a href="/clothingModel/${showClothingModel.id}">
+                                    <a href="/hauteCouture/${showClothingModel.id}">
                                         <img src="${showClothingModel.photoUrls[0]}?version=${showClothingModel.version}" class="item">
                                     </a>                                                                       
                                 </div>
