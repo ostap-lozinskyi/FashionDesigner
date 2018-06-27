@@ -79,13 +79,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> 
-                        <div class="row">
-                            <div class="col-12 text-center">
-<!--                                Instagram-->
-                                
-                            </div>
-                        </div>                                            
+                        </div>                                                              
                     </div>
                     <div class="text-center footer">
                             <div class="container">
