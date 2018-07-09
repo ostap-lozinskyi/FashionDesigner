@@ -119,6 +119,7 @@ a:hover {
 
 .photoID {
     width: 450px;
+    cursor: pointer;
 }
 
 .photoIDmini {
@@ -128,6 +129,7 @@ a:hover {
     margin-top: 0px;
     margin-right: 30px;
     margin-bottom: 22px;
+    cursor: pointer;
 }
 
 .photoIDmodal {
@@ -135,12 +137,14 @@ a:hover {
     top: -25px;
     width: 100%;
     z-index: 1;
+    cursor: pointer;
 }
 
 .close {
     position: relative;
     right: 10px;
     z-index: 2;
+    font-size:50px;
 }
 
 .logoID {
