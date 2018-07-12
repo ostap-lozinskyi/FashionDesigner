@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +20,7 @@
         <a class="headerItem" href="/admin/adminSeasons">SEASONS</a>
         <a class="headerItem" href="/admin/adminTypeOfClothes">TYPES</a>   
         <a class="headerItem" href="/admin/adminSectionOfClothes">SECTIONS</a>
-        <a class="headerItem" href="/admin/adminColors">COLORS</a>           
+        <a class="headerItem" href="/admin/adminColors">COLORS</a>                  
     </div>
 	<div class="container" style="background-color: white;">
 	    <div class="row">
@@ -29,10 +30,18 @@
 		</div>
 		<div class="row">			
 			<div class="col-lg-9 col-sm-12">
-			    <a class="btn btn-outline-primary" href="/userCabinet">User Cabinet</a>
+			    <a class="btn btn-outline-primary" href="/userCabinet">User Cabinet</a>			    		     
 			</div>
 		</div>
-		<br>
+		<div class="row">			
+			<div class="col-lg-9 col-sm-12">
+               <sec:authorize access="isAuthenticated()">
+                    <form:form action="/logout">
+                        <button class="btn btn-outline-primary">Logout</button>
+                    </form:form>
+                </sec:authorize>
+            </div>
+        </div>
 	</div>
 </body>
 </html>

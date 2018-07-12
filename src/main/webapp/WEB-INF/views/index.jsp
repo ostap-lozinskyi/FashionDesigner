@@ -34,7 +34,10 @@
                         <a class="headerItem" href="/readyToWear">READY TO WEAR</a>
 				        <a class="headerItem" href="/hauteCouture">HAUTE COUTURE</a>
 				        <a class="headerItem" href="#">ABOUT US</a>                        
-						<a class="headerItem" href="#">CONTACTS</a>       
+						<a class="headerItem" href="#">CONTACTS</a>  
+                        <sec:authorize access="isAuthenticated()">
+                            <a class="headerItem" href="/admin">ADMIN</a>
+                        </sec:authorize>     
                     </div>
                     <div class="container">
                         <div class="row">                           
