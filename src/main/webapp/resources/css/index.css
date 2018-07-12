@@ -40,7 +40,8 @@ a:hover {
     height: 50px;
     text-align: center;
     padding-top: 13px;
-    font-size: 14px;    
+    font-size: 14px; 
+    margin-bottom: 30px;
 }
 
 .headerItem {
@@ -93,7 +94,6 @@ a:hover {
     opacity: 1;
     transition: opacity 0.75s ease-out;
     width: 340px;
-    margin-top: 40px;	    
 }
 
 .item:hover {
@@ -154,7 +154,7 @@ a:hover {
 }
 
 .mainVideo {
-    margin-top: 0px;
+    margin-top: -30px;
     width: 100%;
 }
 
@@ -181,6 +181,12 @@ a:hover {
     margin-top: 0;
     max-width: none;
     padding: 0;
+}
+
+.mainTitle {
+    font-weight: bold;    
+    font-size: 26px;
+    margin-top: 20px;
 }
 
 .articleTitle {

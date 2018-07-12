@@ -12,7 +12,7 @@
 
 <title>Login</title>
 </head>
-<body style="background: url(/resources/img/loginFon.jpg); background-repeat: no-repeat; background-position: center;">
+<body>
 	<div class="container" style="background-color: white;">
 		<div class="row">
 			<div class="col-12">

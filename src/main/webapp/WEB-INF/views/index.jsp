@@ -79,6 +79,20 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <p class="mainTitle">THE NEW COLLECTIONS</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <c:forEach var="showClothingModel" items="${showClothingModels}" end="2">
+                                <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                                    <a href="/hauteCouture/${showClothingModel.id}">
+                                        <img src="${showClothingModel.photoUrls[0]}?version=${showClothingModel.version}" class="item">
+                                    </a>                                                                       
+                                </div>
+                            </c:forEach> 
                         </div>                                                              
                     </div>
                     <div class="text-center footer">
