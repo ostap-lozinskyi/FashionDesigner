@@ -35,7 +35,7 @@
 		</div>
 		<div class="row">			
 			<div class="col-lg-9 col-sm-12">
-               <sec:authorize access="isAuthenticated()">
+                <sec:authorize access="isAuthenticated()">
                     <form:form action="/logout">
                         <button class="btn btn-outline-primary">Logout</button>
                     </form:form>
