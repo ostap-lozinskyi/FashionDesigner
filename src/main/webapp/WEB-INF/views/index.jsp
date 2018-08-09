@@ -14,6 +14,14 @@
                     gtag('js', new Date());
                     gtag('config', 'UA-118033320-3');
                     </script>
+                    <script>
+                    window.onload=function(){
+                        $(function(){
+                            if(window.location.protocol==="https:")
+                                window.location.protocol="http";
+                        });
+                    }                    
+                    </script>
 
                     
                     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,15 +33,7 @@
                     
                     <link href="/resources/css/index.css" rel="stylesheet">
                 </head>
-                <body>
-                    <script>
-                    window.onload=function(){
-                        $(function(){
-                            if(window.location.protocol==="https:")
-                                window.location.protocol="http";
-                        });
-                    }                    
-                    </script>
+                <body>                    
                     <div class="text-center divLogo">
                         <img src="/resources/img/olha-lozinska-logo-1.png" class="logoID">
                     </div>                    
