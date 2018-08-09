@@ -26,6 +26,14 @@
                     <link href="/resources/css/index.css" rel="stylesheet">
                 </head>
                 <body>
+                    <script>
+                    window.onload=function(){
+                        $(function(){
+                            if(window.location.protocol==="https:")
+                                window.location.protocol="http";
+                        });
+                    }                    
+                    </script>
                     <div class="text-center divLogo">
                         <img src="/resources/img/olha-lozinska-logo-1.png" class="logoID">
                     </div>                    
