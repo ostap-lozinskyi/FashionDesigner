@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: Lozinska
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: ultimate
+Built-By: Europe
 Implementation-Vendor-Id: ua
-Build-Jdk: 1.8.0_161
+Build-Jdk: 1.8.0_181
 Implementation-URL: http://projects.spring.io/spring-boot/Lozinska/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
