@@ -62,6 +62,9 @@
                                                 <a href="https://www.facebook.com/olha.lozinska.official/">
                                                     <img src="/resources/img/facebookLogo.png" class="footerLogo">
                                                 </a>
+                                                <a href="https://in.pinterest.com/olhalozinska/">
+                                                    <img src="/resources/img/pinterestLogo.png" class="footerLogo">
+                                                </a>
                                            </div>                                       
                                        </div> 
                                    </div>
