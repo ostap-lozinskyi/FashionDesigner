@@ -90,6 +90,10 @@ a:hover {
     width: 33%;    
 }
 
+.itemMainPage {
+    width: 340px;
+}
+
 .item {
     opacity: 1;
     transition: opacity 0.75s ease-out;

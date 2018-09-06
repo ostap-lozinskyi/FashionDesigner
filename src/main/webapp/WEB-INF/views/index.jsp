@@ -91,7 +91,7 @@
                             <c:forEach var="showClothingModel" items="${showClothingModels}" end="2">
                                 <div class="col-lg-4 col-md-6 col-sm-12 text-center">
                                     <a href="/hauteCouture/${showClothingModel.id}">
-                                        <img src="${showClothingModel.photoUrls[0]}?version=${showClothingModel.version}" class="item">
+                                        <img src="${showClothingModel.photoUrls[0]}?version=${showClothingModel.version}" class="itemMainPage">
                                     </a>                                                                       
                                 </div>
                             </c:forEach> 
