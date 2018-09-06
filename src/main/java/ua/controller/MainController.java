@@ -43,9 +43,11 @@ public class MainController {
 		
 		int size = clothingModelViewsList.size();
 		List<ClothingModelView> lastClothingModelViewsList = new ArrayList<>();
-		lastClothingModelViewsList.add(clothingModelViewsList.get(size-1));
-		lastClothingModelViewsList.add(clothingModelViewsList.get(size-2));
-		lastClothingModelViewsList.add(clothingModelViewsList.get(size-3));
+		if (size != 0) {
+			lastClothingModelViewsList.add(clothingModelViewsList.get(size - 1));
+			lastClothingModelViewsList.add(clothingModelViewsList.get(size - 2));
+			lastClothingModelViewsList.add(clothingModelViewsList.get(size - 3));
+		}
 		
 		model.addAttribute("showClothingModels", lastClothingModelViewsList);
 		for (ClothingModelView clothingModelView : lastClothingModelViewsList) {

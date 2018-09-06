@@ -76,7 +76,7 @@
                                     <div class="col-12 text-center">                                        
                                         <a href="https://www.instagram.com/p/BjmUUhHgsln/?taken-by=slanovskiy_kiev" target="_blank">
                                             <p class="articleTitle">OLHA LOZINSKA У КИЄВІ</p>
-                                            <p class="articleText">Відтепер приміряти наші вишукані наряди можна і в столиці, у салоні вечірніх та весільних суконь Slanovskiy, по вул. С. Петлюри, 6</p>
+                                            <p class="articleText">Відтепер приміряти вишукані наряди від дизайнера Ольга Лозінська можна і в столиці, у салоні вечірніх та весільних суконь Slanovskiy, по вул. С. Петлюри, 6</p>
                                         </a> 
                                     </div>
                                 </div>
@@ -112,6 +112,9 @@
                                                 </a>
                                                 <a href="https://www.facebook.com/olha.lozinska.official/">
                                                     <img src="/resources/img/facebookLogo.png" class="footerLogo">
+                                                </a>
+                                                <a href="https://in.pinterest.com/olhalozinska/">
+                                                    <img src="/resources/img/pinterestLogo.png" class="footerLogo">
                                                 </a>
                                            </div>                                       
                                        </div> 
