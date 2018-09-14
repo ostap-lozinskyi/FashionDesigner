@@ -61,4 +61,12 @@ public class MainController {
 		return "admin";
 	}
 	
+	/**
+	 * Handling exceptions	 
+	 */
+	@GetMapping("/*")
+	public String handle() {
+	    return "index";
+	}
+	
 }
