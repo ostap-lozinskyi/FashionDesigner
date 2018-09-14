@@ -64,7 +64,7 @@ public class MainController {
 	/**
 	 * Handling exceptions	 
 	 */
-	@GetMapping("/*")
+	@GetMapping({"/*","/*/*"})
 	public String handle() {
 	    return "index";
 	}
