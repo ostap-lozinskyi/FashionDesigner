@@ -29,6 +29,7 @@
                     </style>                   
                                        
                     <link href="/resources/css/index.css" rel="stylesheet">
+                    <script src="/resources/js/photoFeatures.js"></script>
                 </head>
                 <body>
                     <div class="text-center divLogo">
