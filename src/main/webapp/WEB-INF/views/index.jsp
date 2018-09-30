@@ -41,9 +41,11 @@
                     <div class="container">
                         <div class="row">                           
                             <div class="col-sm-12 text-center">                               
-                                <video class="mainVideo" autoplay loop muted playsInline>
-                                  <source src="https://lozinska.ml/resources/video/videoIntro.mp4" type="video/mp4">
-                                </video>
+                                <a href="/aboutUs">
+                                    <video class="mainVideo" autoplay loop muted playsInline>
+                                        <source src="https://lozinska.ml/resources/video/videoIntro.mp4" type="video/mp4">
+                                    </video>
+                                </a>
                             </div>                                                        
                         </div> 
                         <div class="row">
@@ -84,7 +86,7 @@
                         </div>
                         <div class="row">
                             <div class="col-12 text-center">
-                                <p class="mainTitle">THE NEW COLLECTIONS</p>
+                                <a href="/hauteCouture"><p class="mainTitle">THE NEW COLLECTIONS</p></a>
                             </div>
                         </div>
                         <div class="row">
@@ -101,7 +103,7 @@
                             <div class="container">
                                <div class="row">
                                    <div class="col-8 footerText">
-                                    © Olha Lozinska 2018
+                                       <a href="/aboutUs">© Olha Lozinska 2018</a>
                                    </div>
                                    <div class="col-4">                                       
                                        <div class="row">

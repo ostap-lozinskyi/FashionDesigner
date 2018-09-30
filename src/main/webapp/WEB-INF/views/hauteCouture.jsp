@@ -50,7 +50,7 @@
                             <div class="container">
                                <div class="row">
                                    <div class="col-8 footerText">
-                                    © Olha Lozinska 2018
+                                        <a href="/aboutUs">© Olha Lozinska 2018</a>
                                    </div>
                                    <div class="col-4">                                       
                                        <div class="row">
