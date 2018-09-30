@@ -32,7 +32,7 @@
                         <a class="headerItem" href="/"><img src="/resources/img/home.png" class="homePict"></a>
                         <a class="headerItem" href="/readyToWear">READY TO WEAR</a>
 				        <a class="headerItem" href="/hauteCouture">HAUTE COUTURE</a>
-				        <a class="headerItem" href="#">ABOUT US</a>                        
+				        <a class="headerItem" href="/aboutUs">ABOUT US</a>                         
 						<a class="headerItem" href="#">CONTACTS</a>       
                     </div>
                     <div class="container">

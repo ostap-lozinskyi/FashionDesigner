@@ -32,18 +32,28 @@
                         <a class="headerItem" href="/"><img src="/resources/img/home.png" class="homePict"></a>
                         <a class="headerItem" href="/readyToWear">READY TO WEAR</a>
 				        <a class="headerItem" href="/hauteCouture">HAUTE COUTURE</a>
-				        <a class="headerItem" href="/aboutUs">ABOUT US</a>                         
+				        <a class="headerItem" href="/aboutUs">ABOUT US</a>                        
 						<a class="headerItem" href="#">CONTACTS</a>       
                     </div>
                     <div class="container">
-                        <div class="row">                               
-                            <c:forEach var="showClothingModel" items="${showClothingModels.content}">
-                                <div class="col-lg-4 col-md-6 col-sm-12 text-center">                                    
-                                    <a href="/readyToWear/${showClothingModel.id}">
-                                        <img src="${showClothingModel.photoUrls[0]}?version=${showClothingModel.version}" class="item">
-                                    </a>                                                                                 
-                                </div>
-                            </c:forEach> 
+                        <div class="row">   
+                            <div class="col-4">
+                                <img src="/resources/img/olha-lozinska.jpg" class="aboutUsPhoto">
+                            </div>
+                            <div class="col-8 aboutUsText">
+                                <p>Olha Lozinska – авторський бренд ексклюзивного жіночого одягу.</p> 
+                                <p>В асортиментному ряді представлена широка лінійка моделей:</p>
+                                <ul>
+	                               <li>трендовий street style;</li>
+	                               <li>романтичний smart casual;</li>
+	                               <li>сексуальні coctail dresses;</li>
+	                               <li>розкішні вечірні та весільні сукні</li>
+	                               <li>а також ексклюзивні вироби, оздоблені авторською кутюрною вишивкою та ручною роботою від дизайнера.
+                                </ul>
+                                <p>В основі бренду незмінно присутні  жіночність, індивідуальність та комфорт, саме тому ми підбираємо для вас найкращі ексклюзивні тканини та фурнітуру і майстерно втілюємо мрії у життя.</p>
+                                <p>Неповторний дизайн, якісне виконання, авторська система конструювання, увага до найдрібніших деталей – все це гармонійно поєднується у виробах від львівського дизайнера одягу Ольги Лозінської.</p>
+
+                            </div>
                         </div>
                     </div>
                     <div class="text-center footer">

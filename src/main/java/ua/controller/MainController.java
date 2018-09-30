@@ -61,6 +61,11 @@ public class MainController {
 		return "admin";
 	}
 	
+	@GetMapping("/aboutUs")
+	public String aboutUs() {
+		return "aboutUs";
+	}
+	
 	/**
 	 * Handling exceptions	 
 	 */
