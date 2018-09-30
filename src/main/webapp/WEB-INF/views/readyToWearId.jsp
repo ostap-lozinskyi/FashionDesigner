@@ -29,6 +29,7 @@
                     </style>                   
                                        
                     <link href="/resources/css/index.css" rel="stylesheet">
+                    <script src="/resources/js/photoFeatures.js"></script>
                 </head>
                 <body>
                     <div class="text-center divLogo">
@@ -65,43 +66,7 @@
                                     <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
-                                    </a>
-                                    <script>
-                                    $('.carousel-control-prev').click(function() {                                        
-                                        var element = document.getElementsByClassName('photoIDmini');
-                                        var i;
-                                        
-                                        for (i = 0; i < element.length; i++) {
-                                            if (element[i].classList.contains("active")) { 
-                                                element[i].classList.remove("active");
-                                                if (element[i-1]) {
-                                                   element[i-1].classList.add("active"); 
-                                                } else {
-                                                   element[element.length-1].classList.add("active");  
-                                                }                                                
-                                                break;
-                                            }                                            
-                                        }                                                                                
-                                    });
-                                    </script>
-                                    <script>
-                                    $('.carousel-control-next').click(function() {                                        
-                                        var element = document.getElementsByClassName('photoIDmini');
-                                        var i;
-                                        
-                                        for (i = 0; i < element.length; i++) {
-                                            if (element[i].classList.contains("active")) { 
-                                                element[i].classList.remove("active");
-                                                if (element[i+1]) {
-                                                   element[i+1].classList.add("active"); 
-                                                } else {
-                                                   element[0].classList.add("active");  
-                                                }                                                
-                                                break;
-                                            }                                            
-                                        }                                                                                
-                                    });
-                                    </script>                                      
+                                    </a>                                                                          
                                 </div>
                             </div> 
                             <div class="col-lg-3 col-md-1 text-center">
@@ -115,46 +80,11 @@
                                 <c:forEach var="photoUrl" items="${clothingModel.photoUrls}" begin="1">                                   
                                     <img data-target="#carouselExampleIndicators" data-slide-to="${count}" class="photoIDmini" src="${photoUrl}?version=${clothingModel.version}">                                     
                                     <c:set var="count" value="${count + 1}" scope="page"/>
-                                </c:forEach>
-                                <script>
-                                    $('.photoIDmini').click(function() {                                        
-                                        var element = document.getElementsByClassName('active'); 
-                                        element[1].classList.remove("active");
-
-                                        $(this).addClass('active');                                        
-                                    });
-                                </script>
-                                <script>
-                                    $('.photoID').click(function() {                                        
-                                        var elementActive = document.getElementsByClassName('active'); 
-                                        var adress = elementActive[1].getAttribute('src');
-                                        
-                                        var elementModal = document.getElementsByClassName('photoIDmodal');                                        
-                                        elementModal[0].src = adress;
-                                        
-                                        var modalDialog = document.getElementsByClassName('modal-dialog');
-                                        
-                                        var screenHeight = screen.height;
-                                        var windowWidth = window.innerWidth;
-                                        if(window.innerHeight > window.innerWidth){
-                                            if(elementModal[0].width<elementModal[0].height) {
-                                                modalDialog[0].style.width = windowWidth*0.95+"px";                                         
-                                            } else {
-                                                modalDialog[0].style.width = screenHeight/1.8+"px";
-                                            }  
-                                        } else {
-                                            if(elementModal[0].width<elementModal[0].height) {
-                                               modalDialog[0].style.width = screenHeight/1.75+"px";                                            
-                                            } else {
-                                               modalDialog[0].style.width = windowWidth*0.7+"px";                                           
-                                            }   
-                                        }
-                                                                            
-                                    });
-                                </script>                                
+                                </c:forEach>                                                                
                             </div>
                         </div>
                     </div>
+                    
                     <!-- Modal -->
                     <div class="modal fade text-center" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
@@ -169,35 +99,31 @@
                         </div>
                     </div>
                     <!-- Modal end-->
-                        <div class="text-center footer">
-                            <div class="container">
-                               <div class="row">
-                                   <div class="col-8 footerText">
+                    
+                    <div class="text-center footer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-8 footerText">
                                     © Olha Lozinska 2018
-                                   </div>
-                                   <div class="col-4">                                       
-                                       <div class="row">
-                                            <div class="col-12 text-left">
-                                                <span>Follow Us:</span>
-                                                <a href="https://www.instagram.com/olha.lozinska/">
-                                                    <img src="/resources/img/instagramLogo.png" class="footerLogo">
-                                                </a>
-                                                <a href="https://www.facebook.com/olha.lozinska.official/">
-                                                    <img src="/resources/img/facebookLogo.png" class="footerLogo">
-                                                </a>
-                                                <a href="https://in.pinterest.com/olhalozinska/">
-                                                    <img src="/resources/img/pinterestLogo.png" class="footerLogo">
-                                                </a>
-                                           </div>                                       
-                                       </div> 
-                                   </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="row">
+                                        <div class="col-12 text-left">
+                                            <span>Follow Us:</span>
+                                            <a href="https://www.instagram.com/olha.lozinska/">
+                                                <img src="/resources/img/instagramLogo.png" class="footerLogo">
+                                            </a>
+                                            <a href="https://www.facebook.com/olha.lozinska.official/">
+                                                <img src="/resources/img/facebookLogo.png" class="footerLogo">
+                                            </a>
+                                            <a href="https://in.pinterest.com/olhalozinska/">
+                                                <img src="/resources/img/pinterestLogo.png" class="footerLogo">
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                    </div>
-                    <script>
-                        $('.carousel').carousel({
-                            interval: false,                            
-                        })
-                    </script>
+                        </div>
+                    </div>            
                 </body>
                 </html>
