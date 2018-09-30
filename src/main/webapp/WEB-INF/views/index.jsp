@@ -107,13 +107,13 @@
                                        <div class="row">
                                             <div class="col-12 text-left">
                                                 <span>Follow Us:</span>
-                                                <a href="https://www.instagram.com/olha.lozinska/">
+                                                <a href="https://www.instagram.com/olha.lozinska/" target="_blank">
                                                     <img src="/resources/img/instagramLogo.png" class="footerLogo">
                                                 </a>
-                                                <a href="https://www.facebook.com/olha.lozinska.official/">
+                                                <a href="https://www.facebook.com/olha.lozinska.official/" target="_blank">
                                                     <img src="/resources/img/facebookLogo.png" class="footerLogo">
                                                 </a>
-                                                <a href="https://in.pinterest.com/olhalozinska/">
+                                                <a href="https://in.pinterest.com/olhalozinska/" target="_blank">
                                                     <img src="/resources/img/pinterestLogo.png" class="footerLogo">
                                                 </a>
                                            </div>                                       
