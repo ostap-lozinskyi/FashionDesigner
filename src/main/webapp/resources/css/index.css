@@ -54,7 +54,7 @@ a:hover {
     padding-bottom: 5px;
     margin-top: 30px; 
     font-weight: bold;
-    width: 100%;
+    width: 100%;    
 }
 
 .footerText {
@@ -213,4 +213,13 @@ a:hover {
 
 .btn {
     margin-bottom: 10px;
+}
+
+.aboutUsPhoto {    
+    width: 340px;
+}
+
+.aboutUsText {
+    text-align: justify;
+    list-style-position: inside;
 }
