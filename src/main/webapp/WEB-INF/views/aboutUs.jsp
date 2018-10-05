@@ -34,7 +34,7 @@
                         <a class="headerItem" href="/readyToWear">READY TO WEAR</a>
 				        <a class="headerItem" href="/hauteCouture">HAUTE COUTURE</a>
 				        <a class="headerItem" href="/aboutUs">ABOUT US</a>                        
-						<a class="headerItem" href="#">CONTACTS</a>       
+						<a class="headerItem" href="/contacts">CONTACTS</a>       
                     </div>
                     <div class="container">
                         <div class="row">   
@@ -53,9 +53,8 @@
                                 </ul>
                                 <p>В основі бренду незмінно присутні  жіночність, індивідуальність та комфорт, саме тому ми підбираємо для вас найкращі ексклюзивні тканини та фурнітуру і майстерно втілюємо мрії у життя.</p>
                                 <p>Неповторний дизайн, якісне виконання, авторська система конструювання, увага до найдрібніших деталей – все це гармонійно поєднується у виробах від львівського дизайнера одягу Ольги Лозінської.</p>
-
                             </div>
-                        </div>
+                        </div>                        
                     </div>
                     <div class="text-center footer">
                             <div class="container">

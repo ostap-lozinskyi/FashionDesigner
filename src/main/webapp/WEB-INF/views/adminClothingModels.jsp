@@ -11,11 +11,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<!--For Date-->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/gh/atatanasov/gijgo@1.8.0/dist/combined/js/gijgo.min.js" type="text/javascript"></script>
-<link href="https://cdn.jsdelivr.net/gh/atatanasov/gijgo@1.8.0/dist/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
 <link href="/resources/css/index.css" rel="stylesheet">
 <title>Clothing Models management</title>
 </head>
@@ -28,7 +23,8 @@
         <a class="headerItem" href="/admin/adminSeasons">SEASONS</a>
         <a class="headerItem" href="/admin/adminTypeOfClothes">TYPES</a>   
         <a class="headerItem" href="/admin/adminSectionOfClothes">SECTIONS</a>
-        <a class="headerItem" href="/admin/adminColors">COLORS</a>            
+        <a class="headerItem" href="/admin/adminColors">COLORS</a> 
+        <a class="headerItem" href="/admin/adminEmail">EMAIL</a>
     </div>
 	<div class="container">
 		<div class="row">

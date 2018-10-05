@@ -20,7 +20,8 @@
         <a class="headerItem" href="/admin/adminSeasons">SEASONS</a>
         <a class="headerItem" href="/admin/adminTypeOfClothes">TYPES</a>   
         <a class="headerItem" href="/admin/adminSectionOfClothes">SECTIONS</a>
-        <a class="headerItem" href="/admin/adminColors">COLORS</a>                  
+        <a class="headerItem" href="/admin/adminColors">COLORS</a>   
+        <a class="headerItem" href="/admin/adminEmail">EMAIL</a>
     </div>
 	<div class="container" style="background-color: white;">
 	    <div class="row">

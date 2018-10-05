@@ -33,7 +33,7 @@
                         <a class="headerItem" href="/readyToWear">READY TO WEAR</a>
 				        <a class="headerItem" href="/hauteCouture">HAUTE COUTURE</a>
 				        <a class="headerItem" href="/aboutUs">ABOUT US</a>                         
-						<a class="headerItem" href="#">CONTACTS</a>       
+						<a class="headerItem" href="/contacts">CONTACTS</a>       
                     </div>
                     <div class="container">
                         <div class="row">
