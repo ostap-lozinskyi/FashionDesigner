@@ -22,7 +22,7 @@ import ua.validation.flag.ColorFlag;
 
 @Controller
 @RequestMapping("/admin/adminEmail")
-@SessionAttributes("email")
+@SessionAttributes("emailCredentials")
 public class AdminEmailController {
 
 	private final EmailService emailService;
@@ -34,7 +34,7 @@ public class AdminEmailController {
 		this.emailService = emailService;
 	}
 
-	@ModelAttribute("email")
+	@ModelAttribute("emailCredentials")
 	public EmailCredentials getForm() {
 		return new EmailCredentials();
 	}
@@ -73,13 +73,12 @@ public class AdminEmailController {
 //	}
 
 	@PostMapping
-	public String save(@ModelAttribute("email") @Validated(ColorFlag.class) EmailCredentials email, BindingResult br,
+	public String save(@ModelAttribute("emailCredentials") @Validated(ColorFlag.class) EmailCredentials email, BindingResult br,
 			Model model, SessionStatus status, @PageableDefault Pageable pageable,
 			@ModelAttribute("filter") SimpleFilter filter) {
 		if (br.hasErrors())
 			return showEmail(model, pageable, filter);
 		email.setId(1);
-		System.out.println(email.getId()+"!!!!!!!!!!!!!!!!!!");
 		emailService.save(email);
 		return cancel(status, pageable, filter);
 	}

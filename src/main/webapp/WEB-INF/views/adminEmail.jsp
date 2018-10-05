@@ -37,7 +37,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h3>Add new Color</h3>
-                        <form:form action="/admin/adminEmail" method="POST" modelAttribute="email" enctype="multipart/form-data">
+                        <form:form action="/admin/adminEmail" method="POST" modelAttribute="emailCredentials" enctype="multipart/form-data">
                             <custom:hiddenInputs excludeParams="senderMail, _csrf"/>
                             <div class="row">
                                 <div class="col-10 ml-auto" style="color: red;">
