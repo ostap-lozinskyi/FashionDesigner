@@ -1,9 +1,9 @@
 @font-face {
     font-family: RalewayRegular;
-    src: url(/resources/font/RalewayRegular.ttf); 
+    src: url(/resources/font/RalewayRegular.ttf);
     src: url(/resources/font/RalewayRegular.eot) format('embedded-opentype'),
-        url(/resources/font/RalewayRegular.woff) format('woff'),
-        url(/resources/font/RalewayRegular.svg) format('svg');
+    url(/resources/font/RalewayRegular.woff) format('woff'),
+    url(/resources/font/RalewayRegular.svg) format('svg');
 }
 
 * {
@@ -15,7 +15,7 @@
 body {
     background-image: url("/resources/img/background.jpg");
     background-repeat: no-repeat;
-    background-size: 100%;    
+    background-size: 100%;
 }
 
 a {
@@ -28,11 +28,11 @@ a:hover {
 }
 
 .header a {
-    color: white;         
+    color: white;
 }
 
 .header a:hover {
-    color: white;     
+    color: white;
 }
 
 .header {
@@ -40,7 +40,7 @@ a:hover {
     height: 50px;
     text-align: center;
     padding-top: 13px;
-    font-size: 14px; 
+    font-size: 14px;
     margin-bottom: 30px;
 }
 
@@ -52,9 +52,9 @@ a:hover {
     background-color: #f6f6f6;
     padding-top: 5px;
     padding-bottom: 5px;
-    margin-top: 30px; 
+    margin-top: 30px;
     font-weight: bold;
-    width: 100%;    
+    width: 100%;
 }
 
 .footerText {
@@ -62,9 +62,9 @@ a:hover {
     font-size: 16px;
 }
 
-.footer span {    
+.footer span {
     margin-right: 15px;
-    font-size: 16px; 
+    font-size: 16px;
     vertical-align: middle;
 }
 
@@ -80,14 +80,14 @@ a:hover {
 }
 
 .logo {
-	width: 40%;
+    width: 40%;
     display: block;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 .mainImg {
     margin: 30px;
-    width: 33%;    
+    width: 33%;
 }
 
 .itemMainPage {
@@ -150,7 +150,7 @@ a:hover {
     top: -20px;
     right: 10px;
     z-index: 2;
-    font-size:50px;
+    font-size: 50px;
 }
 
 .logoID {
@@ -164,17 +164,17 @@ a:hover {
 }
 
 .carousel-inner {
-    margin: 0 ;    
+    margin: 0;
 }
 
 .carousel-control-prev-icon {
     position: relative;
-    left: 30px; 
+    left: 30px;
 }
 
 .carousel-control-next-icon {
     position: relative;
-    right: 30px; 
+    right: 30px;
 }
 
 .carousel {
@@ -189,7 +189,7 @@ a:hover {
 }
 
 .mainTitle {
-    font-weight: bold;    
+    font-weight: bold;
     font-size: 26px;
     margin-top: 20px;
 }
@@ -201,9 +201,8 @@ a:hover {
 }
 
 .articleText {
-    text-align:justify;
+    text-align: justify;
     font-size: 16px;
-/*    line-height: normal;*/
 }
 
 .articlePhoto {
@@ -216,11 +215,33 @@ a:hover {
     margin-bottom: 10px;
 }
 
-.aboutUsPhoto {    
+.aboutUsPhoto {
     width: 340px;
 }
 
 .aboutUsText {
     text-align: justify;
     list-style-position: inside;
+}
+
+.emailText {
+    border-radius: unset;
+    border-color: black;
+}
+
+.emailSendButton {
+     width: 100px;
+     height: 30px;
+     border-color: black;
+     background-color: black;
+     color: white;
+     border-style: none;
+ }
+
+.emailSendButton:active{
+    background-color: gray;
+}
+
+.emailLabel {
+    font-weight: bold;
 }

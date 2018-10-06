@@ -6,10 +6,10 @@ import ua.validation.flag.EmailFlag;
 
 public class EmailRequest {
 
-	@NotBlank(message = "This field cannot be blank", groups = {EmailFlag.class})
+	@NotBlank(message = "Вкажіть номер або ел. пошту", groups = {EmailFlag.class})
 	private String tel;
 
-	@NotBlank(message = "This field cannot be blank", groups = {EmailFlag.class})
+	@NotBlank(message = "Вкажіть текст", groups = {EmailFlag.class})
 	private String text;
 
 	public String getTel() {
