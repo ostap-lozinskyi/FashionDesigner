@@ -11,19 +11,19 @@ import ua.validation.annotation.UniqueColor;
 @Component
 public class ColorValidator implements ConstraintValidator<UniqueColor, String> {
 
-	private final ColorRepository colorRepository;
+    private final ColorRepository colorRepository;
 
-	public ColorValidator(ColorRepository colorRepository) {
-		this.colorRepository = colorRepository;
-	}
+    public ColorValidator(ColorRepository colorRepository) {
+        this.colorRepository = colorRepository;
+    }
 
-	@Override
-	public void initialize(UniqueColor constraintAnnotation) {
-	}
+    @Override
+    public void initialize(UniqueColor constraintAnnotation) {
+    }
 
-	@Override
-	public boolean isValid(String value, ConstraintValidatorContext context) {
-		return !colorRepository.existsByName(value);
-	}
+    @Override
+    public boolean isValid(String value, ConstraintValidatorContext context) {
+        return !colorRepository.existsByName(value);
+    }
 
 }

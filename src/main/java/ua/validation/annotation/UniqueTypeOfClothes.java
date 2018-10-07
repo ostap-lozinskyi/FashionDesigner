@@ -13,13 +13,13 @@ import javax.validation.Payload;
 import ua.validation.validator.TypeOfClothesValidator;
 
 @Retention(RUNTIME)
-@Target({ FIELD, METHOD })
+@Target({FIELD, METHOD})
 @Constraint(validatedBy = TypeOfClothesValidator.class)
 public @interface UniqueTypeOfClothes {
 
-	String message() default "Not unique";
+    String message() default "Not unique";
 
-	Class<?>[] groups() default {};
+    Class<?>[] groups() default {};
 
-	Class<? extends Payload>[] payload() default {};
+    Class<? extends Payload>[] payload() default {};
 }

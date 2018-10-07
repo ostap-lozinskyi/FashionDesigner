@@ -9,17 +9,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "season", indexes=@Index(columnList = "name", unique=true))
+@Table(name = "season", indexes = @Index(columnList = "name", unique = true))
 public class Season extends AbstractEntityName {
-	
-	@OneToMany(mappedBy="season")
-	private List<ClothingModel> clothingModels = new ArrayList<>();
-	
-	public Season() {
-	}
 
-	public Season(String name) {
-		super(name);
-	}
+    @OneToMany(mappedBy = "season")
+    private List<ClothingModel> clothingModels = new ArrayList<>();
+
+    public Season() {
+    }
+
+    public Season(String name) {
+        super(name);
+    }
 
 }

@@ -8,6 +8,6 @@ import ua.model.view.ClothingModelView;
 
 public interface ClothingModelViewRepository {
 
-	Page<ClothingModelView> findAllClothingModelView(ClothingModelFilter clothingModelFilter, Pageable pageable);
-		
+    Page<ClothingModelView> findAllClothingModelView(ClothingModelFilter clothingModelFilter, Pageable pageable);
+
 }

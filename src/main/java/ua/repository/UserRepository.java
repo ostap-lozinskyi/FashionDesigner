@@ -7,8 +7,8 @@ import ua.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Integer>, JpaSpecificationExecutor<User> {
 
-	User findUserByEmail(String email);
+    User findUserByEmail(String email);
 
-	boolean existsUserByEmail(String email);
-	
+    boolean existsUserByEmail(String email);
+
 }

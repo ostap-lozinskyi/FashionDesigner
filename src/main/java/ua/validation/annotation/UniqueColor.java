@@ -13,13 +13,13 @@ import javax.validation.Payload;
 import ua.validation.validator.ColorValidator;
 
 @Retention(RUNTIME)
-@Target({ FIELD, METHOD })
+@Target({FIELD, METHOD})
 @Constraint(validatedBy = ColorValidator.class)
 public @interface UniqueColor {
 
-	String message() default "Not unique";
+    String message() default "Not unique";
 
-	Class<?>[] groups() default {};
+    Class<?>[] groups() default {};
 
-	Class<? extends Payload>[] payload() default {};
+    Class<? extends Payload>[] payload() default {};
 }

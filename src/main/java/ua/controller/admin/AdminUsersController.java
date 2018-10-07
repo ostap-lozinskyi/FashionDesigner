@@ -30,108 +30,108 @@ import ua.validation.flag.UserFlag;
 @Controller
 @RequestMapping("/admin/adminUsers")
 public class AdminUsersController {
-	
-	private final UserService userService;
-	
-	String error = "";
-	
-	@Autowired
-	public AdminUsersController(UserService userService) {
-		this.userService = userService;
-	}
 
-	@ModelAttribute("user")
-	public RegistrationRequest getForm() {
-		return new RegistrationRequest();
-	}
-	
-	@ModelAttribute("userFilter")
-	public UserFilter getFilter() {
-		return new UserFilter();
-	}
-	
-	@ModelAttribute("fileRequest")
-	public FileRequest getFile() {
-		return new FileRequest();
-	}
+    private final UserService userService;
 
-	@GetMapping
-	public String show(Model model, @PageableDefault Pageable pageable, @ModelAttribute("userFilter") UserFilter filter) {
-		model.addAttribute("users", userService.findAllUsers(pageable, filter));
-		model.addAttribute("error", error);
-		error = "";
-		if (userService.findAllUsers(pageable, filter).hasContent()||pageable.getPageNumber()==0)
-			return "adminUsers";
-		else
-			return "redirect:/admin/adminUsers"+buildParams(pageable, filter);
-	}
+    String error = "";
 
-	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
-			@ModelAttribute("userFilter") UserFilter filter) {
-		userService.delete(id);
-		return "redirect:/admin/adminUsers"+buildParams(pageable, filter);
-	}
-	
-	@GetMapping("/setDefaultPhoto/{id}")
-	public String setDefaultPhoto(@PathVariable Integer id, @PageableDefault Pageable pageable,
-			@ModelAttribute("userFilter") UserFilter filter) {
-		userService.setDefaultPhoto(id);
-		return "redirect:/admin/adminUsers"+buildParams(pageable, filter);
-	}
-	
-	@ExceptionHandler({SQLException.class,DataAccessException.class})
-	public String databaseError() {
-		error = "You can't delete this user because it is used!";
-		return "redirect:/admin/adminUsers";
-	}
+    @Autowired
+    public AdminUsersController(UserService userService) {
+        this.userService = userService;
+    }
 
-	@PostMapping
-	public String save(@ModelAttribute("user") @Validated(UserFlag.class) RegistrationRequest request, BindingResult br,
-			Model model, SessionStatus status, @PageableDefault Pageable pageable,
-			@ModelAttribute("userFilter") UserFilter filter,  @ModelAttribute("fileRequest") FileRequest fileRequest) {
-		if (br.hasErrors())
-			return show(model, pageable, filter);
-		request.setRole(Role.ROLE_ADMIN);
-		userService.saveUser(request);
-		return cancel(status, pageable, filter);
-	}
+    @ModelAttribute("user")
+    public RegistrationRequest getForm() {
+        return new RegistrationRequest();
+    }
 
-	@GetMapping("/updateRole/{id}/{role}")
-	public String updateRole(@PathVariable Integer id, @PathVariable Role role, Model model, @PageableDefault Pageable pageable,
-			@ModelAttribute("userFilter") UserFilter filter) {
-		userService.updateRole(id, role);
-		return show(model, pageable, filter);
-	}
+    @ModelAttribute("userFilter")
+    public UserFilter getFilter() {
+        return new UserFilter();
+    }
 
-	@GetMapping("/cancel")
-	public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
-			@ModelAttribute("userFilter") UserFilter filter) {
-		status.setComplete();
-		return "redirect:/admin/adminUsers"+buildParams(pageable, filter);
-	}
-	
-	private String buildParams(Pageable pageable, UserFilter filter) {
-		StringBuilder buffer = new StringBuilder();		
-		buffer.append("?page=");
-		if(!(userService.findAllUsers(pageable, filter).hasContent())) 
-			buffer.append(String.valueOf(pageable.getPageNumber()));
-		else {
-			buffer.append(String.valueOf(pageable.getPageNumber()));
-		}
-		buffer.append("&size=");
-		buffer.append(String.valueOf(pageable.getPageSize()));
-		if(pageable.getSort()!=null){
-			buffer.append("&sort=");
-			Sort sort = pageable.getSort();
-			sort.forEach((order)->{
-				buffer.append(order.getProperty());
-				if(order.getDirection()!=Direction.ASC)
-				buffer.append(",desc");
-			});
-		}
-		buffer.append("&search=");
-		buffer.append(filter.getSearch());
-		return buffer.toString();
-	}
+    @ModelAttribute("fileRequest")
+    public FileRequest getFile() {
+        return new FileRequest();
+    }
+
+    @GetMapping
+    public String show(Model model, @PageableDefault Pageable pageable, @ModelAttribute("userFilter") UserFilter filter) {
+        model.addAttribute("users", userService.findAllUsers(pageable, filter));
+        model.addAttribute("error", error);
+        error = "";
+        if (userService.findAllUsers(pageable, filter).hasContent() || pageable.getPageNumber() == 0)
+            return "adminUsers";
+        else
+            return "redirect:/admin/adminUsers" + buildParams(pageable, filter);
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
+                         @ModelAttribute("userFilter") UserFilter filter) {
+        userService.delete(id);
+        return "redirect:/admin/adminUsers" + buildParams(pageable, filter);
+    }
+
+    @GetMapping("/setDefaultPhoto/{id}")
+    public String setDefaultPhoto(@PathVariable Integer id, @PageableDefault Pageable pageable,
+                                  @ModelAttribute("userFilter") UserFilter filter) {
+        userService.setDefaultPhoto(id);
+        return "redirect:/admin/adminUsers" + buildParams(pageable, filter);
+    }
+
+    @ExceptionHandler({SQLException.class, DataAccessException.class})
+    public String databaseError() {
+        error = "You can't delete this user because it is used!";
+        return "redirect:/admin/adminUsers";
+    }
+
+    @PostMapping
+    public String save(@ModelAttribute("user") @Validated(UserFlag.class) RegistrationRequest request, BindingResult br,
+                       Model model, SessionStatus status, @PageableDefault Pageable pageable,
+                       @ModelAttribute("userFilter") UserFilter filter, @ModelAttribute("fileRequest") FileRequest fileRequest) {
+        if (br.hasErrors())
+            return show(model, pageable, filter);
+        request.setRole(Role.ROLE_ADMIN);
+        userService.saveUser(request);
+        return cancel(status, pageable, filter);
+    }
+
+    @GetMapping("/updateRole/{id}/{role}")
+    public String updateRole(@PathVariable Integer id, @PathVariable Role role, Model model, @PageableDefault Pageable pageable,
+                             @ModelAttribute("userFilter") UserFilter filter) {
+        userService.updateRole(id, role);
+        return show(model, pageable, filter);
+    }
+
+    @GetMapping("/cancel")
+    public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
+                         @ModelAttribute("userFilter") UserFilter filter) {
+        status.setComplete();
+        return "redirect:/admin/adminUsers" + buildParams(pageable, filter);
+    }
+
+    private String buildParams(Pageable pageable, UserFilter filter) {
+        StringBuilder buffer = new StringBuilder();
+        buffer.append("?page=");
+        if (!(userService.findAllUsers(pageable, filter).hasContent()))
+            buffer.append(String.valueOf(pageable.getPageNumber()));
+        else {
+            buffer.append(String.valueOf(pageable.getPageNumber()));
+        }
+        buffer.append("&size=");
+        buffer.append(String.valueOf(pageable.getPageSize()));
+        if (pageable.getSort() != null) {
+            buffer.append("&sort=");
+            Sort sort = pageable.getSort();
+            sort.forEach(order -> {
+                buffer.append(order.getProperty());
+                if (order.getDirection() != Direction.ASC)
+                    buffer.append(",desc");
+            });
+        }
+        buffer.append("&search=");
+        buffer.append(filter.getSearch());
+        return buffer.toString();
+    }
 }

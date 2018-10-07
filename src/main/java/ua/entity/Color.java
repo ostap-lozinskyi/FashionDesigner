@@ -9,17 +9,17 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "color", indexes=@Index(columnList = "name", unique=true))
+@Table(name = "color", indexes = @Index(columnList = "name", unique = true))
 public class Color extends AbstractEntityName {
-	
-	@ManyToMany(mappedBy="colors")
-	private List<ClothingModel> clothingModels = new ArrayList<>();
-	
-	public Color() {
-	}
 
-	public Color(String name) {
-		super(name);
-	}
+    @ManyToMany(mappedBy = "colors")
+    private List<ClothingModel> clothingModels = new ArrayList<>();
+
+    public Color() {
+    }
+
+    public Color(String name) {
+        super(name);
+    }
 
 }

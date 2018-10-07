@@ -5,24 +5,23 @@ import java.util.List;
 
 public class ClothingModelFilter {
 
-	private String search = "";
-	
-	private List<String> sectionOfClothesName = new ArrayList<>();
+    private String search = "";
 
-	public String getSearch() {
-		return search;
-	}
+    private List<String> sectionOfClothesName = new ArrayList<>();
 
-	public void setSearch(String search) {
-		this.search = search;
-	}
+    public String getSearch() {
+        return search;
+    }
 
-	public List<String> getSectionOfClothesName() {
-		return sectionOfClothesName;
-	}
+    public void setSearch(String search) {
+        this.search = search;
+    }
 
-	public void setSectionOfClothesName(List<String> sectionOfClothesName) {
-		this.sectionOfClothesName = sectionOfClothesName;
-	}	
+    public List<String> getSectionOfClothesName() {
+        return sectionOfClothesName;
+    }
 
+    public void setSectionOfClothesName(List<String> sectionOfClothesName) {
+        this.sectionOfClothesName = sectionOfClothesName;
+    }
 }

@@ -36,120 +36,120 @@ import ua.validation.flag.ClothingModelFlag;
 @RequestMapping("/admin/adminClothingModels")
 @SessionAttributes("clothingModel")
 public class AdminClothingModelsController {
-	
-	private final ClothingModelService clothingModelService;
-	
-	String error = "";
-	
-	@Autowired
-	public AdminClothingModelsController(ClothingModelService clothingModelService) {
-		this.clothingModelService = clothingModelService;
-	}
 
-	@ModelAttribute("clothingModel")
-	public ClothingModelRequest getForm() {
-		return new ClothingModelRequest();
-	}
-	
-	@ModelAttribute("clothingModelFilter")
-	public ClothingModelFilter getFilter() {
-		return new ClothingModelFilter();
-	}
-	
-	/**
-	 * Show Clothing Models page
-	 */
-	@GetMapping
-	public String showClothingModel(Model model, @PageableDefault Pageable pageable, @ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
-		Page<ClothingModelView> clothingModelViewsPage = clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable);
-		
-		List<ClothingModelView> clothingModelViewsList = clothingModelViewsPage.getContent();
-		for (ClothingModelView clothingModelView : clothingModelViewsList) {
-			clothingModelView.setPhotoUrls(clothingModelService.findPhotoUrls(clothingModelView.getId()));
-		}
-		model.addAttribute("showClothingModels", clothingModelViewsPage);		
-		
-		model.addAttribute("seasons", clothingModelService.findAllSeasonNames());
-		model.addAttribute("typesOfClothes", clothingModelService.findAllTypeOfClothesNames());
-		model.addAttribute("sectionsOfClothes", clothingModelService.findAllSectionOfClothesNames());
-		model.addAttribute("colors", clothingModelService.findAllColorsNames());
-		model.addAttribute("error", error);
-		error = "";
-		if (clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable).hasContent()||pageable.getPageNumber()==0)
-			return "adminClothingModels";
-		else
-			return "redirect:/admin/adminClothingModels"+buildParams(pageable, clothingModelFilter);
-	}
+    private final ClothingModelService clothingModelService;
 
-	/**
-	 * Deleting ClothingModel
-	 */
-	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
-			@ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
-		clothingModelService.deleteClothingModel(id);
-		return "redirect:/admin/adminClothingModels"+buildParams(pageable, clothingModelFilter);
-	}
-	
-	@ExceptionHandler({SQLException.class,DataAccessException.class})
-	public String databaseError() {
-		error = "You can't delete this clothingModel because it is used!";
-		return "redirect:/admin/adminClothingModels";
-	}
+    String error = "";
 
-	@PostMapping
-	public String save(@ModelAttribute("clothingModel") @Validated(ClothingModelFlag.class) ClothingModelRequest request, BindingResult br,
-			Model model, SessionStatus status, @PageableDefault Pageable pageable,
-			@ModelAttribute("clothingModelFilter") ClothingModelFilter filter,  @RequestParam("files") MultipartFile[] files) {
-		if (br.hasErrors())
-			return showClothingModel(model, pageable, filter);
-		try {
-			if(!files[0].isEmpty()) {
-				clothingModelService.saveClothingModel(clothingModelService.uploadPhotoToCloudinary(request, files));
-			} else {
-				clothingModelService.saveClothingModel(request);
-			}			
-		} catch (IOException e) {
-			clothingModelService.saveClothingModel(request);
-		}
-		return cancel(status, pageable, filter);
-	}
+    @Autowired
+    public AdminClothingModelsController(ClothingModelService clothingModelService) {
+        this.clothingModelService = clothingModelService;
+    }
 
-	@GetMapping("/update/{id}")
-	public String update(@PathVariable Integer id, Model model, @PageableDefault Pageable pageable,
-			@ModelAttribute("clothingModelFilter") ClothingModelFilter filter) {
-		model.addAttribute("clothingModel", clothingModelService.findOneRequest(id));
-		return showClothingModel(model, pageable, filter);
-	}
+    @ModelAttribute("clothingModel")
+    public ClothingModelRequest getForm() {
+        return new ClothingModelRequest();
+    }
 
-	@GetMapping("/cancel")
-	public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
-			@ModelAttribute("clothingModelFilter") ClothingModelFilter filter) {
-		status.setComplete();
-		return "redirect:/admin/adminClothingModels"+buildParams(pageable, filter);
-	}
-	
-	private String buildParams(Pageable pageable, ClothingModelFilter filter) {
-		StringBuilder buffer = new StringBuilder();		
-		buffer.append("?page=");
-		if(!(clothingModelService.findAllClothingModelViews(filter, pageable).hasContent())) 
-			buffer.append(String.valueOf(pageable.getPageNumber()));
-		else {
-			buffer.append(String.valueOf(pageable.getPageNumber()));
-		}
-		buffer.append("&size=");
-		buffer.append(String.valueOf(pageable.getPageSize()));
-		if(pageable.getSort()!=null){
-			buffer.append("&sort=");
-			Sort sort = pageable.getSort();
-			sort.forEach((order)->{
-				buffer.append(order.getProperty());
-				if(order.getDirection()!=Direction.ASC)
-				buffer.append(",desc");
-			});
-		}
-		buffer.append("&search=");
-		buffer.append(filter.getSearch());
-		return buffer.toString();
-	}
+    @ModelAttribute("clothingModelFilter")
+    public ClothingModelFilter getFilter() {
+        return new ClothingModelFilter();
+    }
+
+    /**
+     * Show Clothing Models page
+     */
+    @GetMapping
+    public String showClothingModel(Model model, @PageableDefault Pageable pageable, @ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
+        Page<ClothingModelView> clothingModelViewsPage = clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable);
+
+        List<ClothingModelView> clothingModelViewsList = clothingModelViewsPage.getContent();
+        for (ClothingModelView clothingModelView : clothingModelViewsList) {
+            clothingModelView.setPhotoUrls(clothingModelService.findPhotoUrls(clothingModelView.getId()));
+        }
+        model.addAttribute("showClothingModels", clothingModelViewsPage);
+
+        model.addAttribute("seasons", clothingModelService.findAllSeasonNames());
+        model.addAttribute("typesOfClothes", clothingModelService.findAllTypeOfClothesNames());
+        model.addAttribute("sectionsOfClothes", clothingModelService.findAllSectionOfClothesNames());
+        model.addAttribute("colors", clothingModelService.findAllColorsNames());
+        model.addAttribute("error", error);
+        error = "";
+        if (clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable).hasContent() || pageable.getPageNumber() == 0)
+            return "adminClothingModels";
+        else
+            return "redirect:/admin/adminClothingModels" + buildParams(pageable, clothingModelFilter);
+    }
+
+    /**
+     * Deleting ClothingModel
+     */
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
+                         @ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
+        clothingModelService.deleteClothingModel(id);
+        return "redirect:/admin/adminClothingModels" + buildParams(pageable, clothingModelFilter);
+    }
+
+    @ExceptionHandler({SQLException.class, DataAccessException.class})
+    public String databaseError() {
+        error = "You can't delete this clothingModel because it is used!";
+        return "redirect:/admin/adminClothingModels";
+    }
+
+    @PostMapping
+    public String save(@ModelAttribute("clothingModel") @Validated(ClothingModelFlag.class) ClothingModelRequest request, BindingResult br,
+                       Model model, SessionStatus status, @PageableDefault Pageable pageable,
+                       @ModelAttribute("clothingModelFilter") ClothingModelFilter filter, @RequestParam("files") MultipartFile[] files) {
+        if (br.hasErrors())
+            return showClothingModel(model, pageable, filter);
+        try {
+            if (!files[0].isEmpty()) {
+                clothingModelService.saveClothingModel(clothingModelService.uploadPhotoToCloudinary(request, files));
+            } else {
+                clothingModelService.saveClothingModel(request);
+            }
+        } catch (IOException e) {
+            clothingModelService.saveClothingModel(request);
+        }
+        return cancel(status, pageable, filter);
+    }
+
+    @GetMapping("/update/{id}")
+    public String update(@PathVariable Integer id, Model model, @PageableDefault Pageable pageable,
+                         @ModelAttribute("clothingModelFilter") ClothingModelFilter filter) {
+        model.addAttribute("clothingModel", clothingModelService.findOneRequest(id));
+        return showClothingModel(model, pageable, filter);
+    }
+
+    @GetMapping("/cancel")
+    public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
+                         @ModelAttribute("clothingModelFilter") ClothingModelFilter filter) {
+        status.setComplete();
+        return "redirect:/admin/adminClothingModels" + buildParams(pageable, filter);
+    }
+
+    private String buildParams(Pageable pageable, ClothingModelFilter filter) {
+        StringBuilder buffer = new StringBuilder();
+        buffer.append("?page=");
+        if (!(clothingModelService.findAllClothingModelViews(filter, pageable).hasContent()))
+            buffer.append(String.valueOf(pageable.getPageNumber()));
+        else {
+            buffer.append(String.valueOf(pageable.getPageNumber()));
+        }
+        buffer.append("&size=");
+        buffer.append(String.valueOf(pageable.getPageSize()));
+        if (pageable.getSort() != null) {
+            buffer.append("&sort=");
+            Sort sort = pageable.getSort();
+            sort.forEach(order -> {
+                buffer.append(order.getProperty());
+                if (order.getDirection() != Direction.ASC)
+                    buffer.append(",desc");
+            });
+        }
+        buffer.append("&search=");
+        buffer.append(filter.getSearch());
+        return buffer.toString();
+    }
 }

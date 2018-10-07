@@ -30,102 +30,102 @@ import ua.validation.flag.ColorFlag;
 @RequestMapping("/admin/adminColors")
 @SessionAttributes("color")
 public class AdminColorsController {
-	
-	private final ColorService colorService;
-	
-	String error = "";
-	
-	@Autowired
-	public AdminColorsController(ColorService colorService) {
-		this.colorService = colorService;
-	}
 
-	@ModelAttribute("color")
-	public Color getForm() {
-		return new Color();
-	}
-	
-	@ModelAttribute("filter")
-	public SimpleFilter getFilter() {
-		return new SimpleFilter();
-	}
-	
-	/**
-	 * Show Colors page
-	 */
-	@GetMapping
-	public String showColors(Model model, @PageableDefault Pageable pageable, 
-			@ModelAttribute("filter") SimpleFilter filter) {
-		model.addAttribute("showColors", colorService.findAll(pageable, filter));
-		model.addAttribute("error", error);
-		error = "";
-		if (colorService.findAll(pageable,filter).hasContent()||pageable.getPageNumber()==0)
-			return "adminColors";
-		else
-			return "redirect:/admin/adminColors"+buildParams(pageable, filter);
-	}
+    private final ColorService colorService;
 
-	/**
-	 * Deleting Color
-	 */
-	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
-			@ModelAttribute("filter") SimpleFilter filter) {
-		colorService.delete(id);
-		return "redirect:/admin/adminColors"+buildParams(pageable, filter);
-	}
-	
-	@ExceptionHandler({SQLException.class,DataAccessException.class})
-	public String databaseError() {
-		error = "You can't delete this color because it is used!";
-		return "redirect:/admin/adminColors";
-	}
+    String error = "";
 
-	@PostMapping
-	public String save(@ModelAttribute("color") @Validated(ColorFlag.class) Color color, BindingResult br,
-			Model model, SessionStatus status, @PageableDefault Pageable pageable,
-			@ModelAttribute("filter") SimpleFilter filter) {
-		if (br.hasErrors())
-			return showColors(model, pageable, filter);
-		colorService.save(color);
-		return cancel(status, pageable, filter);
-	}
+    @Autowired
+    public AdminColorsController(ColorService colorService) {
+        this.colorService = colorService;
+    }
 
-	@GetMapping("/update/{id}")
-	public String update(@PathVariable Integer id, Model model, @PageableDefault Pageable pageable,
-			@ModelAttribute("filter") SimpleFilter filter) {
-		model.addAttribute("color", colorService.findOne(id));
-		return showColors(model, pageable, filter);
-	}
+    @ModelAttribute("color")
+    public Color getForm() {
+        return new Color();
+    }
 
-	@GetMapping("/cancel")
-	public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
-			@ModelAttribute("filter") SimpleFilter filter) {
-		status.setComplete();
-		return "redirect:/admin/adminColors"+buildParams(pageable, filter);
-	}
-	
-	private String buildParams(Pageable pageable, SimpleFilter filter) {
-		StringBuilder buffer = new StringBuilder();		
-		buffer.append("?page=");
-		if(!(colorService.findAll(pageable, filter).hasContent())) 
-			buffer.append(String.valueOf(pageable.getPageNumber()));
-		else {
-			buffer.append(String.valueOf(pageable.getPageNumber()));
-		}
-		buffer.append("&size=");
-		buffer.append(String.valueOf(pageable.getPageSize()));
-		if(pageable.getSort()!=null){
-			buffer.append("&sort=");
-			Sort sort = pageable.getSort();
-			sort.forEach((order)->{
-				buffer.append(order.getProperty());
-				if(order.getDirection()!=Direction.ASC)
-				buffer.append(",desc");
-			});
-		}
-		buffer.append("&search=");
-		buffer.append(filter.getSearch());
-		return buffer.toString();
-	}
+    @ModelAttribute("filter")
+    public SimpleFilter getFilter() {
+        return new SimpleFilter();
+    }
+
+    /**
+     * Show Colors page
+     */
+    @GetMapping
+    public String showColors(Model model, @PageableDefault Pageable pageable,
+                             @ModelAttribute("filter") SimpleFilter filter) {
+        model.addAttribute("showColors", colorService.findAll(pageable, filter));
+        model.addAttribute("error", error);
+        error = "";
+        if (colorService.findAll(pageable, filter).hasContent() || pageable.getPageNumber() == 0)
+            return "adminColors";
+        else
+            return "redirect:/admin/adminColors" + buildParams(pageable, filter);
+    }
+
+    /**
+     * Deleting Color
+     */
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
+                         @ModelAttribute("filter") SimpleFilter filter) {
+        colorService.delete(id);
+        return "redirect:/admin/adminColors" + buildParams(pageable, filter);
+    }
+
+    @ExceptionHandler({SQLException.class, DataAccessException.class})
+    public String databaseError() {
+        error = "You can't delete this color because it is used!";
+        return "redirect:/admin/adminColors";
+    }
+
+    @PostMapping
+    public String save(@ModelAttribute("color") @Validated(ColorFlag.class) Color color, BindingResult br,
+                       Model model, SessionStatus status, @PageableDefault Pageable pageable,
+                       @ModelAttribute("filter") SimpleFilter filter) {
+        if (br.hasErrors())
+            return showColors(model, pageable, filter);
+        colorService.save(color);
+        return cancel(status, pageable, filter);
+    }
+
+    @GetMapping("/update/{id}")
+    public String update(@PathVariable Integer id, Model model, @PageableDefault Pageable pageable,
+                         @ModelAttribute("filter") SimpleFilter filter) {
+        model.addAttribute("color", colorService.findOne(id));
+        return showColors(model, pageable, filter);
+    }
+
+    @GetMapping("/cancel")
+    public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
+                         @ModelAttribute("filter") SimpleFilter filter) {
+        status.setComplete();
+        return "redirect:/admin/adminColors" + buildParams(pageable, filter);
+    }
+
+    private String buildParams(Pageable pageable, SimpleFilter filter) {
+        StringBuilder buffer = new StringBuilder();
+        buffer.append("?page=");
+        if (!(colorService.findAll(pageable, filter).hasContent()))
+            buffer.append(String.valueOf(pageable.getPageNumber()));
+        else {
+            buffer.append(String.valueOf(pageable.getPageNumber()));
+        }
+        buffer.append("&size=");
+        buffer.append(String.valueOf(pageable.getPageSize()));
+        if (pageable.getSort() != null) {
+            buffer.append("&sort=");
+            Sort sort = pageable.getSort();
+            sort.forEach(order -> {
+                buffer.append(order.getProperty());
+                if (order.getDirection() != Direction.ASC)
+                    buffer.append(",desc");
+            });
+        }
+        buffer.append("&search=");
+        buffer.append(filter.getSearch());
+        return buffer.toString();
+    }
 }

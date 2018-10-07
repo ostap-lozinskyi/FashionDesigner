@@ -20,36 +20,37 @@ import ua.service.ClothingModelService;
 @Controller
 @RequestMapping("/hauteCouture")
 public class HauteCoutureController {
-	
-	private final ClothingModelService clothingModelService;
-	
-	@Autowired
-	public HauteCoutureController(ClothingModelService clothingModelService) {
-		this.clothingModelService = clothingModelService;
-	}
-	
-	@ModelAttribute("clothingModelFilter")
-	public ClothingModelFilter getFilter() {
-		return new ClothingModelFilter();
-	}
 
-	@GetMapping
-	public String showPage(Model model, @PageableDefault Pageable pageable, 
-			@ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
-		// Show only 'Haute Couture' clothes
-		List <String> sectionOfClothesNames = new ArrayList<>(); 
-		sectionOfClothesNames.add("Haute Couture");
-		clothingModelFilter.setSectionOfClothesName(sectionOfClothesNames);
-		
-		Page<ClothingModelView> clothingModelViewsPage = clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable);
-		model.addAttribute("showClothingModels", clothingModelViewsPage);
-		
-		List<ClothingModelView> clothingModelViewsList = clothingModelViewsPage.getContent();
-		for (ClothingModelView clothingModelView : clothingModelViewsList) {
-			clothingModelView.setPhotoUrls(clothingModelService.findPhotoUrls(clothingModelView.getId()));
-		}
-		
-		return "hauteCouture";
-	}
+    private final ClothingModelService clothingModelService;
+
+    @Autowired
+    public HauteCoutureController(ClothingModelService clothingModelService) {
+        this.clothingModelService = clothingModelService;
+    }
+
+    @ModelAttribute("clothingModelFilter")
+    public ClothingModelFilter getFilter() {
+        return new ClothingModelFilter();
+    }
+
+    @GetMapping
+    public String showPage(Model model, @PageableDefault Pageable pageable,
+                           @ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
+        // Show only 'Haute Couture' clothes
+        List<String> sectionOfClothesNames = new ArrayList<>();
+        sectionOfClothesNames.add("Haute Couture");
+        clothingModelFilter.setSectionOfClothesName(sectionOfClothesNames);
+
+        Page<ClothingModelView> clothingModelViewsPage = clothingModelService
+                .findAllClothingModelViews(clothingModelFilter, pageable);
+        model.addAttribute("showClothingModels", clothingModelViewsPage);
+
+        List<ClothingModelView> clothingModelViewsList = clothingModelViewsPage.getContent();
+        for (ClothingModelView clothingModelView : clothingModelViewsList) {
+            clothingModelView.setPhotoUrls(clothingModelService.findPhotoUrls(clothingModelView.getId()));
+        }
+
+        return "hauteCouture";
+    }
 
 }

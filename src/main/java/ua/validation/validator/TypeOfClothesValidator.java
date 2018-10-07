@@ -11,19 +11,18 @@ import ua.validation.annotation.UniqueTypeOfClothes;
 @Component
 public class TypeOfClothesValidator implements ConstraintValidator<UniqueTypeOfClothes, String> {
 
-	private final TypeOfClothesRepository typeOfClothesRepository;
+    private final TypeOfClothesRepository typeOfClothesRepository;
 
-	public TypeOfClothesValidator(TypeOfClothesRepository typeOfClothesRepository) {
-		this.typeOfClothesRepository = typeOfClothesRepository;
-	}
+    public TypeOfClothesValidator(TypeOfClothesRepository typeOfClothesRepository) {
+        this.typeOfClothesRepository = typeOfClothesRepository;
+    }
 
-	@Override
-	public void initialize(UniqueTypeOfClothes constraintAnnotation) {
-	}
+    @Override
+    public void initialize(UniqueTypeOfClothes constraintAnnotation) {
+    }
 
-	@Override
-	public boolean isValid(String value, ConstraintValidatorContext context) {
-		return !typeOfClothesRepository.existsByName(value);
-	}
-
+    @Override
+    public boolean isValid(String value, ConstraintValidatorContext context) {
+        return !typeOfClothesRepository.existsByName(value);
+    }
 }

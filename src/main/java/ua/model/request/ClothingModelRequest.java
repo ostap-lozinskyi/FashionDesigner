@@ -15,98 +15,98 @@ import ua.validation.flag.ClothingModelFlag;
 
 public class ClothingModelRequest {
 
-	private Integer id;
+    private Integer id;
 
-//	@UniqueClothingModel(message = "This clothing model already exists", groups = ClothingModelFlag.class)
-	@NotBlank(message = "This field cannot be blank", groups = {ClothingModelFlag.class})
-	@Pattern(regexp = "^[A-Za-z0-9 _-А-Яа-яіІїЇєЄ]+| *$", message = "The 'Name' should have at least 1 letter",	
-	groups = ClothingModelFlag.class)
-	private String name;
+    //	@UniqueClothingModel(message = "This clothing model already exists", groups = ClothingModelFlag.class)
+    @NotBlank(message = "This field cannot be blank", groups = {ClothingModelFlag.class})
+    @Pattern(regexp = "^[A-Za-z0-9 _-А-Яа-яіІїЇєЄ]+| *$", message = "The 'Name' should have at least 1 letter",
+            groups = ClothingModelFlag.class)
+    private String name;
 
-	private String text;
-	
-	private Season season;	
-	
-	private TypeOfClothes typeOfClothes;
-	
-	private SectionOfClothes sectionOfClothes;
-	
-	private List<Color> colors = new ArrayList<>();
-	
-	private List<String> photoUrls = new ArrayList<>();	
+    private String text;
 
-	private int version;
+    private Season season;
 
-	public Integer getId() {
-		return id;
-	}
+    private TypeOfClothes typeOfClothes;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    private SectionOfClothes sectionOfClothes;
 
-	public String getName() {
-		return name;
-	}
+    private List<Color> colors = new ArrayList<>();
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    private List<String> photoUrls = new ArrayList<>();
 
-	public String getText() {
-		return text;
-	}
+    private int version;
 
-	public void setText(String text) {
-		this.text = text;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public Season getSeason() {
-		return season;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setSeason(Season season) {
-		this.season = season;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public TypeOfClothes getTypeOfClothes() {
-		return typeOfClothes;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setTypeOfClothes(TypeOfClothes typeOfClothes) {
-		this.typeOfClothes = typeOfClothes;
-	}
+    public String getText() {
+        return text;
+    }
 
-	public SectionOfClothes getSectionOfClothes() {
-		return sectionOfClothes;
-	}
+    public void setText(String text) {
+        this.text = text;
+    }
 
-	public void setSectionOfClothes(SectionOfClothes sectionOfClothes) {
-		this.sectionOfClothes = sectionOfClothes;
-	}
+    public Season getSeason() {
+        return season;
+    }
 
-	public List<Color> getColors() {
-		return colors;
-	}
+    public void setSeason(Season season) {
+        this.season = season;
+    }
 
-	public void setColors(List<Color> colors) {
-		this.colors = colors;
-	}
+    public TypeOfClothes getTypeOfClothes() {
+        return typeOfClothes;
+    }
 
-	public List<String> getPhotoUrls() {
-		return photoUrls;
-	}
+    public void setTypeOfClothes(TypeOfClothes typeOfClothes) {
+        this.typeOfClothes = typeOfClothes;
+    }
 
-	public void setPhotoUrls(List<String> photoUrls) {
-		this.photoUrls = photoUrls;
-	}
+    public SectionOfClothes getSectionOfClothes() {
+        return sectionOfClothes;
+    }
 
-	public int getVersion() {
-		return version;
-	}
+    public void setSectionOfClothes(SectionOfClothes sectionOfClothes) {
+        this.sectionOfClothes = sectionOfClothes;
+    }
 
-	public void setVersion(int version) {
-		this.version = version;
-	}
+    public List<Color> getColors() {
+        return colors;
+    }
+
+    public void setColors(List<Color> colors) {
+        this.colors = colors;
+    }
+
+    public List<String> getPhotoUrls() {
+        return photoUrls;
+    }
+
+    public void setPhotoUrls(List<String> photoUrls) {
+        this.photoUrls = photoUrls;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
 
 }

@@ -45,8 +45,7 @@ public class LozinskaApplication extends WebMvcConfigurerAdapter {
 	
 	@Bean
 	public JavaMailSender getJavaMailSender() {
-		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-		return mailSender;
+		return new JavaMailSenderImpl();
 	}
 
 //	static void addAdmin(ConfigurableApplicationContext run) {

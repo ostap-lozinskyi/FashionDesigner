@@ -14,23 +14,23 @@ import ua.service.ColorService;
 @Service
 public class ColorServiceImpl extends CrudServiceImpl<Color, Integer> implements ColorService {
 
-	private final ColorRepository colorRepository;
-	
-	@Autowired
-	public ColorServiceImpl(ColorRepository colorRepository) {
-		super(colorRepository);
-		this.colorRepository = colorRepository;
-	}
+    private final ColorRepository colorRepository;
 
-	@Override
-	public Page<Color> findAll(Pageable pageable, SimpleFilter filter) {
-		return colorRepository.findAll(filter(filter), pageable);
-	}
-	
-	private Specification<Color> filter(SimpleFilter filter){
-		return (root, query, cb) -> {
-			if(filter.getSearch().isEmpty()) return null;
-			return cb.like(root.get("name"), filter.getSearch()+"%");
-		};
-	}
+    @Autowired
+    public ColorServiceImpl(ColorRepository colorRepository) {
+        super(colorRepository);
+        this.colorRepository = colorRepository;
+    }
+
+    @Override
+    public Page<Color> findAll(Pageable pageable, SimpleFilter filter) {
+        return colorRepository.findAll(filter(filter), pageable);
+    }
+
+    private Specification<Color> filter(SimpleFilter filter) {
+        return (root, query, cb) -> {
+            if (filter.getSearch().isEmpty()) return null;
+            return cb.like(root.get("name"), filter.getSearch() + "%");
+        };
+    }
 }

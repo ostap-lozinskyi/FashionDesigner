@@ -12,26 +12,26 @@ import ua.repository.SectionOfClothesRepository;
 import ua.service.SectionOfClothesService;
 
 @Service
-public class SectionOfClothesServiceImpl extends CrudServiceImpl<SectionOfClothes, Integer> implements SectionOfClothesService {
+public class SectionOfClothesServiceImpl extends CrudServiceImpl<SectionOfClothes, Integer>
+        implements SectionOfClothesService {
 
-	private final SectionOfClothesRepository sectionOfClothesRepository;
-	
-	@Autowired
-	public SectionOfClothesServiceImpl(SectionOfClothesRepository sectionOfClothesRepository) {
-		super(sectionOfClothesRepository);
-		this.sectionOfClothesRepository = sectionOfClothesRepository;
-	}
+    private final SectionOfClothesRepository sectionOfClothesRepository;
 
-	@Override
-	public Page<SectionOfClothes> findAll(Pageable pageable, SimpleFilter filter) {
-		return sectionOfClothesRepository.findAll(filter(filter), pageable);
-	}
-	
-	private Specification<SectionOfClothes> filter(SimpleFilter filter){
-		return (root, query, cb) -> {
-			if(filter.getSearch().isEmpty()) return null;
-			return cb.like(root.get("name"), filter.getSearch()+"%");
-		};
-	}
+    @Autowired
+    public SectionOfClothesServiceImpl(SectionOfClothesRepository sectionOfClothesRepository) {
+        super(sectionOfClothesRepository);
+        this.sectionOfClothesRepository = sectionOfClothesRepository;
+    }
 
+    @Override
+    public Page<SectionOfClothes> findAll(Pageable pageable, SimpleFilter filter) {
+        return sectionOfClothesRepository.findAll(filter(filter), pageable);
+    }
+
+    private Specification<SectionOfClothes> filter(SimpleFilter filter) {
+        return (root, query, cb) -> {
+            if (filter.getSearch().isEmpty()) return null;
+            return cb.like(root.get("name"), filter.getSearch() + "%");
+        };
+    }
 }

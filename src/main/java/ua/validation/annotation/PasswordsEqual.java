@@ -12,10 +12,10 @@ import ua.validation.validator.PasswordEqualValidator;
 @Retention(RUNTIME)
 @Constraint(validatedBy = PasswordEqualValidator.class)
 public @interface PasswordsEqual {
-	
-	String message() default "Password not equal";
 
-	Class<?>[] groups() default {};
+    String message() default "Password not equal";
 
-	Class<? extends Payload>[] payload() default {};
+    Class<?>[] groups() default {};
+
+    Class<? extends Payload>[] payload() default {};
 }

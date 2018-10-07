@@ -15,38 +15,37 @@ import ua.service.UserService;
 
 @Controller
 public class UserCabinetController {
-	
-	private final UserService userService;
-	
-	public UserCabinetController(UserService userService) {
-		this.userService = userService;
-	}
 
-	@ModelAttribute("fileRequest")
-	public FileRequest getForm() {
-		return new FileRequest();
-	}
-	
-	/**
-	 * Show User cabinet page
-	 */
-	@GetMapping("/userCabinet")
-	public String userCabinet(Model model, Principal principal) {
-		String email=principal.getName();
-		User user = userService.findUserByEmail(email);		
-		model.addAttribute("user", user);
-		return "userCabinet";
-	}
+    private final UserService userService;
 
-	/**
-	 * Attaching photo to User
-	 */
-	@PostMapping("/userCabinet")
-	public String saveFile(Model model, @ModelAttribute("fileRequest") FileRequest fileRequest,
-			Principal principal) {
-		MultipartFile multipartFile = fileRequest.getFile();
-		userService.uploadPhotoToCloudinary(multipartFile, principal);
-		return "redirect:/userCabinet";
-	}
-	
+    public UserCabinetController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @ModelAttribute("fileRequest")
+    public FileRequest getForm() {
+        return new FileRequest();
+    }
+
+    /**
+     * Show User cabinet page
+     */
+    @GetMapping("/userCabinet")
+    public String userCabinet(Model model, Principal principal) {
+        String email = principal.getName();
+        User user = userService.findUserByEmail(email);
+        model.addAttribute("user", user);
+        return "userCabinet";
+    }
+
+    /**
+     * Attaching photo to User
+     */
+    @PostMapping("/userCabinet")
+    public String saveFile(Model model, @ModelAttribute("fileRequest") FileRequest fileRequest,
+                           Principal principal) {
+        MultipartFile multipartFile = fileRequest.getFile();
+        userService.uploadPhotoToCloudinary(multipartFile, principal);
+        return "redirect:/userCabinet";
+    }
 }

@@ -10,16 +10,16 @@ import ua.service.EmailService;
 @Service
 public class EmailServiceImpl extends CrudServiceImpl<EmailCredentials, Integer> implements EmailService {
 
-	private final EmailRepository emailRepository;
-	
-	@Autowired
-	public EmailServiceImpl(EmailRepository emailRepository) {
-		super(emailRepository);
-		this.emailRepository = emailRepository;
-	}
+    private final EmailRepository emailRepository;
 
-	@Override
-	public EmailCredentials findEmailCredentials() {
-		return emailRepository.findEmailCredentialsById(1);
-	}
+    @Autowired
+    public EmailServiceImpl(EmailRepository emailRepository) {
+        super(emailRepository);
+        this.emailRepository = emailRepository;
+    }
+
+    @Override
+    public EmailCredentials findEmailCredentials() {
+        return emailRepository.findEmailCredentialsById(1);
+    }
 }

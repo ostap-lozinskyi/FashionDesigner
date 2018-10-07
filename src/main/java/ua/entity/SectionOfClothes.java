@@ -8,11 +8,11 @@ import javax.persistence.Table;
 @Table(name = "sectionOfClothes", indexes = @Index(columnList = "name", unique = true))
 public class SectionOfClothes extends AbstractEntityName {
 
-	public SectionOfClothes() {
-	}
+    public SectionOfClothes() {
+    }
 
-	public SectionOfClothes(String name) {
-		super(name);
-	}	
+    public SectionOfClothes(String name) {
+        super(name);
+    }
 
 }

@@ -8,8 +8,6 @@ import ua.model.filter.SimpleFilter;
 
 public interface TypeOfClothesService extends CrudService<TypeOfClothes, Integer> {
 
-	Page<TypeOfClothes> findAll(Pageable pageable, SimpleFilter filter);
-	
-//	TypeOfClothes findTypeOfClothesViewById(Integer id);
-	
+    Page<TypeOfClothes> findAll(Pageable pageable, SimpleFilter filter);
+
 }

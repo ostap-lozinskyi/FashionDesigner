@@ -2,7 +2,7 @@ package ua.service;
 
 import ua.entity.EmailCredentials;
 
-public interface EmailService extends CrudService<EmailCredentials, Integer>{
+public interface EmailService extends CrudService<EmailCredentials, Integer> {
 
-	EmailCredentials findEmailCredentials();
+    EmailCredentials findEmailCredentials();
 }

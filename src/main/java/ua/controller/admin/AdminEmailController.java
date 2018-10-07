@@ -25,46 +25,46 @@ import ua.validation.flag.ColorFlag;
 @SessionAttributes("emailCredentials")
 public class AdminEmailController {
 
-	private final EmailService emailService;
+    private final EmailService emailService;
 
-	String error = "";
+    String error = "";
 
-	@Autowired
-	public AdminEmailController(EmailService emailService) {
-		this.emailService = emailService;
-	}
+    @Autowired
+    public AdminEmailController(EmailService emailService) {
+        this.emailService = emailService;
+    }
 
-	@ModelAttribute("emailCredentials")
-	public EmailCredentials getForm() {
-		return new EmailCredentials();
-	}
+    @ModelAttribute("emailCredentials")
+    public EmailCredentials getForm() {
+        return new EmailCredentials();
+    }
 
-	@ModelAttribute("filter")
-	public SimpleFilter getFilter() {
-		return new SimpleFilter();
-	}
+    @ModelAttribute("filter")
+    public SimpleFilter getFilter() {
+        return new SimpleFilter();
+    }
 
-	/**
-	 * Show Colors page
-	 */
-	@GetMapping
-	public String showEmail(Model model, @PageableDefault Pageable pageable,
-			@ModelAttribute("filter") SimpleFilter filter) {
-		model.addAttribute("credentials", emailService.findEmailCredentials());
-		model.addAttribute("error", error);
-		error = "";
-		return "adminEmail";
-	}
+    /**
+     * Show Colors page
+     */
+    @GetMapping
+    public String showEmail(Model model, @PageableDefault Pageable pageable,
+                            @ModelAttribute("filter") SimpleFilter filter) {
+        model.addAttribute("credentials", emailService.findEmailCredentials());
+        model.addAttribute("error", error);
+        error = "";
+        return "adminEmail";
+    }
 
-	/**
-	 * Deleting Color
-	 */
-	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
-			@ModelAttribute("filter") SimpleFilter filter) {
-		emailService.delete(id);
-		return "redirect:/admin/adminEmail";
-	}
+    /**
+     * Deleting Color
+     */
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
+                         @ModelAttribute("filter") SimpleFilter filter) {
+        emailService.delete(id);
+        return "redirect:/admin/adminEmail";
+    }
 
 //	@ExceptionHandler({ SQLException.class, DataAccessException.class })
 //	public String databaseError() {
@@ -72,16 +72,16 @@ public class AdminEmailController {
 //		return "redirect:/admin/adminColors";
 //	}
 
-	@PostMapping
-	public String save(@ModelAttribute("emailCredentials") @Validated(ColorFlag.class) EmailCredentials email, BindingResult br,
-			Model model, SessionStatus status, @PageableDefault Pageable pageable,
-			@ModelAttribute("filter") SimpleFilter filter) {
-		if (br.hasErrors())
-			return showEmail(model, pageable, filter);
-		email.setId(1);
-		emailService.save(email);
-		return cancel(status, pageable, filter);
-	}
+    @PostMapping
+    public String save(@ModelAttribute("emailCredentials") @Validated(ColorFlag.class) EmailCredentials email, BindingResult br,
+                       Model model, SessionStatus status, @PageableDefault Pageable pageable,
+                       @ModelAttribute("filter") SimpleFilter filter) {
+        if (br.hasErrors())
+            return showEmail(model, pageable, filter);
+        email.setId(1);
+        emailService.save(email);
+        return cancel(status, pageable, filter);
+    }
 
 //	@GetMapping("/update/{id}")
 //	public String update(@PathVariable Integer id, Model model, @PageableDefault Pageable pageable,
@@ -90,10 +90,10 @@ public class AdminEmailController {
 //		return showColors(model, pageable, filter);
 //	}
 
-	@GetMapping("/cancel")
-	public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
-			@ModelAttribute("filter") SimpleFilter filter) {
-		status.setComplete();
-		return "redirect:/admin/adminEmail";
-	}
+    @GetMapping("/cancel")
+    public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
+                         @ModelAttribute("filter") SimpleFilter filter) {
+        status.setComplete();
+        return "redirect:/admin/adminEmail";
+    }
 }

@@ -13,26 +13,27 @@ import ua.model.view.ClothingModelView;
 
 public interface ClothingModelService {
 
-	Page<ClothingModelView> findAllClothingModelViews(ClothingModelFilter clothingModelFilter, Pageable pageable);
+    Page<ClothingModelView> findAllClothingModelViews(ClothingModelFilter clothingModelFilter, Pageable pageable);
 
-	void saveClothingModel(ClothingModelRequest clothingModelRequest);
+    void saveClothingModel(ClothingModelRequest clothingModelRequest);
 
-	ClothingModelRequest findOneRequest(Integer id);
+    ClothingModelRequest findOneRequest(Integer id);
 
-	void deleteClothingModel(Integer id);
-	
-	ClothingModelView findClothingModelViewById(Integer id);
-	
-	ClothingModelRequest uploadPhotoToCloudinary(ClothingModelRequest clothingModelRequest, MultipartFile[] multipartFiles) throws IOException;
-	
-	public List<String> findAllSeasonNames();
-	
-	public List<String> findAllTypeOfClothesNames();
-	
-	public List<String> findAllSectionOfClothesNames();
-	
-	public List<String> findAllColorsNames();
-	
-	public List<String> findPhotoUrls(Integer id);
-	
+    void deleteClothingModel(Integer id);
+
+    ClothingModelView findClothingModelViewById(Integer id);
+
+    ClothingModelRequest uploadPhotoToCloudinary(ClothingModelRequest clothingModelRequest,
+                                                 MultipartFile[] multipartFiles) throws IOException;
+
+    List<String> findAllSeasonNames();
+
+    List<String> findAllTypeOfClothesNames();
+
+    List<String> findAllSectionOfClothesNames();
+
+    List<String> findAllColorsNames();
+
+    List<String> findPhotoUrls(Integer id);
+
 }

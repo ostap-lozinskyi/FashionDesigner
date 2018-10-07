@@ -14,24 +14,23 @@ import ua.service.TypeOfClothesService;
 @Service
 public class TypeOfClothesServiceImpl extends CrudServiceImpl<TypeOfClothes, Integer> implements TypeOfClothesService {
 
-	private final TypeOfClothesRepository typeOfClothesRepository;
-	
-	@Autowired
-	public TypeOfClothesServiceImpl(TypeOfClothesRepository typeOfClothesRepository) {
-		super(typeOfClothesRepository);
-		this.typeOfClothesRepository = typeOfClothesRepository;
-	}
+    private final TypeOfClothesRepository typeOfClothesRepository;
 
-	@Override
-	public Page<TypeOfClothes> findAll(Pageable pageable, SimpleFilter filter) {
-		return typeOfClothesRepository.findAll(filter(filter), pageable);
-	}
-	
-	private Specification<TypeOfClothes> filter(SimpleFilter filter){
-		return (root, query, cb) -> {
-			if(filter.getSearch().isEmpty()) return null;
-			return cb.like(root.get("name"), filter.getSearch()+"%");
-		};
-	}
+    @Autowired
+    public TypeOfClothesServiceImpl(TypeOfClothesRepository typeOfClothesRepository) {
+        super(typeOfClothesRepository);
+        this.typeOfClothesRepository = typeOfClothesRepository;
+    }
 
+    @Override
+    public Page<TypeOfClothes> findAll(Pageable pageable, SimpleFilter filter) {
+        return typeOfClothesRepository.findAll(filter(filter), pageable);
+    }
+
+    private Specification<TypeOfClothes> filter(SimpleFilter filter) {
+        return (root, query, cb) -> {
+            if (filter.getSearch().isEmpty()) return null;
+            return cb.like(root.get("name"), filter.getSearch() + "%");
+        };
+    }
 }

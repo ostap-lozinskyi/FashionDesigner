@@ -6,8 +6,8 @@ import org.springframework.data.domain.Pageable;
 import ua.entity.Color;
 import ua.model.filter.SimpleFilter;
 
-public interface ColorService extends CrudService<Color, Integer>{
+public interface ColorService extends CrudService<Color, Integer> {
 
-	Page<Color> findAll(Pageable pageable, SimpleFilter filter);
+    Page<Color> findAll(Pageable pageable, SimpleFilter filter);
 
 }

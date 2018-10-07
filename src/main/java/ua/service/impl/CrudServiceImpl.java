@@ -9,30 +9,30 @@ import ua.service.CrudService;
 
 public abstract class CrudServiceImpl<T, ID extends Serializable> implements CrudService<T, ID> {
 
-	private final JpaRepository<T, ID> repository;
-	
-	public CrudServiceImpl(JpaRepository<T, ID> repository) {
-		this.repository = repository;
-	}
+    private final JpaRepository<T, ID> repository;
 
-	@Override
-	public T findOne(ID id) {
-		return repository.findOne(id);
-	}
+    public CrudServiceImpl(JpaRepository<T, ID> repository) {
+        this.repository = repository;
+    }
 
-	@Override
-	public List<T> findAll() {
-		return repository.findAll();
-	}
+    @Override
+    public T findOne(ID id) {
+        return repository.findOne(id);
+    }
 
-	@Override
-	public void save(T entity) {
-		repository.save(entity);
-	}
+    @Override
+    public List<T> findAll() {
+        return repository.findAll();
+    }
 
-	@Override
-	public void delete(ID id) {
-		repository.delete(id);
-	}
+    @Override
+    public void save(T entity) {
+        repository.save(entity);
+    }
+
+    @Override
+    public void delete(ID id) {
+        repository.delete(id);
+    }
 
 }

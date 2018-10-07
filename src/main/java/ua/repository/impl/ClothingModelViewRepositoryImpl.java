@@ -28,71 +28,71 @@ import ua.model.view.ClothingModelView;
 import ua.repository.ClothingModelViewRepository;
 
 @Repository
-public class ClothingModelViewRepositoryImpl implements ClothingModelViewRepository{
+public class ClothingModelViewRepositoryImpl implements ClothingModelViewRepository {
 
-	@PersistenceContext
-	private EntityManager em;	
+    @PersistenceContext
+    private EntityManager em;
 
-	@Override
-	public Page<ClothingModelView> findAllClothingModelView(ClothingModelFilter filter, Pageable pageable) {
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<ClothingModelView> cq = cb.createQuery(ClothingModelView.class).distinct(true);
-		Root<ClothingModel> root = cq.from(ClothingModel.class);
-		Join<ClothingModel, Season> joinSeason = root.join(ClothingModel_.season);
-		Join<ClothingModel, TypeOfClothes> joinType = root.join(ClothingModel_.typeOfClothes);
-		Join<ClothingModel, SectionOfClothes> joinSection = root.join(ClothingModel_.sectionOfClothes);
-		cq.multiselect(root.get(ClothingModel_.id), root.get("name"), root.get("text"),  
-				joinSeason.get("name"), joinType.get("name"), joinSection.get("name"), root.get("version"));
-		Predicate predicate = new PredicateBuilder(cb, root, filter).toPredicate();
-		if(predicate!=null) cq.where(predicate);
-		cq.orderBy(toOrders(pageable.getSort(), root, cb));
-		List<ClothingModelView> content = em.createQuery(cq)
-				.setFirstResult(pageable.getPageNumber()*pageable.getPageSize())
-				.setMaxResults(pageable.getPageSize())
-				.getResultList();		
-		CriteriaQuery<Long> countQuery = cb.createQuery(Long.class);
-		Root<ClothingModel> countRoot = countQuery.from(ClothingModel.class);
-		countQuery.select(cb.count(countRoot));
-		Predicate countPredicate = new PredicateBuilder(cb, countRoot, filter).toPredicate();
-		if(countPredicate!=null) countQuery.where(countPredicate);
-		return PageableExecutionUtils.getPage(content, pageable, ()->em.createQuery(countQuery).getSingleResult());
-	}
-	
-	private static class PredicateBuilder {
-		
-		final CriteriaBuilder cb;
-		
-		final Root<ClothingModel> root;
-		
-		final ClothingModelFilter filter;
-		
-		final List<Predicate> predicates = new ArrayList<>();
+    @Override
+    public Page<ClothingModelView> findAllClothingModelView(ClothingModelFilter filter, Pageable pageable) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<ClothingModelView> cq = cb.createQuery(ClothingModelView.class).distinct(true);
+        Root<ClothingModel> root = cq.from(ClothingModel.class);
+        Join<ClothingModel, Season> joinSeason = root.join(ClothingModel_.season);
+        Join<ClothingModel, TypeOfClothes> joinType = root.join(ClothingModel_.typeOfClothes);
+        Join<ClothingModel, SectionOfClothes> joinSection = root.join(ClothingModel_.sectionOfClothes);
+        cq.multiselect(root.get(ClothingModel_.id), root.get("name"), root.get("text"),
+                joinSeason.get("name"), joinType.get("name"), joinSection.get("name"), root.get("version"));
+        Predicate predicate = new PredicateBuilder(cb, root, filter).toPredicate();
+        if (predicate != null) cq.where(predicate);
+        cq.orderBy(toOrders(pageable.getSort(), root, cb));
+        List<ClothingModelView> content = em.createQuery(cq)
+                .setFirstResult(pageable.getPageNumber() * pageable.getPageSize())
+                .setMaxResults(pageable.getPageSize())
+                .getResultList();
+        CriteriaQuery<Long> countQuery = cb.createQuery(Long.class);
+        Root<ClothingModel> countRoot = countQuery.from(ClothingModel.class);
+        countQuery.select(cb.count(countRoot));
+        Predicate countPredicate = new PredicateBuilder(cb, countRoot, filter).toPredicate();
+        if (countPredicate != null) countQuery.where(countPredicate);
+        return PageableExecutionUtils.getPage(content, pageable, () -> em.createQuery(countQuery).getSingleResult());
+    }
 
-		public PredicateBuilder(CriteriaBuilder cb, Root<ClothingModel> root, ClothingModelFilter filter) {
-			this.cb = cb;
-			this.root = root;
-			this.filter = filter;
-		}
-		
-		void findBySearch() {
-			if(!filter.getSearch().isEmpty()) {
-				predicates.add(cb.like(root.get("name"), filter.getSearch()+"%"));
-			}
-		}
-		
-		void findBySectionOfClothesId() {
-			if(!filter.getSectionOfClothesName().isEmpty()) {
-				Join<ClothingModel, SectionOfClothes> join = root.join(ClothingModel_.sectionOfClothes);
-				predicates.add(join.get("name").in(filter.getSectionOfClothesName()));
-			}
-		}
-		
-		Predicate toPredicate() {
-			findBySearch();
-			findBySectionOfClothesId();
-			return predicates.isEmpty() ? null : cb.and(predicates.stream().toArray(Predicate[]::new));
-		}		
-		
-	}
+    private static class PredicateBuilder {
+
+        final CriteriaBuilder cb;
+
+        final Root<ClothingModel> root;
+
+        final ClothingModelFilter filter;
+
+        final List<Predicate> predicates = new ArrayList<>();
+
+        public PredicateBuilder(CriteriaBuilder cb, Root<ClothingModel> root, ClothingModelFilter filter) {
+            this.cb = cb;
+            this.root = root;
+            this.filter = filter;
+        }
+
+        void findBySearch() {
+            if (!filter.getSearch().isEmpty()) {
+                predicates.add(cb.like(root.get("name"), filter.getSearch() + "%"));
+            }
+        }
+
+        void findBySectionOfClothesId() {
+            if (!filter.getSectionOfClothesName().isEmpty()) {
+                Join<ClothingModel, SectionOfClothes> join = root.join(ClothingModel_.sectionOfClothes);
+                predicates.add(join.get("name").in(filter.getSectionOfClothesName()));
+            }
+        }
+
+        Predicate toPredicate() {
+            findBySearch();
+            findBySectionOfClothesId();
+            return predicates.isEmpty() ? null : cb.and(predicates.stream().toArray(Predicate[]::new));
+        }
+
+    }
 
 }

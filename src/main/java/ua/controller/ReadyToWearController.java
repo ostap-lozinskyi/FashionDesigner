@@ -20,35 +20,36 @@ import ua.service.ClothingModelService;
 @Controller
 @RequestMapping("/readyToWear")
 public class ReadyToWearController {
-	
-	private final ClothingModelService clothingModelService;
-	
-	@Autowired
-	public ReadyToWearController(ClothingModelService clothingModelService) {
-		this.clothingModelService = clothingModelService;
-	}
-	
-	@ModelAttribute("clothingModelFilter")
-	public ClothingModelFilter getFilter() {
-		return new ClothingModelFilter();
-	}
 
-	@GetMapping
-	public String showPage(Model model, @PageableDefault Pageable pageable, @ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
-		// Show only 'Ready to wear' clothes
-		List <String> sectionOfClothesNames = new ArrayList<>(); 
-		sectionOfClothesNames.add("Ready to wear");
-		clothingModelFilter.setSectionOfClothesName(sectionOfClothesNames);
-		
-		Page<ClothingModelView> clothingModelViewsPage = clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable);
-		model.addAttribute("showClothingModels", clothingModelViewsPage);
-		
-		List<ClothingModelView> clothingModelViewsList = clothingModelViewsPage.getContent();
-		for (ClothingModelView clothingModelView : clothingModelViewsList) {
-			clothingModelView.setPhotoUrls(clothingModelService.findPhotoUrls(clothingModelView.getId()));
-		}
-		
-		return "readyToWear";
-	}
+    private final ClothingModelService clothingModelService;
 
+    @Autowired
+    public ReadyToWearController(ClothingModelService clothingModelService) {
+        this.clothingModelService = clothingModelService;
+    }
+
+    @ModelAttribute("clothingModelFilter")
+    public ClothingModelFilter getFilter() {
+        return new ClothingModelFilter();
+    }
+
+    @GetMapping
+    public String showPage(Model model, @PageableDefault Pageable pageable, @ModelAttribute("clothingModelFilter")
+            ClothingModelFilter clothingModelFilter) {
+        // Show only 'Ready to wear' clothes
+        List<String> sectionOfClothesNames = new ArrayList<>();
+        sectionOfClothesNames.add("Ready to wear");
+        clothingModelFilter.setSectionOfClothesName(sectionOfClothesNames);
+
+        Page<ClothingModelView> clothingModelViewsPage = clothingModelService.findAllClothingModelViews(
+                clothingModelFilter, pageable);
+        model.addAttribute("showClothingModels", clothingModelViewsPage);
+
+        List<ClothingModelView> clothingModelViewsList = clothingModelViewsPage.getContent();
+        for (ClothingModelView clothingModelView : clothingModelViewsList) {
+            clothingModelView.setPhotoUrls(clothingModelService.findPhotoUrls(clothingModelView.getId()));
+        }
+
+        return "readyToWear";
+    }
 }

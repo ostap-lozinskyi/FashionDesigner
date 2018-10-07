@@ -9,15 +9,15 @@ import ua.repository.SectionOfClothesRepository;
 @Component
 public class SectionOfClothesConverter implements Converter<String, SectionOfClothes> {
 
-	private final SectionOfClothesRepository sectionOfClothesRepository;
+    private final SectionOfClothesRepository sectionOfClothesRepository;
 
-	public SectionOfClothesConverter(SectionOfClothesRepository sectionOfClothesRepository) {
-		this.sectionOfClothesRepository = sectionOfClothesRepository;
-	}
+    public SectionOfClothesConverter(SectionOfClothesRepository sectionOfClothesRepository) {
+        this.sectionOfClothesRepository = sectionOfClothesRepository;
+    }
 
-	@Override
-	public SectionOfClothes convert(String source) {
-		return sectionOfClothesRepository.findByName(source);
-	}
+    @Override
+    public SectionOfClothes convert(String source) {
+        return sectionOfClothesRepository.findByName(source);
+    }
 
 }

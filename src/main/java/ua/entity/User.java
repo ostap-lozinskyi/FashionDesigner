@@ -7,54 +7,54 @@ import javax.persistence.Table;
 @Table(name = "_user")
 public class User extends AbstractEntity {
 
-	private String email;
+    private String email;
 
-	private String password;
+    private String password;
 
-	private Role role;
-	
-	private String photoUrl;
-	
-	private int version;
-	
-	public String getEmail() {
-		return email;
-	}
+    private Role role;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    private String photoUrl;
 
-	public String getPassword() {
-		return password;
-	}
+    private int version;
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public Role getRole() {
-		return role;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setRole(Role role) {
-		this.role = role;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public String getPhotoUrl() {
-		return photoUrl;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public void setPhotoUrl(String photoUrl) {
-		this.photoUrl = photoUrl;
-	}
-	
-	public int getVersion() {
-		return version;
-	}
+    public Role getRole() {
+        return role;
+    }
 
-	public void setVersion(int version) {
-		this.version = version;
-	}
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
 
 }

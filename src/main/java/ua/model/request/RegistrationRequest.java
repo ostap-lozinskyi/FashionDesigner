@@ -9,64 +9,64 @@ import ua.validation.annotation.PasswordsEqual;
 import ua.validation.annotation.UniqueUser;
 import ua.validation.flag.UserFlag;
 
-@PasswordsEqual(message="Password does not match", groups = { UserFlag.class })
+@PasswordsEqual(message = "Password does not match", groups = {UserFlag.class})
 public class RegistrationRequest {
-	
-	@UniqueUser(message = "Such an user already exists", groups = UserFlag.class)
-	@NotBlank(message = "This field cannot be blank", groups = { UserFlag.class })
-	@Pattern(regexp = "^[-\\w.]+@([A-z0-9][-A-z0-9]+\\.)+[A-z]{2,4}| *$", message = "Enter valid email", groups = {
-			UserFlag.class })
-	private String email;
 
-	@NotBlank(message = "This field cannot be blank", groups = { UserFlag.class })
-	@Pattern(regexp = "^[\\w\\d]{4,}| *$", message="Enter at least 4 symbols", groups = { UserFlag.class })
-	private String password;
+    @UniqueUser(message = "Such an user already exists", groups = UserFlag.class)
+    @NotBlank(message = "This field cannot be blank", groups = {UserFlag.class})
+    @Pattern(regexp = "^[-\\w.]+@([A-z0-9][-A-z0-9]+\\.)+[A-z]{2,4}| *$", message = "Enter valid email", groups = {
+            UserFlag.class})
+    private String email;
 
-	@NotBlank(message = "This field cannot be blank", groups = { UserFlag.class })
-	private String repeatPassword;
-	
-	private String photoUrl;
-	
-	private Role role;
+    @NotBlank(message = "This field cannot be blank", groups = {UserFlag.class})
+    @Pattern(regexp = "^[\\w\\d]{4,}| *$", message = "Enter at least 4 symbols", groups = {UserFlag.class})
+    private String password;
 
-	public String getEmail() {
-		return email;
-	}
+    @NotBlank(message = "This field cannot be blank", groups = {UserFlag.class})
+    private String repeatPassword;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    private String photoUrl;
 
-	public String getPassword() {
-		return password;
-	}
+    private Role role;
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getRepeatPassword() {
-		return repeatPassword;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setRepeatPassword(String repeatPassword) {
-		this.repeatPassword = repeatPassword;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public String getPhotoUrl() {
-		return photoUrl;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public void setPhotoUrl(String photoUrl) {
-		this.photoUrl = photoUrl;
-	}
+    public String getRepeatPassword() {
+        return repeatPassword;
+    }
 
-	public Role getRole() {
-		return role;
-	}
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
+    }
 
-	public void setRole(Role role) {
-		this.role = role;
-	}
-	
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
 }

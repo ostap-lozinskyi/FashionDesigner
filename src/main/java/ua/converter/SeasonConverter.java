@@ -9,15 +9,15 @@ import ua.repository.SeasonRepository;
 @Component
 public class SeasonConverter implements Converter<String, Season> {
 
-	private final SeasonRepository seasonRepository;
+    private final SeasonRepository seasonRepository;
 
-	public SeasonConverter(SeasonRepository seasonRepository) {
-		this.seasonRepository = seasonRepository;
-	}
+    public SeasonConverter(SeasonRepository seasonRepository) {
+        this.seasonRepository = seasonRepository;
+    }
 
-	@Override
-	public Season convert(String source) {
-		return seasonRepository.findByName(source);
-	}
+    @Override
+    public Season convert(String source) {
+        return seasonRepository.findByName(source);
+    }
 
 }

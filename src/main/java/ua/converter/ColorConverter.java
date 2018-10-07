@@ -9,15 +9,15 @@ import ua.repository.ColorRepository;
 @Component
 public class ColorConverter implements Converter<String, Color> {
 
-	private final ColorRepository colorRepository;
+    private final ColorRepository colorRepository;
 
-	public ColorConverter(ColorRepository colorRepository) {
-		this.colorRepository = colorRepository;
-	}
+    public ColorConverter(ColorRepository colorRepository) {
+        this.colorRepository = colorRepository;
+    }
 
-	@Override
-	public Color convert(String source) {
-		return colorRepository.findByName(source);
-	}
+    @Override
+    public Color convert(String source) {
+        return colorRepository.findByName(source);
+    }
 
 }
