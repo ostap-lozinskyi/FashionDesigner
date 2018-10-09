@@ -6,38 +6,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118033320-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-118033320-3');
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<link href="/resources/css/index.css" rel="stylesheet">
+    <link href="/resources/css/index.css" rel="stylesheet">
+    <script src="/resources/js/footer.js"></script>
 <title>Olha Lozinska</title>
 </head>
 <body>
     <div class="text-center divLogo">
         <img src="/resources/img/olha-lozinska-logo-1.png" class="logoID">
-    </div> 
+    </div>
     <div class="header">
         <a class="headerItem" href="/"><img src="/resources/img/home.png" class="homePict"></a>
         <a class="headerItem" href="/readyToWear">READY TO WEAR</a>
         <a class="headerItem" href="/hauteCouture">HAUTE COUTURE</a>
-        <a class="headerItem" href="/aboutUs">ABOUT US</a>                        
-        <a class="headerItem" href="/contacts">CONTACTS</a>   
+        <a class="headerItem" href="/aboutUs">ABOUT US</a>
+        <a class="headerItem" href="/contacts">CONTACTS</a>
     </div>
 	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<h1 class="text-center">Зв'язатися з нами</h1>
+		<div class="row justify-content-center">
+			<div class="col-6">
+				<h1 class="text-center">Зв'язатися з нами Ви можете</h1>
+                <ul>
+                    <li>за телефоном <span class="textBold">+38067-33-70-672</span></li>
+                    <li>електронною поштою: <span class="textBold">olhalozinska.official@gmail.com</span></li>
+                    <li>з допомогою форми зворотнього зв'язку</li>
+                </ul>
+
+                </p>
 			</div>
 		</div>
-		<div class="row">				
+		<div class="row">
 			<div class="col-12">
                 <div class="row">
                     <div class="col-12">
                         <form:form action="/contacts" method="POST" modelAttribute="email">
                             <div class="form-group">
-                                <div class="row justify-content-md-center">
+                                <div class="row justify-content-center">
                                     <div class="col-8">
                                         <label class="col-form-label emailLabel" for="tel">Номер телефону або електронна пошта*</label>
                                     </div>
@@ -47,12 +63,12 @@
                                         <form:errors path="tel" />
                                     </div>
                                 </div>
-                                <div class="row justify-content-md-center">
+                                <div class="row justify-content-center">
                                     <div class="col-8">
                                         <form:input class="form-control emailText" id="tel" path="tel"/>
                                     </div>
                                 </div>
-                                <div class="row justify-content-md-center">
+                                <div class="row justify-content-center">
                                     <div class="col-8 text-left">
                                         <label class="col-form-label emailLabel" for="text">Текст повідомлення*</label>
                                     </div>
@@ -62,27 +78,52 @@
                                         <form:errors path="text" />
                                     </div>
                                 </div>
-                                <div class="row justify-content-md-center">
+                                <div class="row justify-content-center">
                                     <div class="col-8 ">
                                         <form:textarea class="form-control emailText" id="text" path="text"/>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row justify-content-md-center">
+                            <div class="form-group row justify-content-center">
                                 <div class="col-8">
                                     <button class="emailSendButton">Send</button>
                                 </div>
                             </div>
-                            <div class="row justify-content-md-center">
+                            <div class="row justify-content-center">
                                 <div class="col-8 ">
                                     <p>${emailSent}<p>
                                 </div>
                             </div>
 				        </form:form>
                     </div>
-                </div>		         
+                </div>
 			</div>
 		</div>
 	</div>
+    <div class="text-center footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 footerText">
+                    <a href="/aboutUs">© Olha Lozinska 2018</a>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-12 text-left">
+                            <span>Follow Us:</span>
+                            <a href="https://www.instagram.com/olha.lozinska/" target="_blank">
+                                <img src="/resources/img/instagramLogo.png" class="footerLogo">
+                            </a>
+                            <a href="https://www.facebook.com/olha.lozinska.official/" target="_blank">
+                                <img src="/resources/img/facebookLogo.png" class="footerLogo">
+                            </a>
+                            <a href="https://in.pinterest.com/olhalozinska/" target="_blank">
+                                <img src="/resources/img/pinterestLogo.png" class="footerLogo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
