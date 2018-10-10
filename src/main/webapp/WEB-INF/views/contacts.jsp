@@ -41,7 +41,7 @@
                 <ul>
                     <li>за телефоном <span class="textBold">+38067-33-70-672</span></li>
                     <li>електронною поштою: <span class="textBold">olhalozinska.official@gmail.com</span></li>
-                    <li>з допомогою форми зворотнього зв'язку</li>
+                    <li>за допомогою форми зворотнього зв'язку</li>
                 </ul>
 
                 </p>
