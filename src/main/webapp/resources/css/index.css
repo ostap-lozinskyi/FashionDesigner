@@ -230,18 +230,47 @@ a:hover {
 }
 
 .emailSendButton {
-     width: 100px;
-     height: 30px;
-     border-color: black;
-     background-color: black;
-     color: white;
-     border-style: none;
- }
+    width: 100px;
+    height: 30px;
+    border-color: black;
+    background-color: black;
+    color: white;
+    border-style: none;
+}
 
-.emailSendButton:active{
+.emailSendButton:active {
     background-color: gray;
 }
 
 .emailLabel {
     font-weight: bold;
+}
+
+.textBold {
+    font-weight: bold;
+}
+
+@media all and (orientation: portrait) {
+    .logoID {
+        width: 550px;
+    }
+
+    .header {
+        height: 110px;
+        padding-top: 13px;
+        font-size: 30px;
+    }
+
+    .articleTitle {
+        font-size: 32px;
+    }
+
+    .articleText {
+        font-size: 32px;
+    }
+
+    .itemMainPage {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }

@@ -23,9 +23,10 @@
                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
                     
                     <link href="/resources/css/index.css" rel="stylesheet">
+                    <script src="/resources/js/footer.js"></script>
                 </head>
                 <body>                    
-                    <div class="text-center divLogo">
+                    <div class="text-center">
                         <img src="/resources/img/olha-lozinska-logo-1.png" class="logoID">
                     </div>                    
                     <div class="header">
@@ -49,7 +50,7 @@
                             </div>                                                        
                         </div> 
                         <div class="row">
-                            <div class="col-sm-6 text-center">
+                            <div class="col-lg-6 text-center">
                                 <div class="row">
                                     <div class="col-12 text-center">
                                         <a href="https://bestpeopleclub.com/17-th-odessa-fashion-day-dnevnik-vtorogo-dnya.html" target="_blank">
@@ -66,7 +67,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 text-center">
+                            <div class="col-lg-6 text-center">
                                 <div class="row">
                                     <div class="col-12 text-center">
                                         <a href="https://www.instagram.com/p/BjmUUhHgsln/?taken-by=slanovskiy_kiev" target="_blank">
@@ -91,7 +92,7 @@
                         </div>
                         <div class="row">
                             <c:forEach var="showClothingModel" items="${showClothingModels}" end="2">
-                                <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                                <div class="col-lg-4 col-md-12 text-center">
                                     <a href="/hauteCouture/${showClothingModel.id}">
                                         <img src="${showClothingModel.photoUrls[0]}?version=${showClothingModel.version}" class="itemMainPage">
                                     </a>                                                                       
@@ -102,10 +103,10 @@
                     <div class="text-center footer">
                             <div class="container">
                                <div class="row">
-                                   <div class="col-8 footerText">
+                                   <div class="col-md-7 footerText">
                                        <a href="/aboutUs">© Olha Lozinska 2018</a>
                                    </div>
-                                   <div class="col-4">                                       
+                                   <div class="col-md-5">
                                        <div class="row">
                                             <div class="col-12 text-left">
                                                 <span>Follow Us:</span>

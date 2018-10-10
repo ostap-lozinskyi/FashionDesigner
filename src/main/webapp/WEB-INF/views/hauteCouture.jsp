@@ -23,6 +23,7 @@
                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
                    
                     <link href="/resources/css/index.css" rel="stylesheet">
+                    <script src="/resources/js/footer.js"></script>
                 </head>
                 <body>
                     <div class="text-center divLogo">
@@ -49,10 +50,10 @@
                     <div class="text-center footer">
                             <div class="container">
                                <div class="row">
-                                   <div class="col-8 footerText">
+                                   <div class="col-7 footerText">
                                         <a href="/aboutUs">© Olha Lozinska 2018</a>
                                    </div>
-                                   <div class="col-4">                                       
+                                   <div class="col-5">
                                        <div class="row">
                                             <div class="col-12 text-left">
                                                 <span>Follow Us:</span>
