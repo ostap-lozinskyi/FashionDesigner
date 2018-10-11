@@ -224,6 +224,11 @@ a:hover {
     list-style-position: inside;
 }
 
+.emailTel {
+    border-radius: unset;
+    border-color: black;
+}
+
 .emailText {
     border-radius: unset;
     border-color: black;
@@ -261,6 +266,9 @@ a:hover {
         font-size: 30px;
     }
 
+    .headerItem {
+    }
+
     .articleTitle {
         font-size: 32px;
     }
@@ -272,5 +280,38 @@ a:hover {
     .itemMainPage {
         width: 100%;
         margin-bottom: 20px;
+    }
+
+    .aboutUsPhoto {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .aboutUsText {
+        font-size: 30px;
+    }
+
+    .contactsText {
+        font-size: 34px;
+    }
+
+    .emailTel {
+        height: 100px;
+        font-size: 36px;
+    }
+
+    .emailText {
+        height: 200px;
+        font-size: 36px;
+    }
+
+    .emailLabel {
+        font-size: 34px;
+    }
+
+    .emailSendButton {
+        width: 300px;
+        height: 90px;
+        font-size: 36px;
     }
 }

@@ -38,10 +38,10 @@
                     </div>
                     <div class="container">
                         <div class="row">   
-                            <div class="col-4">
+                            <div class="col-lg-5 text-center">
                                 <img src="/resources/img/olha-lozinska.jpg" class="aboutUsPhoto">
                             </div>
-                            <div class="col-8 aboutUsText">
+                            <div class="col-lg-7 aboutUsText">
                                 <p>Olha Lozinska – авторський бренд ексклюзивного жіночого одягу.</p> 
                                 <p>В асортиментному ряді представлена широка лінійка моделей:</p>
                                 <ul>

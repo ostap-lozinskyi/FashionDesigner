@@ -36,7 +36,7 @@
     </div>
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-6">
+			<div class="col-lg-6 contactsText">
 				<h1 class="text-center">Зв'язатися з нами Ви можете</h1>
                 <ul>
                     <li>за телефоном <span class="textBold">+38067-33-70-672</span></li>
@@ -54,38 +54,38 @@
                         <form:form action="/contacts" method="POST" modelAttribute="email">
                             <div class="form-group">
                                 <div class="row justify-content-center">
-                                    <div class="col-8">
+                                    <div class="col-lg-8">
                                         <label class="col-form-label emailLabel" for="tel">Номер телефону або електронна пошта*</label>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-10 ml-auto" style="color: red;">
+                                    <div class="col-lg-10 ml-auto" style="color: red;">
                                         <form:errors path="tel" />
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
-                                    <div class="col-8">
-                                        <form:input class="form-control emailText" id="tel" path="tel"/>
+                                    <div class="col-lg-8">
+                                        <form:input class="form-control emailTel" id="tel" path="tel"/>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
-                                    <div class="col-8 text-left">
+                                    <div class="col-lg-8 text-left">
                                         <label class="col-form-label emailLabel" for="text">Текст повідомлення*</label>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-10 ml-auto" style="color: red;">
+                                    <div class="col-lg-10 ml-auto" style="color: red;">
                                         <form:errors path="text" />
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
-                                    <div class="col-8 ">
+                                    <div class="col-lg-8 ">
                                         <form:textarea class="form-control emailText" id="text" path="text"/>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row justify-content-center">
-                                <div class="col-8">
+                                <div class="col-8 text-center">
                                     <button class="emailSendButton">Send</button>
                                 </div>
                             </div>
