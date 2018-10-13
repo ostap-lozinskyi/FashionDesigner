@@ -72,7 +72,13 @@
                             </div> 
                             <div class="col-lg-3 col-md-1 text-center portraitHidden">
                                 <a class="arrow" href="/readyToWear/${nextModel}"><img src="/resources/img/arrowRight.png" style="width: 100px;"></a>
-                            </div>                   
+                            </div>
+                            <div class="col-lg-4 idText">
+                                <p>${clothingModel.text}</p>
+                                <div class="col-12 text-center">
+                                    <button class="emailSendButton">Замовити</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-6 text-center landscapeHidden">

@@ -255,6 +255,11 @@ a:hover {
     font-weight: bold;
 }
 
+.idText {
+    text-align: justify;
+    margin-top: 15%;
+}
+
 .landscapeHidden {
     display: none;
 }

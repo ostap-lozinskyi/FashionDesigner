@@ -44,7 +44,7 @@ public class MainController {
 
         int size = clothingModelViewsList.size();
         List<ClothingModelView> lastClothingModelViewsList = new ArrayList<>();
-        if (size != 0) {
+        if (size > 3) {
             lastClothingModelViewsList.add(clothingModelViewsList.get(size - 1));
             lastClothingModelViewsList.add(clothingModelViewsList.get(size - 2));
             lastClothingModelViewsList.add(clothingModelViewsList.get(size - 3));
