@@ -73,18 +73,18 @@
                             <div class="col-md-1 text-center portraitHidden">
                                 <a class="arrow" href="/readyToWear/${nextModel}"><img src="/resources/img/arrowRight.png" style="width: 100px;"></a>
                             </div>
-                            <div class="col-lg-4 idText">
+                            <div class="col-lg-4 idText portraitHidden">
                                 <p>${clothingModel.text}</p>
                                 <div class="col-12 text-center">
-                                    <button class="emailSendButton">Замовити</button>
+                                    <a class="headerItem" href="/contacts" target="_blank"><button class="emailSendButton">Замовити</button></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-6 text-center landscapeHidden">
+                        <div class="row landscapeHidden">
+                            <div class="col-6 text-center">
                                 <a class="arrow" href="/hauteCouture/${previousModel}"><img src="/resources/img/arrowLeft.png" style="width: 100px;"></a>
                             </div>
-                            <div class="col-6 text-center landscapeHidden">
+                            <div class="col-6 text-center">
                                 <a class="arrow" href="/hauteCouture/${nextModel}"><img src="/resources/img/arrowRight.png" style="width: 100px;"></a>
                             </div>
                         </div>
@@ -96,6 +96,14 @@
                                     <img data-target="#carouselExampleIndicators" data-slide-to="${count}" class="photoIDmini" src="${photoUrl}?version=${clothingModel.version}">                                     
                                     <c:set var="count" value="${count + 1}" scope="page"/>
                                 </c:forEach>                                                                
+                            </div>
+                        </div>
+                        <div class="row landscapeHidden">
+                            <div class="col-lg-12 idText">
+                                <p>${clothingModel.text}</p>
+                                <div class="col-12 text-center">
+                                    <a class="headerItem" href="/contacts" target="_blank"><button class="emailSendButton">Замовити</button></a>
+                                </div>
                             </div>
                         </div>
                     </div>

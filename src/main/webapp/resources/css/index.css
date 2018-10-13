@@ -241,6 +241,7 @@ a:hover {
     background-color: black;
     color: white;
     border-style: none;
+    cursor: pointer;
 }
 
 .emailSendButton:active {
@@ -329,7 +330,7 @@ a:hover {
     }
 
     .portraitHidden {
-        visibility: hidden;
+        display: none;
     }
 
     .photoID {
@@ -339,5 +340,9 @@ a:hover {
     .photoIDmini {
         width: 170px;
         margin-top: 50px;
+    }
+
+    .idText{
+        font-size: 34px;
     }
 }
