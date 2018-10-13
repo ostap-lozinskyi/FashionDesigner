@@ -255,6 +255,10 @@ a:hover {
     font-weight: bold;
 }
 
+.landscapeHidden {
+    display: none;
+}
+
 @media all and (orientation: portrait) {
     .logoID {
         width: 550px;
@@ -313,5 +317,22 @@ a:hover {
         width: 300px;
         height: 90px;
         font-size: 36px;
+    }
+
+    .landscapeHidden {
+        visibility: visible;
+    }
+
+    .portraitHidden {
+        visibility: hidden;
+    }
+
+    .photoID {
+        width: 100%;
+    }
+
+    .photoIDmini {
+        width: 170px;
+        margin-top: 50px;
     }
 }
