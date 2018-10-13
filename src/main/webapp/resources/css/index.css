@@ -320,7 +320,7 @@ a:hover {
     }
 
     .landscapeHidden {
-        visibility: visible;
+        display: flex;
     }
 
     .portraitHidden {
