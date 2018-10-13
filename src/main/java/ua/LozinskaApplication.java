@@ -28,7 +28,7 @@ public class LozinskaApplication extends WebMvcConfigurerAdapter {
 	
 	public static void main(String[] args) {
 		ConfigurableApplicationContext run = SpringApplication.run(LozinskaApplication.class, args);
-//		addAdmin(run);
+		addAdmin(run);
 	}
 	
 	@Autowired
@@ -48,20 +48,20 @@ public class LozinskaApplication extends WebMvcConfigurerAdapter {
 		return new JavaMailSenderImpl();
 	}
 
-//	static void addAdmin(ConfigurableApplicationContext run) {
-//		UserRepository repository = run.getBean(UserRepository.class);
-//		User user = repository.findUserByEmail("admin");
-//		if (user == null) {
-//			PasswordEncoder encoder = run.getBean(PasswordEncoder.class);
-//			user = new User();
-//			user.setEmail("admin");
-//			user.setPassword(encoder.encode("admin"));
-//			user.setRole(Role.ROLE_ADMIN);
-//			repository.save(user);
-//		} else {
-//			user.setRole(Role.ROLE_ADMIN);
-//			repository.save(user);
-//		}
-//	}
+	static void addAdmin(ConfigurableApplicationContext run) {
+		UserRepository repository = run.getBean(UserRepository.class);
+		User user = repository.findUserByEmail("admin");
+		if (user == null) {
+			PasswordEncoder encoder = run.getBean(PasswordEncoder.class);
+			user = new User();
+			user.setEmail("admin");
+			user.setPassword(encoder.encode("admin"));
+			user.setRole(Role.ROLE_ADMIN);
+			repository.save(user);
+		} else {
+			user.setRole(Role.ROLE_ADMIN);
+			repository.save(user);
+		}
+	}
 	
 }
