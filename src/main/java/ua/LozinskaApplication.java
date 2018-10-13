@@ -1,7 +1,6 @@
 package ua;
 
 import java.util.List;
-import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -25,10 +24,12 @@ import ua.repository.UserRepository;
 @SpringBootApplication
 @ImportAutoConfiguration(classes = WebMvcAutoConfiguration.class)
 public class LozinskaApplication extends WebMvcConfigurerAdapter {
-	
+
+	public static final String ADMIN = "admin";
+
 	public static void main(String[] args) {
 		ConfigurableApplicationContext run = SpringApplication.run(LozinskaApplication.class, args);
-		addAdmin(run);
+//		addAdmin(run);
 	}
 	
 	@Autowired
@@ -48,14 +49,14 @@ public class LozinskaApplication extends WebMvcConfigurerAdapter {
 		return new JavaMailSenderImpl();
 	}
 
-	static void addAdmin(ConfigurableApplicationContext run) {
+	private static void addAdmin(ConfigurableApplicationContext run) {
 		UserRepository repository = run.getBean(UserRepository.class);
-		User user = repository.findUserByEmail("admin");
+		User user = repository.findUserByEmail(ADMIN);
 		if (user == null) {
 			PasswordEncoder encoder = run.getBean(PasswordEncoder.class);
 			user = new User();
-			user.setEmail("admin");
-			user.setPassword(encoder.encode("admin"));
+			user.setEmail(ADMIN);
+			user.setPassword(encoder.encode(ADMIN));
 			user.setRole(Role.ROLE_ADMIN);
 			repository.save(user);
 		} else {
@@ -63,5 +64,4 @@ public class LozinskaApplication extends WebMvcConfigurerAdapter {
 			repository.save(user);
 		}
 	}
-	
 }
