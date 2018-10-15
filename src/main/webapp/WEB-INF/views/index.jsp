@@ -62,7 +62,8 @@
                                     <div class="col-12 text-center">                                        
                                         <a href="https://bestpeopleclub.com/17-th-odessa-fashion-day-dnevnik-vtorogo-dnya.html" target="_blank">
                                             <p class="articleTitle">17-TH ODESSA FASHION DAY</p>
-                                            <p class="articleText">Дизайнер Ольга Лозинская представила актуальные наряды к летнему сезону, который как правило перенасыщен событиями: выпускные, свадьбы, торжества, роазнообразные вечеринки.</p>
+                                            <p class="articleText">Дизайнер Ольга Лозінська представила актуальні наряди для літнього сезону,
+                                                який як правило насичений подіями: випускні вечори, весілля, святкування, різноманітні вечірки.</p>
                                         </a> 
                                     </div>
                                 </div>
@@ -79,7 +80,8 @@
                                     <div class="col-12 text-center">                                        
                                         <a href="https://www.instagram.com/p/BjmUUhHgsln/?taken-by=slanovskiy_kiev" target="_blank">
                                             <p class="articleTitle">OLHA LOZINSKA У КИЄВІ</p>
-                                            <p class="articleText">Відтепер приміряти вишукані наряди від дизайнера Ольга Лозінська можна і в столиці, у салоні вечірніх та весільних суконь Slanovskiy, по вул. С. Петлюри, 6</p>
+                                            <p class="articleText">Відтепер приміряти вишукані наряди від дизайнера Ольга Лозінська можна і в столиці,
+                                                у салоні вечірніх та весільних суконь Slanovskiy, по вул. С. Петлюри, 6</p>
                                         </a> 
                                     </div>
                                 </div>
