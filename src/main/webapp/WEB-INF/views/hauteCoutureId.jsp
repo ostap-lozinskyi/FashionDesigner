@@ -48,7 +48,7 @@
                             <div class="col-md-1 text-center portraitHidden">
                                 <a class="arrow" href="/hauteCouture/${previousModel}"><img src="/resources/img/arrowLeft.png" style="width: 100px;"></a>
                             </div>                           
-                            <div class="col-lg-6 col-md-10 text-center">
+                            <div class="col-lg-6 col-md-10 text-center portraitWidth">
                                 <div id="carouselExampleIndicators" class="carousel" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">

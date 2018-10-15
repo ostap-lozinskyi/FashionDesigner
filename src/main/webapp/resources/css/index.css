@@ -303,6 +303,7 @@ a:hover {
 
     .contactsText {
         font-size: 34px;
+        margin-left: 3%;
     }
 
     .emailTel {
@@ -338,11 +339,21 @@ a:hover {
     }
 
     .photoIDmini {
-        width: 170px;
+        width: 25%;
         margin-top: 50px;
     }
 
-    .idText{
+    .idText {
         font-size: 34px;
+    }
+
+    .container {
+        margin-left: 4%;
+        margin-right: 4%;
+        min-width: 92%;
+    }
+
+    .portraitWidth {
+        min-width: 100%;
     }
 }
