@@ -268,7 +268,7 @@ a:hover {
 
 @media all and (orientation: portrait) {
     .logoID {
-        width: 550px;
+        width: 65%;
     }
 
     .header {
@@ -281,11 +281,15 @@ a:hover {
     }
 
     .articleTitle {
-        font-size: 32px;
+        font-size: 36px;
     }
 
     .articleText {
-        font-size: 32px;
+        font-size: 36px;
+    }
+
+    .mainTitle {
+        font-size: 36px;
     }
 
     .itemMainPage {
@@ -299,11 +303,11 @@ a:hover {
     }
 
     .aboutUsText {
-        font-size: 34px;
+        font-size: 36px;
     }
 
     .contactsText {
-        font-size: 34px;
+        font-size: 36px;
         margin-left: 3%;
     }
 
@@ -318,7 +322,7 @@ a:hover {
     }
 
     .emailLabel {
-        font-size: 34px;
+        font-size: 36px;
     }
 
     .emailSendButton {
@@ -345,7 +349,7 @@ a:hover {
     }
 
     .idText {
-        font-size: 34px;
+        font-size: 36px;
     }
 
     .container {
