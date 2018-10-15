@@ -57,6 +57,8 @@ a:hover {
     padding-bottom: 5px;
     font-weight: bold;
     width: 100%;
+    color: black;
+    margin-top: 20px;
 }
 
 .footerText {
