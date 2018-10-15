@@ -49,29 +49,30 @@ a:hover {
 }
 
 .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #f6f6f6;
     padding-top: 5px;
     padding-bottom: 5px;
-    margin-top: 30px;
     font-weight: bold;
     width: 100%;
 }
 
 .footerText {
-    padding-top: 5px;
     font-size: 16px;
+    margin-right: 2%;
 }
 
-.footer span {
-    margin-right: 15px;
+.footerFollow {
+    margin-left: 2%;
     font-size: 16px;
-    vertical-align: middle;
 }
 
 .footerLogo {
     width: 30px;
     margin-top: 3px;
-    margin-right: 20px;
+    margin-left: 20px;
 }
 
 .homePict {
@@ -355,5 +356,40 @@ a:hover {
 
     .portraitWidth {
         min-width: 100%;
+    }
+
+    .footer {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-top: 30px;
+        font-weight: bold;
+        width: 100%;
+    }
+
+    .footer {
+        flex-direction: column;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-weight: bold;
+        width: 100%;
+    }
+
+    .footerText {
+        font-size: 36px;
+        margin-right: 2%;
+        margin-top: 10px;
+    }
+
+    .footerFollow {
+        margin-left: 2%;
+        font-size: 36px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .footerLogo {
+        width: 60px;
+        margin-top: 3px;
+        margin-left: 40px;
     }
 }
