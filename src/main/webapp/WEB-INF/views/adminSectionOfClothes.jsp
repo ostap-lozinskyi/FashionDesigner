@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="col-2">
-                        <custom:size posibleSizes="1,2,5,10" size="${showSectionOfClothes.size}" />
+                        <custom:size posibleSizes="1,2,5,10" size="${showSectionsOfClothes.size}" />
                     </div>			
 		        </div>
 		        <br>

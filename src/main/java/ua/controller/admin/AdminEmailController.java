@@ -27,7 +27,7 @@ public class AdminEmailController {
 
     private final EmailService emailService;
 
-    String error = "";
+    private String error = "";
 
     @Autowired
     public AdminEmailController(EmailService emailService) {

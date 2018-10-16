@@ -49,7 +49,7 @@ public class HauteCoutureIdController {
                 clothingModelFilter, pageable).getContent();
         int currentListId = 0;
         for (int i = 0; i < clothingModelViews.size(); i++) {
-            if (clothingModelViews.get(i).getId() == id) {
+            if (clothingModelViews.get(i).getId().equals(id)) {
                 currentListId = i;
             }
         }

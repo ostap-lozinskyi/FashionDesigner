@@ -28,7 +28,7 @@ public class ContactsController {
 
     private final EmailService emailService;
 
-    String emailSent;
+    private String emailSent;
 
     @Autowired
     public ContactsController(EmailService emailService) {

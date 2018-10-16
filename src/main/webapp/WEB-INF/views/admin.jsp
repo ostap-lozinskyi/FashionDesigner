@@ -34,13 +34,11 @@
 			    <a class="btn btn-outline-primary" href="/userCabinet">User Cabinet</a>			    		     
 			</div>
 		</div>
-		<div class="row">			
-			<div class="col-lg-9 col-sm-12">
-                <sec:authorize access="isAuthenticated()">
-                    <form:form action="/logout">
-                        <button class="btn btn-outline-primary">Logout</button>
-                    </form:form>
-                </sec:authorize>
+		<div class="row">
+            <div class="col-lg-9 col-sm-12">
+                <form:form action="/logout">
+                    <button class="btn btn-outline-primary">Logout</button>
+                </form:form>
             </div>
         </div>
 	</div>

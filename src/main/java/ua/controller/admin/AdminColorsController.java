@@ -33,7 +33,7 @@ public class AdminColorsController {
 
     private final ColorService colorService;
 
-    String error = "";
+    private String error = "";
 
     @Autowired
     public AdminColorsController(ColorService colorService) {

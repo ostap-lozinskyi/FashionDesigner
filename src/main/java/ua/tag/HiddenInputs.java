@@ -21,7 +21,7 @@ public class HiddenInputs extends SimpleTagSupport {
     private final List<String> prefixes = new ArrayList<>();
 
     @Override
-    public void doTag() throws JspException, IOException {
+    public void doTag() throws IOException {
         JspWriter out = getJspContext().getOut();
         PageContext pageContext = (PageContext) getJspContext();
         HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();

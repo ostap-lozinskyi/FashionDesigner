@@ -29,11 +29,11 @@ public abstract class AbstractEntityName extends AbstractEntity {
                     ColorFlag.class})})
     private String name;
 
-    public AbstractEntityName(String name) {
+    AbstractEntityName(String name) {
         this.name = name;
     }
 
-    public AbstractEntityName() {
+    AbstractEntityName() {
     }
 
     public String getName() {

@@ -7,4 +7,4 @@ window.onload = function () {
         element[0].style.position = 'absolute';        
         element[0].style.bottom = '0';
     }
-}
+};

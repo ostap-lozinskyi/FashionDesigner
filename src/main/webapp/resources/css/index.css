@@ -9,12 +9,11 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'RalewayRegular';
+    font-family: 'RalewayRegular', serif;
 }
 
 body {
-    background-image: url("/resources/img/background.jpg");
-    background-repeat: no-repeat;
+    background: url("/resources/img/background.jpg") no-repeat;
     background-size: 100%;
 }
 
@@ -82,17 +81,6 @@ a:hover {
     width: 25px;
 }
 
-.logo {
-    width: 40%;
-    display: block;
-    margin: 0 auto;
-}
-
-.mainImg {
-    margin: 30px;
-    width: 33%;
-}
-
 .itemMainPage {
     width: 340px;
 }
@@ -134,7 +122,7 @@ a:hover {
     width: 85px;
     position: relative;
     top: 30px;
-    margin-top: 0px;
+    margin-top: 0;
     margin-right: 30px;
     margin-bottom: 22px;
     cursor: pointer;
@@ -240,10 +228,9 @@ a:hover {
 .emailSendButton {
     width: 100px;
     height: 30px;
-    border-color: black;
     background-color: black;
     color: white;
-    border-style: none;
+    border: none black;
     cursor: pointer;
 }
 

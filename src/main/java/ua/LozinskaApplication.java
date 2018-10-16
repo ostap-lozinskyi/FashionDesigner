@@ -25,7 +25,7 @@ import ua.repository.UserRepository;
 @ImportAutoConfiguration(classes = WebMvcAutoConfiguration.class)
 public class LozinskaApplication extends WebMvcConfigurerAdapter {
 
-	public static final String ADMIN = "admin";
+	private static final String ADMIN = "admin";
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext run = SpringApplication.run(LozinskaApplication.class, args);

@@ -29,7 +29,7 @@ public class UserMethodHandlerArgumentResolver implements HandlerMethodArgumentR
 
 	@Override
 	public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer,
-			NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
+			NativeWebRequest webRequest, WebDataBinderFactory binderFactory) {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		if(username.equals(ANONIMOUS))return null;
 		return repository.findUserByEmail(username);

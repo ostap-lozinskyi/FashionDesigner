@@ -39,7 +39,7 @@ public class AdminClothingModelsController {
 
     private final ClothingModelService clothingModelService;
 
-    String error = "";
+    private String error = "";
 
     @Autowired
     public AdminClothingModelsController(ClothingModelService clothingModelService) {

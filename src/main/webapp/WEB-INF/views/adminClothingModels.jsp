@@ -109,13 +109,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-2 col-form-label" for="color">Color:</label>
+                                <label class="col-2 col-form-label" for="colors">Color:</label>
                                 <div class="col-10">
                                     <form:checkboxes items="${colors}" path="colors" element="div" />
                                 </div>                                
                             </div>
                             <div class="form-group row">
-                                <label class="col-2 col-form-label" for="files">Photo:</label>
+                                <label class="col-2 col-form-label" for="file">Photo:</label>
                                 <div class="col-10">
                                     <input name="files" type="file" multiple>
                                 </div>

@@ -33,7 +33,7 @@ public class AdminSectionOfClothesController {
 
     private final SectionOfClothesService sectionOfClothesService;
 
-    String error = "";
+    private String error = "";
 
     @Autowired
     public AdminSectionOfClothesController(SectionOfClothesService sectionOfClothesService) {

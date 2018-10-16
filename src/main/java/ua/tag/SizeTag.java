@@ -24,7 +24,7 @@ public class SizeTag extends SimpleTagSupport {
     private int[] posibleSizes;
 
     @Override
-    public void doTag() throws JspException, IOException {
+    public void doTag() throws IOException {
         JspWriter out = getJspContext().getOut();
         sw.append("<button class='btn btn-sm btn-outline-success dropdown-toggle' type='button' data-toggle='dropdown'>");
         sw.append(title);

@@ -68,7 +68,7 @@ public class ClothingModelViewRepositoryImpl implements ClothingModelViewReposit
 
         final List<Predicate> predicates = new ArrayList<>();
 
-        public PredicateBuilder(CriteriaBuilder cb, Root<ClothingModel> root, ClothingModelFilter filter) {
+        PredicateBuilder(CriteriaBuilder cb, Root<ClothingModel> root, ClothingModelFilter filter) {
             this.cb = cb;
             this.root = root;
             this.filter = filter;
@@ -90,7 +90,7 @@ public class ClothingModelViewRepositoryImpl implements ClothingModelViewReposit
         Predicate toPredicate() {
             findBySearch();
             findBySectionOfClothesId();
-            return predicates.isEmpty() ? null : cb.and(predicates.stream().toArray(Predicate[]::new));
+            return predicates.isEmpty() ? null : cb.and(predicates.toArray(new Predicate[0]));
         }
 
     }

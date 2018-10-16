@@ -33,7 +33,7 @@ public class AdminUsersController {
 
     private final UserService userService;
 
-    String error = "";
+    private String error = "";
 
     @Autowired
     public AdminUsersController(UserService userService) {

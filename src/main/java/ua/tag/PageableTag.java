@@ -38,7 +38,7 @@ public class PageableTag extends SimpleTagSupport {
     private String activeClass = " active";
 
     @Override
-    public void doTag() throws JspException, IOException {
+    public void doTag() throws IOException {
         JspWriter out = getJspContext().getOut();
         sw.append(stContainer);
         buildFirstPage();

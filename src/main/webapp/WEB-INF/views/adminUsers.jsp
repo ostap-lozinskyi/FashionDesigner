@@ -42,11 +42,6 @@
                         <form:form action="/admin/adminUsers" method="POST" modelAttribute="user">
                             <custom:hiddenInputs excludeParams="email, password, repeatPassword, _csrf"/>
                             <div class="row">
-                                <div class="col-10 ml-auto" style="color:red;">
-                                    <form:errors path="${registrationRequest}"/>
-                                </div>
-					        </div>
-                            <div class="row">
                                 <div class="col-10 ml-auto" style="color: red;">
                                     <form:errors path="email" />
                                 </div>

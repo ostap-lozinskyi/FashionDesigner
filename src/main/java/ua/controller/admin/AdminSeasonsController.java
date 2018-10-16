@@ -33,7 +33,7 @@ public class AdminSeasonsController {
 
     private final SeasonService seasonService;
 
-    String error = "";
+    private String error = "";
 
     @Autowired
     public AdminSeasonsController(SeasonService seasonService) {
