@@ -28,13 +28,13 @@
                 <body>
                     <div class="text-center divLogo">
                         <img src="/resources/img/olha-lozinska-logo-1.png" class="logoID">
-                    </div>                    
+                    </div>
                     <div class="header">
-                        <a class="headerItem" href="/"><img src="/resources/img/home.png" class="homePict"></a>
-                        <a class="headerItem" href="/readyToWear">READY TO WEAR</a>
-				        <a class="headerItem" href="/hauteCouture">HAUTE COUTURE</a>
-				        <a class="headerItem" href="/aboutUs">ABOUT US</a>                         
-						<a class="headerItem" href="/contacts">CONTACTS</a>       
+                        <div class="headerItem"><a href="/"><img src="/resources/img/home.png" class="homePict"></a></div>
+                        <div class="headerItem"><a href="/readyToWear">READY TO WEAR</a></div>
+                        <div class="headerItem"><a href="/hauteCouture">HAUTE COUTURE</a></div>
+                        <div class="headerItem"><a href="/aboutUs">ABOUT US</a></div>
+                        <div class="headerItem"><a href="/contacts">CONTACTS</a></div>
                     </div>
                     <div class="container">
                         <div class="row">                               

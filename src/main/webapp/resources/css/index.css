@@ -36,10 +36,11 @@ a:hover {
 }
 
 .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: black;
     height: 50px;
-    text-align: center;
-    padding-top: 13px;
     font-size: 14px;
     margin-bottom: 30px;
 }
@@ -79,7 +80,6 @@ a:hover {
 
 .homePict {
     width: 25px;
-    padding-bottom: 5px;
 }
 
 .logo {
@@ -270,16 +270,22 @@ a:hover {
 
 @media all and (orientation: portrait) {
     .logoID {
-        width: 65%;
+        width: 80%;
     }
 
     .header {
-        height: 110px;
-        padding-top: 13px;
-        font-size: 30px;
+        flex-direction: column;
+        font-size: 40px;
+        height: 100%;
+        padding-bottom: 10px;
     }
 
     .headerItem {
+        margin-top: 30px;
+    }
+
+    .homePict {
+        width: 60px;
     }
 
     .articleTitle {
@@ -365,17 +371,10 @@ a:hover {
     }
 
     .footer {
-        padding-top: 5px;
-        padding-bottom: 5px;
-        margin-top: 30px;
-        font-weight: bold;
-        width: 100%;
-    }
-
-    .footer {
         flex-direction: column;
         padding-top: 5px;
         padding-bottom: 5px;
+        margin-top: 30px;
         font-weight: bold;
         width: 100%;
     }
