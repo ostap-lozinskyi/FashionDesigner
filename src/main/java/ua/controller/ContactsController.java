@@ -48,7 +48,7 @@ public class ContactsController {
     }
 
     @PostMapping
-    public String save(@ModelAttribute("email") @Validated(EmailFlag.class) EmailRequest emailRequest,
+    public String send(@ModelAttribute("email") @Validated(EmailFlag.class) EmailRequest emailRequest,
                        BindingResult br, Model model) {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost("smtp.gmail.com");
