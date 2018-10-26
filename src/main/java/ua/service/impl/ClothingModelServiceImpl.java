@@ -97,7 +97,7 @@ public class ClothingModelServiceImpl implements ClothingModelService {
 
     @Override
     public void deleteClothingModel(Integer id) {
-        clothingModelRepository.delete(id);
+        clothingModelRepository.deleteById(id);
     }
 
     @Override

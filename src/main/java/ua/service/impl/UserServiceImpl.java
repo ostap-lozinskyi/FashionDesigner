@@ -3,6 +3,7 @@ package ua.service.impl;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -26,7 +27,6 @@ import ua.service.UserService;
 public class UserServiceImpl extends CrudServiceImpl<User, Integer> implements UserService {
 
     private final UserRepository userRepository;
-
     private final PasswordEncoder encoder;
 
     @Value("${cloudinary.url}")
@@ -68,18 +68,25 @@ public class UserServiceImpl extends CrudServiceImpl<User, Integer> implements U
 
     @Override
     public void setDefaultPhoto(Integer userId) {
-        User user = userRepository.findOne(userId);
-        user.setPhotoUrl(defaultPhotoUrl);
-        userRepository.save(user);
+        Optional<User> userOptional = userRepository.findById(userId);
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.setPhotoUrl(defaultPhotoUrl);
+            userRepository.save(user);
+        }
     }
 
     @Override
     public void updateRole(Integer userId, Role role) {
-        User user = userRepository.findOne(userId);
-        user.setRole(role);
-        userRepository.save(user);
-    }
+        Optional<User> userOptional = userRepository.findById(userId);
 
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.setRole(role);
+            userRepository.save(user);
+        }
+    }
 
     @Override
     public User findUserByEmail(String email) {

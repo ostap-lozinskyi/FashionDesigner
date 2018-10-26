@@ -2,6 +2,7 @@ package ua.service.impl;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -17,7 +18,8 @@ public abstract class CrudServiceImpl<T, ID extends Serializable> implements Cru
 
     @Override
     public T findOne(ID id) {
-        return repository.findOne(id);
+        Optional<T> optional = repository.findById(id);
+        return optional.get();
     }
 
     @Override
@@ -32,7 +34,7 @@ public abstract class CrudServiceImpl<T, ID extends Serializable> implements Cru
 
     @Override
     public void delete(ID id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 
 }
