@@ -10,9 +10,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118033320-3"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
+
         function gtag() {
             dataLayer.push(arguments);
         }
+
         gtag('js', new Date());
         gtag('config', 'UA-118033320-3');
     </script>
@@ -111,20 +113,26 @@
     </div>
 </div>
 <div class="footer">
-    <div class="footerText">
-        <a href="/aboutUs">© Olha Lozinska 2018</a>
+    <div class="footerFirstRow">
+        <div class="footerText">
+            <a href="/aboutUs">© Olha Lozinska 2018</a>
+        </div>
+        <div class="footerFollow">
+            Follow Us:
+            <a href="https://www.instagram.com/olha.lozinska/" target="_blank">
+                <img src="/resources/img/instagramLogo.png" class="footerLogo">
+            </a>
+            <a href="https://www.facebook.com/olha.lozinska.official/" target="_blank">
+                <img src="/resources/img/facebookLogo.png" class="footerLogo">
+            </a>
+            <a href="https://in.pinterest.com/olhalozinska/" target="_blank">
+                <img src="/resources/img/pinterestLogo.png" class="footerLogo">
+            </a>
+        </div>
     </div>
-    <div class="footerFollow">
-        Follow Us:
-        <a href="https://www.instagram.com/olha.lozinska/" target="_blank">
-            <img src="/resources/img/instagramLogo.png" class="footerLogo">
-        </a>
-        <a href="https://www.facebook.com/olha.lozinska.official/" target="_blank">
-            <img src="/resources/img/facebookLogo.png" class="footerLogo">
-        </a>
-        <a href="https://in.pinterest.com/olhalozinska/" target="_blank">
-            <img src="/resources/img/pinterestLogo.png" class="footerLogo">
-        </a>
+    <div class="footerDevelopedBy">
+        Developed by <a href="https://ua.linkedin.com/in/ostap-lozinskyj" target="_blank" class="underlined">Ostap
+        Lozinskyj</a>
     </div>
 </div>
 </body>

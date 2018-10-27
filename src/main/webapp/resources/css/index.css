@@ -50,6 +50,7 @@ a:hover {
 
 .footer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #f6f6f6;
@@ -61,14 +62,33 @@ a:hover {
     margin-top: 20px;
 }
 
+.footerFirstRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .footerText {
     font-size: 16px;
-    margin-right: 2%;
+    text-align: right;
+    padding-right: 2%;
+    width: 50%;
 }
 
 .footerFollow {
-    margin-left: 2%;
+    display: flex;
+    align-items: center;
     font-size: 16px;
+    padding-left: 2%;
+    width: 50%;
+}
+
+.footerDevelopedBy {
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: normal;
 }
 
 .footerLogo {
@@ -255,6 +275,10 @@ a:hover {
     display: none;
 }
 
+.underlined {
+    text-decoration: underline;
+}
+
 @media all and (orientation: portrait) {
     .logoID {
         width: 80%;
@@ -371,22 +395,31 @@ a:hover {
         width: 100%;
     }
 
+    .footerFirstRow {
+        flex-direction: column;
+    }
+
     .footerText {
         font-size: 36px;
-        margin-right: 2%;
         margin-top: 10px;
+        width: auto;
     }
 
     .footerFollow {
-        margin-left: 2%;
         font-size: 36px;
         margin-top: 10px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+        width: auto;
     }
 
     .footerLogo {
         width: 60px;
         margin-top: 3px;
         margin-left: 40px;
+    }
+
+    .footerDevelopedBy {
+        font-size: 30px;
+        margin-bottom: 25px;
     }
 }
