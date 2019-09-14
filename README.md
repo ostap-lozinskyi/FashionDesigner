@@ -1,6 +1,5 @@
-***This is a Spring Boot Web Application for a commercial organization***<br/>
+***This is a Spring Boot Web Application for the fashion designer***<br/>
 You can see this project on http://olha-lozinska.com/<br/>
-Source code: https://github.com/ostap-lozinskyi/FashionDesigner<br/>
 
 ***Such technologies are used:***<br/>
 Spring Boot,<br/>
