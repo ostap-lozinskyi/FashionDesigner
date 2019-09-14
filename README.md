@@ -2,7 +2,7 @@
 You can see this project on http://olha-lozinska.com/<br/>
 Source code: https://github.com/ostap-lozinskyi/FashionDesigner<br/>
 
-***uch technologies are used:***<br/>
+***Such technologies are used:***<br/>
 Spring Boot,<br/>
 Spring Security,<br/>
 JSP,<br/>
