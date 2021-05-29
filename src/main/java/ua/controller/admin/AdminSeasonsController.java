@@ -31,6 +31,7 @@ import ua.validation.flag.SeasonFlag;
 @SessionAttributes("season")
 public class AdminSeasonsController {
 
+    public static final String REDIRECT_ADMIN_ADMIN_SEASONS = "redirect:/admin/adminSeasons";
     private final SeasonService seasonService;
 
     private String error = "";
@@ -62,7 +63,7 @@ public class AdminSeasonsController {
         if (seasonService.findAll(pageable, filter).hasContent() || pageable.getPageNumber() == 0)
             return "adminSeasons";
         else
-            return "redirect:/admin/adminSeasons" + buildParams(pageable, filter);
+            return REDIRECT_ADMIN_ADMIN_SEASONS + buildParams(pageable, filter);
     }
 
     /**
@@ -72,13 +73,13 @@ public class AdminSeasonsController {
     public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
                          @ModelAttribute("filter") SimpleFilter filter) {
         seasonService.delete(id);
-        return "redirect:/admin/adminSeasons" + buildParams(pageable, filter);
+        return REDIRECT_ADMIN_ADMIN_SEASONS + buildParams(pageable, filter);
     }
 
     @ExceptionHandler({SQLException.class, DataAccessException.class})
     public String databaseError() {
         error = "You can't delete this season because it is used!";
-        return "redirect:/admin/adminSeasons";
+        return REDIRECT_ADMIN_ADMIN_SEASONS;
     }
 
     @PostMapping
@@ -102,19 +103,19 @@ public class AdminSeasonsController {
     public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
                          @ModelAttribute("filter") SimpleFilter filter) {
         status.setComplete();
-        return "redirect:/admin/adminSeasons" + buildParams(pageable, filter);
+        return REDIRECT_ADMIN_ADMIN_SEASONS + buildParams(pageable, filter);
     }
 
     private String buildParams(Pageable pageable, SimpleFilter filter) {
         StringBuilder buffer = new StringBuilder();
         buffer.append("?page=");
         if (!(seasonService.findAll(pageable, filter).hasContent()))
-            buffer.append(String.valueOf(pageable.getPageNumber()));
+            buffer.append(pageable.getPageNumber());
         else {
-            buffer.append(String.valueOf(pageable.getPageNumber()));
+            buffer.append(pageable.getPageNumber());
         }
         buffer.append("&size=");
-        buffer.append(String.valueOf(pageable.getPageSize()));
+        buffer.append(pageable.getPageSize());
         if (pageable.getSort() != null) {
             buffer.append("&sort=");
             Sort sort = pageable.getSort();

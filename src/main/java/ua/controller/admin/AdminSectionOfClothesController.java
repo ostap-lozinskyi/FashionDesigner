@@ -31,6 +31,7 @@ import ua.validation.flag.SectionOfClothesFlag;
 @SessionAttributes("sectionOfClothes")
 public class AdminSectionOfClothesController {
 
+    public static final String REDIRECT_ADMIN_ADMIN_SECTION_OF_CLOTHES = "redirect:/admin/adminSectionOfClothes";
     private final SectionOfClothesService sectionOfClothesService;
 
     private String error = "";
@@ -61,7 +62,7 @@ public class AdminSectionOfClothesController {
         if (sectionOfClothesService.findAll(pageable, simpleFilter).hasContent() || pageable.getPageNumber() == 0)
             return "adminSectionOfClothes";
         else
-            return "redirect:/admin/adminSectionOfClothes" + buildParams(pageable, simpleFilter);
+            return REDIRECT_ADMIN_ADMIN_SECTION_OF_CLOTHES + buildParams(pageable, simpleFilter);
     }
 
     /**
@@ -71,13 +72,13 @@ public class AdminSectionOfClothesController {
     public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
                          @ModelAttribute("simpleFilter") SimpleFilter simpleFilter) {
         sectionOfClothesService.delete(id);
-        return "redirect:/admin/adminSectionOfClothes" + buildParams(pageable, simpleFilter);
+        return REDIRECT_ADMIN_ADMIN_SECTION_OF_CLOTHES + buildParams(pageable, simpleFilter);
     }
 
     @ExceptionHandler({SQLException.class, DataAccessException.class})
     public String databaseError() {
         error = "You can't delete this SectionOfClothes because it is used!";
-        return "redirect:/admin/adminSectionOfClothes";
+        return REDIRECT_ADMIN_ADMIN_SECTION_OF_CLOTHES;
     }
 
     @PostMapping
@@ -101,19 +102,19 @@ public class AdminSectionOfClothesController {
     public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
                          @ModelAttribute("simpleFilter") SimpleFilter simpleFilter) {
         status.setComplete();
-        return "redirect:/admin/adminSectionOfClothes" + buildParams(pageable, simpleFilter);
+        return REDIRECT_ADMIN_ADMIN_SECTION_OF_CLOTHES + buildParams(pageable, simpleFilter);
     }
 
     private String buildParams(Pageable pageable, SimpleFilter simpleFilter) {
         StringBuilder buffer = new StringBuilder();
         buffer.append("?page=");
         if (!(sectionOfClothesService.findAll(pageable, simpleFilter).hasContent()))
-            buffer.append(String.valueOf(pageable.getPageNumber()));
+            buffer.append(pageable.getPageNumber());
         else {
-            buffer.append(String.valueOf(pageable.getPageNumber()));
+            buffer.append(pageable.getPageNumber());
         }
         buffer.append("&size=");
-        buffer.append(String.valueOf(pageable.getPageSize()));
+        buffer.append(pageable.getPageSize());
         if (pageable.getSort() != null) {
             buffer.append("&sort=");
             Sort sort = pageable.getSort();

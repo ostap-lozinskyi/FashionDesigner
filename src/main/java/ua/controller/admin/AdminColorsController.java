@@ -31,6 +31,8 @@ import ua.validation.flag.ColorFlag;
 @SessionAttributes("color")
 public class AdminColorsController {
 
+    public static final String REDIRECT_ADMIN_ADMIN_COLORS = "redirect:/admin/adminColors";
+
     private final ColorService colorService;
 
     private String error = "";
@@ -62,7 +64,7 @@ public class AdminColorsController {
         if (colorService.findAll(pageable, filter).hasContent() || pageable.getPageNumber() == 0)
             return "adminColors";
         else
-            return "redirect:/admin/adminColors" + buildParams(pageable, filter);
+            return REDIRECT_ADMIN_ADMIN_COLORS + buildParams(pageable, filter);
     }
 
     /**
@@ -72,13 +74,13 @@ public class AdminColorsController {
     public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
                          @ModelAttribute("filter") SimpleFilter filter) {
         colorService.delete(id);
-        return "redirect:/admin/adminColors" + buildParams(pageable, filter);
+        return REDIRECT_ADMIN_ADMIN_COLORS + buildParams(pageable, filter);
     }
 
     @ExceptionHandler({SQLException.class, DataAccessException.class})
     public String databaseError() {
         error = "You can't delete this color because it is used!";
-        return "redirect:/admin/adminColors";
+        return REDIRECT_ADMIN_ADMIN_COLORS;
     }
 
     @PostMapping
@@ -102,19 +104,19 @@ public class AdminColorsController {
     public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
                          @ModelAttribute("filter") SimpleFilter filter) {
         status.setComplete();
-        return "redirect:/admin/adminColors" + buildParams(pageable, filter);
+        return REDIRECT_ADMIN_ADMIN_COLORS + buildParams(pageable, filter);
     }
 
     private String buildParams(Pageable pageable, SimpleFilter filter) {
         StringBuilder buffer = new StringBuilder();
         buffer.append("?page=");
         if (!(colorService.findAll(pageable, filter).hasContent()))
-            buffer.append(String.valueOf(pageable.getPageNumber()));
+            buffer.append(pageable.getPageNumber());
         else {
-            buffer.append(String.valueOf(pageable.getPageNumber()));
+            buffer.append(pageable.getPageNumber());
         }
         buffer.append("&size=");
-        buffer.append(String.valueOf(pageable.getPageSize()));
+        buffer.append(pageable.getPageSize());
         if (pageable.getSort() != null) {
             buffer.append("&sort=");
             Sort sort = pageable.getSort();

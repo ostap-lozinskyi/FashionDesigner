@@ -31,6 +31,8 @@ import ua.validation.flag.TypeOfClothesFlag;
 @SessionAttributes("typeOfClothes")
 public class AdminTypeOfClothesController {
 
+    public static final String REDIRECT_ADMIN_ADMIN_TYPE_OF_CLOTHES = "redirect:/admin/adminTypeOfClothes";
+
     private final TypeOfClothesService typeOfClothesService;
 
     private String error = "";
@@ -61,7 +63,7 @@ public class AdminTypeOfClothesController {
         if (typeOfClothesService.findAll(pageable, simpleFilter).hasContent() || pageable.getPageNumber() == 0)
             return "adminTypeOfClothes";
         else
-            return "redirect:/admin/adminTypeOfClothes" + buildParams(pageable, simpleFilter);
+            return REDIRECT_ADMIN_ADMIN_TYPE_OF_CLOTHES + buildParams(pageable, simpleFilter);
     }
 
     /**
@@ -71,18 +73,18 @@ public class AdminTypeOfClothesController {
     public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
                          @ModelAttribute("simpleFilter") SimpleFilter simpleFilter) {
         typeOfClothesService.delete(id);
-        return "redirect:/admin/adminTypeOfClothes" + buildParams(pageable, simpleFilter);
+        return REDIRECT_ADMIN_ADMIN_TYPE_OF_CLOTHES + buildParams(pageable, simpleFilter);
     }
 
     @ExceptionHandler({SQLException.class, DataAccessException.class})
     public String databaseError() {
         error = "You can't delete this TypeOfClothes because it is used!";
-        return "redirect:/admin/adminTypeOfClothes";
+        return REDIRECT_ADMIN_ADMIN_TYPE_OF_CLOTHES;
     }
 
     @PostMapping
-    public String save(@ModelAttribute("typeOfClothes") @Validated(TypeOfClothesFlag.class) TypeOfClothes typeOfClothes, BindingResult br,
-                       Model model, SessionStatus status, @PageableDefault Pageable pageable,
+    public String save(@ModelAttribute("typeOfClothes") @Validated(TypeOfClothesFlag.class) TypeOfClothes typeOfClothes,
+                       BindingResult br, Model model, SessionStatus status, @PageableDefault Pageable pageable,
                        @ModelAttribute("simpleFilter") SimpleFilter simpleFilter) {
         if (br.hasErrors())
             return showTypeOfClothes(model, pageable, simpleFilter);
@@ -101,19 +103,19 @@ public class AdminTypeOfClothesController {
     public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
                          @ModelAttribute("simpleFilter") SimpleFilter simpleFilter) {
         status.setComplete();
-        return "redirect:/admin/adminTypeOfClothes" + buildParams(pageable, simpleFilter);
+        return REDIRECT_ADMIN_ADMIN_TYPE_OF_CLOTHES + buildParams(pageable, simpleFilter);
     }
 
     private String buildParams(Pageable pageable, SimpleFilter simpleFilter) {
         StringBuilder buffer = new StringBuilder();
         buffer.append("?page=");
         if (!(typeOfClothesService.findAll(pageable, simpleFilter).hasContent()))
-            buffer.append(String.valueOf(pageable.getPageNumber()));
+            buffer.append(pageable.getPageNumber());
         else {
-            buffer.append(String.valueOf(pageable.getPageNumber()));
+            buffer.append(pageable.getPageNumber());
         }
         buffer.append("&size=");
-        buffer.append(String.valueOf(pageable.getPageSize()));
+        buffer.append(pageable.getPageSize());
         if (pageable.getSort() != null) {
             buffer.append("&sort=");
             Sort sort = pageable.getSort();

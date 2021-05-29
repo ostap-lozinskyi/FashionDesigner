@@ -13,12 +13,6 @@ public interface ClothingModelRepository extends JpaNameRepository<ClothingModel
 
     ClothingModel findByName(String name);
 
-    @Query("SELECT cm.name FROM ClothingModel cm")
-    List<String> findAllClothingModelNames();
-
-    @Query("SELECT cm FROM ClothingModel cm WHERE cm.id=?1")
-    ClothingModel findOneRequest(Integer id);
-
     @Query("SELECT cm FROM ClothingModel cm WHERE cm.id=?1")
     ClothingModel findClothingModelById(Integer id);
 

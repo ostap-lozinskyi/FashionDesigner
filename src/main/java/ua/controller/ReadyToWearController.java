@@ -1,6 +1,7 @@
 package ua.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +38,7 @@ public class ReadyToWearController {
     public String showPage(Model model, @PageableDefault Pageable pageable, @ModelAttribute("clothingModelFilter")
             ClothingModelFilter clothingModelFilter) {
         // Show only 'Ready to wear' clothes
-        List<String> sectionOfClothesNames = new ArrayList<>();
-        sectionOfClothesNames.add("Ready to wear");
-        clothingModelFilter.setSectionOfClothesName(sectionOfClothesNames);
+        clothingModelFilter.setSectionOfClothesName(Collections.singletonList("Ready to wear"));
 
         Page<ClothingModelView> clothingModelViewsPage = clothingModelService.findAllClothingModelViews(
                 clothingModelFilter, pageable);

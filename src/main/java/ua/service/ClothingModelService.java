@@ -17,7 +17,7 @@ public interface ClothingModelService {
 
     void saveClothingModel(ClothingModelRequest clothingModelRequest);
 
-    ClothingModelRequest findOneRequest(Integer id);
+    ClothingModelRequest findClothingModelById(Integer id);
 
     void deleteClothingModel(Integer id);
 

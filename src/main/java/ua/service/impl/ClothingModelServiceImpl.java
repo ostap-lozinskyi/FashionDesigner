@@ -80,8 +80,8 @@ public class ClothingModelServiceImpl implements ClothingModelService {
     }
 
     @Override
-    public ClothingModelRequest findOneRequest(Integer id) {
-        ClothingModel clothingModel = clothingModelRepository.findOneRequest(id);
+    public ClothingModelRequest findClothingModelById(Integer id) {
+        ClothingModel clothingModel = clothingModelRepository.findClothingModelById(id);
         ClothingModelRequest clothingModelRequest = new ClothingModelRequest();
         clothingModelRequest.setId(clothingModel.getId());
         clothingModelRequest.setName(clothingModel.getName());

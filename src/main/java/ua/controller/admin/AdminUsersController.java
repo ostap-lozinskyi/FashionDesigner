@@ -31,6 +31,7 @@ import ua.validation.flag.UserFlag;
 @RequestMapping("/admin/adminUsers")
 public class AdminUsersController {
 
+    public static final String REDIRECT_ADMIN_ADMIN_USERS = "redirect:/admin/adminUsers";
     private final UserService userService;
 
     private String error = "";
@@ -63,27 +64,27 @@ public class AdminUsersController {
         if (userService.findAllUsers(pageable, filter).hasContent() || pageable.getPageNumber() == 0)
             return "adminUsers";
         else
-            return "redirect:/admin/adminUsers" + buildParams(pageable, filter);
+            return REDIRECT_ADMIN_ADMIN_USERS + buildParams(pageable, filter);
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
                          @ModelAttribute("userFilter") UserFilter filter) {
         userService.delete(id);
-        return "redirect:/admin/adminUsers" + buildParams(pageable, filter);
+        return REDIRECT_ADMIN_ADMIN_USERS + buildParams(pageable, filter);
     }
 
     @GetMapping("/setDefaultPhoto/{id}")
     public String setDefaultPhoto(@PathVariable Integer id, @PageableDefault Pageable pageable,
                                   @ModelAttribute("userFilter") UserFilter filter) {
         userService.setDefaultPhoto(id);
-        return "redirect:/admin/adminUsers" + buildParams(pageable, filter);
+        return REDIRECT_ADMIN_ADMIN_USERS + buildParams(pageable, filter);
     }
 
     @ExceptionHandler({SQLException.class, DataAccessException.class})
     public String databaseError() {
         error = "You can't delete this user because it is used!";
-        return "redirect:/admin/adminUsers";
+        return REDIRECT_ADMIN_ADMIN_USERS;
     }
 
     @PostMapping
@@ -108,19 +109,19 @@ public class AdminUsersController {
     public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
                          @ModelAttribute("userFilter") UserFilter filter) {
         status.setComplete();
-        return "redirect:/admin/adminUsers" + buildParams(pageable, filter);
+        return REDIRECT_ADMIN_ADMIN_USERS + buildParams(pageable, filter);
     }
 
     private String buildParams(Pageable pageable, UserFilter filter) {
         StringBuilder buffer = new StringBuilder();
         buffer.append("?page=");
         if (!(userService.findAllUsers(pageable, filter).hasContent()))
-            buffer.append(String.valueOf(pageable.getPageNumber()));
+            buffer.append(pageable.getPageNumber());
         else {
-            buffer.append(String.valueOf(pageable.getPageNumber()));
+            buffer.append(pageable.getPageNumber());
         }
         buffer.append("&size=");
-        buffer.append(String.valueOf(pageable.getPageSize()));
+        buffer.append(pageable.getPageSize());
         if (pageable.getSort() != null) {
             buffer.append("&sort=");
             Sort sort = pageable.getSort();

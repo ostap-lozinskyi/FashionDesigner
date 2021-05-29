@@ -60,6 +60,7 @@ a:hover {
     width: 100%;
     color: black;
     margin-top: 20px;
+    height: 70px;
 }
 
 .footerFirstRow {
@@ -83,12 +84,6 @@ a:hover {
     font-size: 16px;
     padding-left: 2%;
     width: 50%;
-}
-
-.footerDevelopedBy {
-    font-size: 12px;
-    margin-top: 10px;
-    font-weight: normal;
 }
 
 .footerLogo {

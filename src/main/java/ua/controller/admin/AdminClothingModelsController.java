@@ -37,6 +37,8 @@ import ua.validation.flag.ClothingModelFlag;
 @SessionAttributes("clothingModel")
 public class AdminClothingModelsController {
 
+    public static final String REDIRECT_ADMIN_ADMIN_CLOTHING_MODELS = "redirect:/admin/adminClothingModels";
+
     private final ClothingModelService clothingModelService;
 
     private String error = "";
@@ -78,7 +80,7 @@ public class AdminClothingModelsController {
         if (clothingModelService.findAllClothingModelViews(clothingModelFilter, pageable).hasContent() || pageable.getPageNumber() == 0)
             return "adminClothingModels";
         else
-            return "redirect:/admin/adminClothingModels" + buildParams(pageable, clothingModelFilter);
+            return REDIRECT_ADMIN_ADMIN_CLOTHING_MODELS + buildParams(pageable, clothingModelFilter);
     }
 
     /**
@@ -88,13 +90,13 @@ public class AdminClothingModelsController {
     public String delete(@PathVariable Integer id, @PageableDefault Pageable pageable,
                          @ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
         clothingModelService.deleteClothingModel(id);
-        return "redirect:/admin/adminClothingModels" + buildParams(pageable, clothingModelFilter);
+        return REDIRECT_ADMIN_ADMIN_CLOTHING_MODELS + buildParams(pageable, clothingModelFilter);
     }
 
     @ExceptionHandler({SQLException.class, DataAccessException.class})
     public String databaseError() {
         error = "You can't delete this clothingModel because it is used!";
-        return "redirect:/admin/adminClothingModels";
+        return REDIRECT_ADMIN_ADMIN_CLOTHING_MODELS;
     }
 
     @PostMapping
@@ -118,7 +120,7 @@ public class AdminClothingModelsController {
     @GetMapping("/update/{id}")
     public String update(@PathVariable Integer id, Model model, @PageableDefault Pageable pageable,
                          @ModelAttribute("clothingModelFilter") ClothingModelFilter filter) {
-        model.addAttribute("clothingModel", clothingModelService.findOneRequest(id));
+        model.addAttribute("clothingModel", clothingModelService.findClothingModelById(id));
         return showClothingModel(model, pageable, filter);
     }
 
@@ -126,19 +128,19 @@ public class AdminClothingModelsController {
     public String cancel(SessionStatus status, @PageableDefault Pageable pageable,
                          @ModelAttribute("clothingModelFilter") ClothingModelFilter filter) {
         status.setComplete();
-        return "redirect:/admin/adminClothingModels" + buildParams(pageable, filter);
+        return REDIRECT_ADMIN_ADMIN_CLOTHING_MODELS + buildParams(pageable, filter);
     }
 
     private String buildParams(Pageable pageable, ClothingModelFilter filter) {
         StringBuilder buffer = new StringBuilder();
         buffer.append("?page=");
         if (!(clothingModelService.findAllClothingModelViews(filter, pageable).hasContent()))
-            buffer.append(String.valueOf(pageable.getPageNumber()));
+            buffer.append(pageable.getPageNumber());
         else {
-            buffer.append(String.valueOf(pageable.getPageNumber()));
+            buffer.append(pageable.getPageNumber());
         }
         buffer.append("&size=");
-        buffer.append(String.valueOf(pageable.getPageSize()));
+        buffer.append(pageable.getPageSize());
         if (pageable.getSort() != null) {
             buffer.append("&sort=");
             Sort sort = pageable.getSort();

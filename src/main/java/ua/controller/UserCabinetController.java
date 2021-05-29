@@ -1,17 +1,16 @@
 package ua.controller;
 
-import java.security.Principal;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
-
 import ua.entity.User;
 import ua.model.request.FileRequest;
 import ua.service.UserService;
+
+import java.security.Principal;
 
 @Controller
 public class UserCabinetController {
@@ -42,8 +41,7 @@ public class UserCabinetController {
      * Attaching photo to User
      */
     @PostMapping("/userCabinet")
-    public String saveFile(Model model, @ModelAttribute("fileRequest") FileRequest fileRequest,
-                           Principal principal) {
+    public String saveFile(@ModelAttribute("fileRequest") FileRequest fileRequest, Principal principal) {
         MultipartFile multipartFile = fileRequest.getFile();
         userService.uploadPhotoToCloudinary(multipartFile, principal);
         return "redirect:/userCabinet";

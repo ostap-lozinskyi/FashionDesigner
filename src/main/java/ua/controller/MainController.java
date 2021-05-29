@@ -1,9 +1,5 @@
 package ua.controller;
 
-import java.security.Principal;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,10 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-
 import ua.model.filter.ClothingModelFilter;
 import ua.model.view.ClothingModelView;
 import ua.service.ClothingModelService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -31,7 +29,7 @@ public class MainController {
      * Show main page
      */
     @GetMapping("/")
-    public String showMainPage(Model model, Principal principal, @PageableDefault Pageable pageable,
+    public String showMainPage(Model model, @PageableDefault Pageable pageable,
                                @ModelAttribute("clothingModelFilter") ClothingModelFilter clothingModelFilter) {
         // Show only 'Haute Couture' clothes
         List<String> sectionOfClothesNames = new ArrayList<>();
