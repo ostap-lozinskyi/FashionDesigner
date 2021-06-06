@@ -1,5 +1,5 @@
-***This is a Spring Boot Web Application for the fashion designer***<br/>
-You can see this project on http://olha-lozinska.com/<br/>
+***This is a Spring Boot Application for the fashion designer***<br/>
+
 
 ***Such technologies are used:***<br/>
 Spring Boot,<br/>
